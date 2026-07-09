@@ -31,21 +31,24 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openCategory, setOpenCategory] = useState<CategorySlug | null>(null);
   const [openMobileCategory, setOpenMobileCategory] = useState<CategorySlug | null>(null);
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const navRef = useRef<HTMLDivElement>(null);
   const triggerRefs = useRef<Partial<Record<CategorySlug, HTMLButtonElement | null>>>({});
+
+  // Close all menus on route change (adjusting state during render avoids an
+  // extra effect-triggered re-render — see react.dev/learn/you-might-not-need-an-effect)
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setMobileOpen(false);
+    setOpenCategory(null);
+    setOpenMobileCategory(null);
+  }
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
-
-  // Close all menus on route change
-  useEffect(() => {
-    setMobileOpen(false);
-    setOpenCategory(null);
-    setOpenMobileCategory(null);
-  }, [pathname]);
 
   // Close desktop dropdown on outside click
   useEffect(() => {
