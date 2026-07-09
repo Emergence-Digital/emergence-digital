@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import CTABanner from "@/components/sections/CTABanner";
@@ -15,6 +16,8 @@ interface ServicePageLayoutProps {
   whoItsFor: string;
   imageAlt: string;
   imageSrc: string;
+  categoryLabel?: string;
+  categoryHref?: string;
 }
 
 export default function ServicePageLayout({
@@ -25,12 +28,27 @@ export default function ServicePageLayout({
   whoItsFor,
   imageAlt,
   imageSrc,
+  categoryLabel,
+  categoryHref,
 }: ServicePageLayoutProps) {
   return (
     <>
       {/* Hero */}
       <section className="bg-cream pt-32 pb-20">
         <div className="max-w-[1200px] mx-auto px-6">
+          {categoryLabel && categoryHref && (
+            <nav aria-label="Breadcrumb" className="mb-4">
+              <ol className="flex items-center gap-2 text-sm text-muted">
+                <li>
+                  <Link href={categoryHref} className="hover:text-mid-green transition-colors duration-200">
+                    {categoryLabel}
+                  </Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li className="text-dark-green font-medium">{label}</li>
+              </ol>
+            </nav>
+          )}
           <SectionLabel>{label}</SectionLabel>
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-dark-green mt-2 mb-6 max-w-3xl">
             {title}

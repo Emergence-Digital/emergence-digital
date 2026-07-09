@@ -20,9 +20,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://emergencedigital.com.au"),
   title: "Emergence Digital — Custom Digital Solutions Melbourne",
   description:
-    "Melbourne-based digital agency offering app development, web design, system integration, and workflow automation.",
+    "Melbourne-based agency offering sales, marketing, digital, and content services — from outbound campaigns and CRM administration to web design and agentic AI.",
 };
 
 export default function RootLayout({

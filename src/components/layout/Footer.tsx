@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { categories } from "@/lib/services-data";
 
 // Social icon SVGs (inline for zero extra dependencies)
 const LinkedInIcon = () => (
@@ -19,13 +20,6 @@ const FacebookIcon = () => (
   </svg>
 );
 
-const footerServices = [
-  { label: "App Development", href: "/services/app-development" },
-  { label: "Web Design", href: "/services/web-design" },
-  { label: "System Integration", href: "/services/system-integration" },
-  { label: "Workflow Automation", href: "/services/workflow-automation" },
-];
-
 const footerNav = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
@@ -37,53 +31,14 @@ export default function Footer() {
   return (
     <footer className="bg-dark-green text-white">
       <div className="max-w-[1200px] mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Col 1 — Logo + tagline */}
-          <div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
+          {/* Brand + contact */}
+          <div className="col-span-2">
             <p className="font-serif text-xl font-bold mb-4">Emergence Digital</p>
-            <p className="text-sm text-white/70 leading-relaxed max-w-xs">
+            <p className="text-sm text-white/70 leading-relaxed max-w-xs mb-6">
               Custom digital solutions for businesses that value speed, design, and growth.
             </p>
-            <p className="text-xs text-white/40 mt-6">
-              © {new Date().getFullYear()} Emergence Digital. All rights reserved.
-            </p>
-          </div>
-
-          {/* Col 2 — Navigation */}
-          <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-white/50 mb-5">
-              Navigation
-            </p>
-            <ul className="space-y-3">
-              {footerNav.map(({ label, href }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm text-white/80 hover:text-white transition-colors duration-200"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-              {footerServices.map(({ label, href }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm text-white/60 hover:text-white transition-colors duration-200"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3 — Contact */}
-          <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-white/50 mb-5">
-              Contact
-            </p>
-            <ul className="space-y-3 text-sm text-white/80">
+            <ul className="space-y-3 text-sm text-white/80 mb-6">
               <li>
                 <a
                   href="mailto:contact@emergencedigital.com.au"
@@ -94,7 +49,7 @@ export default function Footer() {
               </li>
               <li>Melbourne VIC, Australia</li>
             </ul>
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-4">
               <a
                 href="https://linkedin.com"
                 target="_blank"
@@ -124,6 +79,48 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
+          {/* Category columns */}
+          {categories.map((category) => (
+            <div key={category.slug}>
+              <Link
+                href={`/services/${category.slug}`}
+                className="block text-xs font-semibold tracking-widest uppercase text-white/50 hover:text-white mb-5 transition-colors duration-200"
+              >
+                {category.label}
+              </Link>
+              <ul className="space-y-3">
+                {category.services.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/services/${category.slug}/${service.slug}`}
+                      className="text-sm text-white/60 hover:text-white transition-colors duration-200"
+                    >
+                      {service.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom utility row */}
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {footerNav.map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-sm text-white/80 hover:text-white transition-colors duration-200"
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+          <p className="text-xs text-white/40">
+            © {new Date().getFullYear()} Emergence Digital. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
