@@ -2,24 +2,24 @@ import SectionLabel from "@/components/ui/SectionLabel";
 
 const features = [
   {
-    title: "Fast Effective Solutions",
+    title: "Digital Strategy, Done For You",
     description:
-      "We cut through complexity to deliver working solutions quickly — without sacrificing quality or long-term maintainability.",
+      "We build and run your marketing strategy as seamlessly as possible, so consistent thought leadership never competes with delivery work again.",
   },
   {
-    title: "Custom-Built for Your Needs",
+    title: "Content That Compounds",
     description:
-      "No off-the-shelf templates. Every project is tailored to your business goals, ensuring a unique, strategic solution.",
+      "Your thought leadership delivered through digital events, guides, blog series, and social content — one conversation repurposed into weeks of proof that you know your category.",
   },
   {
-    title: "Reliable & Scalable",
+    title: "Real Pipeline, Not Just Reach",
     description:
-      "We build future-proof applications designed to grow with your business, ensuring long-term stability and seamless performance.",
+      "CRM segmentation, sales follow-up, and reporting are built into every campaign, so attention converts into tracked, qualified opportunities.",
   },
   {
-    title: "Technology Agnostic",
+    title: "Built Around Your Point of View",
     description:
-      "We have favourites and can make recommendations, but we'll adapt to deliver the solution you need on your preferred stack.",
+      "We start every campaign by extracting your expertise, not writing generic content — so your brand sounds like you, not like everyone else in your category.",
   },
 ];
 
@@ -32,13 +32,14 @@ export default function WhyChooseUs() {
           <div>
             <SectionLabel light>Why Choose Emergence</SectionLabel>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-              The agency that delivers, every time.
+              The agency that turns expertise into authority.
             </h2>
             <p className="text-white/70 text-lg leading-relaxed">
-              We&apos;re a Melbourne-based team of digital specialists who care deeply
-              about the work we produce and the businesses we build it for. We
-              combine technical excellence with genuine partnership to help you
-              achieve results that matter.
+              We&apos;re a Melbourne marketing team built specifically for IT, MSP
+              and consulting firm owners who are excellent at the work but
+              invisible in the market. We combine strategic positioning with
+              hands-on campaign delivery — so recognition turns into real
+              pipeline, not just attention.
             </p>
           </div>
 

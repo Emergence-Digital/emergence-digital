@@ -33,46 +33,46 @@ export const categories: Category[] = [
     slug: "sales",
     label: "Sales",
     title: "Sales",
-    tagline: "Pipeline, built and closed.",
+    tagline: "From attendee to signed deal.",
     description:
-      "From the first cold email to the signed contract, we build the outreach, pipeline, and operational backbone that turns prospects into revenue — so you get a sales engine, not just a sales team.",
+      "We turn the leads your digital events generate into tracked, qualified opportunities — segmenting your CRM, following up 1:1, and running the outreach and deal support that stop warm interest from going cold before it becomes revenue.",
     metaDescription:
-      "Outreach campaigns, pipeline generation, deal closure and SalesOps for Melbourne businesses that want a repeatable sales engine.",
+      "Sales outreach, pipeline generation and CRM support for Melbourne IT and consulting firms turning event leads into a tracked, qualified sales pipeline.",
     services: [
       {
         slug: "outreach-campaigns",
         label: "Outreach Campaigns",
-        title: "Outreach that starts real conversations.",
+        title: "Follow-up that turns leads into meetings.",
         shortDescription:
-          "Multi-channel outbound campaigns that get your offer in front of the right people — and get replies.",
+          "Post-event 1:1 outreach — calls, emails and LinkedIn messages — that chase down every lead before it goes cold.",
         intro:
-          "Cold outreach doesn't have to feel cold. We design and run email, LinkedIn, and call campaigns built on precise targeting and messaging that sounds like a person, not a template — so your outbound earns opens, replies, and booked meetings.",
+          "A great digital event generates interest — but interest fades fast without follow-up. We reach out directly to every attendee and lead with personal calls, emails and LinkedIn messages, so the momentum from your campaign turns into booked conversations, not a list that goes quiet.",
         features: [
           {
-            title: "Ideal Customer Profiling & List Building",
+            title: "Post-Event Lead Follow-Up",
             description:
-              "We define exactly who you should be talking to, then build verified, targeted contact lists — no spray and pray.",
+              "Every attendee and registrant is contacted directly within days of your event, while your expertise is still front of mind.",
           },
           {
-            title: "Multi-Channel Sequence Design",
+            title: "Multi-Channel Outreach Sequences",
             description:
-              "Email, LinkedIn, and phone cadences that work together, timed and personalised so prospects hear from you at the right moment, not all at once.",
+              "Calls, emails and LinkedIn messages timed and personalised around what someone actually engaged with during your campaign.",
           },
           {
-            title: "Copywriting & A/B Testing",
+            title: "Warm & Cold List Segmentation",
             description:
-              "We write and continuously test subject lines, opening messages, and calls to action, using real reply data to refine what works.",
+              "Existing contacts and newly identified prospects are worked differently, so messaging always matches how well someone already knows you.",
           },
           {
             title: "Reply Handling & Handover",
             description:
-              "Every response is triaged and handed to your team warm, with full context, so no lead goes cold waiting on a follow-up.",
+              "Every response is triaged and handed to you warm, with full context on what they attended and showed interest in.",
           },
         ],
         whoItsFor:
-          "Ideal for B2B businesses that need a consistent flow of new conversations without building an internal SDR team from scratch, and for sales leaders who want outbound running alongside inbound, not instead of it.",
+          "Ideal for IT and consulting firm owners whose events generate genuine interest that then goes quiet, and for founders who don't have the time to personally chase every lead their campaign produces.",
         metaDescription:
-          "Multi-channel outbound campaigns — email, LinkedIn and call sequences — that generate real replies and booked meetings for Melbourne B2B businesses.",
+          "Post-event outreach campaigns — calls, emails and LinkedIn follow-up — that turn digital event attendees into booked sales conversations.",
         imageSrc:
           "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
         imageAlt: "Outreach campaigns — team planning an outbound sequence",
@@ -80,37 +80,37 @@ export const categories: Category[] = [
       {
         slug: "pipeline-generation",
         label: "Pipeline Generation",
-        title: "A pipeline that never runs dry.",
+        title: "A pipeline that starts with every event.",
         shortDescription:
-          "Consistent, qualified opportunity flow — so your sales team spends time selling, not searching for who to call.",
+          "CRM segmentation and lead scoring that turns event registrations and attendance into a genuinely qualified pipeline.",
         intro:
-          "Most sales teams don't have a closing problem, they have a pipeline problem. We build the systems — targeting, qualification, and nurture — that keep a steady stream of sales-ready opportunities landing in your calendar every week.",
+          "Not every registrant is a real opportunity, and not every opportunity looks the same. We build the scoring and segmentation that separates genuine mid-market and enterprise interest from casual sign-ups, so your pipeline reflects real, sales-ready demand — not just attendance numbers.",
         features: [
           {
-            title: "Lead Scoring & Qualification",
+            title: "Event-Based Lead Scoring",
             description:
-              "We define what a genuinely sales-ready lead looks like for your business, then filter and rank inbound and outbound activity against it.",
+              "Attendance, engagement and follow-up questions are scored automatically, so your team knows exactly who to prioritise first.",
           },
           {
             title: "CRM Pipeline Architecture",
             description:
-              "Clear, well-structured pipeline stages that reflect how your deals actually move, so forecasting and reporting are accurate, not guesswork.",
+              "Clear pipeline stages built around how a lead actually moves from event attendee to opportunity, not a generic template.",
           },
           {
             title: "Nurture Sequencing",
             description:
-              "Automated nurture tracks that keep warm-but-not-ready leads engaged until they're genuinely ready to talk.",
+              "Automated tracks that keep warm-but-not-ready leads engaged until your next campaign gives them a reason to act.",
           },
           {
-            title: "Weekly Pipeline Reviews",
+            title: "Pipeline Reporting",
             description:
-              "Regular reporting on volume, velocity, and conversion at each stage, so you always know exactly where deals are getting stuck.",
+              "Monthly visibility into exactly how many qualified opportunities each campaign is generating, and where they're getting stuck.",
           },
         ],
         whoItsFor:
-          "Built for growing sales teams who need predictable opportunity flow, and for founders currently doing all their own prospecting who need it systemised before it can scale.",
+          "Built for firm owners who are generating attention through their events but aren't sure which leads are genuinely worth their sales team's time.",
         metaDescription:
-          "Pipeline generation systems — lead scoring, CRM architecture and nurture sequencing — that keep qualified opportunities flowing for growing sales teams.",
+          "Event-driven pipeline generation — lead scoring, CRM architecture and nurture sequencing — for firms turning campaign attendance into qualified opportunities.",
         imageSrc:
           "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
         imageAlt: "Pipeline generation — sales team reviewing opportunity pipeline",
@@ -118,37 +118,37 @@ export const categories: Category[] = [
       {
         slug: "deal-closure",
         label: "Deal Closure",
-        title: "Get more deals over the line.",
+        title: "Get more of your pipeline over the line.",
         shortDescription:
-          "Sales process, collateral, and negotiation support that turns qualified opportunities into signed business.",
+          "Proposal frameworks and follow-up support that convert qualified, event-sourced opportunities into signed business.",
         intro:
-          "A full pipeline means nothing if deals stall at the finish line. We sharpen the back half of your sales process — proposals, objection handling, and follow-up cadence — so more of the opportunities you've already earned actually close.",
+          "A full pipeline means nothing if deals stall at the finish line. We sharpen the back half of your sales process — proposals, objection handling and follow-up cadence — so more of the opportunities your campaigns generate actually convert into signed clients.",
         features: [
           {
             title: "Proposal & Pricing Frameworks",
             description:
-              "Clear, persuasive proposal templates and pricing structures that make it easy for buyers to say yes.",
+              "Clear, persuasive proposal templates that reference the exact content and event a prospect engaged with, making the next step obvious.",
           },
           {
             title: "Objection Handling Playbooks",
             description:
-              "Documented responses to your most common stalls and objections, built from real deal history, not generic sales theory.",
+              "Documented responses to the stalls and questions that come up most often once mid-market and enterprise prospects reach the table.",
           },
           {
             title: "Follow-Up Cadence Design",
             description:
-              "Structured, non-pushy follow-up sequences that keep deals moving without letting them go cold.",
+              "Structured, non-pushy sequences that keep deals moving without letting campaign-sourced interest go cold.",
           },
           {
             title: "Negotiation Support",
             description:
-              "Hands-on support and coaching through complex or high-value negotiations, from scoping through to contract sign-off.",
+              "Hands-on support through larger or more complex negotiations, from scoping through to signature.",
           },
         ],
         whoItsFor:
-          "Suited to teams with a healthy pipeline but an inconsistent close rate, and to founders closing deals themselves who want a repeatable process instead of relying on instinct.",
+          "Suited to firm owners whose campaigns are generating real opportunities, but whose close rate on those opportunities is inconsistent.",
         metaDescription:
-          "Proposal frameworks, objection handling and negotiation support that help Melbourne sales teams close more of the pipeline they've already earned.",
+          "Proposal frameworks, objection handling and negotiation support that help IT and consulting firms close the pipeline their campaigns generate.",
         imageSrc:
           "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80",
         imageAlt: "Deal closure — handshake following a signed agreement",
@@ -156,37 +156,37 @@ export const categories: Category[] = [
       {
         slug: "sales-ops",
         label: "SalesOps",
-        title: "The operational backbone behind every deal.",
+        title: "The CRM backbone behind every campaign.",
         shortDescription:
-          "CRM hygiene, reporting, and process design that keeps your entire sales motion running on clean data.",
+          "CRM setup and reporting that keeps event registrations, leads and deals on one clean, trustworthy system.",
         intro:
-          "Behind every high-performing sales team is unglamorous, essential infrastructure. We set up and maintain the CRM configuration, reporting, and process discipline that stop deals from slipping through the cracks.",
+          "Every campaign only works if the data behind it is trustworthy. We set up and maintain the CRM configuration, segmentation and reporting that connect your digital events straight through to pipeline — so nothing gets lost between registration and revenue.",
         features: [
           {
             title: "CRM Setup & Hygiene",
             description:
-              "Clean, correctly configured CRM data and workflows so every rep is working from the same accurate source of truth.",
+              "Clean, correctly configured CRM data and workflows, so every registration and lead lands in the right place automatically.",
           },
           {
-            title: "Sales Reporting & Dashboards",
+            title: "Campaign Reporting & Dashboards",
             description:
-              "Live dashboards on pipeline, conversion, and rep performance, built for the metrics that actually drive decisions.",
+              "Live dashboards showing registrations, attendance, pipeline and conversion for every campaign, built for decisions, not vanity metrics.",
           },
           {
-            title: "Territory & Quota Planning",
+            title: "Automation & Deal Creation",
             description:
-              "Fair, data-backed territory and quota structures that keep the team aligned and motivated.",
+              "Workflow automation that turns qualified leads into tracked deals without manual data entry after every event.",
           },
           {
             title: "Tooling & Tech Stack Management",
             description:
-              "We manage the sales tech stack — CRM, dialer, enrichment tools — so it works together instead of against your team.",
+              "We manage the CRM, email and enrichment tools behind your campaigns, so they work together instead of creating extra admin.",
           },
         ],
         whoItsFor:
-          "Ideal for scaling sales teams outgrowing spreadsheets and ad-hoc processes, and for leadership that needs trustworthy sales data to make decisions on.",
+          "Ideal for firm owners running (or about to run) regular campaigns who need the CRM and reporting infrastructure to actually keep up with the leads they generate.",
         metaDescription:
-          "SalesOps support — CRM hygiene, reporting dashboards and quota planning — for scaling sales teams that need trustworthy data.",
+          "CRM setup, campaign reporting and deal automation for IT and consulting firms running regular digital-event-led marketing campaigns.",
         imageSrc:
           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
         imageAlt: "SalesOps — dashboard reporting on sales pipeline performance",
@@ -197,46 +197,46 @@ export const categories: Category[] = [
     slug: "marketing",
     label: "Marketing",
     title: "Marketing",
-    tagline: "Demand, created and converted.",
+    tagline: "Your expertise, turned into demand.",
     description:
-      "From first impression to inbox to search results, we build the marketing engine that keeps your brand in front of the right people, consistently — across every channel that matters.",
+      "We build the monthly digital event — webinar, podcast, workshop, or customer interview — that puts your expertise in front of the right audience, then promote it, repurpose it, and keep it compounding across search and social long after the event ends.",
     metaDescription:
-      "Lead generation, social media, events, eDMs and SEO for Melbourne businesses that want marketing to actually generate demand.",
+      "Digital event marketing, social promotion, email and SEO for IT and consulting firms building recognised authority in their category.",
     services: [
       {
         slug: "lead-generation",
         label: "Lead Generation",
-        title: "Demand, generated on purpose.",
+        title: "Demand, built around your expertise.",
         shortDescription:
-          "Paid, organic, and content-driven campaigns engineered to fill the top of your funnel with the right people.",
+          "Campaigns engineered around your monthly digital event to fill your funnel with genuinely qualified prospects.",
         intro:
-          "Lead generation isn't luck, it's a system. We design and run campaigns across paid, organic, and content channels that consistently attract prospects who actually fit your business — not just anyone who'll click an ad.",
+          "Lead generation works best when it's built around something worth paying attention to. We design campaigns — paid, organic and content-driven — around your digital events, so the people arriving in your funnel already understand your expertise before they ever speak with you.",
         features: [
           {
-            title: "Paid Media Campaigns",
+            title: "Campaign Strategy & Targeting",
             description:
-              "Google, Meta, and LinkedIn campaigns targeted, tested, and optimised against real cost-per-lead and pipeline outcomes, not vanity clicks.",
+              "Every campaign is built around a specific digital event and audience, not a generic always-on ad account.",
           },
           {
-            title: "Landing Page & Funnel Design",
+            title: "Landing Page & Registration Design",
             description:
-              "High-converting landing pages and funnels built to turn traffic into genuine enquiries, not just page views.",
+              "High-converting registration pages built to turn interest in your event into a genuine, qualified sign-up.",
           },
           {
-            title: "Lead Magnet Strategy",
+            title: "Paid Amplification",
             description:
-              "Guides, tools, and offers designed specifically to attract your ideal customer at the exact moment they're evaluating options.",
+              "Social and Google ads that extend the reach of your event and repurposed content to net-new prospects (ad spend billed separately).",
           },
           {
             title: "Conversion Rate Optimisation",
             description:
-              "Ongoing testing of copy, layout, and offer to squeeze more qualified leads out of the traffic you're already getting.",
+              "Ongoing testing of registration pages and offers to get more qualified leads from the same campaign investment.",
           },
         ],
         whoItsFor:
-          "Ideal for businesses with a good product or service that isn't getting in front of enough of the right people yet, and for teams tired of marketing spend that doesn't translate into pipeline.",
+          "Ideal for firm owners with genuine expertise who aren't yet getting it in front of enough of the right mid-market and enterprise prospects.",
         metaDescription:
-          "Paid, organic and content-driven lead generation campaigns built to fill your funnel with genuinely qualified prospects.",
+          "Digital-event-led lead generation campaigns — paid, organic and landing pages — built to fill your funnel with qualified prospects.",
         imageSrc:
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
         imageAlt: "Lead generation — campaign analytics dashboard",
@@ -244,37 +244,37 @@ export const categories: Category[] = [
       {
         slug: "social-media",
         label: "Social Media",
-        title: "A social presence that earns attention.",
+        title: "Social proof that builds before you post.",
         shortDescription:
-          "Strategy, content, and community management that turns social channels into a genuine growth channel.",
+          "Pre and post-event social content that builds anticipation, drives registrations, and extends every campaign's reach.",
         intro:
-          "Posting isn't a strategy. We build social media programs — content, cadence, and community management — designed around what your audience actually engages with, so your channels build brand and pipeline, not just impressions.",
+          "Posting isn't a strategy, but a campaign calendar is. We plan and publish the social content around every digital event — announcements, teasers, and post-event highlights — so your channels build genuine authority instead of just filling a content calendar.",
         features: [
           {
-            title: "Content Strategy & Calendars",
+            title: "Pre-Event Promotion",
             description:
-              "A clear content plan mapped to your brand voice and business goals, so every post has a purpose.",
+              "Announcement and teaser posts across your brand and personal channels that build real anticipation before registrations open.",
           },
           {
-            title: "Organic Content Production",
+            title: "Event Highlight Clips",
             description:
-              "Design, copywriting, and short-form video produced for the platforms your audience actually spends time on.",
+              "Short-form clips and quotes pulled from your event recording, published in the days after to extend its reach.",
           },
           {
-            title: "Paid Social Amplification",
+            title: "Brand & SME Channel Management",
             description:
-              "Boosting and paid campaigns that extend the reach of your best-performing organic content.",
+              "Posting managed across both your company page and your own profile, so your personal authority builds alongside your brand's.",
           },
           {
-            title: "Community Management",
+            title: "Performance Reporting",
             description:
-              "Timely, on-brand responses to comments and DMs that build genuine relationships instead of leaving your audience on read.",
+              "Reach, engagement and click-through reporting on every post, tied back to registrations and pipeline, not just likes.",
           },
         ],
         whoItsFor:
-          "Great for brands that know social matters but don't have the internal capacity to plan, produce, and manage it consistently well.",
+          "Great for firm owners who know social matters for their reputation but don't have the internal capacity to plan and publish consistently around every campaign.",
         metaDescription:
-          "Social media strategy, content production and community management for Melbourne brands that want channels people actually engage with.",
+          "Pre and post-event social media management that builds anticipation, drives registrations and extends every campaign's reach.",
         imageSrc:
           "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80",
         imageAlt: "Social media — content planning across platforms",
@@ -282,37 +282,37 @@ export const categories: Category[] = [
       {
         slug: "events",
         label: "Events",
-        title: "Events people actually show up for.",
+        title: "Your monthly digital event, built and run for you.",
         shortDescription:
-          "End-to-end planning and promotion for webinars, launches, and in-person events that build pipeline, not just attendance.",
+          "Webinars, podcasts, workshops or customer interviews — built around your expertise and delivered every month, without adding to your workload.",
         intro:
-          "A great event is only as good as the strategy behind it. We plan, promote, and run webinars, launches, and in-person experiences designed to attract the right audience and convert attendance into genuine business outcomes.",
+          "One consistent, well-run digital event does more for your reputation than a dozen scattered posts. We build and run your monthly webinar, podcast, workshop, or customer interview end-to-end — content, structure and delivery — in whichever format suits how you actually communicate best.",
         features: [
           {
-            title: "Event Strategy & Planning",
+            title: "Monthly Strategy & Campaign Roadmap",
             description:
-              "Format, audience, and goals defined upfront, so every event is built around a clear commercial outcome.",
+              "A single working session each month extracts your expertise and direction, and ties every other asset back to it.",
           },
           {
-            title: "Promotion & Registration Campaigns",
+            title: "Event Build & Facilitation",
             description:
-              "Multi-channel campaigns that drive genuine registrations, not just RSVPs that never show up.",
+              "We write, structure and run your event each month — you bring the expertise, we handle everything else.",
           },
           {
-            title: "On-The-Day Production & Run Sheets",
+            title: "Your Choice of Format",
             description:
-              "Detailed run sheets and on-the-day coordination so events go smoothly, whether virtual or in person.",
+              "Webinar, podcast, workshop, customer interview or video series — whichever format suits your audience and how you present best.",
           },
           {
-            title: "Post-Event Follow-Up & Reporting",
+            title: "Registration Page & On-Demand Hosting",
             description:
-              "Structured follow-up sequences and attendance reporting that turn event leads into pipeline.",
+              "A landing page to capture sign-ups, plus on-demand viewing after the event so it keeps generating leads.",
           },
         ],
         whoItsFor:
-          "Suited to businesses running webinars, product launches, or in-person networking and client events who want them to drive real pipeline, not just brand awareness.",
+          "Suited to IT, MSP, ERP-partner and consulting firm owners who have genuine expertise to share but no time or internal capability to turn it into a consistent event, month after month.",
         metaDescription:
-          "Event strategy, promotion and production for webinars, launches and in-person events that build genuine pipeline.",
+          "Monthly digital events — webinars, podcasts, workshops and customer interviews — built and run end-to-end for IT and consulting firm owners.",
         imageSrc:
           "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
         imageAlt: "Events — audience at a business conference",
@@ -320,37 +320,37 @@ export const categories: Category[] = [
       {
         slug: "edms",
         label: "eDMs",
-        title: "Email that gets opened, read, and clicked.",
+        title: "Email that fills the room before it starts.",
         shortDescription:
-          "Newsletter and campaign eDMs, designed and written to earn a place in the inbox, not the spam folder.",
+          "Registration and nurture email sequences that drive attendance to your events and keep leads warm afterwards.",
         intro:
-          "Email remains one of the highest-return channels available — when it's done properly. We design, write, and send eDM campaigns and newsletters that get opened, read, and acted on, backed by list health and deliverability best practice.",
+          "An event is only as good as the turnout. We write and send the email sequences that build awareness before your event, drive registrations as it approaches, and nurture attendees and leads afterwards — so your list becomes a genuine growth channel, not just an announcement list.",
         features: [
           {
-            title: "eDM Design & Copywriting",
+            title: "Registration & Teaser Sequences",
             description:
-              "On-brand templates and copy written to be read, not skimmed past, with clear calls to action.",
+              "Announcement and reminder emails that build anticipation and drive sign-ups in the lead-up to every event.",
           },
           {
-            title: "List Segmentation & Targeting",
+            title: "Post-Event Nurture",
             description:
-              "Audiences segmented by behaviour and lifecycle stage, so every send feels relevant to the person receiving it.",
+              "Follow-up sequences to attendees and no-shows alike, sharing the recording and keeping your expertise front of mind.",
           },
           {
-            title: "Deliverability & List Health",
+            title: "List Segmentation",
             description:
-              "Technical setup — authentication, list hygiene, and sending practices — that keeps you out of spam folders.",
+              "Warm contacts and newly sourced prospects are messaged differently, so every send feels relevant to the person receiving it.",
           },
           {
-            title: "Performance Reporting",
+            title: "Deliverability & Performance Reporting",
             description:
-              "Open, click, and conversion reporting on every send, used to continuously refine subject lines and content.",
+              "Technical setup and open/click reporting that keeps your sends out of spam and continuously improving.",
           },
         ],
         whoItsFor:
-          "Ideal for businesses with an existing customer or subscriber list that isn't being nurtured properly, and for teams wanting a genuinely engaged newsletter audience.",
+          "Ideal for firm owners with an existing contact list that isn't being used to drive event attendance or nurture leads between campaigns.",
         metaDescription:
-          "eDM and newsletter campaigns — design, copywriting and deliverability — built to get opened, read and clicked.",
+          "Registration and nurture email campaigns that drive attendance to your digital events and keep leads warm between campaigns.",
         imageSrc:
           "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&q=80",
         imageAlt: "eDMs — email newsletter campaign on a laptop screen",
@@ -358,37 +358,37 @@ export const categories: Category[] = [
       {
         slug: "seo",
         label: "SEO",
-        title: "Found first, for the searches that matter.",
+        title: "Found first, long after the event ends.",
         shortDescription:
-          "Technical, content, and authority-building SEO that compounds your organic visibility over time.",
+          "On-page and content SEO that turns your repurposed event content into compounding organic visibility.",
         intro:
-          "SEO is a long game, played correctly. We combine technical fixes, content strategy, and authority building so your business ranks for the searches your customers are actually making — and keeps ranking as competitors come and go.",
+          "A digital event creates a burst of attention — good SEO makes sure that attention keeps paying off. We optimise the guides, articles and pages built from every campaign so they keep ranking for the searches your ideal clients are actually making, long after the event itself is over.",
         features: [
           {
-            title: "Technical SEO Audits",
+            title: "Technical & On-Page Optimisation",
             description:
-              "Site speed, crawlability, and structure fixes that remove the invisible barriers stopping you from ranking.",
+              "Every piece of repurposed campaign content — guides, blogs, landing pages — is structured and optimised to rank, not just publish.",
           },
           {
-            title: "Keyword & Content Strategy",
+            title: "Keyword & Topic Mapping",
             description:
-              "Research-backed content plans targeting the terms your ideal customers are genuinely searching for.",
+              "Campaign themes are mapped against real search terms your ideal clients use, so content compounds instead of competing with itself.",
           },
           {
-            title: "On-Page Optimisation",
+            title: "Content Compounding Strategy",
             description:
-              "Titles, structure, and internal linking optimised page by page for both search engines and real readers.",
+              "Each campaign's content is linked and structured to build on the last, so your organic footprint grows with every event.",
           },
           {
             title: "Authority & Link Building",
             description:
-              "Ethical, sustainable link building and digital PR that builds genuine domain authority over time.",
+              "Ethical link building and digital PR that builds genuine domain authority around the categories you want to be known for.",
           },
         ],
         whoItsFor:
-          "Built for businesses that want organic search to be a genuine, compounding growth channel rather than an occasional afterthought.",
+          "Built for firm owners who want their digital events and repurposed content to keep generating traffic and leads well after the live date.",
         metaDescription:
-          "Technical, content and authority-building SEO services that grow organic search visibility for Melbourne businesses.",
+          "SEO for digital-event-led content — on-page optimisation and authority building that keeps campaign content ranking long-term.",
         imageSrc:
           "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=800&q=80",
         imageAlt: "SEO — search analytics and ranking data on screen",
@@ -399,46 +399,46 @@ export const categories: Category[] = [
     slug: "digital",
     label: "Digital",
     title: "Digital",
-    tagline: "Built, integrated, intelligent.",
+    tagline: "The infrastructure behind every campaign.",
     description:
-      "The technical backbone of your business — sites and apps that convert, systems that talk to each other, and AI and automation that actually get work done.",
+      "The technical backbone behind your campaigns — registration pages that convert, CRM systems that talk to your marketing, and the automation and AI that turn a monthly event into a repeatable, low-effort growth engine.",
     metaDescription:
-      "Web design, app development, CRM administration, agentic AI and automation for Melbourne businesses building serious digital infrastructure.",
+      "Web design, CRM administration, automation and AI infrastructure that powers digital-event-led marketing campaigns for IT and consulting firms.",
     services: [
       {
         slug: "web-design",
         label: "Web Design",
-        title: "Websites that work as hard as you do.",
+        title: "Pages built to convert, not just exist.",
         shortDescription:
-          "Bespoke, purpose-built websites — no templates, just design and development aligned to your business goals.",
+          "Registration pages, on-demand hosting and guide pages purpose-built to turn campaign traffic into genuine sign-ups.",
         intro:
-          "Every project is tailored to your business goals, ensuring a unique, strategic solution that aligns with your vision — no off-the-shelf templates, just innovative, purpose-driven development.",
+          "Every campaign lives or dies on its pages. We design and build the registration pages, on-demand hosting and digital guide pages that turn your event's traffic into sign-ups and leads — fast, on-brand, and built to convert rather than just look good.",
         features: [
           {
-            title: "Bespoke UI/UX Design",
+            title: "Event Registration Pages",
             description:
-              "Every pixel is considered. We design interfaces that are visually compelling, easy to use, and aligned with your brand identity.",
+              "Purpose-built landing pages that make signing up to your event fast, clear and genuinely appealing.",
           },
           {
-            title: "Next.js & Modern Development",
+            title: "On-Demand & Guide Hosting",
             description:
-              "Fast, SEO-friendly websites built on Next.js and modern web standards — optimised for performance, accessibility, and search.",
+              "Post-event recording pages and digital guide pages that keep generating registrations and leads long after the live date.",
           },
           {
-            title: "Responsive Across All Devices",
+            title: "Bespoke Site Design",
             description:
-              "Your site looks and works beautifully on every screen size, from mobile phones to large desktop displays.",
+              "Your core website designed and built around your actual positioning, not a template that looks like everyone else's.",
           },
           {
             title: "CMS Integration",
             description:
-              "Need to update content yourself? We integrate headless CMS platforms so your team can manage content without touching code.",
+              "Content management set up so your team can update campaign pages and content without touching code.",
           },
         ],
         whoItsFor:
-          "Perfect for growing businesses that have outgrown a template site, service-based professionals who want to make a strong first impression, and brands that understand design is a competitive advantage.",
+          "Perfect for firm owners whose current site doesn't reflect the calibre of client they're trying to attract through their campaigns.",
         metaDescription:
-          "Bespoke web design and development in Melbourne. Purpose-driven websites that look brilliant and convert.",
+          "Registration pages, on-demand hosting and bespoke web design built to convert campaign traffic into genuine leads.",
         imageSrc:
           "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
         imageAlt: "Web design — clean modern interface on a screen",
@@ -446,37 +446,37 @@ export const categories: Category[] = [
       {
         slug: "app-development",
         label: "App Development",
-        title: "Apps built to perform, built to scale.",
+        title: "A lead-in offer worth signing up for.",
         shortDescription:
-          "Custom mobile and web applications, from first concept through to launch and ongoing iteration.",
+          "Simple, custom-built tools and mini-assessments that give prospects a reason to engage before they're ready to buy.",
         intro:
-          "From concept to launch, we design and develop mobile and web applications that solve real problems for real users. Whether you need a customer-facing product or an internal tool, we bring the technical depth and product thinking to make it exceptional.",
+          "The best campaigns pair a great event with something practical prospects can act on immediately. We design and build low-cost, low-effort lead-in tools — assessments, calculators, and mini-apps — that give your audience genuine value while capturing exactly the leads your event and content are attracting.",
         features: [
           {
-            title: "Custom Mobile Apps (iOS & Android)",
+            title: "Lead-In Tool Strategy",
             description:
-              "Native and cross-platform mobile development using React Native, Swift, or Kotlin — whatever best fits your product requirements.",
+              "We identify a simple, valuable tool your audience would genuinely want, tied directly to your campaign theme.",
           },
           {
-            title: "Web Application Development",
+            title: "Custom Assessment & Calculator Builds",
             description:
-              "Full-stack web apps built on modern frameworks like Next.js, with robust back-ends that scale as your user base grows.",
+              "Mini-assessments, calculators and interactive tools built to be easy to complete and genuinely useful, not a disguised form.",
           },
           {
-            title: "API Design & Development",
+            title: "Web & Mobile App Development",
             description:
-              "Clean, well-documented REST or GraphQL APIs that power your front-end and integrate seamlessly with third-party services.",
+              "For bigger product ideas beyond a single campaign, we build the full custom web or mobile application behind them.",
           },
           {
             title: "Ongoing Support & Iteration",
             description:
-              "We don't disappear at launch. We provide ongoing support, monitor performance, and continue improving your product over time.",
+              "We don't disappear after launch — tools are maintained and improved as your campaigns and audience evolve.",
           },
         ],
         whoItsFor:
-          "This service is ideal for startups building their first product, established businesses replacing legacy systems, and organisations that need a custom internal tool. If you have a problem that no off-the-shelf software solves cleanly, we can build the right solution.",
+          "Suited to firm owners who want a practical, low-cost entry point alongside their content, and to businesses with a bigger custom product idea to build properly.",
         metaDescription:
-          "Custom mobile and web app development in Melbourne. We build scalable, performant applications tailored to your business.",
+          "Custom lead-in tools, assessments and app development that give campaign prospects a reason to engage before they buy.",
         imageSrc:
           "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
         imageAlt: "App development — abstract code and technology",
@@ -484,37 +484,37 @@ export const categories: Category[] = [
       {
         slug: "crm-administration",
         label: "CRM Administration",
-        title: "A CRM your team actually trusts.",
+        title: "A CRM that keeps up with your campaigns.",
         shortDescription:
-          "Setup, configuration, and ongoing administration that turns your CRM into a genuine source of truth.",
+          "Setup and administration that connects event registrations, leads and deals into one system your team trusts.",
         intro:
-          "A misconfigured CRM is worse than no CRM at all — nobody trusts the data, so nobody uses it properly. We set up, clean, and administer platforms like HubSpot and Salesforce so your team has one system they can actually rely on.",
+          "A misconfigured CRM undermines every campaign built on top of it. We set up, clean and administer platforms like HubSpot and Salesforce so registrations, attendance and follow-up all land in one trustworthy system — instead of scattered spreadsheets nobody quite trusts.",
         features: [
           {
             title: "Platform Setup & Migration",
             description:
-              "Clean implementation or migration onto platforms like HubSpot or Salesforce, configured around how your business actually sells.",
+              "Clean implementation or migration onto HubSpot or Salesforce, configured specifically around how your campaigns generate and move leads.",
           },
           {
             title: "Custom Fields, Pipelines & Automation",
             description:
-              "Pipeline stages, custom properties, and workflow automation built around your real sales and service processes, not generic defaults.",
+              "Pipeline stages and automation built around event registration, attendance and follow-up, not generic sales defaults.",
           },
           {
             title: "Data Cleansing & Deduplication",
             description:
-              "Ongoing data hygiene so duplicate records, dead leads, and stale fields stop undermining trust in the system.",
+              "Ongoing hygiene so duplicate registrants and stale leads don't undermine trust in your campaign reporting.",
           },
           {
             title: "User Training & Adoption",
             description:
-              "Practical training and documentation that gets your team actually using the CRM properly, not just tolerating it.",
+              "Practical training that gets your team actually using the CRM to follow up on campaign leads, not just storing them.",
           },
         ],
         whoItsFor:
-          "Ideal for businesses whose CRM has become a mess nobody trusts, and for teams implementing a CRM for the first time who want it configured properly from day one.",
+          "Ideal for firm owners whose CRM has become unreliable, and for anyone setting one up for the first time who wants it built around how their campaigns actually work.",
         metaDescription:
-          "HubSpot and Salesforce setup, data cleansing and CRM administration for Melbourne businesses that want a system their team trusts.",
+          "HubSpot and Salesforce setup and administration built around digital-event-led campaigns, so registrations and leads land in one trusted system.",
         imageSrc:
           "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=800&q=80",
         imageAlt: "CRM administration — sales dashboard on a laptop screen",
@@ -522,37 +522,37 @@ export const categories: Category[] = [
       {
         slug: "agentic-ai",
         label: "Agentic AI",
-        title: "AI that does the work, not just the demo.",
+        title: "AI that keeps your campaign engine running.",
         shortDescription:
-          "Custom AI agents that handle real business tasks — research, support, data entry — reliably and safely.",
+          "Custom AI agents that handle the repetitive work behind every campaign — research, lead scoring, and follow-up drafting.",
         intro:
-          "Most 'AI projects' never leave the demo stage. We build agentic AI systems designed for production — agents that handle real tasks like research, customer support triage, and data processing, wired safely into your existing tools and workflows.",
+          "Running a monthly campaign generates a lot of repetitive work behind the scenes. We build agentic AI systems that handle real tasks — research for your next event, scoring incoming leads, and drafting first-pass follow-ups — wired safely into the tools your campaign already runs on.",
         features: [
           {
             title: "Agent Strategy & Use Case Scoping",
             description:
-              "We identify the tasks in your business where an AI agent will genuinely save time and money, not just generate a demo.",
+              "We identify where an agent will genuinely save time in your campaign workflow, not just produce a demo.",
           },
           {
             title: "Custom Agent Development",
             description:
-              "Purpose-built agents connected to your data, tools, and APIs, built to operate reliably within clear boundaries.",
+              "Purpose-built agents connected to your CRM, content and research tools, built to operate reliably within clear limits.",
           },
           {
             title: "Human-in-the-Loop Safeguards",
             description:
-              "Approval steps, monitoring, and escalation paths so agents are trusted with real work without unchecked risk.",
+              "Approval steps and monitoring so agents support your campaign team without unchecked risk to client-facing work.",
           },
           {
             title: "Integration & Deployment",
             description:
-              "Agents wired directly into the tools your team already uses, so adoption doesn't require a new workflow to learn.",
+              "Agents wired directly into the CRM and content tools your campaigns already use, so there's no new workflow to learn.",
           },
         ],
         whoItsFor:
-          "Suited to operationally-minded businesses ready to move past AI experimentation and put agentic systems to work on genuine, repeatable tasks.",
+          "Suited to firm owners running (or scaling) regular campaigns who want the repetitive research, scoring and drafting work handled without adding headcount.",
         metaDescription:
-          "Custom agentic AI systems built for production — agents that handle real business tasks reliably, not just AI demos.",
+          "Agentic AI systems that handle research, lead scoring and follow-up drafting behind digital-event-led marketing campaigns.",
         imageSrc:
           "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
         imageAlt: "Agentic AI — abstract technology and automation visualisation",
@@ -560,37 +560,37 @@ export const categories: Category[] = [
       {
         slug: "automation",
         label: "Automation",
-        title: "Less manual work. More meaningful work.",
+        title: "Less admin, more campaigns that run themselves.",
         shortDescription:
-          "No-code and custom automation that eliminates repetitive admin so your team can focus on what matters.",
+          "Workflow automation that connects registration, follow-up, and reporting so your campaign engine runs without manual admin.",
         intro:
-          "Yes, we have favourites and can make recommendations, but if you use a certain software or have a dream technology stack, we'll adapt to deliver the automation solution you need.",
+          "A great campaign shouldn't need a spreadsheet and three manual steps behind it. We map and automate the workflows connecting registration, CRM updates, follow-up sequences and reporting, so your monthly campaign runs consistently without you or your team chasing admin.",
         features: [
           {
             title: "Process Mapping & Audit",
             description:
-              "We start by understanding how your business actually operates, identifying bottlenecks and automation opportunities before writing a single line.",
+              "We map exactly how a lead moves from registration to opportunity today, and find where manual steps are costing time.",
           },
           {
             title: "No-Code & Custom Automation",
             description:
-              "From Zapier and Make to fully custom-coded automation pipelines — we choose the right tool for your scale and complexity.",
+              "From Zapier and Make to fully custom pipelines, connecting your registration pages, CRM and email tools automatically.",
           },
           {
-            title: "Document & Approval Workflows",
+            title: "Reporting Automation",
             description:
-              "Automate contracts, approvals, notifications, and reporting so your team spends less time on admin.",
+              "Campaign performance reporting generated automatically each month, instead of manually pulled together before every check-in call.",
           },
           {
             title: "Monitoring & Maintenance",
             description:
-              "Automated systems need oversight. We set up monitoring, alerts, and provide ongoing maintenance to keep everything running smoothly.",
+              "Ongoing monitoring and maintenance so your campaign automation keeps running reliably as tools and volume change.",
           },
         ],
         whoItsFor:
-          "Best suited to service businesses drowning in admin, operations teams doing repetitive manual tasks, and any organisation that wants to scale without proportionally scaling their headcount.",
+          "Best suited to firm owners scaling their campaign cadence who want the operational backbone to keep up without proportionally more admin.",
         metaDescription:
-          "Automate repetitive processes and free up your team. Custom workflow automation for Melbourne businesses.",
+          "Workflow automation connecting registration, CRM and reporting so digital-event-led marketing campaigns run without manual admin.",
         imageSrc:
           "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80",
         imageAlt: "Automation — gears and process visualisation",
@@ -601,46 +601,46 @@ export const categories: Category[] = [
     slug: "content",
     label: "Content",
     title: "Content",
-    tagline: "Made once, working everywhere.",
+    tagline: "One event, repurposed everywhere.",
     description:
-      "Video, guides, decks, podcasts and blogs — produced properly, so your content builds authority and pipeline instead of sitting unused in a drive folder.",
+      "Every digital event becomes a full library of content — a cornerstone guide, an article series, social clips, and a slide deck — so one conversation with you turns into weeks of proof that you know your category.",
     metaDescription:
-      "Video, digital guides, slide decks, podcasts and blog content production for Melbourne businesses building genuine authority.",
+      "Digital guides, blogs, video and podcast content repurposed from your monthly digital event, for IT and consulting firms building authority.",
     services: [
       {
         slug: "video",
         label: "Video",
-        title: "Video that gets watched to the end.",
+        title: "One recording, a month of content.",
         shortDescription:
-          "Brand, product, and social video — scripted, shot, and edited to hold attention and drive action.",
+          "Your event recording, cut into highlights and clips built to hold attention across every social channel.",
         intro:
-          "Video is the highest-effort, highest-return content format available when it's done properly. We script, shoot, and edit brand, product, and social video built to hold attention — and to actually move people toward a decision.",
+          "Every digital event is also a video shoot. We take the recording from your webinar, workshop or customer interview and edit it into highlight clips and platform-specific cutdowns — so one session becomes weeks of content across LinkedIn, YouTube and social.",
         features: [
           {
-            title: "Concept & Scriptwriting",
+            title: "Event Recording & Capture",
             description:
-              "Clear concepts and scripts built around a single message, so every video earns its watch time.",
+              "Your webinar, workshop or interview recorded and captured to a standard worth repurposing, not just an archived Zoom call.",
           },
           {
-            title: "Production & Filming",
+            title: "Highlight & Clip Editing",
             description:
-              "Professional filming, whether on location or in-studio, covering brand films, product demos, and social content.",
-          },
-          {
-            title: "Editing & Post-Production",
-            description:
-              "Pacing, sound, motion graphics, and colour grading that make every video feel genuinely professional.",
+              "The best moments from every event cut into short, sharable clips built to stop the scroll.",
           },
           {
             title: "Platform-Specific Cutdowns",
             description:
-              "Every shoot repurposed into cuts optimised for YouTube, LinkedIn, Instagram, and paid ad placements.",
+              "Clips edited and formatted for LinkedIn, YouTube and social specifically, not one video resized to fit everywhere.",
+          },
+          {
+            title: "On-Demand Full Recording",
+            description:
+              "The full session edited and hosted for on-demand viewing, so late registrants still get the full value.",
           },
         ],
         whoItsFor:
-          "Ideal for brands that know video converts but don't have in-house production capability, and for teams wanting to repurpose one shoot across every channel.",
+          "Ideal for firm owners who know video builds credibility but don't have the in-house capability to shoot and edit it consistently.",
         metaDescription:
-          "Brand, product and social video production — scripting, filming and editing — built to hold attention and drive action.",
+          "Event recording, highlight editing and platform-specific video cutdowns built from your monthly digital event.",
         imageSrc:
           "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80",
         imageAlt: "Video production — camera set up for a shoot",
@@ -648,37 +648,37 @@ export const categories: Category[] = [
       {
         slug: "digital-guides",
         label: "Digital Guides",
-        title: "Guides that build authority, not just PDFs.",
+        title: "The cornerstone guide every campaign is built on.",
         shortDescription:
-          "In-depth guides and ebooks, written and designed to demonstrate genuine expertise and generate leads.",
+          "A practical, in-depth guide built from your event content — proof of expertise, and a genuine lead magnet.",
         intro:
-          "A good guide does two jobs at once: it proves you know what you're talking about, and it gives you something worth trading an email address for. We research, write, and design digital guides that do both properly.",
+          "Every campaign needs one piece of content everything else points back to. We turn your digital event into a cornerstone guide — researched, written and designed to prove genuine expertise and give prospects a reason to hand over their details.",
         features: [
           {
-            title: "Topic Research & Outlining",
+            title: "Event-to-Guide Development",
             description:
-              "Genuinely useful angles identified through real audience and keyword research, not guesswork.",
+              "Your event recording and discussion turned into a structured, in-depth guide, not a generic template filled in around your name.",
           },
           {
-            title: "Long-Form Writing",
+            title: "Supporting Research",
             description:
-              "In-depth, well-structured writing that reads like genuine expertise, not padded filler.",
+              "Independent data and research added to back up your point of view and strengthen your credibility further.",
           },
           {
             title: "Design & Layout",
             description:
-              "Professionally designed, on-brand layouts that make guides feel like a premium resource, not a Word document.",
+              "Professionally designed, on-brand layouts that feel like a premium resource worth downloading, not a Word document.",
           },
           {
             title: "Gated Distribution Setup",
             description:
-              "Landing pages and lead-capture forms set up to turn guide downloads into genuine pipeline.",
+              "Landing pages and lead-capture forms built so every guide download becomes a tracked, genuine lead.",
           },
         ],
         whoItsFor:
-          "Suited to businesses that want to establish category authority and generate leads through genuinely useful, in-depth content.",
+          "Suited to firm owners who want a lasting, high-value asset from every event, not just a recording that gets watched once and forgotten.",
         metaDescription:
-          "Research, writing and design for in-depth digital guides and ebooks that build authority and generate leads.",
+          "Cornerstone guides built from your digital event content — genuine proof of expertise and a real lead magnet.",
         imageSrc:
           "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
         imageAlt: "Digital guides — designed ebook layout on a screen",
@@ -686,37 +686,37 @@ export const categories: Category[] = [
       {
         slug: "slide-decks",
         label: "Slide Decks",
-        title: "Decks that win the room.",
+        title: "The deck behind every event, built to persuade.",
         shortDescription:
-          "Pitch decks, sales decks, and presentations designed to persuade, not just inform.",
+          "Presentation decks and speaker notes for your digital event, built around a clear narrative from your strategy call.",
         intro:
-          "Most decks lose the room in the first three slides. We design pitch decks, sales decks, and internal presentations built around a clear narrative and genuinely persuasive visual design — so the room stays with you until the ask.",
+          "Every digital event needs a deck that carries the room, whether it's a live audience or a webinar screen. We design the presentation and write the speaker notes for your event, built directly from your monthly strategy call so it sounds like your point of view, not a generic template.",
         features: [
           {
             title: "Narrative & Structure Design",
             description:
-              "A clear story arc built before a single slide is designed, so the deck argues its point instead of just listing facts.",
+              "A clear story arc built from your strategy call, so the deck argues your point instead of just listing slides.",
           },
           {
             title: "Custom Slide Design",
             description:
-              "On-brand, professionally designed slides that look considered rather than templated.",
+              "On-brand, professionally designed slides that look considered and match the calibre of client you're trying to attract.",
           },
           {
-            title: "Data Visualisation",
+            title: "Speaker Notes",
             description:
-              "Complex data and figures turned into visuals that communicate the point instantly.",
+              "Full speaker notes written so delivering the event feels natural, even if presenting isn't something you do every day.",
           },
           {
-            title: "Presenter Coaching",
+            title: "Reuse Across Formats",
             description:
-              "Guidance on delivery and pacing so the person presenting the deck lands it as well as the deck itself.",
+              "The same deck restructured to support whichever event format you choose — webinar, workshop or in-person session.",
           },
         ],
         whoItsFor:
-          "Ideal for founders pitching investors, sales teams presenting to enterprise buyers, and leadership teams delivering high-stakes internal presentations.",
+          "Ideal for firm owners who have the expertise but not the time or inclination to build a presentation from scratch every month.",
         metaDescription:
-          "Pitch decks, sales decks and presentation design built around a clear narrative that persuades, not just informs.",
+          "Presentation decks and speaker notes built from your monthly strategy call, designed to carry your digital event.",
         imageSrc:
           "https://images.unsplash.com/photo-1552581234-26160f608093?w=800&q=80",
         imageAlt: "Slide decks — presentation design displayed on a laptop",
@@ -724,37 +724,37 @@ export const categories: Category[] = [
       {
         slug: "podcasts",
         label: "Podcasts",
-        title: "A podcast people actually subscribe to.",
+        title: "A podcast format that builds real authority.",
         shortDescription:
-          "Strategy, production, and editing for branded podcasts that build genuine audience and authority.",
+          "One of the formats your monthly digital event can take — recorded, edited and distributed as a genuine authority play.",
         intro:
-          "A podcast is a long-term authority play, not a marketing stunt. We handle strategy, recording, and editing for branded podcasts — built around a format and guest strategy that keeps people coming back episode after episode.",
+          "Some expertise comes across better in conversation than on a slide. When podcast is the right format for your monthly event, we handle strategy, recording and editing — built around a guest and topic approach that keeps your audience coming back episode after episode.",
         features: [
           {
             title: "Format & Guest Strategy",
             description:
-              "A clear show concept and guest pipeline designed around topics your audience genuinely wants to hear.",
+              "A show concept and guest pipeline designed around the topics your ideal clients genuinely want to hear discussed.",
           },
           {
             title: "Recording & Audio Production",
             description:
-              "Professional recording setup, whether remote or in-studio, with clean, broadcast-quality audio.",
+              "Professional recording, remote or in-studio, with clean, broadcast-quality audio for every episode.",
           },
           {
             title: "Editing & Show Notes",
             description:
-              "Polished episode editing plus show notes and clips written to support discovery and sharing.",
+              "Polished editing plus show notes and clips written to support discovery and sharing after release.",
           },
           {
-            title: "Distribution & Promotion",
+            title: "Distribution & Repurposing",
             description:
-              "Episodes published and promoted across every major platform, with clips repurposed for social.",
+              "Episodes published across major platforms, with clips and quotes feeding back into your social and content plan.",
           },
         ],
         whoItsFor:
-          "Great for founders and subject-matter experts who want to build genuine authority and relationships through long-form conversation.",
+          "Great for firm owners and subject-matter experts who communicate best in long-form conversation rather than a scripted presentation.",
         metaDescription:
-          "Podcast strategy, recording, editing and distribution for brands building genuine authority through audio.",
+          "Podcast strategy, recording and editing as a digital event format, for firms building authority through long-form conversation.",
         imageSrc:
           "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80",
         imageAlt: "Podcasts — microphone set up for recording",
@@ -762,37 +762,37 @@ export const categories: Category[] = [
       {
         slug: "blogs",
         label: "Blogs",
-        title: "Blog content that actually ranks.",
+        title: "The article series every event leaves behind.",
         shortDescription:
-          "SEO-informed blog writing that builds organic traffic and demonstrates real expertise, consistently.",
+          "A run of blog articles drawn from your event recording, published to build organic reach long after the event.",
         intro:
-          "Most blogs are written, published, and immediately forgotten. We write and manage blog content built around real keyword research and a genuine publishing cadence, so it compounds into organic traffic instead of disappearing into the archive.",
+          "One good conversation contains more than one article's worth of insight. We draw a full series of blog articles out of every event recording, written to satisfy both readers and search engines, so your organic reach keeps compounding between campaigns.",
         features: [
           {
-            title: "Content Calendar & Keyword Mapping",
+            title: "Event-to-Article Extraction",
             description:
-              "A structured publishing calendar mapped to the keywords your customers are actually searching.",
+              "Your event recording mined for distinct angles and insights, each developed into its own standalone article.",
           },
           {
             title: "SEO-Informed Writing",
             description:
-              "Well-researched, genuinely useful articles written to satisfy both readers and search engines.",
+              "Articles written around the keywords your ideal clients are actually searching, not just topics that sound good.",
           },
           {
             title: "On-Brand Editing & Style",
             description:
-              "Every article edited to match your brand voice and editorial standards before it goes anywhere near 'publish'.",
+              "Every article edited to match your voice and standards before it goes anywhere near 'publish'.",
           },
           {
             title: "Publishing & Performance Tracking",
             description:
-              "Articles published on schedule, with ongoing tracking of traffic and rankings to guide what gets written next.",
+              "Articles published on a steady cadence, with tracking on traffic and rankings to inform your next campaign topic.",
           },
         ],
         whoItsFor:
-          "Suited to businesses that know content marketing works but don't have the internal bandwidth to research, write, and publish consistently.",
+          "Suited to firm owners who know content marketing compounds but don't have the internal bandwidth to write and publish consistently between events.",
         metaDescription:
-          "SEO-informed blog writing and content calendars that build organic traffic and demonstrate genuine expertise.",
+          "Blog article series drawn from your digital event recordings, written to build organic reach between campaigns.",
         imageSrc:
           "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80",
         imageAlt: "Blogs — writing content on a laptop",

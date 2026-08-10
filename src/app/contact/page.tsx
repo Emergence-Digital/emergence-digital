@@ -38,7 +38,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-muted text-lg leading-relaxed mb-12">
-              Have a project in mind? We&apos;d love to hear from you.
+              Book a strategy call to map your first campaign.
             </p>
 
             <div className="space-y-6">

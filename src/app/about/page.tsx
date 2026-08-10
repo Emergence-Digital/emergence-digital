@@ -6,29 +6,29 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "About — Emergence Digital",
   description:
-    "Melbourne-based digital agency. Learn about our story, values, and the team behind Emergence Digital.",
+    "A Melbourne marketing company built for IT, MSP and consulting firm owners ready to become recognised leaders in their category.",
 };
 
 const values = [
   {
-    title: "Honest Partnership",
+    title: "Honest Positioning",
     description:
-      "[PLACEHOLDER] We believe the best work happens when clients and agency operate as genuine partners — with full transparency, honest advice, and shared accountability for outcomes.",
+      "We tell clients the truth about how the market actually sees them, even when it's uncomfortable — because you can't fix a positioning problem you won't name.",
   },
   {
-    title: "Craft Over Commodity",
+    title: "Substance Over Noise",
     description:
-      "[PLACEHOLDER] We take pride in the quality of what we build. Every project, regardless of size, receives the same attention to detail and commitment to excellence.",
+      "We'd rather build one campaign around a genuine point of view than publish content for the sake of a calendar. Quality of insight beats frequency of posting, every time.",
   },
   {
-    title: "Speed With Intention",
+    title: "Momentum With Intention",
     description:
-      "[PLACEHOLDER] We move fast — but never recklessly. We combine agile delivery with thoughtful decision-making so speed never comes at the cost of quality.",
+      "We move fast on delivery, but never at the expense of getting your positioning right first — a rushed campaign built on the wrong angle just wastes everyone's time.",
   },
   {
-    title: "Technology as a Tool",
+    title: "Category Thinking",
     description:
-      "[PLACEHOLDER] We're not in love with technology for its own sake. We use it because it solves real problems and creates real value for the businesses we work with.",
+      "We don't just help you get noticed, we help you get recognised for something specific — because being known for everything is the same as being known for nothing.",
   },
 ];
 
@@ -43,8 +43,9 @@ export default function AboutPage() {
             About Emergence Digital
           </h1>
           <p className="text-muted text-lg max-w-2xl leading-relaxed">
-            A Melbourne-based digital agency built on the belief that smart technology,
-            thoughtful design, and genuine partnership produce exceptional results.
+            A Melbourne marketing company built for IT, MSP and consulting firm
+            owners who&apos;ve outgrown their market positioning — and are ready
+            to become recognised leaders in their category.
           </p>
         </div>
       </section>
@@ -58,17 +59,19 @@ export default function AboutPage() {
               Where we came from.
             </h2>
             <p className="text-body leading-relaxed mb-4">
-              Emergence Digital was founded with a simple
-              conviction: that businesses deserve digital partners who are as invested
-              in their success as they are. We started small, worked hard, and built
-              a reputation for delivering work that genuinely moves the needle.
+              Emergence Digital started the same way most of our clients do —
+              with more expertise than exposure. We&apos;d get excited by an
+              opportunity, know we could deliver on it, but lack the
+              positioning and pipeline to make it real. That gap between
+              capability and recognition is exactly what we now help other
+              firms close.
             </p>
             <p className="text-body leading-relaxed">
-              Today we work with clients across Australia —
-              from fast-growing startups to established enterprises — helping them
-              build the digital products and systems that power their next chapter.
-              Every engagement is a partnership, and every partnership is taken
-              seriously.
+              Today we work with IT services firms, MSPs, ERP partners and
+              consulting businesses who are technically excellent but
+              under-recognised in their market. We build the campaigns —
+              digital events, content, and follow-through — that turn quiet
+              expertise into a reputation people actively seek out.
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden aspect-video bg-dark-green/10">

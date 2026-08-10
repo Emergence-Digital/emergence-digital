@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { categories } from "@/lib/services-data";
+import { industries } from "@/lib/industries-data";
 
 // Social icon SVGs (inline for zero extra dependencies)
 const LinkedInIcon = () => (
@@ -23,6 +24,7 @@ const FacebookIcon = () => (
 const footerNav = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Packages", href: "/packages" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -31,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark-green text-white">
       <div className="max-w-[1200px] mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-10 lg:gap-8">
           {/* Brand + contact */}
           <div className="col-span-2">
             <p className="font-serif text-xl font-bold mb-4">Emergence Digital</p>
@@ -103,6 +105,25 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Industries column */}
+          <div>
+            <p className="block text-xs font-semibold tracking-widest uppercase text-white/50 mb-5">
+              Industries
+            </p>
+            <ul className="space-y-3">
+              {industries.map((industry) => (
+                <li key={industry.slug}>
+                  <Link
+                    href={`/industries/${industry.slug}`}
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-200"
+                  >
+                    {industry.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         {/* Bottom utility row */}

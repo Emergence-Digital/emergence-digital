@@ -5,19 +5,19 @@ const steps = [
     number: "01",
     title: "Discovery",
     description:
-      "We start by understanding your business, your goals, and the people you serve. Through workshops and research, we define what success looks like before a single line of code is written.",
+      "We start with a single strategy call to map your expertise, your ideal clients, and the theme your next campaign should be built around — no generic content calendar, just your actual point of view.",
   },
   {
     number: "02",
-    title: "Design & Build",
+    title: "Build & Run",
     description:
-      "Our team translates strategy into reality — designing interfaces, building robust back-ends, and iterating rapidly to keep you involved and in control throughout the process.",
+      "We build your monthly digital strategy from the ground up — content, structure, lead capture, and delivery — then develop a full suite of guides, articles, and social content.",
   },
   {
     number: "03",
-    title: "Launch & Support",
+    title: "Promote & Convert",
     description:
-      "We don't disappear at launch. We help you go live with confidence, then stay on hand for support, improvements, and whatever comes next as your business grows.",
+      "We promote every campaign across email and social, then follow up with attendees and leads directly, so momentum turns into booked meetings and tracked sales opportunities.",
   },
 ];
 

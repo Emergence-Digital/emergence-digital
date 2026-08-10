@@ -3,24 +3,24 @@ import Card from "@/components/ui/Card";
 
 const segments = [
   {
-    title: "Enterprise Projects",
+    title: "IT Services & MSPs",
     description:
-      "We partner with established organisations to deliver complex digital projects — from custom platforms to large-scale integrations — with the reliability and rigour enterprise teams expect.",
+      "You've got the technical depth and the client base to prove it, but the market still doesn't see you as the obvious first call. We build the recognition to match your capability.",
   },
   {
-    title: "Growing Startups",
+    title: "ERP & Software Partners",
     description:
-      "Move fast without breaking things. We help startups build the right product, right now — scalable foundations, clean UX, and the technical muscle to keep pace with your ambitions.",
+      "Partnership credentials only matter if the market knows about them. We turn your implementation expertise into content and events that put you top of mind before the RFP goes out.",
   },
   {
-    title: "Service-Based Businesses",
+    title: "Consulting & Advisory Firms",
     description:
-      "Whether you're a consultancy, agency, or professional practice, we help you streamline operations, improve your online presence, and win more of the right clients.",
+      "You've built genuine points of view through client work, but they're stuck in your head and your team's inboxes. We package that expertise into campaigns that build your reputation as the go-to authority.",
   },
   {
-    title: "Retail & Ecommerce",
+    title: "Cybersecurity & Cloud Providers",
     description:
-      "From Shopify builds to custom ecommerce platforms and inventory integrations, we help retail brands create seamless shopping experiences that convert and scale.",
+      "Trust is the entire sale in your category, and trust is built in public. We help you demonstrate expertise consistently, so prospects arrive already convinced before the first conversation.",
   },
 ];
 
@@ -31,7 +31,7 @@ export default function WhoWeHelp() {
         <div className="text-center mb-14">
           <SectionLabel>Who We Help</SectionLabel>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark-green">
-            Built for businesses that want more.
+            Built for businesses that have outgrown their reputation.
           </h2>
         </div>
 

@@ -14,16 +14,17 @@ export default function Hero() {
       />
 
       <div className="relative max-w-[1200px] mx-auto px-6 text-center py-32">
-        <SectionLabel>Melbourne Digital Agency</SectionLabel>
+        <SectionLabel>Marketing for IT Firms</SectionLabel>
         <h1 className="font-serif text-5xl md:text-7xl font-bold text-dark-green leading-tight max-w-4xl mx-auto mb-6">
-          Fresh Ideas, Fast Solutions, Real Growth.
+          Become the Obvious Choice in Your Market.
         </h1>
         <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          We combine new, creative ideas with the speed and expertise to deliver
-          results that go beyond the ordinary.
+          We help established IT, MSP and consulting firm owners turn deep
+          expertise into market authority — then into a pipeline that finally
+          matches their capability.
         </p>
         <Button href="/contact" variant="primary" className="text-base px-10 py-4">
-          Book a Free Strategy Session
+          Book a Strategy Call
         </Button>
       </div>
     </section>

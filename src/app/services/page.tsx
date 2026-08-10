@@ -22,8 +22,8 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
-            End-to-end growth services across sales, marketing, digital, and content —
-            everything custom, nothing off the shelf.
+            Sales, marketing, content and digital services — all built around
+            the digital events that make your expertise impossible to ignore.
           </p>
         </div>
       </section>
