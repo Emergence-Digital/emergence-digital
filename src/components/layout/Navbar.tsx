@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { categories } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
 
-type NavMenuKey = "services" | "industries";
+type NavMenuKey = "services";
 
 const navLinks = [
   { label: "Packages", href: "/packages" },
@@ -78,7 +78,6 @@ export default function Navbar() {
   }, [openMenu]);
 
   const isServicesActive = pathname.startsWith("/services");
-  const isIndustriesActive = pathname.startsWith("/industries");
 
   return (
     <header
@@ -97,51 +96,21 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav ref={navRef} className="hidden lg:flex items-center gap-8">
-          {/* Industries dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenMenu("industries")}
-            onMouseLeave={() => setOpenMenu(null)}
-          >
-            <button
-              type="button"
-              ref={(el) => {
-                triggerRefs.current.industries = el;
-              }}
-              aria-haspopup="menu"
-              aria-expanded={openMenu === "industries"}
-              aria-controls="nav-dropdown-industries"
-              onClick={() => setOpenMenu((prev) => (prev === "industries" ? null : "industries"))}
-              className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 ${
-                isIndustriesActive ? "text-mid-green" : "text-dark-green hover:text-mid-green"
-              }`}
-            >
-              Industries
-              <ChevronIcon open={openMenu === "industries"} />
-            </button>
-
-            {openMenu === "industries" && (
-              <div
-                id="nav-dropdown-industries"
-                role="menu"
-                aria-label="Industries"
-                className="absolute top-full left-0 pt-3 w-64"
+          {/* Industries links */}
+          {industries.map((industry) => {
+            const href = `/industries/${industry.slug}`;
+            return (
+              <Link
+                key={industry.slug}
+                href={href}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname === href ? "text-mid-green" : "text-dark-green hover:text-mid-green"
+                }`}
               >
-                <div className="bg-white rounded-xl shadow-lg border border-dark-green/10 py-2">
-                  {industries.map((industry) => (
-                    <Link
-                      key={industry.slug}
-                      href={`/industries/${industry.slug}`}
-                      role="menuitem"
-                      className="block px-4 py-2 text-sm text-dark-green hover:bg-cream hover:text-mid-green transition-colors duration-200"
-                    >
-                      {industry.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+                {industry.label}
+              </Link>
+            );
+          })}
 
           {/* Services dropdown */}
           <div
@@ -247,33 +216,22 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* Industries accordion */}
-          <div className="border-t border-dark-green/10">
-            <button
-              type="button"
-              onClick={() => setOpenMobileMenu((prev) => (prev === "industries" ? null : "industries"))}
-              aria-expanded={openMobileMenu === "industries"}
-              className={`flex items-center justify-between w-full text-sm font-medium py-3 ${
-                isIndustriesActive ? "text-mid-green" : "text-dark-green"
-              }`}
-            >
-              Industries
-              <ChevronIcon open={openMobileMenu === "industries"} />
-            </button>
-
-            {openMobileMenu === "industries" && (
-              <div className="pl-4 flex flex-col gap-3 pb-4">
-                {industries.map((industry) => (
-                  <Link
-                    key={industry.slug}
-                    href={`/industries/${industry.slug}`}
-                    className="text-sm text-dark-green/80"
-                  >
-                    {industry.label}
-                  </Link>
-                ))}
-              </div>
-            )}
+          {/* Industries links */}
+          <div className="border-t border-dark-green/10 flex flex-col">
+            {industries.map((industry) => {
+              const href = `/industries/${industry.slug}`;
+              return (
+                <Link
+                  key={industry.slug}
+                  href={href}
+                  className={`text-sm font-medium py-3 ${
+                    pathname === href ? "text-mid-green" : "text-dark-green"
+                  }`}
+                >
+                  {industry.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Services accordion */}
