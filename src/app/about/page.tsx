@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Card from "@/components/ui/Card";
 import CTABanner from "@/components/sections/CTABanner";
@@ -11,24 +12,19 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    title: "Honest Positioning",
+    title: "Craft",
     description:
-      "We tell clients the truth about how the market actually sees them, even when it's uncomfortable — because you can't fix a positioning problem you won't name.",
+      "We care about the quality of our work and go the extra mile on every campaign — the details are what separate work people notice from work people ignore.",
   },
   {
-    title: "Substance Over Noise",
+    title: "Creativity",
     description:
-      "We'd rather build one campaign around a genuine point of view than publish content for the sake of a calendar. Quality of insight beats frequency of posting, every time.",
+      "We bring out-of-the-box thinking to every brief and aren't afraid to try new things — the safe, expected approach rarely makes anyone stand out.",
   },
   {
-    title: "Momentum With Intention",
+    title: "Curiosity",
     description:
-      "We move fast on delivery, but never at the expense of getting your positioning right first — a rushed campaign built on the wrong angle just wastes everyone's time.",
-  },
-  {
-    title: "Category Thinking",
-    description:
-      "We don't just help you get noticed, we help you get recognised for something specific — because being known for everything is the same as being known for nothing.",
+      "We're constantly learning new approaches, technologies and ways of solving problems — staying curious is how we keep our clients ahead, not just current.",
   },
 ];
 
@@ -94,9 +90,9 @@ export default function AboutPage() {
               What drives us.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((v) => (
-              <Card key={v.title}>
+              <Card key={v.title} className="text-center">
                 <h3 className="font-serif text-2xl font-semibold text-dark-green mb-3">
                   {v.title}
                 </h3>
@@ -120,22 +116,24 @@ export default function AboutPage() {
           {/* Single team member card */}
           <div className="max-w-sm mx-auto">
             <Card className="text-center">
-              <div className="w-24 h-24 rounded-full bg-dark-green/10 mx-auto mb-6 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80"
-                  alt="Team member"
-                  className="w-full h-full object-cover"
+              <div className="w-24 h-24 rounded-full bg-dark-green/10 mx-auto mb-6 overflow-hidden relative">
+                <Image
+                  src="/shanek.jpeg"
+                  alt="Shane Kennedy"
+                  fill
+                  sizes="96px"
+                  className="object-cover"
                 />
               </div>
               <h3 className="font-serif text-2xl font-semibold text-dark-green">
                 Shane Kennedy
               </h3>
-              <p className="text-mid-green text-sm font-medium mt-1 mb-4">[ROLE]</p>
+              <p className="text-mid-green text-sm font-medium mt-1 mb-4">Founder</p>
               <p className="text-muted text-sm leading-relaxed">
-                [BIO PLACEHOLDER] A passionate digital professional with deep experience
-                in software development and digital strategy. Dedicated to building
-                products that make a real difference for clients and their customers.
+                Shane has spent the last 10 years in marketing, a significant part
+                of it inside the SAP partner ecosystem — working alongside
+                software, consulting and implementation partners to help them
+                stand out in a crowded, technical market.
               </p>
             </Card>
           </div>

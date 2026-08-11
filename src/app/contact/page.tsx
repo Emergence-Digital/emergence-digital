@@ -57,7 +57,23 @@ export default function ContactPage() {
                 <p className="text-xs font-semibold tracking-widest uppercase text-muted mb-1">
                   Location
                 </p>
-                <p className="text-dark-green font-medium">Melbourne VIC, Australia</p>
+                <p className="text-dark-green font-medium">
+                  Suite 4, 184 Main Street
+                  <br />
+                  Lilydale, VIC Australia
+                </p>
+                <div className="mt-4 rounded-xl overflow-hidden border border-dark-green/10">
+                  <iframe
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(
+                      "Suite 4, 184 Main Street, Lilydale, VIC, Australia"
+                    )}&output=embed`}
+                    className="w-full h-48"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Emergence Digital location map"
+                  />
+                </div>
               </div>
               <div>
                 <p className="text-xs font-semibold tracking-widest uppercase text-muted mb-3">

@@ -49,7 +49,11 @@ export default function Footer() {
                   contact@emergencedigital.com.au
                 </a>
               </li>
-              <li>Melbourne VIC, Australia</li>
+              <li>
+                Suite 4, 184 Main Street
+                <br />
+                Lilydale, VIC Australia
+              </li>
             </ul>
             <div className="flex gap-4">
               <a
