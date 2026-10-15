@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { categories } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
+import Button from "@/components/ui/Button";
 
-type NavMenuKey = "services";
+type NavMenuKey = "industries" | "services";
 
 const navLinks = [
   { label: "Packages", href: "/packages" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 function ChevronIcon({ open }: { open: boolean }) {
@@ -78,137 +78,176 @@ export default function Navbar() {
   }, [openMenu]);
 
   const isServicesActive = pathname.startsWith("/services");
+  const isIndustriesActive = pathname.startsWith("/industries");
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-cream/95 backdrop-blur-sm shadow-sm" : "bg-cream"
-      }`}
-    >
-      <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="font-serif text-xl font-bold text-dark-green tracking-tight"
-        >
-          Emergence Digital
-        </Link>
+    <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6">
+      <header
+        className={`max-w-[1200px] mx-auto rounded-full border transition-all duration-300 ${
+          scrolled
+            ? "bg-cream/95 backdrop-blur-md border-dark-green/10 shadow-lg"
+            : "bg-cream/80 backdrop-blur-md border-dark-green/5 shadow-sm"
+        }`}
+      >
+        <div className="px-5 sm:px-6 flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="font-serif text-lg font-bold text-dark-green tracking-tight"
+          >
+            Emergence Digital
+          </Link>
 
-        {/* Desktop nav */}
-        <nav ref={navRef} className="hidden lg:flex items-center gap-8">
-          {/* Industries links */}
-          {industries.map((industry) => {
-            const href = `/industries/${industry.slug}`;
-            return (
-              <Link
-                key={industry.slug}
-                href={href}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  pathname === href ? "text-mid-green" : "text-dark-green hover:text-mid-green"
+          {/* Desktop nav */}
+          <nav ref={navRef} className="hidden lg:flex items-center gap-7">
+            {/* Industries dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenMenu("industries")}
+              onMouseLeave={() => setOpenMenu(null)}
+            >
+              <button
+                type="button"
+                ref={(el) => {
+                  triggerRefs.current.industries = el;
+                }}
+                aria-haspopup="menu"
+                aria-expanded={openMenu === "industries"}
+                aria-controls="nav-dropdown-industries"
+                onClick={() => setOpenMenu((prev) => (prev === "industries" ? null : "industries"))}
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 ${
+                  isIndustriesActive ? "text-mid-green" : "text-dark-green hover:text-mid-green"
                 }`}
               >
-                {industry.label}
-              </Link>
-            );
-          })}
+                Industries
+                <ChevronIcon open={openMenu === "industries"} />
+              </button>
 
-          {/* Services dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenMenu("services")}
-            onMouseLeave={() => setOpenMenu(null)}
-          >
-            <button
-              type="button"
-              ref={(el) => {
-                triggerRefs.current.services = el;
-              }}
-              aria-haspopup="menu"
-              aria-expanded={openMenu === "services"}
-              aria-controls="nav-dropdown-services"
-              onClick={() => setOpenMenu((prev) => (prev === "services" ? null : "services"))}
-              className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 ${
-                isServicesActive ? "text-mid-green" : "text-dark-green hover:text-mid-green"
-              }`}
-            >
-              Services
-              <ChevronIcon open={openMenu === "services"} />
-            </button>
-
-            {openMenu === "services" && (
-              <div
-                id="nav-dropdown-services"
-                role="menu"
-                aria-label="Service categories"
-                className="absolute top-full left-0 pt-3 w-60"
-              >
-                <div className="bg-white rounded-xl shadow-lg border border-dark-green/10 py-2">
-                  {categories.map((category) => (
-                    <Link
-                      key={category.slug}
-                      href={`/services/${category.slug}`}
-                      role="menuitem"
-                      className="block px-4 py-2 text-sm text-dark-green hover:bg-cream hover:text-mid-green transition-colors duration-200"
-                    >
-                      {category.label}
-                    </Link>
-                  ))}
-                  <div className="border-t border-dark-green/10 mt-2 pt-2">
-                    <Link
-                      href="/services"
-                      role="menuitem"
-                      className="block px-4 py-2 text-xs font-semibold tracking-widest uppercase text-mid-green hover:text-dark-green transition-colors duration-200"
-                    >
-                      View all services →
-                    </Link>
+              {openMenu === "industries" && (
+                <div
+                  id="nav-dropdown-industries"
+                  role="menu"
+                  aria-label="Industries"
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-64"
+                >
+                  <div className="bg-white rounded-2xl shadow-lg border border-dark-green/10 py-2">
+                    {industries.map((industry) => (
+                      <Link
+                        key={industry.slug}
+                        href={`/industries/${industry.slug}`}
+                        role="menuitem"
+                        className="block px-4 py-2 text-sm text-dark-green hover:bg-cream hover:text-mid-green transition-colors duration-200"
+                      >
+                        {industry.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
-          {navLinks.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`text-sm font-medium transition-colors duration-200 ${
-                pathname === href
-                  ? "text-mid-green"
-                  : "text-dark-green hover:text-mid-green"
-              }`}
+            {/* Services dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setOpenMenu("services")}
+              onMouseLeave={() => setOpenMenu(null)}
             >
-              {label}
-            </Link>
-          ))}
-        </nav>
+              <button
+                type="button"
+                ref={(el) => {
+                  triggerRefs.current.services = el;
+                }}
+                aria-haspopup="menu"
+                aria-expanded={openMenu === "services"}
+                aria-controls="nav-dropdown-services"
+                onClick={() => setOpenMenu((prev) => (prev === "services" ? null : "services"))}
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 ${
+                  isServicesActive ? "text-mid-green" : "text-dark-green hover:text-mid-green"
+                }`}
+              >
+                Services
+                <ChevronIcon open={openMenu === "services"} />
+              </button>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden flex flex-col gap-1.5 p-2 text-dark-green"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block w-6 h-0.5 bg-dark-green transition-all duration-200 ${
-              mobileOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-dark-green transition-all duration-200 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-dark-green transition-all duration-200 ${
-              mobileOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
-        </button>
-      </div>
+              {openMenu === "services" && (
+                <div
+                  id="nav-dropdown-services"
+                  role="menu"
+                  aria-label="Service categories"
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-60"
+                >
+                  <div className="bg-white rounded-2xl shadow-lg border border-dark-green/10 py-2">
+                    {categories.map((category) => (
+                      <Link
+                        key={category.slug}
+                        href={`/services/${category.slug}`}
+                        role="menuitem"
+                        className="block px-4 py-2 text-sm text-dark-green hover:bg-cream hover:text-mid-green transition-colors duration-200"
+                      >
+                        {category.label}
+                      </Link>
+                    ))}
+                    <div className="border-t border-dark-green/10 mt-2 pt-2">
+                      <Link
+                        href="/services"
+                        role="menuitem"
+                        className="block px-4 py-2 text-xs font-semibold tracking-widest uppercase text-mid-green hover:text-dark-green transition-colors duration-200"
+                      >
+                        View all services →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {navLinks.map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  pathname === href
+                    ? "text-mid-green"
+                    : "text-dark-green hover:text-mid-green"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+
+            <Button href="/contact" variant="primary" className="text-sm px-5 py-2.5 rounded-full">
+              Contact
+            </Button>
+          </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            className="lg:hidden flex flex-col gap-1.5 p-2 text-dark-green"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`block w-6 h-0.5 bg-dark-green transition-all duration-200 ${
+                mobileOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-dark-green transition-all duration-200 ${
+                mobileOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-dark-green transition-all duration-200 ${
+                mobileOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </button>
+        </div>
+      </header>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-cream border-t border-dark-green/10 px-6 py-4 flex flex-col gap-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div className="lg:hidden mt-3 max-w-[1200px] mx-auto bg-cream rounded-3xl border border-dark-green/10 shadow-lg px-6 py-4 flex flex-col gap-1 max-h-[calc(100vh-6rem)] overflow-y-auto">
           <Link
             href="/"
             className={`text-sm font-medium py-2 ${pathname === "/" ? "text-mid-green" : "text-dark-green"}`}
@@ -216,22 +255,33 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* Industries links */}
-          <div className="border-t border-dark-green/10 flex flex-col">
-            {industries.map((industry) => {
-              const href = `/industries/${industry.slug}`;
-              return (
-                <Link
-                  key={industry.slug}
-                  href={href}
-                  className={`text-sm font-medium py-3 ${
-                    pathname === href ? "text-mid-green" : "text-dark-green"
-                  }`}
-                >
-                  {industry.label}
-                </Link>
-              );
-            })}
+          {/* Industries accordion */}
+          <div className="border-t border-dark-green/10">
+            <button
+              type="button"
+              onClick={() => setOpenMobileMenu((prev) => (prev === "industries" ? null : "industries"))}
+              aria-expanded={openMobileMenu === "industries"}
+              className={`flex items-center justify-between w-full text-sm font-medium py-3 ${
+                isIndustriesActive ? "text-mid-green" : "text-dark-green"
+              }`}
+            >
+              Industries
+              <ChevronIcon open={openMobileMenu === "industries"} />
+            </button>
+
+            {openMobileMenu === "industries" && (
+              <div className="pl-4 flex flex-col gap-3 pb-4">
+                {industries.map((industry) => (
+                  <Link
+                    key={industry.slug}
+                    href={`/industries/${industry.slug}`}
+                    className="text-sm text-dark-green/80"
+                  >
+                    {industry.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Services accordion */}
@@ -281,9 +331,17 @@ export default function Navbar() {
                 {label}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className={`text-sm font-medium py-3 ${
+                pathname === "/contact" ? "text-mid-green" : "text-dark-green"
+              }`}
+            >
+              Contact
+            </Link>
           </div>
         </div>
       )}
-    </header>
+    </div>
   );
 }
