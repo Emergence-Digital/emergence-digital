@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import ClientLogoWall from "@/components/sections/ClientLogoWall";
 import WhoWeHelp from "@/components/sections/WhoWeHelp";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import OurStrategy from "@/components/sections/OurStrategy";
@@ -10,6 +11,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <ClientLogoWall />
       <WhoWeHelp />
       <WhyChooseUs />
       <OurStrategy />
