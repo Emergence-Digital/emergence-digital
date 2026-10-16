@@ -1,5 +1,10 @@
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
+import ReviewsBadge from "@/components/ui/ReviewsBadge";
+
+// Reviews eyebrow above the headline (reviewer icons, five stars, review count). Hidden until we have 50+
+// five-star reviews: set to true to show it, and check the count in ReviewsBadge.tsx first.
+const SHOW_REVIEWS_BADGE = false;
 
 export default function Hero() {
   return (
@@ -14,11 +19,14 @@ export default function Hero() {
       />
 
       <div className="relative max-w-[1200px] mx-auto px-6 text-center py-32">
-        <SectionLabel>Marketing for IT Firms</SectionLabel>
-        <h1 className="font-serif text-5xl md:text-7xl font-bold text-dark-green leading-tight max-w-4xl mx-auto mb-6">
+        {SHOW_REVIEWS_BADGE && <ReviewsBadge />}
+        <div>
+          <SectionLabel>Marketing for IT Firms</SectionLabel>
+        </div>
+        <h1 className="font-serif text-5xl md:text-7xl font-bold text-dark-green leading-[1.08] tracking-tight max-w-4xl mx-auto mb-5">
           Become the Obvious Choice in Your Market.
         </h1>
-        <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-normal">
           We help established IT, MSP and software firm owners turn deep
           expertise into market authority — then into a pipeline that finally
           matches their capability.
