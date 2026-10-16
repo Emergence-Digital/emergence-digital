@@ -12,6 +12,20 @@
   /* Fonts */
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-inter);
+
+  /* Benefit tickers (Why Choose Emergence). Each list is doubled, so -50% is one full loop. */
+  --animate-ticker-left: ticker-left 60s linear infinite;
+  --animate-ticker-right: ticker-right 60s linear infinite;
+
+  @keyframes ticker-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes ticker-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
 }
 
 :root {
