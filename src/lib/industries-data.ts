@@ -54,8 +54,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "erp-software-partners",
-    label: "ERP & Software Partners",
-    eyebrow: "For ERP & Software Partners",
+    label: "ERP Partners",
+    eyebrow: "For ERP Partners",
     title: "Get on the shortlist before the RFP goes out.",
     subtitle:
       "Partnership credentials only matter if the market knows about them. We turn your implementation expertise into content and events that put you top of mind before the tender process even starts.",
@@ -82,39 +82,39 @@ export const industries: Industry[] = [
       { categorySlug: "sales", serviceSlug: "outreach-campaigns" },
     ],
     metaDescription:
-      "Marketing for ERP and software implementation partners — build the recognition and content that gets you shortlisted before the RFP goes out.",
+      "Marketing for ERP implementation partners — build the recognition and content that gets you shortlisted before the RFP goes out.",
   },
   {
-    slug: "consulting-advisory-firms",
-    label: "Consulting & Advisory Firms",
-    eyebrow: "For Consulting & Advisory Firms",
-    title: "Turn what's in your head into what the market sees.",
+    slug: "software-developers",
+    label: "Software Developers",
+    eyebrow: "For Software Developers",
+    title: "Show buyers what you can build before they compare quotes.",
     subtitle:
-      "You've built genuine points of view through years of client work — but they're stuck in your head and your team's inboxes. We package that expertise into campaigns that build your reputation as the go-to authority.",
+      "Good software doesn't sell itself, and a feature list isn't a reason to buy. We turn the problems you've solved for clients into content and events that show buyers what you're capable of — long before the demo.",
     beforeParagraph:
-      "You know more about your category than almost anyone in it, but that expertise only ever reaches the clients already in front of you. Business development competes with billable work for your time, so the thought leadership that would actually grow the firm never gets written, recorded, or published.",
+      "Your product or your engineering team is genuinely better, but from the outside you look like every other vendor with a feature grid and a book-a-demo button. Prospects arrive with no context, so demos do all the heavy lifting, conversations drift to price, and the problems you're best at solving never make it onto your website.",
     beforeIndicators: [
-      "Your expertise never leaves the room it was shared in",
-      "Business development only happens when someone finds spare time",
-      "You're known within your client base, but not beyond it",
-      "New work depends on who already knows you, not who should",
+      "Prospects compare you on features and price, not outcomes",
+      "Demos carry the whole sale because buyers arrive with no context",
+      "Your best client results live in release notes and support tickets",
+      "New business still depends on the founder's network",
     ],
     afterParagraph:
-      "Ninety days in, your point of view is out in the market on a consistent monthly rhythm — a webinar, a podcast, a guide — and prospects arrive at the first meeting already familiar with how you think. Referrals still come in, but now they're backed by a reputation that reaches further than your existing network.",
+      "Ninety days in, buyers have already seen the problem you solve — in a live walkthrough, a client story or a guide your team wrote — so the first call is about fit, not features. Your pipeline no longer relies on the founder's network, and sales cycles shorten because the education happens before the demo.",
     afterIndicators: [
-      "Industry peers begin recognising your firm as a thought leader",
-      "Your content consistently attracts the right audience, not just your existing network",
-      "Prospects reference your point of view before the first conversation",
-      "You're building a pipeline beyond who already knows you personally",
+      "Prospects book demos already understanding your use case",
+      "Client stories show the outcome, not just the feature list",
+      "Pipeline grows beyond the founder's personal network",
+      "Sales cycles shorten because buyers are educated before the first call",
     ],
     relatedServices: [
       { categorySlug: "marketing", serviceSlug: "events" },
-      { categorySlug: "content", serviceSlug: "blogs" },
-      { categorySlug: "content", serviceSlug: "podcasts" },
+      { categorySlug: "content", serviceSlug: "video" },
+      { categorySlug: "content", serviceSlug: "digital-guides" },
       { categorySlug: "sales", serviceSlug: "pipeline-generation" },
     ],
     metaDescription:
-      "Marketing for consulting and advisory firms — turn your point of view into digital events, content and a pipeline of qualified opportunities.",
+      "Marketing for software developers and product companies — turn what you've built into digital events, content and a pipeline of buyers who understand your value before the demo.",
   },
 ];
 

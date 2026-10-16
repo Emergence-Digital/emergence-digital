@@ -36,7 +36,7 @@ export default function WhyChooseUs() {
             </h2>
             <p className="text-white/70 text-lg leading-relaxed">
               We&apos;re a Melbourne marketing team built specifically for IT, MSP
-              and consulting firm owners who are excellent at the work but
+              and software firm owners who are excellent at the work but
               invisible in the market. We combine strategic positioning with
               hands-on campaign delivery — so recognition turns into real
               pipeline, not just attention.
