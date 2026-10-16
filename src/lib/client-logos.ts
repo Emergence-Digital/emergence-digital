@@ -10,7 +10,7 @@ export const clientLogos: Record<string, ClientLogo> = {
   "turnkey-consulting": {"name": "Turnkey Consulting", "src": "/logos/clients/turnkey-consulting.png", "width": 843, "height": 128},
   "hicron": {"name": "Hicron", "src": "/logos/clients/hicron.png", "width": 846, "height": 128},
   "cto-labs": {"name": "CTO Labs", "src": "/logos/clients/cto-labs.png", "width": 562, "height": 128},
-  "dpc-services-group": {"name": "DPC Services Group", "src": "/logos/clients/dpc-services-group.png", "width": 299, "height": 128},
+  "la-trobe-student-union": {"name": "La Trobe University Student Union", "src": "/logos/clients/la-trobe-student-union.png", "width": 851, "height": 128},
   "proxyn-ai": {"name": "ProxyN.ai", "src": "/logos/clients/proxyn-ai.png", "width": 348, "height": 128},
   "novofit": {"name": "Novofit", "src": "/logos/clients/novofit.png", "width": 458, "height": 128},
   "hitec-security": {"name": "Hitec Security", "src": "/logos/clients/hitec-security.png", "width": 395, "height": 128},

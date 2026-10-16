@@ -10,7 +10,7 @@ const CLIENTS = [
   "turnkey-consulting",
   "hicron",
   "cto-labs",
-  "dpc-services-group",
+  "la-trobe-student-union",
   "proxyn-ai",
   "novofit",
   "hitec-security",
@@ -27,11 +27,14 @@ const MAX_WIDTH = 170;
 const MAX_HEIGHT = 60;
 // Logos with a lot of empty space inside their shape (a tagline, an open mark) read small at the same area.
 const OPTICAL: Record<string, number> = { "rev-trac": 1.15, autocut: 1.2 };
+// Two-line lockups read small at the standard width cap, so they may run a little wider (still fits a cell).
+const WIDE: Record<string, number> = { "la-trobe-student-union": 190 };
 
 function size(slug: string, width: number, height: number) {
   const aspect = width / height;
   let h = Math.min(MAX_HEIGHT, Math.sqrt(AREA / aspect) * (OPTICAL[slug] ?? 1));
-  if (h * aspect > MAX_WIDTH) h = MAX_WIDTH / aspect;
+  const maxWidth = WIDE[slug] ?? MAX_WIDTH;
+  if (h * aspect > maxWidth) h = maxWidth / aspect;
   return { width: Math.round(h * aspect), height: Math.round(h) };
 }
 
