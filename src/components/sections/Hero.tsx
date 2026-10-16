@@ -24,12 +24,12 @@ export default function Hero() {
           <SectionLabel>Marketing for IT Firms</SectionLabel>
         </div>
         <h1 className="font-serif text-5xl md:text-7xl font-bold text-dark-green leading-[1.08] tracking-tight max-w-4xl mx-auto mb-5">
-          Become the Obvious Choice in Your Market.
+          Win the bigger clients that usually go to the big firms.
         </h1>
         <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-normal">
-          We help established IT, MSP and software firm owners turn deep
-          expertise into market authority — then into a pipeline that finally
-          matches their capability.
+          We help established IT businesses win enterprise and mid-market
+          deals, with healthier margins, a pipeline you can plan around and a
+          business that&apos;s worth more.
         </p>
         <Button href="/contact" variant="primary" className="text-base px-10 py-4">
           Book a Strategy Call

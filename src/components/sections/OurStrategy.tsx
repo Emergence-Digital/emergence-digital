@@ -33,7 +33,7 @@ export default function OurStrategy() {
         <div className="text-center mb-14">
           <SectionLabel light>Our Strategy</SectionLabel>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white text-balance">
-            How we win up-market and enterprise deals for you.
+            How we win enterprise and mid-market deals for you.
           </h2>
         </div>
 
