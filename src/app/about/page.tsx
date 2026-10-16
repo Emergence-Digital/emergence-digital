@@ -7,7 +7,7 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "About — Emergence Digital",
   description:
-    "A Melbourne marketing company built for IT, MSP and consulting firm owners ready to become recognised leaders in their category.",
+    "A Melbourne marketing company built for IT, MSP and software firm owners ready to become recognised leaders in their category.",
 };
 
 const values = [
@@ -39,7 +39,7 @@ export default function AboutPage() {
             About Emergence Digital
           </h1>
           <p className="text-muted text-lg max-w-2xl leading-relaxed">
-            A Melbourne marketing company built for IT, MSP and consulting firm
+            A Melbourne marketing company built for IT, MSP and software firm
             owners who&apos;ve outgrown their market positioning — and are ready
             to become recognised leaders in their category.
           </p>
@@ -63,8 +63,9 @@ export default function AboutPage() {
               firms close.
             </p>
             <p className="text-body leading-relaxed">
-              Today we work with IT services firms, MSPs, ERP partners and
-              consulting businesses who are technically excellent but
+              Today we work with IT services firms, MSPs, ERP partners,
+              software developers, and cybersecurity and cloud providers who
+              are technically excellent but
               under-recognised in their market. We build the campaigns —
               digital events, content, and follow-through — that turn quiet
               expertise into a reputation people actively seek out.

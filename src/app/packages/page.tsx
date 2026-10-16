@@ -8,7 +8,7 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "Packages — Emergence Digital",
   description:
-    "Campaign-led growth packages for IT and consulting firm owners ready to become the obvious choice in their market.",
+    "Campaign-led growth packages for IT and software firm owners ready to become the obvious choice in their market.",
 };
 
 interface Tier {
@@ -180,7 +180,7 @@ export default function PackagesPage() {
       <section className="bg-cream pb-16 md:pb-20">
         <div className="max-w-[800px] mx-auto px-6 text-center">
           <p className="text-body leading-relaxed">
-            Emergence is built for IT and consulting firm owners who are
+            Emergence is built for IT and software firm owners who are
             capable of winning mid-market and enterprise clients, but whose
             brand hasn&apos;t caught up to the business they&apos;ve actually
             built. We design campaigns for the entire funnel, powered by your

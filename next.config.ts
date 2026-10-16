@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         destination: "/services/digital",
         permanent: true,
       },
+      {
+        source: "/industries/consulting-advisory-firms",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };

@@ -19,7 +19,7 @@ export default function Hero() {
           Become the Obvious Choice in Your Market.
         </h1>
         <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          We help established IT, MSP and consulting firm owners turn deep
+          We help established IT, MSP and software firm owners turn deep
           expertise into market authority — then into a pipeline that finally
           matches their capability.
         </p>

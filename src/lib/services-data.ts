@@ -37,7 +37,7 @@ export const categories: Category[] = [
     description:
       "We turn the leads your digital events generate into tracked, qualified opportunities — segmenting your CRM, following up 1:1, and running the outreach and deal support that stop warm interest from going cold before it becomes revenue.",
     metaDescription:
-      "Sales outreach, pipeline generation and CRM support for Melbourne IT and consulting firms turning event leads into a tracked, qualified sales pipeline.",
+      "Sales outreach, pipeline generation and CRM support for Melbourne IT and software firms turning event leads into a tracked, qualified sales pipeline.",
     services: [
       {
         slug: "outreach-campaigns",
@@ -70,7 +70,7 @@ export const categories: Category[] = [
           },
         ],
         whoItsFor:
-          "Ideal for IT and consulting firm owners whose events generate genuine interest that then goes quiet, and for founders who don't have the time to personally chase every lead their campaign produces.",
+          "Ideal for IT and software firm owners whose events generate genuine interest that then goes quiet, and for founders who don't have the time to personally chase every lead their campaign produces.",
         metaDescription:
           "Post-event outreach campaigns — calls, emails and LinkedIn follow-up — that turn digital event attendees into booked sales conversations.",
         imageSrc:
@@ -148,7 +148,7 @@ export const categories: Category[] = [
         whoItsFor:
           "Suited to firm owners whose campaigns are generating real opportunities, but whose close rate on those opportunities is inconsistent.",
         metaDescription:
-          "Proposal frameworks, objection handling and negotiation support that help IT and consulting firms close the pipeline their campaigns generate.",
+          "Proposal frameworks, objection handling and negotiation support that help IT and software firms close the pipeline their campaigns generate.",
         imageSrc:
           "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80",
         imageAlt: "Deal closure — handshake following a signed agreement",
@@ -186,7 +186,7 @@ export const categories: Category[] = [
         whoItsFor:
           "Ideal for firm owners running (or about to run) regular campaigns who need the CRM and reporting infrastructure to actually keep up with the leads they generate.",
         metaDescription:
-          "CRM setup, campaign reporting and deal automation for IT and consulting firms running regular digital-event-led marketing campaigns.",
+          "CRM setup, campaign reporting and deal automation for IT and software firms running regular digital-event-led marketing campaigns.",
         imageSrc:
           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
         imageAlt: "SalesOps — dashboard reporting on sales pipeline performance",
@@ -201,7 +201,7 @@ export const categories: Category[] = [
     description:
       "We build the monthly digital event — webinar, podcast, workshop, or customer interview — that puts your expertise in front of the right audience, then promote it, repurpose it, and keep it compounding across search and social long after the event ends.",
     metaDescription:
-      "Digital event marketing, social promotion, email and SEO for IT and consulting firms building recognised authority in their category.",
+      "Digital event marketing, social promotion, email and SEO for IT and software firms building recognised authority in their category.",
     services: [
       {
         slug: "lead-generation",
@@ -310,9 +310,9 @@ export const categories: Category[] = [
           },
         ],
         whoItsFor:
-          "Suited to IT, MSP, ERP-partner and consulting firm owners who have genuine expertise to share but no time or internal capability to turn it into a consistent event, month after month.",
+          "Suited to IT, MSP, ERP-partner and software firm owners who have genuine expertise to share but no time or internal capability to turn it into a consistent event, month after month.",
         metaDescription:
-          "Monthly digital events — webinars, podcasts, workshops and customer interviews — built and run end-to-end for IT and consulting firm owners.",
+          "Monthly digital events — webinars, podcasts, workshops and customer interviews — built and run end-to-end for IT and software firm owners.",
         imageSrc:
           "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
         imageAlt: "Events — audience at a business conference",
@@ -403,7 +403,7 @@ export const categories: Category[] = [
     description:
       "The technical backbone behind your campaigns — registration pages that convert, CRM systems that talk to your marketing, and the automation and AI that turn a monthly event into a repeatable, low-effort growth engine.",
     metaDescription:
-      "Web design, CRM administration, automation and AI infrastructure that powers digital-event-led marketing campaigns for IT and consulting firms.",
+      "Web design, CRM administration, automation and AI infrastructure that powers digital-event-led marketing campaigns for IT and software firms.",
     services: [
       {
         slug: "web-design",
@@ -605,7 +605,7 @@ export const categories: Category[] = [
     description:
       "Every digital event becomes a full library of content — a cornerstone guide, an article series, social clips, and a slide deck — so one conversation with you turns into weeks of proof that you know your category.",
     metaDescription:
-      "Digital guides, blogs, video and podcast content repurposed from your monthly digital event, for IT and consulting firms building authority.",
+      "Digital guides, blogs, video and podcast content repurposed from your monthly digital event, for IT and software firms building authority.",
     services: [
       {
         slug: "video",
