@@ -20,14 +20,9 @@ npm run start     # serve the production build
 
 ## Environment variables
 
-The contact form uses [EmailJS](https://www.emailjs.com/) (no backend).
-Create `.env.local` in the project root with:
-
-```
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
-```
+Copy `.env.example` to `.env.local` and fill it in. The contact form uses
+[EmailJS](https://www.emailjs.com/) (no backend). Funnel lead forms post to
+`/api/lead`, which pushes contacts into GoHighLevel: see [SETUP.md](SETUP.md).
 
 ## Project structure
 
@@ -42,18 +37,25 @@ src/
 │   ├── contact/
 │   ├── packages/                      # Tier 1 / Tier 2 growth packages (no pricing shown)
 │   ├── industries/[slug]/             # Vertical landing pages (IT/MSP, ERP partners, consulting)
+│   ├── lp/                            # Funnel pages (noindex), e.g. lp/example-lead + its /book step
+│   ├── api/lead/route.ts              # Lead form submissions → GoHighLevel (see SETUP.md)
 │   └── services/
 │       ├── page.tsx                   # Hub page — all services grouped by category
 │       └── [category]/
 │           ├── page.tsx               # Category landing page
 │           └── [slug]/page.tsx        # Individual service page
 ├── components/
-│   ├── layout/     # Navbar, Footer, ServicePageLayout, IndustryPageLayout
-│   ├── sections/   # Page-level sections (Hero, WhoWeHelp, Testimonials, CTABanner, etc.)
+│   ├── layout/     # Navbar, Footer, ServicePageLayout, IndustryPageLayout, AttributionCapture
+│   ├── sections/   # Page-level sections (Hero, WhoWeHelp, Testimonials, CTABanner, LeadForm, CalendarEmbed, etc.)
 │   └── ui/         # Reusable primitives (Button, Card, SectionLabel)
 └── lib/
     ├── services-data.ts    # Source of truth for the 4 service categories / 19 services
-    └── industries-data.ts  # Source of truth for the 3 industry landing pages
+    ├── industries-data.ts  # Source of truth for the 3 industry landing pages
+    ├── lead-forms.ts       # Source of truth for funnel forms: fields, GHL tags, field IDs, success step
+    ├── lead-validation.ts  # Shared form validation + AU-default E.164 phone normalising
+    ├── attribution.ts      # First-touch UTM / click ID / referrer cookie
+    └── ghl.ts              # Server-only GHL API v2 client (upsert, tags, notes)
+scripts/                    # ghl-custom-fields.mjs, test-lead.mjs (see SETUP.md)
 ```
 
 ### Services

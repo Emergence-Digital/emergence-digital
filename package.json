@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ghl:fields": "node --env-file-if-exists=.env.local scripts/ghl-custom-fields.mjs",
+    "test:lead": "node --env-file-if-exists=.env.local scripts/test-lead.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
