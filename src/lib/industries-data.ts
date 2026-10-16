@@ -116,6 +116,38 @@ export const industries: Industry[] = [
     metaDescription:
       "Marketing for software developers and product companies — turn what you've built into digital events, content and a pipeline of buyers who understand your value before the demo.",
   },
+  {
+    slug: "cybersecurity-cloud-providers",
+    label: "Cybersecurity & Cloud Providers",
+    eyebrow: "For Cybersecurity & Cloud Providers",
+    title: "Be the provider they trust before they need one.",
+    subtitle:
+      "Trust is the entire sale in your category, and trust is built in public. We turn your team's expertise into content and events buyers see month after month — so they arrive already convinced before the first conversation.",
+    beforeParagraph:
+      "Your team knows the threat landscape and the cloud platforms better than most of the market, but from the outside you look like every other provider with the same certifications, the same 24/7 monitoring claims and the same zero-trust language. Buyers can't judge technical depth from a website, so they default to the biggest name they recognise — and your best work stays locked inside client environments where no prospect ever sees it.",
+    beforeIndicators: [
+      "Your website says the same things as every other provider in your category",
+      "Buyers default to the biggest brand they recognise",
+      "Your team's best work is hidden behind NDAs and client environments",
+      "Prospects only reach out once something has already gone wrong",
+    ],
+    afterParagraph:
+      "Ninety days in, your point of view on threats, compliance and cloud risk is out in the market every month — in a webinar, a briefing guide, a LinkedIn series from your own engineers — so prospects already trust your judgement before they book a call. Security reviews and procurement move faster because buyers have seen how you think, not just which badges you hold.",
+    afterIndicators: [
+      "Prospects arrive already familiar with your team's thinking",
+      "Your engineers are recognised voices, not anonymous names on a contract",
+      "You're top of mind before a breach or an audit forces the decision",
+      "Expert content proves your credibility without breaking client confidentiality",
+    ],
+    relatedServices: [
+      { categorySlug: "marketing", serviceSlug: "events" },
+      { categorySlug: "content", serviceSlug: "digital-guides" },
+      { categorySlug: "marketing", serviceSlug: "social-media" },
+      { categorySlug: "sales", serviceSlug: "outreach-campaigns" },
+    ],
+    metaDescription:
+      "Marketing for cybersecurity and cloud providers — build trust in public with digital events, expert content and a pipeline of buyers who arrive already convinced.",
+  },
 ];
 
 export function getIndustry(slug: string): Industry | undefined {
