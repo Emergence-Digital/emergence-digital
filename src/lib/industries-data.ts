@@ -12,48 +12,51 @@ export interface Industry {
   metaDescription: string;
 }
 
+// Order and names follow the audience line in the video scripts (Oct 2026): MSPs and cyber security firms,
+// ERP and cloud partners, IT consultancies, software developers and SaaS companies. Old slugs 301 here via
+// oldIndustrySlugs in next.config.ts.
 export const industries: Industry[] = [
   {
-    slug: "it-services-msps",
-    label: "IT Services & MSPs",
-    eyebrow: "For IT Services & MSPs",
-    title: "Become the first call, not the backup quote.",
+    slug: "msps-cyber-security",
+    label: "MSPs & Cyber Security Firms",
+    eyebrow: "For MSPs & Cyber Security Firms",
+    title: "Be the provider they trust before they need one.",
     subtitle:
-      "You've got the technical depth and the client base to prove it — but the market still treats you like a commodity provider. We build the recognition to match your capability.",
+      "Buyers can't judge technical depth from a website, so they default to the biggest name they recognise. We make you the provider they already trust, so you're the first call, not the backup quote.",
     beforeParagraph:
-      "Most of your new business still comes from referrals and RFPs where you're competing on price against firms with a fraction of your capability. Your website and socials don't reflect the quality of work you actually deliver, and larger, more strategic clients overlook you before you get a chance to pitch.",
+      "Your team knows the threat landscape and runs client environments better than most of the market, but from the outside you look like every other provider with the same certifications, the same 24/7 monitoring claims and the same zero-trust language. Most new business still comes from referrals and RFPs where you're competing on price, and your best work stays locked inside client environments where no prospect ever sees it.",
     beforeIndicators: [
       "Referrals are your main source of new business",
-      "Winning larger clients feels harder than it should",
-      "It's difficult to explain what makes you different from every other MSP",
-      "Your technical capability is stronger than your market reputation",
+      "Your website says the same things as every other provider in your category",
+      "Buyers default to the biggest brand they recognise",
+      "Prospects only reach out once something has already gone wrong",
     ],
     afterParagraph:
-      "Ninety days in, prospects already understand your expertise before they call — because they've seen your event, read your guide, or watched a client story. You're being invited to the table for mid-market and enterprise work, not just squeezed into a shortlist.",
+      "Ninety days in, prospects already know how your team thinks about threats, compliance and uptime before they book a call. You're invited in for mid-market and enterprise work instead of being squeezed into a shortlist, and security reviews move faster because buyers trust your judgement, not just your badges.",
     afterIndicators: [
-      "You're generating qualified meetings from every campaign",
+      "Prospects arrive already familiar with your team's thinking",
       "Your pipeline includes genuine mid-market opportunities",
-      "Inbound enquiries start arriving without a referral behind them",
+      "You're top of mind before a breach or an audit forces the decision",
       "You're choosing the clients you want, not accepting every job that comes in",
     ],
     relatedServices: [
       "webinars",
       "digital-guides",
+      "social-media",
       "lead-magnets",
-      "crm-admin",
     ],
     metaDescription:
-      "Marketing for IT services firms and MSPs ready to become the obvious choice in their market — digital events, content and pipeline built around your expertise.",
+      "Marketing for MSPs and cyber security firms that want to be the provider buyers already trust, and win mid-market and enterprise contracts on reputation, not price.",
   },
   {
-    slug: "erp-software-partners",
-    label: "ERP Partners",
-    eyebrow: "For ERP Partners",
+    slug: "erp-cloud-partners",
+    label: "ERP & Cloud Partners",
+    eyebrow: "For ERP & Cloud Partners",
     title: "Get on the shortlist before the RFP goes out.",
     subtitle:
-      "Partnership credentials only matter if the market knows about them. We turn your implementation expertise into content and events that put you top of mind before the tender process even starts.",
+      "Partnership credentials only matter if the market knows about them. We make you the partner buyers already know before the tender process even starts.",
     beforeParagraph:
-      "You've earned the partner tier, the certifications, and the case studies — but so has every other partner in your category. Without a visible point of view, you're just another logo on a partner page, competing on the same generic pitch as everyone else with the same badge.",
+      "Whether you implement SAP, Oracle, Microsoft or Salesforce, or move clients onto AWS, Azure or Google Cloud, you've earned the partner tier, the certifications and the case studies. So has every other partner in your ecosystem. Without a visible point of view, you're just another logo on a partner page, competing on the same generic pitch as everyone else with the same badge.",
     beforeIndicators: [
       "Partnership status alone isn't winning you more deals",
       "Prospects can't tell you apart from other partners with the same badge",
@@ -61,7 +64,7 @@ export const industries: Industry[] = [
       "New opportunities depend on the platform vendor's referral list, not your own reputation",
     ],
     afterParagraph:
-      "Ninety days in, you're the partner prospects already know before procurement gets involved. Your point of view on implementation, migration or optimisation is out in the market — in a guide, a webinar, a LinkedIn series — so conversations start with \"we've seen your content,\" not a cold intro from the vendor.",
+      "Ninety days in, you're the partner prospects already know before procurement gets involved. Your point of view on implementation, migration or optimisation is out in the market, so conversations start with \"we've seen your work,\" not a cold intro from the vendor.",
     afterIndicators: [
       "Prospects reference your content before the first sales call",
       "You're generating pipeline independent of vendor referrals",
@@ -75,28 +78,60 @@ export const industries: Industry[] = [
       "email-cadences",
     ],
     metaDescription:
-      "Marketing for ERP implementation partners — build the recognition and content that gets you shortlisted before the RFP goes out.",
+      "Marketing for ERP, CRM and cloud partners: build the recognition that gets you shortlisted before the RFP goes out.",
   },
   {
-    slug: "software-developers",
-    label: "Software Developers",
-    eyebrow: "For Software Developers",
-    title: "Show buyers what you can build before they compare quotes.",
+    slug: "consulting-development-firms",
+    label: "Consulting & Development Firms",
+    eyebrow: "For Consulting & Development Firms",
+    title: "Be the firm they trust to build their AI.",
     subtitle:
-      "Good software doesn't sell itself, and a feature list isn't a reason to buy. We turn the problems you've solved for clients into content and events that show buyers what you're capable of — long before the demo.",
+      "Every consultancy and development shop now claims it can build AI agents, and buyers can't tell who has actually shipped one. We make you the firm they trust to build theirs, so you're hired on expertise, not day rates.",
     beforeParagraph:
-      "Your product or your engineering team is genuinely better, but from the outside you look like every other vendor with a feature grid and a book-a-demo button. Prospects arrive with no context, so demos do all the heavy lifting, conversations drift to price, and the problems you're best at solving never make it onto your website.",
+      "You've put AI agents, data platforms and custom software into production for clients, but that proof stays inside client projects and NDAs. Business development competes with billable work for your time, so from the outside you look like every other firm with an AI page on its website, and buyers end up comparing you on day rates and headcount.",
+    beforeIndicators: [
+      "Every competitor's website now says the same things about AI",
+      "Your best work is hidden behind NDAs and client environments",
+      "Business development only happens when someone finds spare time",
+      "Buyers compare you on day rates, not on what you've delivered",
+    ],
+    afterParagraph:
+      "Ninety days in, buyers know your point of view on AI before they meet you, and they've seen what your team has put into production. First calls start with \"how would you build ours\" instead of \"what do you charge\", and new work comes from beyond the people who already know you.",
+    afterIndicators: [
+      "Prospects arrive convinced you can deliver AI that works in production",
+      "First calls are about scope, not day rates",
+      "Your team is recognised for what it has built, not just what it says",
+      "You're building a pipeline beyond who already knows you personally",
+    ],
+    relatedServices: [
+      "online-workshops",
+      "case-studies",
+      "webinars",
+      "blogs",
+    ],
+    metaDescription:
+      "Marketing for IT, data and AI consultancies and software development firms: become the firm buyers trust to build their AI, and win work on expertise, not day rates.",
+  },
+  {
+    slug: "saas-software-companies",
+    label: "SaaS & Software Companies",
+    eyebrow: "For SaaS & Software Companies",
+    title: "Win the deal before the demo.",
+    subtitle:
+      "Good software doesn't sell itself, and a feature list isn't a reason to buy. We bring you buyers who already understand the problem you solve, so the first call is about fit, not features.",
+    beforeParagraph:
+      "Your product is genuinely better, but from the outside you look like every other vendor with a feature grid and a book-a-demo button. Prospects arrive with no context, so demos do all the heavy lifting, conversations drift to price, and the problems you're best at solving never make it onto your website.",
     beforeIndicators: [
       "Prospects compare you on features and price, not outcomes",
       "Demos carry the whole sale because buyers arrive with no context",
-      "Your best client results live in release notes and support tickets",
+      "Your best customer results live in release notes and support tickets",
       "New business still depends on the founder's network",
     ],
     afterParagraph:
-      "Ninety days in, buyers have already seen the problem you solve — in a live walkthrough, a client story or a guide your team wrote — so the first call is about fit, not features. Your pipeline no longer relies on the founder's network, and sales cycles shorten because the education happens before the demo.",
+      "Ninety days in, buyers have already seen the problem you solve before they book, so the first call is about fit, not features. Your pipeline no longer relies on the founder's network, and sales cycles shorten because the education happens before the demo.",
     afterIndicators: [
       "Prospects book demos already understanding your use case",
-      "Client stories show the outcome, not just the feature list",
+      "Customer stories show the outcome, not just the feature list",
       "Pipeline grows beyond the founder's personal network",
       "Sales cycles shorten because buyers are educated before the first call",
     ],
@@ -107,39 +142,7 @@ export const industries: Industry[] = [
       "buying-signals",
     ],
     metaDescription:
-      "Marketing for software developers and product companies — turn what you've built into digital events, content and a pipeline of buyers who understand your value before the demo.",
-  },
-  {
-    slug: "cybersecurity-cloud-providers",
-    label: "Cybersecurity & Cloud Providers",
-    eyebrow: "For Cybersecurity & Cloud Providers",
-    title: "Be the provider they trust before they need one.",
-    subtitle:
-      "Trust is the entire sale in your category, and trust is built in public. We turn your team's expertise into content and events buyers see month after month — so they arrive already convinced before the first conversation.",
-    beforeParagraph:
-      "Your team knows the threat landscape and the cloud platforms better than most of the market, but from the outside you look like every other provider with the same certifications, the same 24/7 monitoring claims and the same zero-trust language. Buyers can't judge technical depth from a website, so they default to the biggest name they recognise — and your best work stays locked inside client environments where no prospect ever sees it.",
-    beforeIndicators: [
-      "Your website says the same things as every other provider in your category",
-      "Buyers default to the biggest brand they recognise",
-      "Your team's best work is hidden behind NDAs and client environments",
-      "Prospects only reach out once something has already gone wrong",
-    ],
-    afterParagraph:
-      "Ninety days in, your point of view on threats, compliance and cloud risk is out in the market every month — in a webinar, a briefing guide, a LinkedIn series from your own engineers — so prospects already trust your judgement before they book a call. Security reviews and procurement move faster because buyers have seen how you think, not just which badges you hold.",
-    afterIndicators: [
-      "Prospects arrive already familiar with your team's thinking",
-      "Your engineers are recognised voices, not anonymous names on a contract",
-      "You're top of mind before a breach or an audit forces the decision",
-      "Expert content proves your credibility without breaking client confidentiality",
-    ],
-    relatedServices: [
-      "webinars",
-      "digital-guides",
-      "social-media",
-      "email-cadences",
-    ],
-    metaDescription:
-      "Marketing for cybersecurity and cloud providers — build trust in public with digital events, expert content and a pipeline of buyers who arrive already convinced.",
+      "Marketing for SaaS and software companies: a pipeline of buyers who understand your product's value before the demo.",
   },
 ];
 

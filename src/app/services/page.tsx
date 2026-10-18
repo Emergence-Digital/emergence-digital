@@ -6,7 +6,7 @@ import CTABanner from "@/components/sections/CTABanner";
 export const metadata: Metadata = {
   title: "Our Services — Emergence Digital",
   description:
-    "Services that help IT, MSP, ERP, software and cyber firms win bigger accounts, get more leads from their website, stand out from the big firms and close more of their pipeline.",
+    "Services that help MSPs, cyber security firms, ERP and cloud partners, consultancies and software companies win bigger accounts, get more leads from their website, stand out from the big firms and close more of their pipeline.",
 };
 
 export default function ServicesPage() {

@@ -63,9 +63,9 @@ export default function AboutPage() {
               firms close.
             </p>
             <p className="text-body leading-relaxed">
-              Today we work with IT services firms, MSPs, ERP partners,
-              software developers, and cybersecurity and cloud providers who
-              are technically excellent but
+              Today we work with MSPs and cyber security firms, ERP and cloud
+              partners, IT consultancies, software developers and SaaS
+              companies who are technically excellent but
               under-recognised in their market. We build the campaigns —
               digital events, content, and follow-through — that turn quiet
               expertise into a reputation people actively seek out.
