@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { categories } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
 import Button from "@/components/ui/Button";
 
-type NavMenuKey = "industries" | "services";
+type NavMenuKey = "industries";
 
 const navLinks = [
+  { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
   { label: "About", href: "/about" },
 ];
@@ -77,7 +77,6 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", handler);
   }, [openMenu]);
 
-  const isServicesActive = pathname.startsWith("/services");
   const isIndustriesActive = pathname.startsWith("/industries");
 
   return (
@@ -141,61 +140,6 @@ export default function Navbar() {
                         {industry.label}
                       </Link>
                     ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Services dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setOpenMenu("services")}
-              onMouseLeave={() => setOpenMenu(null)}
-            >
-              <button
-                type="button"
-                ref={(el) => {
-                  triggerRefs.current.services = el;
-                }}
-                aria-haspopup="menu"
-                aria-expanded={openMenu === "services"}
-                aria-controls="nav-dropdown-services"
-                onClick={() => setOpenMenu((prev) => (prev === "services" ? null : "services"))}
-                className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 ${
-                  isServicesActive ? "text-mid-green" : "text-dark-green hover:text-mid-green"
-                }`}
-              >
-                Services
-                <ChevronIcon open={openMenu === "services"} />
-              </button>
-
-              {openMenu === "services" && (
-                <div
-                  id="nav-dropdown-services"
-                  role="menu"
-                  aria-label="Service categories"
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-60"
-                >
-                  <div className="bg-white rounded-2xl shadow-lg border border-dark-green/10 py-2">
-                    {categories.map((category) => (
-                      <Link
-                        key={category.slug}
-                        href={`/services/${category.slug}`}
-                        role="menuitem"
-                        className="block px-4 py-2 text-sm text-dark-green hover:bg-cream hover:text-mid-green transition-colors duration-200"
-                      >
-                        {category.label}
-                      </Link>
-                    ))}
-                    <div className="border-t border-dark-green/10 mt-2 pt-2">
-                      <Link
-                        href="/services"
-                        role="menuitem"
-                        className="block px-4 py-2 text-xs font-semibold tracking-widest uppercase text-mid-green hover:text-dark-green transition-colors duration-200"
-                      >
-                        View all services →
-                      </Link>
-                    </div>
                   </div>
                 </div>
               )}
@@ -280,41 +224,6 @@ export default function Navbar() {
                     {industry.label}
                   </Link>
                 ))}
-              </div>
-            )}
-          </div>
-
-          {/* Services accordion */}
-          <div className="border-t border-dark-green/10">
-            <button
-              type="button"
-              onClick={() => setOpenMobileMenu((prev) => (prev === "services" ? null : "services"))}
-              aria-expanded={openMobileMenu === "services"}
-              className={`flex items-center justify-between w-full text-sm font-medium py-3 ${
-                isServicesActive ? "text-mid-green" : "text-dark-green"
-              }`}
-            >
-              Services
-              <ChevronIcon open={openMobileMenu === "services"} />
-            </button>
-
-            {openMobileMenu === "services" && (
-              <div className="pl-4 flex flex-col gap-3 pb-4">
-                {categories.map((category) => (
-                  <Link
-                    key={category.slug}
-                    href={`/services/${category.slug}`}
-                    className="text-sm text-dark-green/80"
-                  >
-                    {category.label}
-                  </Link>
-                ))}
-                <Link
-                  href="/services"
-                  className="text-xs font-semibold tracking-widest uppercase text-mid-green"
-                >
-                  View all services →
-                </Link>
               </div>
             )}
           </div>

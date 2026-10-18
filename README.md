@@ -31,7 +31,7 @@ src/
 ├── app/
 │   ├── layout.tsx                     # Root layout — fonts, global nav/footer, metadataBase
 │   ├── page.tsx                       # Home page
-│   ├── sitemap.ts                     # Generated from services-data.ts + industries-data.ts
+│   ├── sitemap.ts                     # Static routes + industries-data.ts
 │   ├── robots.ts
 │   ├── about/
 │   ├── contact/
@@ -39,17 +39,13 @@ src/
 │   ├── industries/[slug]/             # Vertical landing pages (IT/MSP, ERP partners, consulting)
 │   ├── lp/                            # Funnel pages (noindex), e.g. lp/example-lead + its /book step
 │   ├── api/lead/route.ts              # Lead form submissions → GoHighLevel (see SETUP.md)
-│   └── services/
-│       ├── page.tsx                   # Hub page — all services grouped by category
-│       └── [category]/
-│           ├── page.tsx               # Category landing page
-│           └── [slug]/page.tsx        # Individual service page
+│   └── services/page.tsx              # Services library — one page, goal filters, list + pop-ups
 ├── components/
-│   ├── layout/     # Navbar, Footer, ServicePageLayout, IndustryPageLayout, AttributionCapture
-│   ├── sections/   # Page-level sections (Hero, WhoWeHelp, Testimonials, CTABanner, LeadForm, CalendarEmbed, etc.)
+│   ├── layout/     # Navbar, Footer, IndustryPageLayout, AttributionCapture
+│   ├── sections/   # Page-level sections (Hero, WhoWeHelp, ClientStories, ServicesLibrary, CTABanner, LeadForm, etc.)
 │   └── ui/         # Reusable primitives (Button, Card, SectionLabel)
 └── lib/
-    ├── services-data.ts    # Source of truth for the 4 service categories / 19 services
+    ├── services-data.ts    # Source of truth for the 20 services and the 4 visitor goals
     ├── industries-data.ts  # Source of truth for the 3 industry landing pages
     ├── lead-forms.ts       # Source of truth for funnel forms: fields, GHL tags, field IDs, success step
     ├── lead-validation.ts  # Shared form validation + AU-default E.164 phone normalising
@@ -60,16 +56,30 @@ scripts/                    # ghl-custom-fields.mjs, test-lead.mjs (see SETUP.md
 
 ### Services
 
-Services are organised into 4 categories — **Sales, Marketing, Digital,
-Content** — defined in `src/lib/services-data.ts`. Routes are dynamic:
+`/services` is a single page: a library of 20 services defined as one
+flat list in `src/lib/services-data.ts`. There are no per-service routes.
 
-- `/services` — hub page, all categories
-- `/services/[category]` — category landing page (e.g. `/services/digital`)
-- `/services/[category]/[slug]` — individual service page
+- **Filters:** chips for All plus 4 visitor goals (Win bigger accounts · Get
+  more leads from our website · Stand out from the big firms · Close more of
+  what we already have). A service can sit under several goals. The active
+  goal is mirrored in `?goal=<slug>`, which the Footer links use.
+- **List:** each service is a row with its title, one-line outcome, the
+  "what you get" headings and who it's for. The outcome line states the client
+  outcome only, never the tactic or deliverable. On desktop the list sits
+  beside one sticky scene that follows the row in view; below that width each
+  row shows its own scene.
+- **Pop-up:** clicking a row opens a dialog with everything (intro, feature
+  descriptions, who it's for), the same pattern as the client stories section.
+  Each row is a `/services#<slug>` deep link, and industry pages link to
+  services that way.
+- **Images:** `public/services/<slug>.webp`, exported from the Illustrator card
+  library (board theme `services`; the slug matches the board's
+  `svc-<slug>` item and the `exports/Service-<Slug>.png` file, saved as a
+  1200×720 webp).
 
-To add or edit a service, only touch `services-data.ts` — the Navbar
-dropdown, Footer columns, homepage services overview, the `/services` hub,
-and `sitemap.ts` all read from it.
+To add or edit a service, only touch `services-data.ts`. The old category and
+service URLs 301 to `/services` (or `/services#<slug>` where the service
+survives) via the map in `next.config.ts`.
 
 ### Industries
 
@@ -81,10 +91,9 @@ a handful of relevant services.
 
 ### Navigation
 
-The navbar is intentionally consolidated rather than listing all 19 services:
-**Services** (dropdown of the 4 categories only) → **Industries** (dropdown
-of the 3 vertical pages) → **Packages** → About → Contact. Same structure
-repeats in the mobile accordion.
+**Industries** (dropdown of the vertical pages) → **Services** (plain link to
+the library) → **Packages** → About → Contact. Same structure repeats in the
+mobile menu.
 
 ## Design system
 

@@ -1,10 +1,3 @@
-import { CategorySlug } from "@/lib/services-data";
-
-export interface RelatedService {
-  categorySlug: CategorySlug;
-  serviceSlug: string;
-}
-
 export interface Industry {
   slug: string;
   label: string;
@@ -15,7 +8,7 @@ export interface Industry {
   beforeIndicators: string[];
   afterParagraph: string;
   afterIndicators: string[];
-  relatedServices: RelatedService[];
+  relatedServices: string[]; // slugs from services-data.ts, linked as /services#<slug>
   metaDescription: string;
 }
 
@@ -44,10 +37,10 @@ export const industries: Industry[] = [
       "You're choosing the clients you want, not accepting every job that comes in",
     ],
     relatedServices: [
-      { categorySlug: "marketing", serviceSlug: "events" },
-      { categorySlug: "content", serviceSlug: "digital-guides" },
-      { categorySlug: "marketing", serviceSlug: "lead-generation" },
-      { categorySlug: "digital", serviceSlug: "crm-administration" },
+      "webinars",
+      "digital-guides",
+      "lead-magnets",
+      "crm-admin",
     ],
     metaDescription:
       "Marketing for IT services firms and MSPs ready to become the obvious choice in their market — digital events, content and pipeline built around your expertise.",
@@ -76,10 +69,10 @@ export const industries: Industry[] = [
       "You're being shortlisted on reputation, not just partner tier",
     ],
     relatedServices: [
-      { categorySlug: "marketing", serviceSlug: "events" },
-      { categorySlug: "marketing", serviceSlug: "seo" },
-      { categorySlug: "content", serviceSlug: "digital-guides" },
-      { categorySlug: "sales", serviceSlug: "outreach-campaigns" },
+      "webinars",
+      "blogs",
+      "digital-guides",
+      "email-cadences",
     ],
     metaDescription:
       "Marketing for ERP implementation partners — build the recognition and content that gets you shortlisted before the RFP goes out.",
@@ -108,10 +101,10 @@ export const industries: Industry[] = [
       "Sales cycles shorten because buyers are educated before the first call",
     ],
     relatedServices: [
-      { categorySlug: "marketing", serviceSlug: "events" },
-      { categorySlug: "content", serviceSlug: "video" },
-      { categorySlug: "content", serviceSlug: "digital-guides" },
-      { categorySlug: "sales", serviceSlug: "pipeline-generation" },
+      "webinars",
+      "video-production",
+      "digital-guides",
+      "buying-signals",
     ],
     metaDescription:
       "Marketing for software developers and product companies — turn what you've built into digital events, content and a pipeline of buyers who understand your value before the demo.",
@@ -140,10 +133,10 @@ export const industries: Industry[] = [
       "Expert content proves your credibility without breaking client confidentiality",
     ],
     relatedServices: [
-      { categorySlug: "marketing", serviceSlug: "events" },
-      { categorySlug: "content", serviceSlug: "digital-guides" },
-      { categorySlug: "marketing", serviceSlug: "social-media" },
-      { categorySlug: "sales", serviceSlug: "outreach-campaigns" },
+      "webinars",
+      "digital-guides",
+      "social-media",
+      "email-cadences",
     ],
     metaDescription:
       "Marketing for cybersecurity and cloud providers — build trust in public with digital events, expert content and a pipeline of buyers who arrive already convinced.",
