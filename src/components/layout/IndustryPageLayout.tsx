@@ -3,8 +3,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import CTABanner from "@/components/sections/CTABanner";
-import { getService } from "@/lib/services-data";
-import type { RelatedService } from "@/lib/industries-data";
+import { getService, type Service } from "@/lib/services-data";
 
 interface IndustryPageLayoutProps {
   eyebrow: string;
@@ -14,7 +13,7 @@ interface IndustryPageLayoutProps {
   beforeIndicators: string[];
   afterParagraph: string;
   afterIndicators: string[];
-  relatedServices: RelatedService[];
+  relatedServices: string[];
 }
 
 function Dot() {
@@ -50,8 +49,8 @@ export default function IndustryPageLayout({
   relatedServices,
 }: IndustryPageLayoutProps) {
   const services = relatedServices
-    .map((rs) => getService(rs.categorySlug, rs.serviceSlug))
-    .filter((result): result is NonNullable<typeof result> => Boolean(result));
+    .map((slug) => getService(slug))
+    .filter((service): service is Service => Boolean(service));
 
   return (
     <>
@@ -121,16 +120,16 @@ export default function IndustryPageLayout({
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map(({ category, service }) => (
+            {services.map((service) => (
               <Card key={service.slug} className="flex flex-col">
                 <h3 className="font-serif text-lg font-bold text-dark-green mb-3">
-                  {service.label}
+                  {service.title}
                 </h3>
                 <p className="text-muted text-sm leading-relaxed flex-1 mb-6">
-                  {service.shortDescription}
+                  {service.outcome}
                 </p>
                 <Link
-                  href={`/services/${category.slug}/${service.slug}`}
+                  href={`/services#${service.slug}`}
                   className="text-sm font-medium text-dark-green border-b border-dark-green/30 hover:border-mid-green hover:text-mid-green transition-colors duration-200 self-start"
                 >
                   Learn more →
