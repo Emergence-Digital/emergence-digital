@@ -37,6 +37,7 @@ export default async function IndustryDetailPage({
 
   return (
     <IndustryPageLayout
+      slug={industry.slug}
       eyebrow={industry.eyebrow}
       title={industry.title}
       subtitle={industry.subtitle}

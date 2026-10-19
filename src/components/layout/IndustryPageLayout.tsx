@@ -2,11 +2,13 @@ import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import CTABanner from "@/components/sections/CTABanner";
+import IndustryHeroCards from "@/components/sections/IndustryHeroCards";
 import IndustryServices from "@/components/sections/IndustryServices";
 import type { Shift } from "@/lib/industries-data";
 import { shiftIcons, type ShiftIcon } from "@/lib/shift-icons";
 
 interface IndustryPageLayoutProps {
+  slug: string;
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -33,6 +35,7 @@ function ShiftIconTile({ name, after = false }: { name: ShiftIcon; after?: boole
 }
 
 export default function IndustryPageLayout({
+  slug,
   eyebrow,
   title,
   subtitle,
@@ -43,19 +46,22 @@ export default function IndustryPageLayout({
 }: IndustryPageLayoutProps) {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-cream pt-32 pb-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionLabel>{eyebrow}</SectionLabel>
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-dark-green mt-2 mb-6 max-w-3xl">
-            {title}
-          </h1>
-          <p className="text-muted text-lg max-w-2xl leading-relaxed mb-10">
-            {subtitle}
-          </p>
-          <Button href="/contact" variant="primary">
-            Book a Strategy Call
-          </Button>
+      {/* Hero: the copy, with this audience's cards floating beside it */}
+      <section className="bg-cream pt-32 pb-16 lg:pb-20 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,540px)] gap-12 lg:gap-10 items-center">
+          <div>
+            <SectionLabel>{eyebrow}</SectionLabel>
+            <h1 className="font-serif text-5xl md:text-6xl font-bold text-dark-green mt-2 mb-6 max-w-3xl">
+              {title}
+            </h1>
+            <p className="text-muted text-lg max-w-2xl leading-relaxed mb-10">
+              {subtitle}
+            </p>
+            <Button href="/contact" variant="primary">
+              Book a Strategy Call
+            </Button>
+          </div>
+          <IndustryHeroCards slug={slug} />
         </div>
       </section>
 
