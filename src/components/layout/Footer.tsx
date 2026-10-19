@@ -108,10 +108,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Industries column */}
+          {/* Who We Help column (the industry pages) */}
           <div>
             <p className="block text-xs font-semibold tracking-widest uppercase text-white/50 mb-5">
-              Industries
+              Who We Help
             </p>
             <ul className="space-y-3">
               {industries.map((industry) => (
