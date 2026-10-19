@@ -37,13 +37,13 @@ export default async function IndustryDetailPage({
 
   return (
     <IndustryPageLayout
+      slug={industry.slug}
       eyebrow={industry.eyebrow}
       title={industry.title}
       subtitle={industry.subtitle}
       beforeParagraph={industry.beforeParagraph}
-      beforeIndicators={industry.beforeIndicators}
+      shifts={industry.shifts}
       afterParagraph={industry.afterParagraph}
-      afterIndicators={industry.afterIndicators}
       relatedServices={industry.relatedServices}
     />
   );
