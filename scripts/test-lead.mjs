@@ -102,7 +102,9 @@ const real = await submit({
   formId,
   fields,
   attribution,
-  pageUrl: `${origin}/lp/${formId}?utm_source=test-script`,
+  // The run's stamp goes in the page URL as well as the message, so the note
+  // can be found for forms without a message field (e.g. book-call).
+  pageUrl: `${origin}/lp/${formId}?utm_source=test-script&test_run=${stamp}`,
   website: "",
   elapsedMs: 8000,
 });
@@ -169,7 +171,7 @@ try {
   const { notes = [] } = await ghl(`/contacts/${contact.id}/notes`);
   const note = notes.find((n) => n.body?.includes(String(stamp)));
   if (note) pass("note added:");
-  else fail("note with the test message not found");
+  else fail("note for this test run not found");
   if (note) console.log(note.body.replace(/^/gm, "        "));
 
   const botContact = await findContact(botEmail);
