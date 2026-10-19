@@ -96,16 +96,16 @@ export default function ClientStories() {
         ref={dialogRef}
         aria-labelledby="story-name"
         onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}
-        className="m-auto outline-none w-[min(960px,calc(100vw-32px))] max-w-none max-h-[calc(100vh-24px)] md:max-h-[calc(100vh-48px)] p-0 rounded-[20px] bg-[#FBF8F5] text-body shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] overflow-y-auto md:overflow-hidden backdrop:bg-[rgba(18,36,31,0.6)] backdrop:backdrop-blur-sm"
+        className="m-auto outline-none w-[min(960px,calc(100vw-32px))] max-w-none max-h-[calc(100dvh-24px)] md:max-h-[calc(100dvh-48px)] p-0 rounded-[20px] bg-[#FBF8F5] text-body shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] overflow-y-auto overscroll-contain md:overflow-hidden backdrop:bg-[rgba(18,36,31,0.6)] backdrop:backdrop-blur-sm"
       >
         {story && (
-          <div className="md:grid md:grid-cols-[5fr_7fr] md:max-h-[calc(100vh-48px)]">
+          <div className="md:grid md:grid-cols-[5fr_7fr]">
             {/* The thumbnail is 16:10 and the panel is tall, so show it whole over a blurred copy of itself. */}
-            <div className="relative bg-dark-green aspect-[16/10] md:aspect-auto md:min-h-full overflow-hidden">
+            <div className="relative bg-dark-green aspect-[16/10] md:aspect-auto overflow-hidden">
               <Image src={story.image} alt="" fill sizes="400px" className="object-cover scale-125 blur-2xl opacity-70" aria-hidden="true" />
               <Image src={story.image} alt="" fill sizes="(min-width: 768px) 400px, 100vw" className="object-contain" />
             </div>
-            <div className="flex flex-col gap-[18px] px-5 pt-6 pb-5 md:px-10 md:pt-9 md:pb-7 md:overflow-y-auto">
+            <div className="flex flex-col gap-[18px] px-5 pt-6 pb-5 md:px-10 md:pt-9 md:pb-7 md:max-h-[calc(100dvh-48px)] md:overflow-y-auto md:overscroll-contain">
               <div className="flex justify-between items-start gap-4">
                 <div>
                   <div className="text-xs font-semibold tracking-wider uppercase text-mid-green">{story.category}</div>
