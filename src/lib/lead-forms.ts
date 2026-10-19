@@ -112,7 +112,7 @@ export const attributionFieldIds: Record<AttributionKey | "conversion_page", str
 
 /** GHL calendars embedded on booking pages (Calendars → Calendar settings → the calendar's ID). */
 export const bookingCalendarIds = {
-  /** "15 Minute Pipeline Scale Call" (round robin) */
+  /** "30 Minute Pipeline Scale Call" (round robin) */
   pipelineScaleCall: "TygCbiZhLM8nPUil74R6",
 } as const;
 

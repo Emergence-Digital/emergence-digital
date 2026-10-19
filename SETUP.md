@@ -187,7 +187,7 @@ Every "Book a Strategy Call" button on the site links to `/book`. It's the funne
 The form comes before the calendar because the calendar can't be tagged from the site. The GHL booking widget talks to GHL directly and never tells the page when someone books, so a straight-to-calendar booking would skip `/api/lead`: no `web:` tag, no attribution fields, no GA `generate_lead`. GHL's own attribution doesn't reliably carry through embedded calendars either. Form first also captures people who leave before picking a time.
 
 - `web:book-call` means organic (came from the site's own buttons). Funnel forms keep their own tags, e.g. `web:example-lead`, even though both book on the same calendar.
-- The calendar is `bookingCalendarIds.pipelineScaleCall` ("15 Minute Pipeline Scale Call"). To use a different one, add it to `bookingCalendarIds` and change `src/app/book/time/page.tsx`.
+- The calendar is `bookingCalendarIds.pipelineScaleCall` ("30 Minute Pipeline Scale Call", 30 minutes since 19 Oct 2026, so it matches the CTA banner's "30-minute strategy call"). To use a different one, add it to `bookingCalendarIds` and change `src/app/book/time/page.tsx`.
 - `/book` is in the sitemap; `/book/time` is `noindex`.
 - For the workflow (step 6), trigger on *Tag Added* = `web:book-call`. A **Wait** step followed by an *If/Else* on whether they've booked lets you chase people who didn't pick a time.
 
@@ -252,4 +252,4 @@ Everything in the brief matched the docs (base URL, `Version: 2021-07-28` on eve
 - Upsert follows the location's "Allow Duplicate Contact" setting and returns `new: true|false`. The route uses `new` to skip the tag removal for new contacts.
 - `DELETE /contacts/{id}/tags` takes the same JSON body as add: `{ "tags": [...] }`.
 - Notes only require `body`.
-- Not in the API docs: the booking widget's prefill params. Checked on the live "15 Minute Pipeline Scale Call" widget, where `first_name`, `last_name`, `email` and `phone` all prefilled.
+- Not in the API docs: the booking widget's prefill params. Checked on the live "Pipeline Scale Call" widget, where `first_name`, `last_name`, `email` and `phone` all prefilled.
