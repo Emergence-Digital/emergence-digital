@@ -88,7 +88,7 @@ export default function ServiceDialog({ dialogRef, service, index, total, onStep
             </div>
 
             <div>
-              <Button href="/contact" variant="primary">
+              <Button href="/book" variant="primary">
                 Book a Strategy Call
               </Button>
             </div>

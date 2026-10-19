@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
-import ContactForm from "@/components/sections/ContactForm";
+import LeadForm from "@/components/sections/LeadForm";
 
 export const metadata: Metadata = {
   title: "Contact — Emergence Digital",
@@ -112,8 +112,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right — contact form (client component) */}
-          <ContactForm />
+          {/* Right — contact form: GHL, plus an EmailJS copy for now (see SETUP.md) */}
+          <LeadForm formId="contact" />
         </div>
       </div>
     </section>

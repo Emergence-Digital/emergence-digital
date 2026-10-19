@@ -5,7 +5,7 @@ const BASE_URL = "https://emergencedigital.com.au";
 
 // Services are one page (/services); each service is a #slug card on it, not its own route.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/services", "/packages", "/about", "/contact"].map((path) => ({
+  const staticRoutes = ["", "/services", "/packages", "/about", "/contact", "/book"].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
   }));

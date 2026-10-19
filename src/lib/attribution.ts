@@ -36,8 +36,9 @@ const URL_PARAM_KEYS = [
 ] as const satisfies readonly AttributionKey[];
 
 // Query params that can carry personal details (e.g. booking prefill links).
-// They're stripped from any URL we store or send to GHL as attribution.
-const PERSONAL_PARAMS = ["first_name", "last_name", "name", "email", "phone"];
+// They're stripped from any URL we store or send to GHL as attribution, and from
+// the address bar before Google Analytics records a page view.
+export const PERSONAL_PARAMS = ["first_name", "last_name", "name", "email", "phone"];
 
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 const MAX_VALUE_LENGTH = 500;

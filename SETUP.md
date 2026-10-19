@@ -1,4 +1,4 @@
-# Lead capture → GoHighLevel: setup
+# Lead capture (GoHighLevel) and Google Analytics: setup
 
 Funnel pages on this site collect leads with `<LeadForm formId="…" />`. Each
 submission goes to `/api/lead`, which puts a clean, tagged, attributed contact
@@ -33,9 +33,26 @@ Visitor lands ─▶ AttributionCapture stores first touch in the "ed_attributio
 | `scripts/ghl-custom-fields.mjs` | Prints custom field names and IDs (`npm run ghl:fields`) |
 | `scripts/test-lead.mjs` | End-to-end test (`npm run test:lead -- <url>`) |
 
+## Setup status
+
+Live on www.emergencedigital.com.au since **16 Oct 2026** (PR #3). ✅ done · ⚠️ partly done · ⬜ to do
+
+| Step | Status | Notes |
+|---|---|---|
+| 1. Private Integration token | ✅ Done | Created 16 Oct 2026 |
+| 2. Environment variables | ⚠️ Partly done | In Vercel **Production** and `.env.local`, but not Vercel **Preview** (checked 19 Oct 2026), so lead tests on a preview link fail with `step: "config"` |
+| 3. Attribution custom fields | ⚠️ Partly done | 9 of 10 created and their IDs are in `src/lib/lead-forms.ts`. "Google Click ID" not created yet, so `gclid` only reaches GHL inside Landing Page |
+| 4. Duplicate-contact setting | ✅ Done | "Allow Duplicate Contact" is off (checked 16 Oct 2026) |
+| 5. Tag naming convention | ✅ Done | `example-lead` uses `web:example-lead` |
+| 6. Workflow for `web:example-lead` | ⬜ To do | No matching workflow in GHL as of 16 Oct 2026. Until one is published, leads arrive tagged but nothing follows up |
+| 6b. Workflow for `web:contact` | ⬜ To do | Internal Notification for Contact page enquiries. Once it's published and tested, turn off the EmailJS copy (see [The Contact page form](#the-contact-page-form)) |
+| 6c. Workflow for `web:book-call` | ⬜ To do | Organic strategy-call leads from `/book` (see [The booking page](#the-booking-page)). Worth following up anyone tagged who doesn't book |
+| 7. End-to-end test | ⬜ To do | Not yet run against the live site |
+| Google Analytics | ⚠️ Partly done | `NEXT_PUBLIC_GA_MEASUREMENT_ID` = `G-EZMBHM4KMH` set in Vercel Production on 19 Oct 2026; tracking starts with the first production deploy after that. Then steps 3–5 of [Set it up](#set-it-up) |
+
 ---
 
-## 1. Create the Private Integration token
+## 1. Create the Private Integration token ✅
 
 In the Emergence sub-account (location `mdQf5usTFVR2pg8Zm9RJ`):
 
@@ -51,7 +68,7 @@ In the Emergence sub-account (location `mdQf5usTFVR2pg8Zm9RJ`):
 3. Copy the token (it's shown once).
 4. Use a **new** token for the website rather than reusing Barney's, so either can be rotated or revoked on its own. GHL recommends rotating these tokens every 90 days. "Rotate and expire later" keeps the old one working for 7 days while you update Vercel.
 
-## 2. Set the environment variables
+## 2. Set the environment variables ✅
 
 | Name | Value |
 |---|---|
@@ -63,7 +80,7 @@ In the Emergence sub-account (location `mdQf5usTFVR2pg8Zm9RJ`):
 
 Missing variables don't break the site. `/api/lead` logs `lead.ghl_failed` with `step: "config"` and visitors see a "please try again or email us" message.
 
-## 3. Create the attribution custom fields
+## 3. Create the attribution custom fields ⚠️
 
 **Settings → Custom Fields → Add Field**, type **Single Line**, model **Contact**. Putting them in a folder such as "Web Attribution" keeps them together. Use these exact names so GHL generates the keys the lookup script expects:
 
@@ -88,11 +105,11 @@ npm run ghl:fields
 
 It lists every contact custom field and prints an `attributionFieldIds` block. Paste that block over the one in `src/lib/lead-forms.ts`. If a key came out differently (for example because GHL already had a field with that name), copy the ID from the table by hand. A blank ID just means that value isn't sent.
 
-## 4. Check the duplicate-contact setting
+## 4. Check the duplicate-contact setting ✅
 
 **Settings → Business Profile → General → Allow Duplicate Contact** should be **off**, so `/contacts/upsert` updates the existing contact instead of creating a second one. If you turn it on, set the priority to **Email** first.
 
-## 5. Tag naming convention
+## 5. Tag naming convention ✅
 
 - One tag per form: **`web:{formId}`**, e.g. `web:example-lead`, `web:free-roadmap`.
 - Lowercase only (GHL stores tags lowercase).
@@ -101,7 +118,7 @@ It lists every contact custom field and prints an `attributionFieldIds` block. P
 - On a repeat submission the route **removes then re-adds** the form's tags, because GHL's "Contact Tag" trigger only fires when a tag is newly added. That also fires any "tag removed" triggers for those tags, so don't build workflows on removing `web:*` tags.
 - These tags also keep web leads out of Barney's cold prospecting: `centurion.py select` skips any company whose contact has a tag outside its cold-tag list.
 
-## 6. Build the workflow (one per form)
+## 6. Build the workflow (one per form) ⬜
 
 **Automation → Workflows → Create Workflow → Start from scratch.**
 
@@ -116,7 +133,7 @@ It lists every contact custom field and prints an `attributionFieldIds` block. P
 
 Bookings from the calendar embed are normal GHL appointments, so use the calendar's own *Appointment Status* triggers for anything that happens after a booking.
 
-## 7. Test it
+## 7. Test it ⬜
 
 **Locally** (needs `.env.local`):
 
@@ -163,6 +180,45 @@ Expect `HTTP/2 200` and `{"ok":true}`, then check GHL for the contact.
 
 Funnel pages are `noindex` and aren't in the sitemap.
 
+## The booking page
+
+Every "Book a Strategy Call" button on the site links to `/book`. It's the funnel pattern for organic visitors: `<LeadForm formId="book-call" />` (name, email, phone, company) tags the contact **`web:book-call`**, with first-touch attribution and a note, then redirects to `/book/time`, where the GHL calendar opens prefilled.
+
+The form comes before the calendar because the calendar can't be tagged from the site. The GHL booking widget talks to GHL directly and never tells the page when someone books, so a straight-to-calendar booking would skip `/api/lead`: no `web:` tag, no attribution fields, no GA `generate_lead`. GHL's own attribution doesn't reliably carry through embedded calendars either. Form first also captures people who leave before picking a time.
+
+- `web:book-call` means organic (came from the site's own buttons). Funnel forms keep their own tags, e.g. `web:example-lead`, even though both book on the same calendar.
+- The calendar is `bookingCalendarIds.pipelineScaleCall` ("30 Minute Pipeline Scale Call", 30 minutes since 19 Oct 2026, so it matches the CTA banner's "30-minute strategy call"). To use a different one, add it to `bookingCalendarIds` and change `src/app/book/time/page.tsx`.
+- `/book` is in the sitemap; `/book/time` is `noindex`.
+- For the workflow (step 6), trigger on *Tag Added* = `web:book-call`. A **Wait** step followed by an *If/Else* on whether they've booked lets you chase people who didn't pick a time.
+
+## The Contact page form
+
+`/contact` renders `<LeadForm formId="contact" />`, so enquiries reach GHL tagged `web:contact` like any funnel lead. It replaced the EmailJS-only `ContactForm` on 19 Oct 2026.
+
+Its config has `emailCopy: true`, which also sends the old EmailJS email (`src/lib/email-copy.ts`), in parallel and whatever GHL returns. The visitor sees "Message Sent!" if **either** one worked, so an enquiry isn't lost while GHL has no notification workflow, or if GHL is down. A GHL failure still logs `lead.ghl_failed`. The EmailJS template has no company field, so the company goes at the top of the message.
+
+To retire EmailJS:
+
+1. Build the `web:contact` workflow (step 6) with an **Internal Notification** to you, then publish it.
+2. Send a test enquiry from `/contact` and check that the GHL notification arrives.
+3. Remove `emailCopy: true` from the `contact` entry in `src/lib/lead-forms.ts`. Once no form uses it, delete `src/lib/email-copy.ts`, the `@emailjs/browser` dependency and the three `NEXT_PUBLIC_EMAILJS_*` variables.
+
+## Google Analytics
+
+`<GoogleAnalytics />` in the root layout loads GA4 (gtag.js) when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set, and renders nothing when it isn't.
+
+- **Page views:** GA4's enhanced measurement records every page, including client-side navigations ("Page changes based on browser history events", on by default). Leave that setting on.
+- **Leads:** every successful `<LeadForm>` submission sends a `generate_lead` event with `form_id` (e.g. `contact`).
+- **Personal details:** Google's terms forbid sending them to GA. Booking prefill links carry `first_name`, `last_name`, `email` and `phone`, so the GA snippet strips those from the address bar before its first page view, and `LeadForm` uses a full page load (not a client-side navigation) for those redirects. The list is `PERSONAL_PARAMS` in `src/lib/attribution.ts`.
+
+### Set it up
+
+1. **Pick one property.** ✅ `G-EZMBHM4KMH` (chosen 19 Oct 2026). There was a second property, `G-CXYQFRNLJL`, with no data; delete it in GA → Admin so nobody installs the wrong ID later. If you ever switch, the ID is under **Data collection and modification → Data streams** → the web stream for `https://www.emergencedigital.com.au`.
+2. **Set the variable in Vercel:** ✅ Project → Settings → Environment Variables → `NEXT_PUBLIC_GA_MEASUREMENT_ID` = the `G-…` ID, **Production only**. It's built into the page, so a change only takes effect on the next deploy.
+3. **Check it works:** open the live site, then GA → **Reports → Realtime**. You should appear within a minute. Submit a test enquiry and look for `generate_lead`.
+4. **Mark the lead as a key event:** GA → Admin → **Data display → Events** (it shows up within 24 hours of the first one) → star `generate_lead`. To report by form, add `form_id` under **Custom definitions** as an event-scoped dimension.
+5. **Privacy policy:** mention Google Analytics cookies alongside the `ed_attribution` cookie.
+
 ## Troubleshooting
 
 `/api/lead` writes one JSON log line per event. In Vercel → Logs, search for `lead.`:
@@ -183,7 +239,7 @@ GHL calls time out after 10 s and are retried once on a 429, a 5xx or a network 
 
 - **Upsert overwrites.** A returning contact's name, company, phone and attribution fields are replaced with the latest submission's values. Blank values are never sent, so nothing is wiped. Attribution is "first touch *in the browser they converted from*", not first touch across all their visits. If you want the very first value kept forever, a GHL workflow can copy it into a separate field only when that field is empty.
 - **The cookie.** `ed_attribution` is a first-party cookie (30 days, `SameSite=Lax`) holding UTMs, click IDs, the referrer and the landing page. Mention it in the privacy policy.
-- **Booking prefill puts personal details in the URL.** The booking page removes them from the address bar once loaded, so they don't sit in browser history, but they still reach Vercel's request logs and GHL. If you add analytics later, exclude query strings on `/lp/*/book`.
+- **Booking prefill puts personal details in the URL.** The booking page removes them from the address bar once loaded, so they don't sit in browser history, but they still reach Vercel's request logs and GHL. Google Analytics never sees them (see [Google Analytics](#google-analytics)).
 - **Spam protection is basic** (honeypot + 3-second check), which stops form-filling bots but not someone scripting the API. If that becomes a problem, add a Vercel Firewall rate limit on `/api/lead`, or Cloudflare Turnstile.
 - **Site chrome.** Funnel pages use the site's normal navbar and footer. A distraction-free funnel layout would need a route group with its own layout.
 
@@ -196,4 +252,4 @@ Everything in the brief matched the docs (base URL, `Version: 2021-07-28` on eve
 - Upsert follows the location's "Allow Duplicate Contact" setting and returns `new: true|false`. The route uses `new` to skip the tag removal for new contacts.
 - `DELETE /contacts/{id}/tags` takes the same JSON body as add: `{ "tags": [...] }`.
 - Notes only require `body`.
-- Not in the API docs: the booking widget's prefill params. Checked on the live "15 Minute Pipeline Scale Call" widget, where `first_name`, `last_name`, `email` and `phone` all prefilled.
+- Not in the API docs: the booking widget's prefill params. Checked on the live "Pipeline Scale Call" widget, where `first_name`, `last_name`, `email` and `phone` all prefilled.

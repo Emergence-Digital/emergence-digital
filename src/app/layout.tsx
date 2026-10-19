@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AttributionCapture from "@/components/layout/AttributionCapture";
+import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
 
 // Place your font file at: src/app/fonts/MangalPro.otf  (or .ttf)
 // Update the src path below if your filename differs
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <GoogleAnalytics />
       </body>
     </html>
   );

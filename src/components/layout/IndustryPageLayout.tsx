@@ -57,7 +57,7 @@ export default function IndustryPageLayout({
             <p className="text-muted text-lg max-w-2xl leading-relaxed mb-10">
               {subtitle}
             </p>
-            <Button href="/contact" variant="primary">
+            <Button href="/book" variant="primary">
               Book a Strategy Call
             </Button>
           </div>
