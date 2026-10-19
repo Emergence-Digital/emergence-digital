@@ -1,9 +1,9 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useRef, useState, type KeyboardEvent, type MouseEvent } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import Button from "@/components/ui/Button";
+import ServiceDialog from "@/components/sections/ServiceDialog";
 import { getGoal, getService, goals, serviceImage, services, type GoalSlug, type Service } from "@/lib/services-data";
 
 type Filter = GoalSlug | "all";
@@ -86,11 +86,6 @@ export default function ServicesLibrary() {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
     show(slug);
-  };
-
-  const onDialogKey = (e: KeyboardEvent<HTMLDialogElement>) => {
-    if (e.key === "ArrowRight") go(1);
-    if (e.key === "ArrowLeft") go(-1);
   };
 
   // Open the service named in the hash on arrival, and whenever the hash changes.
@@ -262,87 +257,7 @@ export default function ServicesLibrary() {
         </div>
       </div>
 
-      <dialog
-        ref={dialogRef}
-        aria-labelledby="service-title"
-        onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}
-        onKeyDown={onDialogKey}
-        className="m-auto outline-none w-[min(960px,calc(100vw-32px))] max-w-none max-h-[calc(100vh-24px)] md:max-h-[calc(100vh-48px)] p-0 rounded-[20px] bg-[#FBF8F5] text-body shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] overflow-y-auto md:overflow-hidden backdrop:bg-[rgba(18,36,31,0.6)] backdrop:backdrop-blur-sm"
-      >
-        {current && (
-          <div className="md:grid md:grid-cols-[5fr_7fr] md:max-h-[calc(100vh-48px)]">
-            {/* The scene is 5:3 and the panel is tall, so show it whole over a blurred copy of itself. */}
-            <div className="relative bg-[#F1E4C0] aspect-[5/3] md:aspect-auto md:min-h-full overflow-hidden">
-              <Image src={serviceImage(current.slug)} alt="" fill sizes="400px" className="object-cover scale-125 blur-2xl opacity-70" aria-hidden="true" />
-              <Image
-                src={serviceImage(current.slug)}
-                alt=""
-                fill
-                sizes="(min-width: 768px) 400px, 100vw"
-                className="object-contain p-4 md:p-6"
-              />
-            </div>
-            <div className="flex flex-col gap-[18px] px-5 pt-6 pb-5 md:px-10 md:pt-9 md:pb-7 md:overflow-y-auto">
-              <div className="flex justify-between items-start gap-4">
-                <div>
-                  <div className="text-xs font-semibold tracking-wider uppercase text-mid-green">
-                    {current.goals.map((g) => getGoal(g)?.label).join(" · ")}
-                  </div>
-                  <h2 id="service-title" className="font-serif text-3xl md:text-[34px] font-bold text-dark-green leading-tight mt-1.5">
-                    {current.title}
-                  </h2>
-                  <p className="text-muted text-[17px] leading-snug mt-1.5">{current.outcome}</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => dialogRef.current?.close()}
-                  aria-label="Close service"
-                  className="flex-none w-10 h-10 rounded-full border border-dark-green/10 bg-white grid place-items-center text-lg hover:bg-cream cursor-pointer"
-                >
-                  &#x2715;
-                </button>
-              </div>
-
-              <p className="leading-relaxed">{current.intro}</p>
-
-              <div>
-                <div className="text-xs font-semibold tracking-wider uppercase text-muted mb-2.5">What you get</div>
-                <ul className="grid gap-2.5 sm:grid-cols-2">
-                  {current.features.map((f) => (
-                    <li key={f.title} className="bg-white border border-dark-green/10 rounded-xl px-4 py-3">
-                      <div className="text-[15px] font-semibold text-dark-green">{f.title}</div>
-                      <p className="text-sm text-muted leading-snug mt-1">{f.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-dark-green text-[#F0F4F1] rounded-2xl px-6 py-5">
-                <div className="text-xs font-semibold tracking-wider uppercase text-[#7EB893] mb-2">Who it&rsquo;s for</div>
-                <p className="text-[15px] leading-relaxed">{current.whoItsFor}</p>
-              </div>
-
-              <div>
-                <Button href="/contact" variant="primary">
-                  Book a Strategy Call
-                </Button>
-              </div>
-
-              <nav aria-label="Browse services" className="mt-auto pt-3 border-t border-dark-green/10 flex justify-between items-center text-sm text-muted">
-                <button type="button" onClick={() => go(-1)} className="font-semibold text-dark-green hover:text-mid-green px-1 py-2 cursor-pointer">
-                  &larr; Previous
-                </button>
-                <span>
-                  {index + 1} of {browse.length}
-                </span>
-                <button type="button" onClick={() => go(1)} className="font-semibold text-dark-green hover:text-mid-green px-1 py-2 cursor-pointer">
-                  Next &rarr;
-                </button>
-              </nav>
-            </div>
-          </div>
-        )}
-      </dialog>
+      <ServiceDialog dialogRef={dialogRef} service={current} index={index} total={browse.length} onStep={go} />
     </section>
   );
 }
