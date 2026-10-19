@@ -231,7 +231,7 @@ export default function PackagesPage() {
                   </li>
                 ))}
               </ul>
-              <Button href="/contact" variant="secondary" className="w-full text-center">
+              <Button href="/book" variant="secondary" className="w-full text-center">
                 Book a Strategy Call
               </Button>
             </Card>

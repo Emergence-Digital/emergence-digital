@@ -13,6 +13,8 @@ import {
   type LeadValues,
 } from "@/lib/lead-validation";
 import { readAttribution, stripPersonalParams } from "@/lib/attribution";
+import { trackEvent } from "@/lib/analytics";
+import { sendEmailCopy } from "@/lib/email-copy";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -112,6 +114,10 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
 
     setStatus("submitting");
     setFormError("");
+    // Runs alongside the GHL save. Bots that filled the honeypot don't get one.
+    const emailCopy = form.emailCopy && !honeypot ? sendEmailCopy(values) : Promise.resolve(false);
+
+    let saved = false;
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -128,25 +134,35 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
       const result: { ok?: boolean; errors?: FieldErrors } = await response.json().catch(() => ({}));
 
       if (response.ok && result.ok) {
-        const redirectTo = successUrl(form, values);
-        setStatus("success");
-        if (redirectTo?.startsWith("/")) router.push(redirectTo);
-        else if (redirectTo) window.location.assign(redirectTo);
-        return;
-      }
-      if (result.errors && Object.keys(result.errors).length > 0) {
+        saved = true;
+      } else if (result.errors && Object.keys(result.errors).length > 0) {
         setErrors(result.errors);
         setStatus("idle");
         setFormError(errorSummary(result.errors));
         focusFirstError(result.errors);
         return;
       }
-      setStatus("error");
-      setFormError(GENERIC_ERROR);
     } catch {
+      // Network error: the email copy below may still have got it through.
+    }
+
+    // If GHL didn't save it but the email copy reached us, it isn't lost.
+    const emailed = await emailCopy;
+    if (!saved && !emailed) {
       setStatus("error");
       setFormError(GENERIC_ERROR);
+      return;
     }
+
+    trackEvent("generate_lead", { form_id: formId });
+    const redirectTo = successUrl(form, values);
+    setStatus("success");
+    // Booking prefill links carry personal details, so they get a full page
+    // load: GA4 would record a client-side navigation with the whole URL, while
+    // <GoogleAnalytics /> strips them before a fresh page's first page view.
+    const carriesPersonalDetails = form.success.type === "redirect" && form.success.prefillBooking;
+    if (redirectTo?.startsWith("/") && !carriesPersonalDetails) router.push(redirectTo);
+    else if (redirectTo) window.location.assign(redirectTo);
   };
 
   if (status === "success" && form.success.type === "message") {

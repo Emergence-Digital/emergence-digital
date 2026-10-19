@@ -11,7 +11,7 @@ export default function CTABanner() {
           Book a 30-minute strategy call and we&apos;ll map your first campaign
           together.
         </p>
-        <Button href="/contact" variant="outline-light" className="text-base px-10 py-4">
+        <Button href="/book" variant="outline-light" className="text-base px-10 py-4">
           Book a Strategy Call
         </Button>
       </div>

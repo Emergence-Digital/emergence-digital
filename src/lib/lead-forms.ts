@@ -61,6 +61,12 @@ export interface LeadFormConfig {
   fields: readonly LeadField[];
   submitLabel: string;
   success: LeadFormSuccess;
+  /**
+   * Also email the submission through EmailJS (the template the old contact
+   * form used), whatever GHL returns. A stopgap so no enquiry is missed until a
+   * GHL workflow sends the internal notification; see SETUP.md.
+   */
+  emailCopy?: boolean;
 }
 
 export const standardFields = {
@@ -111,6 +117,40 @@ export const bookingCalendarIds = {
 } as const;
 
 export const leadForms = {
+  contact: {
+    name: "Contact page",
+    tags: ["web:contact"],
+    fields: [
+      { ...standardFields.firstName, half: true },
+      { ...standardFields.lastName, half: true },
+      { ...standardFields.email, half: true },
+      { ...standardFields.phone, half: true },
+      standardFields.company,
+      { ...standardFields.message, required: true, placeholder: "Tell us about your project..." },
+    ],
+    submitLabel: "Send Message",
+    success: {
+      type: "message",
+      heading: "Message Sent!",
+      body: "Thanks for getting in touch. We'll be back to you shortly.",
+    },
+    emailCopy: true,
+  },
+  // Every "Book a Strategy Call" button on the site goes here (/book), so these
+  // are organic leads, unlike funnel forms such as example-lead.
+  "book-call": {
+    name: "Book a strategy call",
+    tags: ["web:book-call"],
+    fields: [
+      { ...standardFields.firstName, half: true },
+      { ...standardFields.lastName, half: true },
+      { ...standardFields.email, half: true },
+      { ...standardFields.phone, half: true },
+      standardFields.company,
+    ],
+    submitLabel: "Pick a time",
+    success: { type: "redirect", url: "/book/time", prefillBooking: true },
+  },
   "example-lead": {
     name: "Example lead form",
     tags: ["web:example-lead"],

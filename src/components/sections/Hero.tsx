@@ -23,7 +23,7 @@ export default function Hero() {
           expertise into market authority — then into a pipeline that finally
           matches their capability.
         </p>
-        <Button href="/contact" variant="primary" className="text-base px-10 py-4">
+        <Button href="/book" variant="primary" className="text-base px-10 py-4">
           Book a Strategy Call
         </Button>
       </div>

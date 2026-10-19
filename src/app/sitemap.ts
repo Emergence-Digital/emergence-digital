@@ -5,7 +5,7 @@ import { industries } from "@/lib/industries-data";
 const BASE_URL = "https://emergencedigital.com.au";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/services", "/packages", "/about", "/contact"].map((path) => ({
+  const staticRoutes = ["", "/services", "/packages", "/about", "/contact", "/book"].map((path) => ({
     url: `${BASE_URL}${path}`,
     lastModified: new Date(),
   }));
