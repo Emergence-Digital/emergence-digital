@@ -39,6 +39,16 @@ const oldServiceUrls: Record<string, string | null> = {
   "system-integration": null,
 };
 
+// Old industry slugs → the page that now covers that audience (Oct 2026: MSPs & cyber security, ERP & cloud
+// partners, consulting & development, SaaS & software). Software developers sit with consulting firms now.
+const oldIndustrySlugs: Record<string, string> = {
+  "it-services-msps": "msps-cyber-security",
+  "cybersecurity-cloud-providers": "msps-cyber-security",
+  "erp-software-partners": "erp-cloud-partners",
+  "software-developers": "consulting-development-firms",
+  "consulting-advisory-firms": "consulting-development-firms",
+};
+
 const nextConfig: NextConfig = {
   async redirects() {
     return [
@@ -47,11 +57,11 @@ const nextConfig: NextConfig = {
         destination: slug ? `/services#${slug}` : "/services",
         permanent: true,
       })),
-      {
-        source: "/industries/consulting-advisory-firms",
-        destination: "/",
+      ...Object.entries(oldIndustrySlugs).map(([oldSlug, slug]) => ({
+        source: `/industries/${oldSlug}`,
+        destination: `/industries/${slug}`,
         permanent: true,
-      },
+      })),
     ];
   },
 };

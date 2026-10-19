@@ -5,32 +5,32 @@ import Card from "@/components/ui/Card";
 // Scenes are exported from the Illustrator card library (~/Adobe MCPs/centurion-cards).
 const segments = [
   {
-    title: "IT Services & MSPs",
+    title: "MSPs & Cyber Security Firms",
     description:
-      "You've got the technical depth and the client base to prove it, but the market still doesn't see you as the obvious first call. We build the recognition to match your capability.",
-    image: "/who-we-help/it-services-msps.webp",
-    alt: "A resolved service desk ticket, an uptime chart at 99.98% and a new managed services contract notification",
+      "Buyers can't judge technical depth from a website, so they default to the biggest name. We make you the provider they already trust when it's time to switch.",
+    image: "/who-we-help/msps-cyber-security.webp",
+    alt: "A security score of 94, a managed IT and security checklist and a new 60-seat contract notification",
   },
   {
-    title: "ERP Partners",
+    title: "ERP & Cloud Partners",
     description:
-      "Partnership credentials only matter if the market knows about them. We turn your implementation expertise into content and events that put you top of mind before the RFP goes out.",
-    image: "/who-we-help/erp-partners.webp",
-    alt: "An ERP rollout card with live modules, a go-live plan and a phase 2 signed notification",
+      "Every partner in your ecosystem has the same badge. We make you the one buyers already know before the RFP goes out.",
+    image: "/who-we-help/erp-cloud-partners.webp",
+    alt: "SAP, Oracle, Salesforce, Microsoft, ServiceNow, AWS, Google Cloud and TechnologyOne logos on a partner ecosystems card, with a phase 2 signed notification",
   },
   {
-    title: "Software Developers",
+    title: "Consulting & Development Firms",
     description:
-      "Good software doesn't sell itself, and a feature list isn't a reason to buy. We turn the problems you've solved for clients into content and events that show buyers what you can build before they compare quotes.",
-    image: "/who-we-help/software-developers.webp",
+      "Every firm now claims it can build AI agents. We make you the one buyers trust to build theirs, so you're hired on expertise, not day rates.",
+    image: "/who-we-help/consulting-development-firms.webp",
+    alt: "A live invoice agent matching supplier invoices to purchase orders, an AI roadmap with the agent build in progress and an agent build signed notification",
+  },
+  {
+    title: "SaaS & Software Companies",
+    description:
+      "Buyers who arrive with no context stall at the demo. We bring you buyers who already understand the problem you solve, so the first call is about fit, not features.",
+    image: "/who-we-help/saas-software-companies.webp",
     alt: "A code editor, a passing build pipeline and an enterprise licence notification",
-  },
-  {
-    title: "Cybersecurity & Cloud Providers",
-    description:
-      "Trust is the entire sale in your category, and trust is built in public. We help you demonstrate expertise consistently, so prospects arrive already convinced before the first conversation.",
-    image: "/who-we-help/cybersecurity-cloud.webp",
-    alt: "A security score of 94, healthy cloud services and a security review booked notification",
   },
 ];
 
