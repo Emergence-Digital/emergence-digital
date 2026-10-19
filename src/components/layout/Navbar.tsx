@@ -84,8 +84,8 @@ export default function Navbar() {
       <header
         className={`max-w-[1200px] mx-auto rounded-full border transition-all duration-300 ${
           scrolled
-            ? "bg-cream/95 backdrop-blur-md border-dark-green/10 shadow-lg"
-            : "bg-cream/80 backdrop-blur-md border-dark-green/5 shadow-sm"
+            ? "bg-white/95 backdrop-blur-md border-dark-green/10 shadow-lg"
+            : "bg-white/90 backdrop-blur-md border-dark-green/5 shadow-sm"
         }`}
       >
         <div className="px-5 sm:px-6 flex items-center justify-between h-16">
@@ -99,7 +99,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav ref={navRef} className="hidden lg:flex items-center gap-7">
-            {/* Industries dropdown */}
+            {/* Who We Help dropdown (the industry pages) */}
             <div
               className="relative"
               onMouseEnter={() => setOpenMenu("industries")}
@@ -118,7 +118,7 @@ export default function Navbar() {
                   isIndustriesActive ? "text-mid-green" : "text-dark-green hover:text-mid-green"
                 }`}
               >
-                Industries
+                Who We Help
                 <ChevronIcon open={openMenu === "industries"} />
               </button>
 
@@ -126,7 +126,7 @@ export default function Navbar() {
                 <div
                   id="nav-dropdown-industries"
                   role="menu"
-                  aria-label="Industries"
+                  aria-label="Who We Help"
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-64"
                 >
                   <div className="bg-white rounded-2xl shadow-lg border border-dark-green/10 py-2">
@@ -191,7 +191,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden mt-3 max-w-[1200px] mx-auto bg-cream rounded-3xl border border-dark-green/10 shadow-lg px-6 py-4 flex flex-col gap-1 max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <div className="lg:hidden mt-3 max-w-[1200px] mx-auto bg-white rounded-3xl border border-dark-green/10 shadow-lg px-6 py-4 flex flex-col gap-1 max-h-[calc(100vh-6rem)] overflow-y-auto">
           <Link
             href="/"
             className={`text-sm font-medium py-2 ${pathname === "/" ? "text-mid-green" : "text-dark-green"}`}
@@ -199,7 +199,7 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* Industries accordion */}
+          {/* Who We Help accordion (the industry pages) */}
           <div className="border-t border-dark-green/10">
             <button
               type="button"
@@ -209,7 +209,7 @@ export default function Navbar() {
                 isIndustriesActive ? "text-mid-green" : "text-dark-green"
               }`}
             >
-              Industries
+              Who We Help
               <ChevronIcon open={openMobileMenu === "industries"} />
             </button>
 
