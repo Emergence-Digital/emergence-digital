@@ -16,7 +16,7 @@ interface IndustryPageLayoutProps {
   relatedServices: string[];
 }
 
-// The "from this, to this" rows share one grid: today, the arrow, ninety days in.
+// The closing-the-gap rows share one grid: what it costs today, the arrow, ninety days with us.
 const shiftColumns = "lg:grid-cols-[minmax(0,1fr)_72px_minmax(0,1fr)]";
 
 function ShiftIconTile({ name, after = false }: { name: ShiftIcon; after?: boolean }) {
@@ -24,7 +24,7 @@ function ShiftIconTile({ name, after = false }: { name: ShiftIcon; after?: boole
   return (
     <span
       className={`flex-none grid place-items-center w-12 h-12 rounded-xl ${
-        after ? "bg-mid-green text-white" : "bg-dark-green/[0.06] text-dark-green/50"
+        after ? "bg-mid-green text-white" : "bg-body/[0.08] text-body"
       }`}
     >
       <Icon size={22} strokeWidth={1.75} aria-hidden="true" />
@@ -74,33 +74,36 @@ export default function IndustryPageLayout({
         </div>
       </section>
 
-      {/* From this, to this: each pain today paired with where it stands ninety days in */}
+      {/* Closing the gap: each pain costing them today, paired with where it stands ninety days with us */}
       <section className="bg-cream py-20 md:py-28">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-12 md:mb-14">
-            <SectionLabel>What Changes</SectionLabel>
+            <SectionLabel>Closing the Gap</SectionLabel>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark-green">
-              From this, to this.
+              Every one of these is costing you deals.
             </h2>
+            <p className="text-muted text-lg leading-relaxed max-w-2xl mx-auto mt-5 text-balance">
+              The right marketing closes each one. Here&rsquo;s what changes in your first ninety days with us.
+            </p>
           </div>
 
           <div
             aria-hidden="true"
-            className={`grid grid-cols-[auto_auto_auto] justify-center lg:justify-normal ${shiftColumns} items-center gap-3 lg:gap-0 mb-5 text-xs font-semibold tracking-widest uppercase`}
+            className={`flex flex-wrap justify-center lg:grid ${shiftColumns} lg:justify-normal items-center gap-x-2.5 gap-y-1 lg:gap-0 mb-5 text-[11px] lg:text-xs font-semibold tracking-wider lg:tracking-widest uppercase whitespace-nowrap`}
           >
-            <span className="text-muted lg:px-6">Today</span>
-            <ArrowRight size={14} className="text-muted lg:hidden" />
+            <span className="text-body/70 lg:px-6">Costing you today</span>
+            <ArrowRight size={14} className="text-body/70 lg:hidden" />
             <span className="hidden lg:block" />
-            <span className="text-mid-green lg:px-6">Ninety days in</span>
+            <span className="text-mid-green lg:px-6">Ninety days with us</span>
           </div>
 
           <ol className="flex flex-col gap-9 lg:gap-5">
             {shifts.map((shift) => (
               <li key={shift.from} className={`grid grid-cols-1 ${shiftColumns}`}>
-                <div className="flex items-center gap-4 rounded-2xl border border-dashed border-dark-green/25 px-5 py-5 md:px-6">
+                <div className="flex items-center gap-4 rounded-2xl bg-[#EAE3DA] border border-body/10 px-5 py-5 md:px-6">
                   <ShiftIconTile name={shift.fromIcon} />
-                  <p className="text-muted leading-snug">
-                    <span className="sr-only">Today: </span>
+                  <p className="text-body leading-snug">
+                    <span className="sr-only">Costing you today: </span>
                     {shift.from}
                   </p>
                 </div>
@@ -112,7 +115,7 @@ export default function IndustryPageLayout({
                 <div className="flex items-center gap-4 rounded-2xl bg-white border border-dark-green/10 shadow-[0_14px_30px_-18px_rgba(28,56,48,0.35)] px-5 py-5 md:px-6">
                   <ShiftIconTile name={shift.toIcon} after />
                   <p className="text-dark-green font-medium leading-snug">
-                    <span className="sr-only">Ninety days in: </span>
+                    <span className="sr-only">Ninety days with us: </span>
                     {shift.to}
                   </p>
                 </div>
