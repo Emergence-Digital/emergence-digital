@@ -26,8 +26,8 @@ export const clientStories: ClientStory[] = [
     ],
     "oneLiner": "BCS builds Symphony, an agentic AI platform that automates SAP and IT operations work like system refreshes, patching and certificate renewals.",
     "story": "BCS builds Symphony, an agentic AI platform that automates SAP and IT operations work like system refreshes, patching and certificate renewals. We run their Australian go-to-market, from outbound, deal support and the sales kit behind it to a 12-month program of monthly digital events. The program's events include an agentic AI webinar with Village Roadshow, a customer story video with their Head of AI Enablement and Transformation, and a live Cloud ALM workshop.",
-    "quote": null,
-    "attribution": null,
+    "quote": "Emergence takes care of our marketing needs and go-to-market strategy through sales outreach.",
+    "attribution": "Arul Arogyanathan, BCS",
     "image": "/client-stories/business-core-solutions-bcs.jpg"
   },
   {
@@ -43,8 +43,8 @@ export const clientStories: ClientStory[] = [
     ],
     "oneLiner": "Rev-Trac makes automated SAP change management and DevOps software.",
     "story": "Rev-Trac makes automated SAP change management and DevOps software. Over 18 months (2023-24) we ran their sales development, messaging and content for SAP leaders. We've also handled video for their SAP Cloud ALM Summit appearances in EMEA and North America, made product demos for features like Smart Retrofitting and Jira integration, and built internal sales tools: a customer-wins gallery in Salesforce with PowerPoint export, and an AI release-readiness bot in Microsoft Teams.",
-    "quote": null,
-    "attribution": null,
+    "quote": "You've been invaluable to us, and I would highly recommend Emergence Digital.",
+    "attribution": "Michael Freeman, Rev-Trac",
     "image": "/client-stories/rev-trac.jpg"
   },
   {

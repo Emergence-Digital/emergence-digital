@@ -30,6 +30,7 @@ Visitor lands ─▶ AttributionCapture stores first touch in the "ed_attributio
 | `src/components/sections/CalendarEmbed.tsx` | GHL booking widget with prefill |
 | `src/components/layout/AttributionCapture.tsx` + `src/lib/attribution.ts` | First-touch cookie |
 | `src/app/lp/example-lead/` | Example funnel (`/lp/example-lead`) and its booking step (`/book`) |
+| `src/app/pipeline-scale-plan-call/` | Pipeline Scale Plan call funnel: landing page with the form (tag `web:pipeline-scale-plan-call`), calendar (`/book`), and `/thank-you`, which the calendar's confirmation redirect must point to |
 | `scripts/ghl-custom-fields.mjs` | Prints custom field names and IDs (`npm run ghl:fields`) |
 | `scripts/test-lead.mjs` | End-to-end test (`npm run test:lead -- <url>`) |
 

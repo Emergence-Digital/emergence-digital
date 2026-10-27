@@ -1,12 +1,24 @@
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ReviewsBadge from "@/components/ui/ReviewsBadge";
+import VimeoEmbed from "@/components/ui/VimeoEmbed";
 
 // Reviews eyebrow above the headline (reviewer icons, five stars, review count). Hidden until we have 50+
 // five-star reviews: set to true to show it, and check the count in ReviewsBadge.tsx first.
 const SHOW_REVIEWS_BADGE = false;
 
-export default function Hero() {
+interface HeroProps {
+  /** Vimeo ID of the video under the button. Defaults to W-01, the home page video. */
+  videoId?: string;
+  videoTitle?: string;
+  ctaHref?: string;
+}
+
+export default function Hero({
+  videoId = "1239802638",
+  videoTitle = "Emergence Digital home page video",
+  ctaHref = "/book",
+}: HeroProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-cream pt-16">
       {/* Subtle decorative background gradient */}
@@ -31,9 +43,10 @@ export default function Hero() {
           deals, with healthier margins, a pipeline you can plan around and a
           business that&apos;s worth more.
         </p>
-        <Button href="/book" variant="primary" className="text-base px-10 py-4">
+        <Button href={ctaHref} variant="primary" className="text-base px-10 py-4">
           Book a Strategy Call
         </Button>
+        <VimeoEmbed id={videoId} title={videoTitle} className="max-w-4xl mx-auto mt-16" />
       </div>
     </section>
   );
