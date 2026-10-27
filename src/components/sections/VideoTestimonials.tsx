@@ -5,17 +5,17 @@ import { flushSync } from "react-dom";
 import Image from "next/image";
 import { Pause, Volume2 } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { VIMEO_ALLOW, vimeoSrc } from "@/components/ui/VimeoEmbed";
 import { trackEvent } from "@/lib/analytics";
 import { testimonials, type VideoTestimonial } from "@/lib/testimonials";
 
 /**
  * "In their words": two client video testimonials under the logo wall. Each poster opens a pop-up with the
- * video and captions (same look as the client stories pop-up), and each card has a voice button that plays
+ * Vimeo video (same look as the client stories pop-up), and each card has a voice button that plays
  * the client's best line inline, one at a time.
  */
 export default function VideoTestimonials() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
   const voiceRef = useRef<HTMLAudioElement | null>(null);
   const voiceSlug = useRef<string | null>(null);
@@ -27,10 +27,9 @@ export default function VideoTestimonials() {
   const openVideo = (i: number) => {
     voiceRef.current?.pause();
     lastFocus.current = document.activeElement as HTMLElement;
-    // Render the video now, so play() still runs inside the click (browsers only allow sound after a click).
+    // Render the player now, so its autoplay still counts as part of the click (browsers only allow sound after one).
     flushSync(() => setCurrent(i));
     dialogRef.current?.showModal();
-    videoRef.current?.play().catch(() => {});
     trackEvent("testimonial_video_play", { testimonial: testimonials[i].slug });
   };
 
@@ -57,12 +56,8 @@ export default function VideoTestimonials() {
   useEffect(() => {
     const dlg = dialogRef.current;
     if (!dlg) return;
+    // Clearing current unmounts the player, which stops it.
     const onClose = () => {
-      const video = videoRef.current;
-      if (video) {
-        video.pause();
-        video.currentTime = 0;
-      }
       setCurrent(-1);
       lastFocus.current?.focus();
     };
@@ -150,20 +145,14 @@ export default function VideoTestimonials() {
         {t && (
           <>
             <div className="relative aspect-video bg-black">
-              <video
+              <iframe
                 key={t.slug}
-                ref={videoRef}
-                controls
-                playsInline
-                preload="none"
-                poster={t.poster}
-                className="absolute inset-0 w-full h-full"
-              >
-                {/* Phones get the 720p file; browsers that ignore media on <source> take the first one. */}
-                <source src={t.video.hd} type="video/mp4" media="(min-width: 768px)" />
-                <source src={t.video.sd} type="video/mp4" />
-                <track kind="captions" src={t.captions} srcLang="en" label="English" default />
-              </video>
+                src={vimeoSrc(t.vimeoId, { autoplay: true })}
+                title={`${t.name}, ${t.company}`}
+                allow={VIMEO_ALLOW}
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="absolute inset-0 w-full h-full border-0"
+              />
             </div>
             <div className="flex justify-between items-center gap-4 px-5 py-4 md:px-8 md:py-5">
               <div>

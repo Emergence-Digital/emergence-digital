@@ -10,17 +10,15 @@ export type VideoTestimonial = {
   quote: string;
   /** Length of the full video, for labels. */
   duration: string;
-  video: { hd: string; sd: string };
+  /** The full video, on Vimeo. */
+  vimeoId: string;
   /** 16:9, with the play button, name and logo already on it. */
   poster: string;
-  captions: string;
   audio: string;
 };
 
 const media = (slug: string) => ({
-  video: { hd: `/testimonials/${slug}-1080p.mp4`, sd: `/testimonials/${slug}-720p.mp4` },
   poster: `/testimonials/${slug}-poster.webp`,
-  captions: `/testimonials/${slug}.vtt`,
   audio: `/testimonials/${slug}-quote.m4a`,
 });
 
@@ -31,6 +29,7 @@ export const testimonials: VideoTestimonial[] = [
     company: "Rev-Trac",
     quote: "You've been invaluable to us, and I would highly recommend Emergence Digital.",
     duration: "0:30",
+    vimeoId: "1239816129",
     ...media("michael-freeman-rev-trac"),
   },
   {
@@ -39,6 +38,7 @@ export const testimonials: VideoTestimonial[] = [
     company: "BCS (Business Core Solutions)",
     quote: "Emergence takes care of our marketing needs and go-to-market strategy through sales outreach.",
     duration: "0:46",
+    vimeoId: "1239816127",
     ...media("arul-arogyanathan-bcs"),
   },
 ];
