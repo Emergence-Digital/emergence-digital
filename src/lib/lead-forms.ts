@@ -151,6 +151,21 @@ export const leadForms = {
     submitLabel: "Pick a time",
     success: { type: "redirect", url: "/book/time", prefillBooking: true },
   },
+  // The Pipeline Scale Plan call funnel (/pipeline-scale-plan-call). Same fields as
+  // book-call, but its own tag so funnel leads stay apart from organic ones.
+  "pipeline-scale-plan-call": {
+    name: "Pipeline Scale Plan call",
+    tags: ["web:pipeline-scale-plan-call"],
+    fields: [
+      { ...standardFields.firstName, half: true },
+      { ...standardFields.lastName, half: true },
+      { ...standardFields.email, half: true },
+      { ...standardFields.phone, half: true },
+      standardFields.company,
+    ],
+    submitLabel: "Pick a time",
+    success: { type: "redirect", url: "/pipeline-scale-plan-call/book", prefillBooking: true },
+  },
   "example-lead": {
     name: "Example lead form",
     tags: ["web:example-lead"],
