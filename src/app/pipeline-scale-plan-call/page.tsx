@@ -6,6 +6,7 @@ import WhoWeHelp from "@/components/sections/WhoWeHelp";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import OurStrategy from "@/components/sections/OurStrategy";
 import HowWeWork from "@/components/sections/HowWeWork";
+import AboutShane from "@/components/sections/AboutShane";
 import ClientStories from "@/components/sections/ClientStories";
 import SectionLabel from "@/components/ui/SectionLabel";
 import LeadForm from "@/components/sections/LeadForm";
@@ -33,6 +34,7 @@ export default function PipelineScalePlanCallPage() {
       <WhyChooseUs />
       <OurStrategy />
       <HowWeWork />
+      <AboutShane />
       <ClientStories />
 
       <section id="book" className="bg-dark-green py-20 md:py-28 scroll-mt-20">
