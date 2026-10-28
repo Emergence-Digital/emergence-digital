@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Hero from "@/components/sections/Hero";
+import Hero, { type HeroVideo } from "@/components/sections/Hero";
 import ClientLogoWall from "@/components/sections/ClientLogoWall";
 import VideoTestimonials from "@/components/sections/VideoTestimonials";
 import WhoWeHelp from "@/components/sections/WhoWeHelp";
@@ -21,13 +21,19 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// F1-01, the landing page video.
-const LANDING_VIDEO = { id: "1239812265", title: "Pipeline Scale Plan call video" };
+// The Pipeline Scale Plan VSL (B1 v2), which plays muted while on screen.
+// It replaced F1-01 (Vimeo 1239812265), the short landing page video.
+const LANDING_VIDEO: HeroVideo = {
+  desktop: "1240137722",
+  mobile: "1240137725",
+  title: "The Pipeline Scale Plan",
+  autoplay: true,
+};
 
 export default function PipelineScalePlanCallPage() {
   return (
     <>
-      <Hero videoId={LANDING_VIDEO.id} videoTitle={LANDING_VIDEO.title} ctaHref="#book" />
+      <Hero video={LANDING_VIDEO} ctaHref="#book" />
       <ClientLogoWall />
       <VideoTestimonials />
       <WhoWeHelp />
