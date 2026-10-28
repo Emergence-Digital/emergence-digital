@@ -242,7 +242,7 @@ GHL calls time out after 10 s and are retried once on a 429, a 5xx or a network 
 - **The cookie.** `ed_attribution` is a first-party cookie (30 days, `SameSite=Lax`) holding UTMs, click IDs, the referrer and the landing page. Mention it in the privacy policy.
 - **Booking prefill puts personal details in the URL.** The booking page removes them from the address bar once loaded, so they don't sit in browser history, but they still reach Vercel's request logs and GHL. Google Analytics never sees them (see [Google Analytics](#google-analytics)).
 - **Spam protection is basic** (honeypot + 3-second check), which stops form-filling bots but not someone scripting the API. If that becomes a problem, add a Vercel Firewall rate limit on `/api/lead`, or Cloudflare Turnstile.
-- **Site chrome.** Funnel pages use the site's normal navbar and footer. A distraction-free funnel layout would need a route group with its own layout.
+- **Site chrome.** Pages under `/pipeline-scale-plan-call` get a bare header (the logo, not a link) and footer (logo, address, email, copyright), so nothing leads away from the booking. To give another funnel the same, add its path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx`. Other funnel pages, such as `/lp/example-lead`, use the site's normal navbar and footer.
 
 ## Checked against the GHL API v2 docs (Oct 2026)
 

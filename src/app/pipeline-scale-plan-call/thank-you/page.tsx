@@ -6,6 +6,7 @@ import ClientStories from "@/components/sections/ClientStories";
 // Step 3 of the Pipeline Scale Plan call funnel. The GHL calendar's confirmation
 // redirects here once someone books. The copy follows the F1-02 script, and the
 // Centurion videos sit under it in order, so none of them asks for a booking.
+// Only F1-02 autoplays; the Centurion videos wait for a click and play with sound.
 export const metadata: Metadata = {
   title: "You're Booked In — Emergence Digital",
   robots: { index: false, follow: false },
@@ -102,7 +103,7 @@ export default function PipelineScalePlanCallThankYouPage() {
                   <h3 className="font-serif text-3xl md:text-4xl font-bold text-dark-green mt-2 mb-4">{video.stage}</h3>
                   <p className="text-muted text-lg leading-relaxed">{video.body}</p>
                 </div>
-                <VimeoEmbed id={video.vimeoId} title={`Centurion Strategy ${i + 1} of 3: ${video.stage}`} autoplay />
+                <VimeoEmbed id={video.vimeoId} title={`Centurion Strategy ${i + 1} of 3: ${video.stage}`} />
               </li>
             ))}
           </ol>
