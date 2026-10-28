@@ -10,16 +10,18 @@ import AboutShane from "@/components/sections/AboutShane";
 import ClientStories from "@/components/sections/ClientStories";
 import SectionLabel from "@/components/ui/SectionLabel";
 import LeadForm from "@/components/sections/LeadForm";
+import { pageMetadata } from "@/lib/seo";
 
 // Pipeline Scale Plan call funnel, step 1 of 3: the home page with the funnel's
 // video and testimonials, and the booking form in place of the CTA banner. The
 // form tags web:pipeline-scale-plan-call, then step 2 (./book) shows the calendar
 // and the calendar's confirmation redirects to step 3 (./thank-you).
-export const metadata: Metadata = {
-  title: "Pipeline Scale Plan Call — Emergence Digital",
+export const metadata: Metadata = pageMetadata({
+  title: "Book Your Pipeline Scale Plan Call",
   description: "Book a 30-minute Pipeline Scale Plan call and we'll map your first campaign together.",
-  robots: { index: false, follow: false },
-};
+  path: "/pipeline-scale-plan-call",
+  noindex: true,
+});
 
 // The Pipeline Scale Plan VSL (B1 v2), which plays muted while on screen.
 // It replaced F1-01 (Vimeo 1239812265), the short landing page video.

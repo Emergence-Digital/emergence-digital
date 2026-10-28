@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import LeadForm from "@/components/sections/LeadForm";
+import { pageMetadata } from "@/lib/seo";
 
 // Where every "Book a Strategy Call" button goes. The "book-call" form tags the
 // contact web:book-call in GHL, then /book/time shows the calendar, prefilled.
-export const metadata: Metadata = {
-  title: "Book a Strategy Call — Emergence Digital",
-  description: "Book a strategy call and we'll map your first campaign together.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Book a Strategy Call",
+  description:
+    "Book a 30-minute strategy call. We'll map where your next clients are most likely to come from, and which campaign to run first and what it costs.",
+  path: "/book",
+});
 
 const points = [
   "Where your next clients are most likely to come from",

@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ServicesLibrary from "@/components/sections/ServicesLibrary";
 import CTABanner from "@/components/sections/CTABanner";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Our Services — Emergence Digital",
+export const metadata: Metadata = pageMetadata({
+  title: "Marketing Services for IT Firms",
   description:
-    "Services that help MSPs, cyber security firms, ERP and cloud partners, consultancies and software companies win bigger accounts, get more leads from their website, stand out from the big firms and close more of their pipeline.",
-};
+    "Marketing and sales services for IT firms. Filter by goal: win bigger accounts, get more website leads, stand out from the big firms or close more deals.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

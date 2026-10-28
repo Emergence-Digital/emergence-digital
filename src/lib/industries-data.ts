@@ -69,7 +69,7 @@ export const industries: Industry[] = [
       "lead-magnets",
     ],
     metaDescription:
-      "Marketing for MSPs and cyber security firms that want to be the provider buyers already trust, and win mid-market and enterprise contracts on reputation, not price.",
+      "Marketing for MSPs and cyber security firms: be the provider buyers already trust, and win mid-market and enterprise contracts on reputation, not price.",
   },
   {
     slug: "erp-cloud-partners",
@@ -161,7 +161,7 @@ export const industries: Industry[] = [
       "blogs",
     ],
     metaDescription:
-      "Marketing for IT, data and AI consultancies and software development firms: become the firm buyers trust to build their AI, and win work on expertise, not day rates.",
+      "Marketing for IT, data and AI consultancies and dev firms: become the firm buyers trust to build their AI, and win work on expertise, not day rates.",
   },
   {
     slug: "saas-software-companies",

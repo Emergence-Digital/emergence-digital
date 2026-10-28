@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import LeadForm from "@/components/sections/LeadForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact — Emergence Digital",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Us",
   description:
-    "Get in touch with Emergence Digital. We'd love to hear about your project.",
-};
+    "Talk to Emergence Digital about marketing for your IT firm. Email us, visit our office in Lilydale, Melbourne, or book a 30-minute strategy call.",
+  path: "/contact",
+});
 
 const LinkedInIcon = () => (
   <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

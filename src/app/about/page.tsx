@@ -3,28 +3,28 @@ import Image from "next/image";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Card from "@/components/ui/Card";
 import CTABanner from "@/components/sections/CTABanner";
+import AboutTeamVisual from "@/components/sections/AboutTeamVisual";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About — Emergence Digital",
+export const metadata: Metadata = pageMetadata({
+  title: "About Our Melbourne Team",
   description:
-    "A Melbourne marketing company built for IT, MSP and software firm owners ready to become recognised leaders in their category.",
-};
+    "Meet the Melbourne team behind Emergence Digital. We help IT, MSP and software firms turn deep expertise into the reputation that wins bigger clients.",
+  path: "/about",
+});
 
 const values = [
   {
     title: "Craft",
-    description:
-      "We care about the quality of our work and go the extra mile on every campaign — the details are what separate work people notice from work people ignore.",
+    description: "We sweat the details. They're what separate work people notice from work they scroll past.",
   },
   {
     title: "Creativity",
-    description:
-      "We bring out-of-the-box thinking to every brief and aren't afraid to try new things — the safe, expected approach rarely makes anyone stand out.",
+    description: "We skip the safe, expected idea, because it rarely makes anyone stand out.",
   },
   {
     title: "Curiosity",
-    description:
-      "We're constantly learning new approaches, technologies and ways of solving problems — staying curious is how we keep our clients ahead, not just current.",
+    description: "We keep learning new tools and approaches, so our clients stay ahead, not just current.",
   },
 ];
 
@@ -32,52 +32,41 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-cream pt-32 pb-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <SectionLabel>About Us</SectionLabel>
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-dark-green mt-2 mb-6 max-w-3xl">
-            About Emergence Digital
-          </h1>
-          <p className="text-muted text-lg max-w-2xl leading-relaxed">
-            A Melbourne marketing company built for IT, MSP and software firm
-            owners who&apos;ve outgrown their market positioning — and are ready
-            to become recognised leaders in their category.
-          </p>
+      <section className="bg-cream pt-32 pb-16 lg:pb-20 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,540px)] gap-12 lg:gap-10 items-center">
+          <div>
+            <SectionLabel>About Us</SectionLabel>
+            <h1 className="font-serif text-5xl md:text-6xl font-bold text-dark-green mt-2 mb-6 max-w-3xl">
+              About Emergence Digital
+            </h1>
+            <p className="text-muted text-lg max-w-2xl leading-relaxed">
+              A Melbourne marketing company built for IT, MSP and software firm
+              owners who&apos;ve outgrown their market positioning — and are ready
+              to become recognised leaders in their category.
+            </p>
+          </div>
+          <AboutTeamVisual />
         </div>
       </section>
 
       {/* Our Story */}
       <section className="bg-white py-20 md:py-28">
-        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-6 lg:gap-16 items-start">
           <div>
             <SectionLabel>Our Story</SectionLabel>
-            <h2 className="font-serif text-4xl font-bold text-dark-green mt-2 mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark-green mt-2">
               Where we came from.
             </h2>
-            <p className="text-body leading-relaxed mb-4">
-              Emergence Digital started the same way most of our clients do —
-              with more expertise than exposure. We&apos;d get excited by an
-              opportunity, know we could deliver on it, but lack the
-              positioning and pipeline to make it real. That gap between
-              capability and recognition is exactly what we now help other
-              firms close.
-            </p>
-            <p className="text-body leading-relaxed">
-              Today we work with MSPs and cyber security firms, ERP and cloud
-              partners, IT consultancies, software developers and SaaS
-              companies who are technically excellent but
-              under-recognised in their market. We build the campaigns —
-              digital events, content, and follow-through — that turn quiet
-              expertise into a reputation people actively seek out.
-            </p>
           </div>
-          <div className="rounded-2xl overflow-hidden aspect-video bg-dark-green/10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
-              alt="Modern professional workspace"
-              className="w-full h-full object-cover"
-            />
+          <div className="space-y-4 text-body text-lg leading-relaxed lg:pt-8">
+            <p>
+              Emergence started the way most of our clients do: with more expertise than exposure. We could
+              deliver the work, but we didn&apos;t have the positioning or the pipeline to win it.
+            </p>
+            <p>
+              Closing that gap is now what we do for MSPs, ERP and cloud partners, consultancies and software
+              companies. We build the campaigns that turn quiet expertise into a reputation buyers seek out.
+            </p>
           </div>
         </div>
       </section>
