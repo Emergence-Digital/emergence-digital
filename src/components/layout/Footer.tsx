@@ -29,6 +29,27 @@ const footerNav = [
   { label: "Contact", href: "/contact" },
 ];
 
+// Shared by both footers
+const EMAIL = "contact@emergencedigital.com.au";
+
+const EmailLink = () => (
+  <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors duration-200">
+    {EMAIL}
+  </a>
+);
+
+const Address = () => (
+  <>
+    Suite 4, 184 Main Street
+    <br />
+    Lilydale, VIC Australia
+  </>
+);
+
+const Copyright = () => (
+  <p className="text-xs text-white/40">© {new Date().getFullYear()} Emergence Digital. All rights reserved.</p>
+);
+
 export default function Footer() {
   return (
     <footer className="bg-dark-green text-white">
@@ -42,17 +63,10 @@ export default function Footer() {
             </p>
             <ul className="space-y-3 text-sm text-white/80 mb-6">
               <li>
-                <a
-                  href="mailto:contact@emergencedigital.com.au"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  contact@emergencedigital.com.au
-                </a>
+                <EmailLink />
               </li>
               <li>
-                Suite 4, 184 Main Street
-                <br />
-                Lilydale, VIC Australia
+                <Address />
               </li>
             </ul>
             <div className="flex gap-4">
@@ -141,9 +155,31 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} Emergence Digital. All rights reserved.
-          </p>
+          <Copyright />
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/** Footer for funnel pages: the logo, address, email and copyright, with no links away from the page. */
+export function FunnelFooter() {
+  return (
+    <footer className="bg-dark-green text-white">
+      <div className="max-w-[1200px] mx-auto px-6 py-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <p className="font-serif text-xl font-bold">Emergence Digital</p>
+          <ul className="space-y-3 text-sm text-white/80 sm:text-right">
+            <li>
+              <Address />
+            </li>
+            <li>
+              <EmailLink />
+            </li>
+          </ul>
+        </div>
+        <div className="border-t border-white/10 mt-10 pt-8">
+          <Copyright />
         </div>
       </div>
     </footer>

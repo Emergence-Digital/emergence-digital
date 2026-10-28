@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar, { FunnelHeader } from "@/components/layout/Navbar";
+import Footer, { FunnelFooter } from "@/components/layout/Footer";
+import SiteChrome from "@/components/layout/SiteChrome";
 import AttributionCapture from "@/components/layout/AttributionCapture";
 import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo";
@@ -41,9 +42,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${mangalPro.variable} ${inter.variable} antialiased`}>
         <AttributionCapture />
-        <Navbar />
+        <SiteChrome site={<Navbar />} funnel={<FunnelHeader />} />
         <main>{children}</main>
-        <Footer />
+        <SiteChrome site={<Footer />} funnel={<FunnelFooter />} />
         <GoogleAnalytics />
       </body>
     </html>
