@@ -57,7 +57,12 @@ export default function PipelineScalePlanCallThankYouPage() {
             </p>
           </div>
 
-          <VimeoEmbed id="1239805007" title="You're booked in: three quick things before your call" className="max-w-4xl mx-auto" />
+          <VimeoEmbed
+            id="1239805007"
+            title="You're booked in: three quick things before your call"
+            autoplay
+            className="max-w-4xl mx-auto"
+          />
 
           <ol className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto mt-12">
             {nextSteps.map((step, i) => (
@@ -97,7 +102,7 @@ export default function PipelineScalePlanCallThankYouPage() {
                   <h3 className="font-serif text-3xl md:text-4xl font-bold text-dark-green mt-2 mb-4">{video.stage}</h3>
                   <p className="text-muted text-lg leading-relaxed">{video.body}</p>
                 </div>
-                <VimeoEmbed id={video.vimeoId} title={`Centurion Strategy ${i + 1} of 3: ${video.stage}`} />
+                <VimeoEmbed id={video.vimeoId} title={`Centurion Strategy ${i + 1} of 3: ${video.stage}`} autoplay />
               </li>
             ))}
           </ol>
