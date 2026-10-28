@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import AttributionCapture from "@/components/layout/AttributionCapture";
 import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo";
 
 // Place your font file at: src/app/fonts/MangalPro.otf  (or .ttf)
 // Update the src path below if your filename differs
@@ -21,11 +22,14 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
+// Fallbacks for pages without their own. Pages set theirs with pageMetadata() from lib/seo.ts, and the link preview
+// image comes from the nearest opengraph-image.tsx.
 export const metadata: Metadata = {
-  metadataBase: new URL("https://emergencedigital.com.au"),
-  title: "Emergence Digital — Custom Digital Solutions Melbourne",
-  description:
-    "Melbourne-based agency offering sales, marketing, digital, and content services — from outbound campaigns and CRM administration to web design and agentic AI.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  openGraph: { type: "website", locale: "en_AU", siteName: SITE_NAME },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

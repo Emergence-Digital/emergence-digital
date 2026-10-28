@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import IndustryPageLayout from "@/components/layout/IndustryPageLayout";
 import { getAllIndustrySlugs, getIndustry } from "@/lib/industries-data";
+import { pageMetadata } from "@/lib/seo";
 
 interface PageParams {
   slug: string;
@@ -20,10 +21,11 @@ export async function generateMetadata({
   const industry = getIndustry(slug);
   if (!industry) return {};
 
-  return {
-    title: `${industry.label} — Emergence Digital`,
+  return pageMetadata({
+    title: `Marketing for ${industry.label}`,
     description: industry.metaDescription,
-  };
+    path: `/industries/${industry.slug}`,
+  });
 }
 
 export default async function IndustryDetailPage({

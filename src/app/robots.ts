@@ -7,6 +7,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      // The lead form's endpoint, not a page
+      disallow: "/api/",
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
   };

@@ -4,12 +4,14 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import CTABanner from "@/components/sections/CTABanner";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Packages — Emergence Digital",
+export const metadata: Metadata = pageMetadata({
+  title: "Marketing Packages for IT Firms",
   description:
-    "Campaign-led growth packages for IT and software firm owners ready to become the obvious choice in their market.",
-};
+    "Campaign-led marketing packages for IT firms, built around a monthly digital event we plan, promote and run, then turn into a full library of content.",
+  path: "/packages",
+});
 
 interface Tier {
   name: string;

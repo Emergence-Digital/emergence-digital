@@ -40,6 +40,14 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
+
+  /* About team visual: the progress bar under the swapping goal, restarted on every swap. */
+  --animate-goal-fill: goal-fill 3.2s linear forwards;
+
+  @keyframes goal-fill {
+    from { width: 0; }
+    to { width: 100%; }
+  }
 }
 
 :root {
