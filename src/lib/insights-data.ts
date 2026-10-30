@@ -1,4 +1,5 @@
 import n1 from "@/content/insights/N1.json";
+import n2 from "@/content/insights/N2.json";
 import n3 from "@/content/insights/N3.json";
 import n4 from "@/content/insights/N4.json";
 
@@ -30,7 +31,7 @@ export interface StatGraphic {
 }
 
 export interface ChainStep {
-  /** Lucide icon name: cpu, receipt, target or trending-down. */
+  /** Lucide icon name: cpu, lock, receipt, target, trending-down, users or zap. */
   icon: string;
   big?: string;
   chip?: string;
@@ -137,6 +138,36 @@ export interface CalloutGraphic {
   label: string;
 }
 
+/** A box labelled `box` gets a `sticker` stuck over its label; under it, a stat card counts down to `stat.display`. */
+export interface LabelGraphic {
+  type: "label";
+  box: string;
+  sticker: string;
+  stat: { display: string; label: string };
+  sourceTab: string;
+}
+
+/** Real checkboxes the reader ticks, with a live "n of 6" and the gaps. Nothing is stored or sent. */
+export interface ChecklistGraphic {
+  type: "checklist";
+  prompt: string;
+  items: string[];
+  /** "{n} of 6", with {n} filled in. */
+  resultTemplate: string;
+  gapsLabel: string;
+  complete: { label: string; cutout?: string };
+  privacyNote: string;
+  sourceTab: string;
+}
+
+/** Two cards side by side, dark on the left and white on the right, their rows revealed alternately. */
+export interface CompareGraphic {
+  type: "compare";
+  left: { title: string; rows: string[] };
+  right: { title: string; note?: string; rows: string[] };
+  caption: string;
+}
+
 type BuiltGraphic =
   | StatGraphic
   | ChainGraphic
@@ -149,7 +180,10 @@ type BuiltGraphic =
   | ShortlistGraphic
   | RingGraphic
   | TimelineGraphic
-  | CalloutGraphic;
+  | CalloutGraphic
+  | LabelGraphic
+  | ChecklistGraphic
+  | CompareGraphic;
 
 /** Graphic types for later posts. Their props are settled when each post's JSON arrives; until then they don't render. */
 export interface LaterGraphic {
@@ -190,7 +224,8 @@ export interface InsightPost {
   images: { preview: string; card: string; cardBase: string; cardCutout: string; alt: string };
   shortVersion: string[];
   beats: Beat[];
-  take: { line: string; key: string; videoAt?: number; body: string[] };
+  /** `download` adds a button under the take, e.g. N2's carousel PDF. */
+  take: { line: string; key: string; videoAt?: number; body: string[]; download?: { label: string; file: string } };
   sources: { outlet: string; title: string; date: string; url: string }[];
   notes: string[];
   /** Fact trace for reviewers. Never shown. */
@@ -199,7 +234,7 @@ export interface InsightPost {
 
 // Add a post by importing its JSON and listing it here. JSON imports widen literal types ("approved" becomes
 // string), hence the cast.
-const posts = [n1, n3, n4] as unknown as InsightPost[];
+const posts = [n1, n2, n3, n4] as unknown as InsightPost[];
 
 /**
  * Vercel preview deployments and `npm run dev` show every post, drafts and future ones included, so a post can be

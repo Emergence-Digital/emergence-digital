@@ -43,13 +43,15 @@ export function smartQuotes(text: string) {
 
 /**
  * A figure as a screen reader should say it: "55.4M" → "55.4 million", "$192B" → "$192 billion", "5×" → "5 times",
- * "−22.4%" → "down 22.4%", "+8.7%" → "up 8.7%", "~50%" → "about 50%", "6,000+" → "more than 6,000".
+ * "−22.4%" → "down 22.4%", "+8.7%" → "up 8.7%", "~50%" → "about 50%", "<20%" → "less than 20%",
+ * "6,000+" → "more than 6,000".
  */
 export function spoken(display: string) {
   return display
     .replace(/^[−-]\s*/, "down ")
     .replace(/^\+\s*/, "up ")
     .replace(/^~\s*/, "about ")
+    .replace(/^<\s*/, "less than ")
     .replace(/^([\d,.]+)\+$/, "more than $1")
     .replace(/(\d)\s*M\b/g, "$1 million")
     .replace(/(\d)\s*B\b/g, "$1 billion")

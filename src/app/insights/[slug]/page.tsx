@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Download } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CTABanner from "@/components/sections/CTABanner";
 import { SourceChip } from "@/components/insights/NewsCard";
@@ -167,6 +168,16 @@ export default async function InsightPostPage({ params }: { params: Promise<Page
                 <SectionHeading id="shanes-take-heading">Shane&rsquo;s take</SectionHeading>
                 <TakeLine line={smartQuotes(post.take.line)} keyWords={smartQuotes(post.take.key)} jump={jump(post.take.videoAt)} />
                 <Paragraphs items={post.take.body} />
+                {post.take.download && (
+                  <a
+                    href={postAsset(post, post.take.download.file)}
+                    download
+                    className="mt-8 inline-flex items-center gap-2.5 border border-dark-green bg-dark-green px-7 py-3 text-sm font-medium tracking-wide text-white transition-all duration-200 hover:border-mid-green hover:bg-mid-green focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-mid-green"
+                  >
+                    <Download aria-hidden="true" className="h-4 w-4" />
+                    {post.take.download.label}
+                  </a>
+                )}
               </section>
 
               <section aria-labelledby="sources-heading" className="mt-16 md:mt-20 border-t border-dark-green/10 pt-10">

@@ -1,0 +1,203 @@
+{
+  "id": "N2",
+  "slug": "fde-washing-vendor-built-ai-agents",
+  "series": "The IT news worth knowing",
+  "status": "approved",
+  "publishAt": "2026-11-08T09:00:00+11:00",
+  "title": "Gartner predicts that by 2028, 70% of enterprises will walk away from AI agents built by vendor engineers",
+  "metaTitle": "FDE washing and vendor-built AI agents",
+  "description": "Gartner predicts 70% of enterprises will abandon agentic AI built by vendor engineers by 2028, and warns of \"FDE washing\". What it means for consultancies.",
+  "dek": "AI vendors are sending their own engineers to build agents with customers. Gartner expects most enterprises to drop what's built that way, and I think that's an opening for consultancies that hand over the keys.",
+  "author": "Shane Kennedy",
+  "readMinutes": 4,
+  "audience": "IT consultancies",
+  "sourceChip": "Gartner · 29 Sep 2026 · prediction",
+  "video": {
+    "vimeoId": null,
+    "title": "FDE washing and vendor-built AI agents. IT news worth knowing",
+    "poster": "assets/N2/poster.jpg",
+    "durationSec": 61.68
+  },
+  "images": {
+    "preview": "assets/N2/preview-1200x630.jpg",
+    "card": "assets/N2/card-1200x720.webp",
+    "cardBase": "assets/N2/card-base-1200x720.webp",
+    "cardCutout": "assets/N2/card-cutout.webp",
+    "alt": "70% will walk away by 2028, beside a man holding up a set of keys"
+  },
+  "shortVersion": [
+    "Gartner predicts 70% of enterprises will abandon agentic AI built by vendor forward-deployed engineering (FDE) by 2028, trapped by soaring costs and unable to evolve it on their own.",
+    "It also warns of \"FDE washing\". That's consulting services marketed as FDE, sometimes at premium rates.",
+    "I think clients will want to know who'll own the agent when the consultancy leaves. If a proposal already answers that, it's worth saying up front."
+  ],
+  "beats": [
+    {
+      "id": "the-prediction",
+      "heading": "What Gartner predicts",
+      "body": [
+        "Gartner released the prediction on 29 September. By 2028, it expects 70% of enterprises to abandon agentic AI built by vendor forward-deployed engineering, or FDE, \"trapped by soaring costs and unable to evolve it on their own\". That's most of them.",
+        "FDE is a model where the vendor's own engineers work directly with customers \"to build and deploy solutions\". Gartner says it's a pattern that's familiar from enterprise software, and the new part is \"the intensity of the hype\"."
+      ],
+      "videoAt": 20.64,
+      "graphic": {
+        "type": "ring",
+        "value": 70,
+        "display": "70%",
+        "label": "of enterprises will abandon agentic AI built by vendor FDE, by 2028",
+        "sourceTab": "Gartner · 29 Sep 2026"
+      }
+    },
+    {
+      "id": "how-it-goes-wrong",
+      "heading": "How it goes wrong",
+      "body": [
+        "Gartner says FDE engagements often fail structurally before they fail technically. Customers may see faster early progress, it says, but they won't necessarily build their own capability, and they can end up paying premium rates.",
+        "Once the scope's clear, Gartner says, a traditional services or partner model could deliver that work more cost-effectively, with more predictable results."
+      ],
+      "videoAt": 24.36,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "How vendor-built agents get dropped",
+        "steps": [
+          {
+            "icon": "users",
+            "text": "Vendor engineers build the agent with the customer"
+          },
+          {
+            "icon": "zap",
+            "text": "Faster early progress"
+          },
+          {
+            "icon": "receipt",
+            "text": "Premium rates, and little capability built in-house"
+          },
+          {
+            "icon": "lock",
+            "text": "The customer can't evolve it on their own"
+          },
+          {
+            "icon": "trending-down",
+            "big": "70%",
+            "text": "of enterprises abandon it by 2028"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fde-washing",
+      "heading": "FDE washing",
+      "body": [
+        "Gartner's Mukul Saha says many providers now use \"forward deployed\" as a label for implementation, professional services, solution engineering or AI consulting, \"some thoughtfully, others because it sounds more strategic\". Some charge premium fees, he says, when they don't have the delivery depth to justify them.",
+        "Gartner also predicts that through 2028, less than 20% of FDE engagements will turn recurring customer needs into capabilities in the vendor's core product. It says that's exposing a growing risk of FDE washing, where consulting services are marketed as FDE."
+      ],
+      "videoAt": 31.1,
+      "graphic": {
+        "type": "label",
+        "box": "Consulting services",
+        "sticker": "Forward deployed",
+        "stat": {
+          "display": "<20%",
+          "label": "of FDE engagements will turn recurring needs into core product features, through 2028"
+        },
+        "sourceTab": "Gartner · 29 Sep 2026"
+      }
+    },
+    {
+      "id": "the-checklist",
+      "heading": "Gartner's checklist",
+      "body": [
+        "Gartner's list has six items. Saha says the best-scoped FDE engagements have clear guidelines on governance, business value delivery, IP ownership, project co-ownership, knowledge transfer, and an exit strategy from day one.",
+        "Gartner's advice to enterprises runs in three phases. Before signing, write deliverables, knowledge transfer, IP rights and exit into the contract. During the work, embed the vendor's engineers with the customer's own people. At the end, carry out the exit plan, rather than extending the engagement because the internal team isn't ready."
+      ],
+      "videoAt": 49.77,
+      "graphic": {
+        "type": "checklist",
+        "prompt": "Which of these does your last AI proposal spell out?",
+        "items": [
+          "Governance",
+          "Business value delivery",
+          "IP ownership",
+          "Project co-ownership",
+          "Knowledge transfer",
+          "An exit strategy from day one"
+        ],
+        "resultTemplate": "{n} of 6",
+        "gapsLabel": "Not covered yet",
+        "complete": {
+          "label": "6 of 6. That's every item on Gartner's list.",
+          "cutout": "assets/N2/cutouts/keys.webp"
+        },
+        "privacyNote": "Nothing you tick is stored or sent.",
+        "sourceTab": "List from Gartner · 29 Sep 2026"
+      }
+    },
+    {
+      "id": "what-it-means",
+      "heading": "What it means for consultancies",
+      "body": [
+        "I'd expect clients to start asking a sharper question. Will we own this when you leave?",
+        "Let's say an enterprise wants a service desk AI agent, and it's choosing between a vendor's FDE team and a consultancy whose proposal spells out who'll own the IP, how knowledge will transfer and when it'll hand over. It's already covering half of Gartner's list."
+      ],
+      "videoAt": 39.28,
+      "graphic": {
+        "type": "compare",
+        "left": {
+          "title": "Vendor FDE",
+          "rows": [
+            "Vendor engineers work directly with the customer",
+            "Faster early progress",
+            "Premium rates",
+            "Risk: can't evolve it on their own"
+          ]
+        },
+        "right": {
+          "title": "Services or partner model",
+          "note": "once the scope is clear",
+          "rows": [
+            "Could deliver it more cost-effectively",
+            "Results could be more predictable"
+          ]
+        },
+        "caption": "Drawn from Gartner's release, 29 Sep 2026"
+      }
+    }
+  ],
+  "take": {
+    "line": "Will we own this",
+    "key": "when you leave?",
+    "videoAt": 47.6,
+    "body": [
+      "Gartner's checklist covers IP ownership, knowledge transfer and an exit strategy from day one. If that's already how you work, it belongs at the top of your website."
+    ],
+    "download": {
+      "label": "Download the checklist (PDF, 8 slides)",
+      "file": "assets/N2/N2-checklist-carousel.pdf"
+    }
+  },
+  "sources": [
+    {
+      "outlet": "Gartner",
+      "title": "Gartner Predicts 70% of Enterprises Will Abandon Agentic AI Built by Vendor Forward-Deployed Engineering by 2028",
+      "date": "2026-09-29",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028"
+    }
+  ],
+  "notes": [
+    "The 70% and the under-20% are Gartner predictions, not survey results.",
+    "The checklist and the three phases are Gartner's advice to enterprise software engineering leaders.",
+    "\"What it means for consultancies\", \"Shane's take\", the service desk example and the self-check question are my opinion, not Gartner's."
+  ],
+  "trace": {
+    "29 September": "Release dateline",
+    "70% of enterprises will abandon agentic AI built by vendor FDE by 2028; trapped by soaring costs and unable to evolve it on their own": "Release para 1 (direct quote)",
+    "FDE = vendor engineers work directly with customers to build and deploy solutions": "Release para 1",
+    "pattern familiar from enterprise software; the intensity of the hype": "'FDE Must Be Viewed as a Delivery Model' para 1 (direct phrase)",
+    "fail structurally before they fail technically": "Release para 3",
+    "faster early progress; fail to build internal capability; premium rates; services or partner model could potentially deliver more cost-effectively and with more predictable results once the scope is clear": "Customers may see faster early progress... para",
+    "Saha: 'forward deployed' as a label ...; some thoughtfully, others because it sounds more strategic; premium fees without the delivery depth": "Saha quote in 'Delivery Model' section",
+    "less than 20% of FDE engagements will turn recurring customer needs into capabilities in the vendor's core product, through 2028; growing risk of FDE washing": "Final para",
+    "six-item checklist; best-scoped FDE engagements": "Saha quote 1",
+    "three phases: before signing (contract: deliverables, knowledge transfer, IP rights, exit); during (embed FDEs with internal experts, engineers, end users); exit (execute the exit plan rather than extending)": "Phase 1-3 sections",
+    "Will we own this when you leave?; top of your website; service desk example": "Shane's N2 script and opinion, labelled in notes"
+  }
+}

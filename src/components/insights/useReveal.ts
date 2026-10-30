@@ -62,14 +62,17 @@ export function numberFormat(display: string) {
     after;
 }
 
-/** Counts an element's text up from 0 to `to`, easing out, then leaves `final` showing. */
-export function countUp(el: HTMLElement | null, to: number, format: (n: number) => string, final: string, ms = 1200) {
+/**
+ * Counts an element's text from `from` (0 unless given) to `to`, easing out, then leaves `final` showing. A `from`
+ * above `to` counts down.
+ */
+export function countUp(el: HTMLElement | null, to: number, format: (n: number) => string, final: string, ms = 1200, from = 0) {
   if (!el) return;
   const start = performance.now();
   const frame = (now: number) => {
     const t = Math.min((now - start) / ms, 1);
     const eased = 1 - Math.pow(1 - t, 3);
-    el.textContent = t < 1 ? format(to * eased) : final;
+    el.textContent = t < 1 ? format(from + (to - from) * eased) : final;
     if (t < 1) requestAnimationFrame(frame);
   };
   requestAnimationFrame(frame);

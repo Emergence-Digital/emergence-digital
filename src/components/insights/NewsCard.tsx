@@ -26,6 +26,8 @@ interface NewsCardProps {
   source?: string;
   /** The "▶ 0:18 in the video" chip. */
   jump?: ReactNode;
+  /** Leaves the contents readable by screen readers, for cards people use (the checklist). */
+  readable?: boolean;
   className?: string;
   children: ReactNode;
 }
@@ -34,7 +36,7 @@ interface NewsCardProps {
  * The dark green news card the Insights graphics are built on. Its contents are hidden from screen readers: each
  * graphic's figcaption says the same in words. The jump chip stays reachable.
  */
-export default function NewsCard({ source, jump, className = "", children }: NewsCardProps) {
+export default function NewsCard({ source, jump, readable = false, className = "", children }: NewsCardProps) {
   return (
     <div
       className={`relative rounded-[24px] bg-dark-green text-white px-5 pb-7 sm:px-8 sm:pb-8 shadow-[0_32px_60px_-28px_rgba(28,56,48,0.6),0_10px_24px_-14px_rgba(28,56,48,0.35)] ${
@@ -48,7 +50,7 @@ export default function NewsCard({ source, jump, className = "", children }: New
         />
       )}
       <JumpSlot>{jump}</JumpSlot>
-      <div aria-hidden="true">{children}</div>
+      <div aria-hidden={readable ? undefined : true}>{children}</div>
     </div>
   );
 }
