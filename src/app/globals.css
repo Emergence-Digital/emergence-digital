@@ -75,6 +75,11 @@
   --animate-pin-hop: pin-hop 0.6s cubic-bezier(0.33, 1, 0.68, 1) both;
   --animate-sticker-drop: sticker-drop 0.7s cubic-bezier(0.33, 1, 0.68, 1) both;
   --animate-keys-drop: keys-drop 0.8s cubic-bezier(0.33, 1, 0.68, 1) both;
+  --animate-bar-rise: bar-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-spinner: spinner 0.6s linear both;
+  --animate-dot-merge: dot-merge 1.4s cubic-bezier(0.65, 0, 0.35, 1) both;
+  --animate-fade-out: fade-out 0.5s ease-in both;
+  --animate-lock-drop: lock-drop 0.7s cubic-bezier(0.33, 1, 0.68, 1) both;
 
   @keyframes bar-grow {
     from { scale: 0 1; }
@@ -200,6 +205,38 @@
     0% { opacity: 0; translate: 0 -48px; rotate: 18deg; }
     55% { opacity: 1; translate: 0 4px; rotate: -6deg; }
     100% { opacity: 1; translate: 0 0; rotate: 0deg; }
+  }
+  /* Vertical bars and the shield's fill grow up from the bottom */
+  @keyframes bar-rise {
+    from { scale: 1 0; }
+    to { scale: 1 1; }
+  }
+
+  /* Scan rows: a spinner shows for one turn, then goes */
+  @keyframes spinner {
+    0% { opacity: 0; rotate: 0deg; }
+    15%, 85% { opacity: 1; }
+    100% { opacity: 0; rotate: 360deg; }
+  }
+
+  /* Dots: each appears where it starts (--x0, --y0), drifts to its cluster (--x1, --y1) and merges away */
+  @keyframes dot-merge {
+    0% { opacity: 0; scale: 0.4; left: var(--x0); top: var(--y0); }
+    20% { opacity: 1; scale: 1; left: var(--x0); top: var(--y0); }
+    85% { opacity: 1; scale: 1; left: var(--x1); top: var(--y1); }
+    100% { opacity: 0; scale: 1.6; left: var(--x1); top: var(--y1); }
+  }
+
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  /* Padlock: the closed one drops into place as if just locked */
+  @keyframes lock-drop {
+    0% { opacity: 0; translate: 0 -18px; }
+    60% { opacity: 1; translate: 0 3px; }
+    100% { opacity: 1; translate: 0 0; }
   }
 }
 

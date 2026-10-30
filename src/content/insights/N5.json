@@ -1,0 +1,234 @@
+{
+  "id": "N5",
+  "slug": "securing-ai-market-2027",
+  "series": "The IT news worth knowing",
+  "status": "approved",
+  "publishAt": "2026-11-11T09:00:00+11:00",
+  "title": "Spending on securing AI is set to jump almost 70% in 2027",
+  "metaTitle": "What Gartner's securing AI forecast means for cyber firms",
+  "description": "Gartner forecasts the market for securing AI will reach almost US$4.8 billion in 2027, up 68.7%, with AI usage control growing fastest, up 73%.",
+  "dek": "Gartner says traditional security tools often treat AI applications like any other software. I think it's the cyber firms that can explain the risk in plain English that'll win this work.",
+  "author": "Shane Kennedy",
+  "readMinutes": 4,
+  "audience": "MSPs and cyber security firms",
+  "sourceChip": "Gartner · 26 Aug 2026 · forecast",
+  "video": {
+    "vimeoId": null,
+    "title": "Securing AI grows almost 70%. IT news worth knowing",
+    "poster": "assets/N5/poster.jpg",
+    "durationSec": 53.08
+  },
+  "images": {
+    "preview": "assets/N5/preview-1200x630.jpg",
+    "card": "assets/N5/card-1200x720.webp",
+    "cardBase": "assets/N5/card-base-1200x720.webp",
+    "cardCutout": "assets/N5/card-cutout.webp",
+    "alt": "The securing AI market, forecast at US$4.8B in 2027, up 68.7%, beside a black padlock"
+  },
+  "shortVersion": [
+    "Gartner forecasts the market for securing AI will reach almost US$4.8 billion in 2027, up 68.7%, and almost US$7.7 billion by 2028.",
+    "It predicts over half of successful attacks on AI agents will exploit access control weaknesses and prompt injection by 2029. AI usage control's tipped to grow fastest in 2027, up 73%.",
+    "Two segments are seeing a wave of startups, and Gartner's expecting consolidation to follow. I'd want to be known for explaining the risk in plain English before it gets crowded."
+  ],
+  "beats": [
+    {
+      "id": "the-forecast",
+      "heading": "What Gartner forecast",
+      "body": [
+        "Gartner released the forecast in Sydney on 26 August, but it doesn't give an Australian figure. It expects spending on securing AI to reach almost US$4.8 billion in 2027, up 68.7% on this year's US$2.8 billion. By 2028, it forecasts almost US$7.7 billion. That's nearly triple in two years.",
+        "Gartner senior principal analyst Shailendra Upadhyay says it's driven by enterprises needing to secure their AI systems and deal with new vulnerabilities. Without enough security and visibility controls, he says, enterprise AI projects \"face a high risk of failure\"."
+      ],
+      "videoAt": 10.08,
+      "graphic": {
+        "type": "bars",
+        "eyebrow": "The market for securing AI, US dollars",
+        "orientation": "vertical",
+        "items": [
+          {
+            "label": "2026",
+            "value": 2.8,
+            "display": "$2.8B"
+          },
+          {
+            "label": "2027",
+            "value": 4.8,
+            "display": "$4.8B",
+            "chip": "+68.7%",
+            "highlight": true
+          },
+          {
+            "label": "2028",
+            "value": 7.7,
+            "display": "$7.7B"
+          }
+        ],
+        "note": "Gartner's estimate for 2026, forecasts for 2027 and 2028"
+      }
+    },
+    {
+      "id": "old-tools",
+      "heading": "Why the old tools fall short",
+      "body": [
+        "Upadhyay says \"traditional security tools often treat AI applications like any other software\", and they'll need significant updates to handle AI-specific threats.",
+        "He says the need for specialised tools will grow as businesses do more with AI. Autonomous AI's the big one. He expects it'll bring new vulnerabilities \"beyond the reach of traditional monitoring\"."
+      ],
+      "videoAt": 16.8,
+      "graphic": {
+        "type": "scan",
+        "title": "Security scan",
+        "rows": [
+          {
+            "name": "Website",
+            "result": "Standard software"
+          },
+          {
+            "name": "Payroll app",
+            "result": "Standard software"
+          },
+          {
+            "name": "AI agent",
+            "result": "Standard software",
+            "flag": "AI-specific threats not checked"
+          }
+        ],
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    },
+    {
+      "id": "where-attacks-land",
+      "heading": "Where the attacks will land",
+      "body": [
+        "Gartner predicts that by 2029, over half of successful cyberattacks on AI agents will exploit access control weaknesses and prompt injections.",
+        "Its advice is to combine existing security systems with specialised AI security tools."
+      ],
+      "videoAt": 21.0,
+      "graphic": {
+        "type": "shield",
+        "fill": 0.5,
+        "display": "Over half",
+        "label": "of successful attacks on AI agents will exploit these by 2029, Gartner predicts",
+        "tags": [
+          "Access control weaknesses",
+          "Prompt injection"
+        ],
+        "sourceTab": "Gartner · 26 Aug 2026"
+      }
+    },
+    {
+      "id": "fastest-growing",
+      "heading": "The fastest-growing part",
+      "body": [
+        "Gartner splits the market into four main areas: AI application security, AI usage control, AI governance platforms and AI gateways. Application security stays the biggest of the four, at almost US$851 million in 2027.",
+        "But it's AI usage control that grows fastest, up 73% to US$749 million. In plain English, that's managing how people across a business use AI tools."
+      ],
+      "videoAt": 32.1,
+      "graphic": {
+        "type": "bars",
+        "eyebrow": "Securing AI by segment, 2027 forecast, US dollars",
+        "unit": "US$M",
+        "items": [
+          {
+            "label": "AI application security",
+            "value": 851,
+            "display": "$851M · +67.5%"
+          },
+          {
+            "label": "AI governance platforms",
+            "value": 462,
+            "display": "$462M · +68.0%"
+          },
+          {
+            "label": "AI gateways",
+            "value": 429,
+            "display": "$429M · +70.9%"
+          },
+          {
+            "label": "AI usage control",
+            "value": 749,
+            "display": "$749M · +73.0%",
+            "highlight": true
+          }
+        ],
+        "note": "Gartner also counts US$2.3B of other securing AI spending"
+      }
+    },
+    {
+      "id": "whats-next",
+      "heading": "What happens next",
+      "body": [
+        "Gartner doesn't expect every segment to play out the same way. In AI governance platforms and AI gateways, which often build on existing enterprise systems for governance, data and API management, it says major vendors are likely to keep their lead by adding AI features. AI application security and AI usage control are another story. They're seeing a wave of startups.",
+        "Upadhyay expects consolidation and acquisitions to follow, with larger cyber security companies buying those startups. So it'll get crowded fast. Then it'll narrow."
+      ],
+      "videoAt": 36.68,
+      "graphic": {
+        "type": "dots",
+        "from": "A wave of startups",
+        "to": "Consolidation",
+        "illustrative": true,
+        "caption": "Illustration, no numbers"
+      }
+    },
+    {
+      "id": "what-it-means",
+      "heading": "What it means for cyber firms",
+      "body": [
+        "What clients will still need is a provider who can explain the risk in plain English and stand behind the result.",
+        "Take a 300-person accounting firm that's given its staff an AI assistant. The partners want to know what could go wrong, and who's watching it. They'd probably pick a provider who can answer both on one page, in words they already use, over one with a longer list of features."
+      ],
+      "graphic": {
+        "type": "scene",
+        "variant": "padlock",
+        "layers": [
+          {
+            "src": "assets/N5/cutouts/padlock-open.webp",
+            "role": "before"
+          },
+          {
+            "src": "assets/N5/cutouts/padlock.webp",
+            "role": "after"
+          }
+        ],
+        "caption": "The open padlock gives way to a closed one as it scrolls in"
+      }
+    }
+  ],
+  "take": {
+    "line": "The risk in",
+    "key": "plain English.",
+    "videoAt": 44.52,
+    "body": [
+      "Whoever claims that ground first won't be easy to shift."
+    ]
+  },
+  "sources": [
+    {
+      "outlet": "Gartner",
+      "title": "Gartner Forecasts the Market for Securing AI Will Reach $4.8 Billion in 2027",
+      "date": "2026-08-26",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-08-26-gartner-forecasts-the-market-for-securing-ai-will-reach-almost-5-billion-in-2027"
+    }
+  ],
+  "notes": [
+    "All figures are in US dollars. The 2026 figure is Gartner's estimate, the 2027 and 2028 figures are its forecasts, and the 2029 attack figure is a prediction.",
+    "\"Managing how people across a business use AI tools\" is my plain-English description of AI usage control, not Gartner's wording.",
+    "\"What it means for cyber firms\" and \"Shane's take\", including the accounting firm example, are my opinion, not Gartner's."
+  ],
+  "trace": {
+    "Sydney, 26 August": "Dateline",
+    "almost US$4.8B in 2027, +68.7%; almost US$7.7B by 2028": "Release para 1",
+    "US$2.8B in 2026": "Table 1 total 2026: 2,835 (US$m)",
+    "surge driven by need to secure AI systems, address emerging vulnerabilities; 'face a high risk of failure'": "Upadhyay quote 1",
+    "'traditional security tools often treat AI applications like any other software'; need significant updates for AI-specific threats": "Upadhyay quote 2",
+    "autonomous AI; 'beyond the reach of traditional monitoring'": "Upadhyay quote 3",
+    "over half of successful cyberattacks on AI agents ... access control weaknesses and prompt injections by 2029": "Release para 3",
+    "combine existing security systems with specialised AI security tools": "Release para 3",
+    "four main areas; app security largest at almost US$851M; usage control US$749M, +73%": "Release paras 5-6; Table 1",
+    "segment growth: governance +68.0%, gateway +70.9%, app security +67.5%; other US$2,292M": "Table 1",
+    "major vendors likely to keep their lead in governance platforms and gateways; wave of startups in app security and usage control": "Market Competition section",
+    "consolidation and acquisitions; larger cybersecurity companies buying these startups": "Upadhyay quote 4",
+    "'managing how people across a business use AI tools'": "Shane's gloss (N5 script note), labelled in notes",
+    "rip-and-replace / extra layer; crowded then narrow; accounting firm example; take": "Opinion / Shane's script, labelled in notes",
+    "nearly triple in two years": "Derived: 2,835 (2026) to almost 7,700 (2028) = 2.7x"
+  }
+}

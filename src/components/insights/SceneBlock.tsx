@@ -2,13 +2,13 @@
 
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
-import type { SceneGraphic } from "@/lib/insights-data";
+import type { PriceTagScene } from "@/lib/insights-data";
 import { spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
 interface SceneBlockProps {
-  graphic: SceneGraphic;
+  graphic: PriceTagScene;
   source: string;
   jump?: ReactNode;
 }

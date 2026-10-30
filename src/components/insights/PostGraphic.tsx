@@ -15,6 +15,10 @@ import CalloutBlock from "./CalloutBlock";
 import LabelBlock from "./LabelBlock";
 import ChecklistBlock from "./ChecklistBlock";
 import CompareBlock from "./CompareBlock";
+import ScanBlock from "./ScanBlock";
+import ShieldBlock from "./ShieldBlock";
+import DotsBlock from "./DotsBlock";
+import PadlockBlock from "./PadlockBlock";
 
 interface PostGraphicProps {
   post: InsightPost;
@@ -39,6 +43,11 @@ export default function PostGraphic({ post, graphic, jump }: PostGraphicProps) {
         />
       );
     case "scene":
+      if (graphic.variant === "padlock") {
+        return (
+          <PadlockBlock graphic={{ ...graphic, layers: graphic.layers.map((layer) => ({ ...layer, src: asset(layer.src) })) }} jump={jump} />
+        );
+      }
       return (
         <SceneBlock
           graphic={{ ...graphic, layers: graphic.layers.map((layer) => ({ ...layer, src: asset(layer.src) })) }}
@@ -79,6 +88,12 @@ export default function PostGraphic({ post, graphic, jump }: PostGraphicProps) {
       );
     case "compare":
       return <CompareBlock graphic={graphic} jump={jump} />;
+    case "scan":
+      return <ScanBlock graphic={graphic} jump={jump} />;
+    case "shield":
+      return <ShieldBlock graphic={graphic} jump={jump} />;
+    case "dots":
+      return <DotsBlock graphic={graphic} jump={jump} />;
     default:
       return null;
   }
