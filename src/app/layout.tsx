@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar, { FunnelHeader } from "@/components/layout/Navbar";
 import Footer, { FunnelFooter } from "@/components/layout/Footer";
@@ -17,10 +16,15 @@ const mangalPro = localFont({
   display: "swap",
 });
 
-const inter = Inter({
+// Inter, self-hosted so builds don't depend on Google Fonts (Vercel builds failed intermittently when Google served
+// URLs Turbopack couldn't parse). It's the same file Google served: the variable font's Latin set. Its weights stay
+// 300 to 600, as they were from Google, so heavier text still renders at 600. Licence: SIL OFL 1.1, in
+// fonts/InterVariable-LICENSE.txt.
+const inter = localFont({
+  src: "./fonts/InterVariable-latin.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: "300 600",
+  display: "swap",
 });
 
 // Fallbacks for pages without their own. Pages set theirs with pageMetadata() from lib/seo.ts, and the link preview
