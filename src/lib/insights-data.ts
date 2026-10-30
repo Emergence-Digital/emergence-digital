@@ -1,4 +1,6 @@
+import n1 from "@/content/insights/N1.json";
 import n3 from "@/content/insights/N3.json";
+import n4 from "@/content/insights/N4.json";
 
 /**
  * Insights: posts in "The IT news worth knowing" series (and any later series). Each post is one JSON file in
@@ -74,7 +76,80 @@ export interface ForecastGraphic {
   illustrative: boolean;
 }
 
-type BuiltGraphic = StatGraphic | ChainGraphic | SceneGraphic | IconGridGraphic | ForecastGraphic;
+/** Labelled horizontal bars that grow top to bottom; the highlighted one grows last, in sage. */
+export interface BarsGraphic {
+  type: "bars";
+  eyebrow: string;
+  unit: string;
+  items: { label: string; value: number; display: string; highlight?: boolean }[];
+}
+
+/** A 10 × 10 grid of squares filled segment by segment (the squares add up to 100), beside a cut-out. */
+export interface SquareGridGraphic {
+  type: "squareGrid";
+  eyebrow: string;
+  segments: { label: string; squares: number; value: string; highlight?: boolean }[];
+  caption: string;
+  cutout?: string;
+}
+
+/** A quote whose words light up one by one, optionally after a count-up figure. */
+export interface QuoteGraphic {
+  type: "quote";
+  text: string;
+  who: string;
+  lead?: { value: number; display: string; label: string };
+}
+
+/** A buyer's shortlist of generic firm names; the known ones get ticks. Always illustrative. */
+export interface ShortlistGraphic {
+  type: "shortlist";
+  eyebrow: string;
+  items: { name: string; known: boolean }[];
+  tickLabel: string;
+  illustrative: boolean;
+  caption: string;
+}
+
+/** A percentage ring that fills while its figure counts up. Carries its own SOURCE tab text. */
+export interface RingGraphic {
+  type: "ring";
+  value: number;
+  display: string;
+  label: string;
+  chip?: string;
+  sourceTab: string;
+}
+
+/** Dated stops down a line, revealed as a marker travels past them, beside a cut-out. */
+export interface TimelineGraphic {
+  type: "timeline";
+  eyebrow: string;
+  stops: { date: string; big?: string; text: string; subtext?: string; chip?: string; highlight?: boolean }[];
+  cutout?: string;
+}
+
+/** A map pin whose caption swaps from `from` to `to`, with `label` under it. */
+export interface CalloutGraphic {
+  type: "callout";
+  from: string;
+  to: string;
+  label: string;
+}
+
+type BuiltGraphic =
+  | StatGraphic
+  | ChainGraphic
+  | SceneGraphic
+  | IconGridGraphic
+  | ForecastGraphic
+  | BarsGraphic
+  | SquareGridGraphic
+  | QuoteGraphic
+  | ShortlistGraphic
+  | RingGraphic
+  | TimelineGraphic
+  | CalloutGraphic;
 
 /** Graphic types for later posts. Their props are settled when each post's JSON arrives; until then they don't render. */
 export interface LaterGraphic {
@@ -124,7 +199,7 @@ export interface InsightPost {
 
 // Add a post by importing its JSON and listing it here. JSON imports widen literal types ("approved" becomes
 // string), hence the cast.
-const posts = [n3] as unknown as InsightPost[];
+const posts = [n1, n3, n4] as unknown as InsightPost[];
 
 /**
  * Vercel preview deployments and `npm run dev` show every post, drafts and future ones included, so a post can be

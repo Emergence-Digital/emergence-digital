@@ -1,0 +1,174 @@
+{
+  "id": "N1",
+  "slug": "australian-it-spending-2027",
+  "series": "The IT news worth knowing",
+  "status": "approved",
+  "publishAt": "2026-11-05T09:00:00+11:00",
+  "title": "Australian IT spending is set to pass $192 billion in 2027. IT services get 11c of every new dollar.",
+  "metaTitle": "Australian IT spending 2027: why services miss out",
+  "description": "Gartner expects Australian IT spending to pass A$192.2 billion in 2027, up 8.7%. IT services get A$1.76 billion of the extra A$15.4 billion. What it means.",
+  "dek": "Gartner's forecast has software and cloud growing fast, while IT services grow 3.4%. I'd expect more firms to be chasing a slower-growing pool of work.",
+  "author": "Shane Kennedy",
+  "readMinutes": 4,
+  "audience": "IT services firms",
+  "sourceChip": "Gartner · 16 Sep 2026 · forecast",
+  "video": {
+    "vimeoId": null,
+    "title": "Australian IT spending: services miss out. IT news worth knowing",
+    "poster": "assets/N1/poster.jpg",
+    "durationSec": 47.96
+  },
+  "images": {
+    "preview": "assets/N1/preview-1200x630.jpg",
+    "card": "assets/N1/card-1200x720.webp",
+    "cardBase": "assets/N1/card-base-1200x720.webp",
+    "cardCutout": "assets/N1/card-cutout.webp",
+    "alt": "$15.4B of extra IT spending in 2027, of which IT services get $1.76B, beside a fan of Australian fifty dollar notes"
+  },
+  "shortVersion": [
+    "Gartner forecasts Australian IT spending of more than A$192.2 billion in 2027, up 8.7% on 2026.",
+    "Software grows 13.3% and cloud infrastructure 22.1%. IT services grow 3.4%, and get A$1.76 billion of the extra A$15.4 billion.",
+    "For services firms, I'd plan for 2027 as a fight for share, where the names buyers already know have the edge."
+  ],
+  "beats": [
+    {
+      "id": "the-forecast",
+      "heading": "What Gartner forecast",
+      "body": [
+        "Gartner released its forecast at its IT Symposium on the Gold Coast on 16 September. It expects IT spending in Australia to pass A$192.2 billion in 2027, up 8.7% on this year's A$176.9 billion. That's an extra A$15.4 billion.",
+        "Gartner's Neil Osmond says AI is reshaping where that money goes. In his view, business leaders are \"moving beyond isolated use cases\", and they're investing in the infrastructure and software they'll need to embed AI across the business."
+      ],
+      "videoAt": 14.34,
+      "graphic": {
+        "type": "stat",
+        "eyebrow": "IT spending in Australia, 2027 forecast",
+        "value": 192,
+        "display": "$192B",
+        "chip": "+8.7%",
+        "compare": {
+          "unit": "B",
+          "items": [
+            { "label": "2026", "value": 176.9 },
+            { "label": "2027 forecast", "value": 192.3, "highlight": true }
+          ]
+        },
+        "note": "Australian dollars"
+      }
+    },
+    {
+      "id": "where-the-growth-is",
+      "heading": "Where the growth is",
+      "body": [
+        "Every segment grows. Cloud infrastructure, which Gartner calls infrastructure as a service, grows fastest, up 22.1% to A$9.1 billion, driven by AI-optimised capacity that Gartner expects to grow 58.5%. Data centre systems grow 16.6% and software 13.3%. Software's still the biggest category, at more than A$68 billion.",
+        "IT services grow 3.4%. That's the slowest on the table, level with communications services."
+      ],
+      "videoAt": 18.78,
+      "graphic": {
+        "type": "bars",
+        "eyebrow": "Growth in 2027, by segment",
+        "unit": "%",
+        "items": [
+          { "label": "Cloud infrastructure (IaaS)", "value": 22.1, "display": "+22.1%" },
+          { "label": "Data centre systems", "value": 16.6, "display": "+16.6%" },
+          { "label": "Software", "value": 13.3, "display": "+13.3%" },
+          { "label": "Devices", "value": 5.5, "display": "+5.5%" },
+          { "label": "Communications services", "value": 3.4, "display": "+3.4%" },
+          { "label": "IT services", "value": 3.4, "display": "+3.4%", "highlight": true }
+        ]
+      }
+    },
+    {
+      "id": "the-extra-15-billion",
+      "heading": "Where the extra $15.4 billion goes",
+      "body": [
+        "Split the extra A$15.4 billion by segment and the gap gets clearer. Software takes A$8.0 billion of it. That's about half. IT services get A$1.76 billion, about 11 cents in every new dollar, even though it's the second-biggest category."
+      ],
+      "videoAt": 4.62,
+      "graphic": {
+        "type": "squareGrid",
+        "eyebrow": "The extra $15.4B in 2027, by segment",
+        "segments": [
+          { "label": "Software", "squares": 52, "value": "$8.0B" },
+          { "label": "Data centre systems", "squares": 13, "value": "$2.1B" },
+          { "label": "Cloud infrastructure", "squares": 11, "value": "$1.6B" },
+          { "label": "Devices", "squares": 7, "value": "$1.0B" },
+          { "label": "Communications services", "squares": 6, "value": "$0.9B" },
+          { "label": "IT services", "squares": 11, "value": "$1.76B", "highlight": true }
+        ],
+        "caption": "Each square is about 1% of the extra spending. Worked out from Gartner's Table 1.",
+        "cutout": "assets/N1/cutouts/calculator.webp"
+      }
+    },
+    {
+      "id": "the-shift",
+      "heading": "The shift behind it",
+      "body": [
+        "In Osmond's view, AI investment is driving \"a long-term reallocation of technology spending\". Gartner's John-David Lovelock puts most of software's growth down to businesses adding GenAI models and agentic AI to the cloud software they already run."
+      ],
+      "videoAt": 25.28,
+      "graphic": {
+        "type": "quote",
+        "text": "This is driving a long-term reallocation of technology spending toward capabilities that can deliver agility, productivity and innovation at scale.",
+        "who": "Neil Osmond, Distinguished VP Analyst, Gartner"
+      }
+    },
+    {
+      "id": "what-it-means",
+      "heading": "What it means for services firms",
+      "body": [
+        "Services spending still grows. A$1.76 billion of new spending isn't nothing. But there'll be more firms chasing a slower-growing pool of work. When buyers have plenty of choice, they tend to shortlist the names they recognise.",
+        "Let's say a mid-market business is choosing an implementation partner next year. They'll ask around, look online and put three or four names on a list, and a firm that isn't on it won't get a call, let alone a share of the A$1.76 billion."
+      ],
+      "videoAt": 29.6,
+      "graphic": {
+        "type": "shortlist",
+        "eyebrow": "Firms a buyer looks at",
+        "items": [
+          { "name": "Firm A", "known": true },
+          { "name": "Firm B", "known": true },
+          { "name": "Firm C", "known": false },
+          { "name": "Firm D", "known": true }
+        ],
+        "tickLabel": "Makes the shortlist",
+        "illustrative": true,
+        "caption": "Illustration, generic names."
+      }
+    }
+  ],
+  "take": {
+    "line": "Plan for 2027 as",
+    "key": "a fight for share.",
+    "videoAt": 40.88,
+    "body": [
+      "If you run a services firm, I'd plan for 2027 as a fight for share. My bet's that the firms buyers already know will take most of it."
+    ]
+  },
+  "sources": [
+    {
+      "outlet": "Gartner",
+      "title": "Gartner Forecasts IT Spending in Australia to Exceed $192 Billion in 2027",
+      "date": "2026-09-16",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-it-spending-in-australia-to-exceed-192-billion-in-2027"
+    }
+  ],
+  "notes": [
+    "Gartner's figures are a forecast, in Australian dollars. Its \"Services\" segment covers IT services.",
+    "The split of the extra A$15.4 billion, and the 11 cents, are worked out from Gartner's Table 1 (2027 spending minus 2026, by segment).",
+    "\"What it means for services firms\" and \"Shane's take\", including the shortlist example, are my opinion, not Gartner's."
+  ],
+  "trace": {
+    "A$192.2 billion in 2027, +8.7%": "Release para 1",
+    "A$176.9 billion in 2026; A$192.3 billion bar": "Table 1 Overall IT 176,851 and 192,280 (A$m)",
+    "extra A$15.4 billion": "Derived: 192,280 − 176,851 = 15,429",
+    "Gold Coast, 16 September, IT Symposium": "Dateline and subhead",
+    "moving beyond isolated use cases; infrastructure and software ... embed AI across the enterprise": "Osmond quote 2 (paraphrased around the direct phrase)",
+    "IaaS +22.1% to A$9.1 billion; AI-optimised IaaS +58.5%": "Release para 3",
+    "data centre systems +16.6%; software +13.3%, more than A$68 billion, largest category": "Release paras 4 and 'Largest Spending Directed to Software'; Table 1",
+    "services +3.4%; communications +3.4%; devices +5.5%": "Table 1",
+    "software A$8.0B of the extra; services A$1.76B; 11 cents; 52/13/11/11/7/6 squares": "Derived from Table 1 (see sources/N1-gartner-2026-09-16.txt)",
+    "services is the second-biggest category": "Table 1: Services 51,440 (2026) / 53,200 (2027), second after Software",
+    "a long-term reallocation of technology spending (full sentence in the graphic)": "Osmond quote 2 (direct)",
+    "GenAI models and agentic AI added to existing cloud software": "Lovelock quote 2",
+    "shortlist example; fight for share; firms buyers already know": "Opinion, labelled in notes; take lines from Shane's N1 script"
+  }
+}

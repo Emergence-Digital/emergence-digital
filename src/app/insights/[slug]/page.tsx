@@ -95,8 +95,10 @@ export default async function InsightPostPage({ params }: { params: Promise<Page
 
       <PostVideoProvider>
         {/* Desktop: the story on the left, the video in a sticky column on the right all the way down. Below lg, one
-            column with the video after the short version (its place in the source order). */}
-        <article className="bg-cream pt-32 pb-24 md:pb-32">
+            column with the video after the short version (its place in the source order). overflow-x-clip stops
+            cut-outs sliding in past the edge from leaving phones with a sideways scroll; unlike hidden, clip doesn't
+            make a scroll container, so the video still sticks. */}
+        <article className="bg-cream pt-32 pb-24 md:pb-32 overflow-x-clip">
           <div className="max-w-[1200px] mx-auto px-6 lg:grid lg:grid-cols-[minmax(0,680px)_320px] lg:justify-between lg:gap-x-16">
             <div className="lg:col-start-1 lg:row-start-1">
               {!isLive(post) && (

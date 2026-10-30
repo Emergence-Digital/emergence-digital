@@ -17,11 +17,14 @@ const dateTimeFormat = new Intl.DateTimeFormat("en-AU", {
   timeZone: "Australia/Melbourne",
 });
 
+// en-AU spells September's short form "Sept"; the source chips (and every other month) use three letters.
+const threeLetterMonths = (text: string) => text.replace("Sept", "Sep");
+
 /** "3 Nov 2026", in Melbourne time. */
-export const formatDate = (iso: string) => dateFormat.format(new Date(iso));
+export const formatDate = (iso: string) => threeLetterMonths(dateFormat.format(new Date(iso)));
 
 /** "Tue, 3 Nov, 9:00 am", in Melbourne time. */
-export const formatDateTime = (iso: string) => dateTimeFormat.format(new Date(iso));
+export const formatDateTime = (iso: string) => threeLetterMonths(dateTimeFormat.format(new Date(iso)));
 
 /** 18.44 → "0:18". */
 export function formatVideoTime(seconds: number) {
@@ -38,10 +41,17 @@ export function smartQuotes(text: string) {
     .replace(/'/g, "’");
 }
 
-/** A figure as a screen reader should say it: "55.4M" → "55.4 million", "5×" → "5 times", "−22.4%" → "down 22.4%". */
+/**
+ * A figure as a screen reader should say it: "55.4M" → "55.4 million", "$192B" → "$192 billion", "5×" → "5 times",
+ * "−22.4%" → "down 22.4%", "+8.7%" → "up 8.7%", "~50%" → "about 50%", "6,000+" → "more than 6,000".
+ */
 export function spoken(display: string) {
   return display
     .replace(/^[−-]\s*/, "down ")
+    .replace(/^\+\s*/, "up ")
+    .replace(/^~\s*/, "about ")
+    .replace(/^([\d,.]+)\+$/, "more than $1")
     .replace(/(\d)\s*M\b/g, "$1 million")
+    .replace(/(\d)\s*B\b/g, "$1 billion")
     .replace(/(\d)\s*×/g, "$1 times");
 }

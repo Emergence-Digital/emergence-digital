@@ -17,18 +17,21 @@ const STEP = 0.25;
 function Connector({ delay }: { delay: number }) {
   return (
     <span className="flex flex-1 flex-col items-center pt-1.5 pb-1 text-sage/60">
-      {/* Stretched to the row's height; the line is vertical, so stretching never changes its width. */}
-      <svg viewBox="0 0 12 100" preserveAspectRatio="none" className="w-3 flex-1 min-h-3">
-        <path
-          d="M6 0V100"
-          stroke="currentColor"
-          strokeWidth="2"
-          pathLength={1}
-          strokeDasharray="1"
-          className="armed:[stroke-dashoffset:1] playing:animate-line-draw"
-          style={{ animationDelay: `${delay}s` }}
-        />
-      </svg>
+      {/* Fills whatever height the step's text gives the row. Positioned absolutely so the SVG's own 12×100 shape
+          doesn't make the row taller; the line is vertical, so stretching never changes its width. */}
+      <span className="relative w-3 flex-1 min-h-6">
+        <svg viewBox="0 0 12 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+          <path
+            d="M6 0V100"
+            stroke="currentColor"
+            strokeWidth="2"
+            pathLength={1}
+            strokeDasharray="1"
+            className="armed:[stroke-dashoffset:1] playing:animate-line-draw"
+            style={{ animationDelay: `${delay}s` }}
+          />
+        </svg>
+      </span>
       <svg viewBox="0 0 12 8" className="w-3 h-2 flex-none">
         <path
           d="M1.5 1.5 6 6l4.5-4.5"
@@ -85,7 +88,7 @@ export default function ChainBlock({ graphic, source, jump }: ChainBlockProps) {
                 </div>
 
                 <div
-                  className={`min-w-0 flex-1 ${last ? "" : "pb-7"} ${step.big ? "" : "pt-2.5"} ${
+                  className={`min-w-0 flex-1 ${last ? "" : "pb-10"} ${step.big ? "" : "pt-2.5"} ${
                     step.cutout ? "pr-16 sm:pr-28" : ""
                   } armed:opacity-0 playing:animate-step-rise`}
                   style={{ animationDelay: `${at}s` }}

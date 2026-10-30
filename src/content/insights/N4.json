@@ -1,0 +1,181 @@
+{
+  "id": "N4",
+  "slug": "sap-ecc-2027-dsag-pushback",
+  "series": "The IT news worth knowing",
+  "status": "approved",
+  "publishAt": "2026-11-05T09:00:00+11:00",
+  "title": "SAP's ECC deadline is 2027. Around half of DSAG's ECC users expect to run past it.",
+  "metaTitle": "SAP ECC 2027: why DSAG members are pushing back",
+  "description": "54% of DSAG companies still run SAP ECC or Business Suite. Around half of DSAG's ECC users expect to run past 2027.",
+  "dek": "SAP's German-speaking user group wants customers to set their own path. There's no Australian survey like it that I've seen, but ERP partners here will recognise the mood.",
+  "author": "Shane Kennedy",
+  "readMinutes": 4,
+  "audience": "ERP partners",
+  "sourceChip": "CIO.com · The Register · DSAG survey",
+  "video": {
+    "vimeoId": null,
+    "title": "SAP users want to set their own path. IT news worth knowing",
+    "poster": "assets/N4/poster.jpg",
+    "durationSec": 61.24
+  },
+  "images": {
+    "preview": "assets/N4/preview-1200x630.jpg",
+    "card": "assets/N4/card-1200x720.webp",
+    "cardBase": "assets/N4/card-base-1200x720.webp",
+    "cardCutout": "assets/N4/card-cutout.webp",
+    "alt": "54% of DSAG companies still run SAP ECC or Business Suite, with mainstream maintenance ending in 2027, beside a woman checking her watch"
+  },
+  "shortVersion": [
+    "54% of companies in DSAG's investment survey still run SAP ECC or Business Suite. Standard maintenance for ECC runs out at the end of 2027.",
+    "Around half of DSAG's ECC users expect to run past that, onto extended support at a 2% premium until the end of 2030.",
+    "DSAG's outgoing chairman told more than 6,000 people that companies running SAP should set their own course. I'd expect the partners customers trust to win the ECC work."
+  ],
+  "beats": [
+    {
+      "id": "where-members-stand",
+      "heading": "Where DSAG's members stand",
+      "body": [
+        "DSAG is the German-speaking SAP user group, covering Germany, Austria and Switzerland. Its investment survey from early 2026 found 54% of companies still use SAP ECC or Business Suite.",
+        "Standard maintenance for ECC runs out at the end of 2027. For many of those companies, that means a move to S/4HANA. It's expensive, Hungershausen said. And the business benefit often isn't clear."
+      ],
+      "videoAt": 4.82,
+      "graphic": {
+        "type": "ring",
+        "value": 54,
+        "display": "54%",
+        "label": "of DSAG companies still run SAP ECC or Business Suite",
+        "sourceTab": "CIO.com · DSAG investment survey, early 2026"
+      }
+    },
+    {
+      "id": "the-push-back",
+      "heading": "The pushback",
+      "body": [
+        "At DSAG's annual congress in October, outgoing chairman Jens Hungershausen told more than 6,000 people that companies running SAP should set their own course and their own pace, and make well-founded decisions.",
+        "Cloud's the future, he said. But for many members, S/4HANA on-premise and hybrid systems are what's running today."
+      ],
+      "videoAt": 20.5,
+      "graphic": {
+        "type": "quote",
+        "lead": {
+          "value": 6000,
+          "display": "6,000+",
+          "label": "at the DSAG congress, October 2026"
+        },
+        "text": "S/4HANA On-Premise and hybrid architectures are the everyday reality for many of our members, and SAP has to accept that.",
+        "who": "Jens Hungershausen, outgoing DSAG chairman"
+      }
+    },
+    {
+      "id": "the-ecc-clock",
+      "heading": "The ECC clock",
+      "body": [
+        "A DSAG survey of 198 senior leaders, run between December and January, suggests around half of its ECC users will run past the 2027 deadline. There's extended support until the end of 2030, at a 2% premium.",
+        "Hungershausen says that doesn't mean those firms will sit and wait until 2030. \"They simply need this time due to the complexity of their system landscapes,\" he said, pointing to skills shortages, parallel projects and limited budgets."
+      ],
+      "videoAt": 29.8,
+      "graphic": {
+        "type": "timeline",
+        "eyebrow": "The ECC clock for DSAG members",
+        "stops": [
+          {
+            "date": "Early 2026",
+            "big": "54%",
+            "text": "of DSAG companies still run SAP ECC or Business Suite"
+          },
+          {
+            "date": "End of 2027",
+            "text": "Standard maintenance for ECC ends",
+            "big": "~50%",
+            "subtext": "of DSAG's ECC users expect to run past it",
+            "highlight": true
+          },
+          {
+            "date": "End of 2030",
+            "text": "Extended support ends",
+            "chip": "2% premium until then"
+          }
+        ],
+        "cutout": "assets/N4/cutouts/calendar.webp"
+      }
+    },
+    {
+      "id": "ai-built-elsewhere",
+      "heading": "AI, built elsewhere",
+      "body": [
+        "DSAG's investment survey also asked about AI. In January, 43% of respondents had AI use cases in place, and the vast majority weren't built on SAP's tools.",
+        "Hungershausen said companies are \"simply doing a better job of providing easy access to AI\"."
+      ],
+      "videoAt": 36.87,
+      "graphic": {
+        "type": "ring",
+        "value": 43,
+        "display": "43%",
+        "label": "had AI use cases in place in January",
+        "chip": "Most on non-SAP tools",
+        "sourceTab": "CIO.com · DSAG investment report"
+      }
+    },
+    {
+      "id": "what-it-means",
+      "heading": "What it means for ERP partners here",
+      "body": [
+        "That's Europe. I haven't seen an Australian survey like it, but ERP partners here will recognise the mood. Customers who haven't moved don't want to be rushed, and they want an honest path forward.",
+        "Let's say a customer on ECC asks whether to move now or use extended support. A useful answer depends on their systems, their budget and their people. That's much the same list Hungershausen gave."
+      ],
+      "videoAt": 42.16,
+      "graphic": {
+        "type": "callout",
+        "from": "Germany, Austria, Switzerland",
+        "to": "Australia",
+        "label": "No comparable survey I've seen here"
+      }
+    }
+  ],
+  "take": {
+    "line": "An honest path forward,",
+    "key": "deadline or not.",
+    "videoAt": 57.78,
+    "body": [
+      "The partners who win that work will be the ones customers trust to tell them what makes sense for their business, deadline or not."
+    ]
+  },
+  "sources": [
+    {
+      "outlet": "CIO.com",
+      "title": "SAP customers seek renewed control over their ERP fate",
+      "date": "2026-10-13",
+      "url": "https://www.cio.com/article/4232191/sap-customers-seek-renewed-control-over-their-erp-fate.html"
+    },
+    {
+      "outlet": "The Register",
+      "title": "Half of German-speaking SAP users set to blow past 2027 ECC support deadline",
+      "date": "2026-02-27",
+      "url": "https://www.theregister.com/2026/02/27/dsag_ecc_sap/"
+    }
+  ],
+  "notes": [
+    "These are German-speaking SAP users (Germany, Austria and Switzerland), not Australian ones.",
+    "The 54% and 43% come from DSAG's investment survey, as reported by CIO.com. The \"around half\" comes from a DSAG survey of 198 senior leaders run from 8 December 2025 to 21 January 2026, as reported by The Register. They may be the same survey.",
+    "Reports differ on how many ECC users plan to switch by the end of 2027, so this post doesn't use that figure.",
+    "\"What it means for ERP partners here\" and \"Shane's take\" are my opinion, not DSAG's."
+  ],
+  "trace": {
+    "DSAG = German-speaking SAP user group; Germany, Switzerland, Austria": "CIO.com para 1; The Register para 1",
+    "54% still use SAP ECC or Business Suite; investment survey early 2026": "CIO.com 'Unclear added value' section",
+    "standard maintenance for ECC expires at the end of 2027": "CIO.com; The Register ('mainstream support ... end of 2027')",
+    "deadline forces a move to S/4HANA; unclear business benefits vs high investment costs": "CIO.com (Hungershausen, paraphrased)",
+    "more than 6,000 participants; outgoing; congress in October": "CIO.com para 2; article dated 13 Oct 2026",
+    "set their own course and pace": "CIO.com standfirst ('set their own course, pace, and priorities') and para 2",
+    "Cloud is the future ... on-premise and hybrid are the everyday reality": "CIO.com Hungershausen quote (direct in graphic)",
+    "198 senior leaders; 8 Dec 2025 to 21 Jan 2026": "The Register",
+    "around half will run past 2027": "The Register headline and para 1",
+    "extended support until end of 2030 at a 2 percent premium": "The Register para 2",
+    "doesn't mean they will wait; 'They simply need this time...'; skills shortages, parallel transformation projects, limited budgets": "The Register, Hungershausen quote",
+    "43% had implemented AI use cases in January; vast majority non-SAP": "CIO.com AI section",
+    "other companies doing a better job of providing easy access to AI": "CIO.com ('Companies are simply doing a better job of providing easy access to AI')",
+    "no Australian survey; ERP partners here; honest path; take": "Shane's N4 script (opinion), labelled in notes",
+    "reports differ on 2027 switch figure": "The Register 37% vs ITdaily 27% (shoot-library note)",
+    "congress 6 to 8 October 2026, Cologne": "DSAG event site (see sources file)"
+  }
+}
