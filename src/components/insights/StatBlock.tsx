@@ -18,6 +18,8 @@ export default function StatBlock({ graphic, source, jump }: StatBlockProps) {
   const ref = useRef<HTMLElement>(null);
   const numberRef = useRef<HTMLSpanElement>(null);
   const max = Math.max(...compare.items.map((item) => item.value));
+  // The compared figures take the headline's currency sign: "$192B" beside "$176.9B".
+  const currency = display.match(/^[A-Z]{0,2}[$€£]/)?.[0] ?? "";
 
   useReveal(ref, {
     onArm: () => {
@@ -28,7 +30,7 @@ export default function StatBlock({ graphic, source, jump }: StatBlockProps) {
 
   const description =
     `${eyebrow}: ${spoken(display)}, ${spoken(chip)}. ` +
-    compare.items.map((item) => `${item.label}: ${spoken(`${item.value}${compare.unit}`)}.`).join(" ") +
+    compare.items.map((item) => `${item.label}: ${spoken(`${currency}${item.value}${compare.unit}`)}.`).join(" ") +
     ` ${note}. Source: ${source.replaceAll(" · ", ", ")}.`;
 
   return (
@@ -57,6 +59,7 @@ export default function StatBlock({ graphic, source, jump }: StatBlockProps) {
               <div className="flex items-baseline justify-between gap-4 text-sm">
                 <span className="text-white/75">{item.label}</span>
                 <span className={`font-semibold ${item.highlight ? "text-sage" : "text-white"}`}>
+                  {currency}
                   {item.value}
                   {compare.unit}
                 </span>
