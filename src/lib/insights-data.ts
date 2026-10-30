@@ -1,4 +1,5 @@
 import n1 from "@/content/insights/N1.json";
+import n2 from "@/content/insights/N2.json";
 import n3 from "@/content/insights/N3.json";
 import n4 from "@/content/insights/N4.json";
 
@@ -233,7 +234,7 @@ export interface InsightPost {
 
 // Add a post by importing its JSON and listing it here. JSON imports widen literal types ("approved" becomes
 // string), hence the cast.
-const posts = [n1, n3, n4] as unknown as InsightPost[];
+const posts = [n1, n2, n3, n4] as unknown as InsightPost[];
 
 /**
  * Vercel preview deployments and `npm run dev` show every post, drafts and future ones included, so a post can be
