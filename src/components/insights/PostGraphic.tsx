@@ -12,6 +12,9 @@ import ShortlistBlock from "./ShortlistBlock";
 import RingBlock from "./RingBlock";
 import TimelineBlock from "./TimelineBlock";
 import CalloutBlock from "./CalloutBlock";
+import LabelBlock from "./LabelBlock";
+import ChecklistBlock from "./ChecklistBlock";
+import CompareBlock from "./CompareBlock";
 
 interface PostGraphicProps {
   post: InsightPost;
@@ -65,6 +68,17 @@ export default function PostGraphic({ post, graphic, jump }: PostGraphicProps) {
       );
     case "callout":
       return <CalloutBlock graphic={graphic} jump={jump} />;
+    case "label":
+      return <LabelBlock graphic={graphic} jump={jump} />;
+    case "checklist":
+      return (
+        <ChecklistBlock
+          graphic={{ ...graphic, complete: { ...graphic.complete, cutout: graphic.complete.cutout && asset(graphic.complete.cutout) } }}
+          jump={jump}
+        />
+      );
+    case "compare":
+      return <CompareBlock graphic={graphic} jump={jump} />;
     default:
       return null;
   }

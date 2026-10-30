@@ -2,13 +2,21 @@
 
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
-import { Circle, Cpu, Receipt, Target, TrendingDown, type LucideIcon } from "lucide-react";
+import { Circle, Cpu, Lock, Receipt, Target, TrendingDown, Users, Zap, type LucideIcon } from "lucide-react";
 import type { ChainGraphic } from "@/lib/insights-data";
 import { spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
-const icons: Record<string, LucideIcon> = { cpu: Cpu, receipt: Receipt, target: Target, "trending-down": TrendingDown };
+const icons: Record<string, LucideIcon> = {
+  cpu: Cpu,
+  lock: Lock,
+  receipt: Receipt,
+  target: Target,
+  "trending-down": TrendingDown,
+  users: Users,
+  zap: Zap,
+};
 
 /** Seconds between steps. Each connector draws in that gap, reaching the next step as it appears. */
 const STEP = 0.25;
