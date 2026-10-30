@@ -19,6 +19,10 @@ import ScanBlock from "./ScanBlock";
 import ShieldBlock from "./ShieldBlock";
 import DotsBlock from "./DotsBlock";
 import PadlockBlock from "./PadlockBlock";
+import ChatCardBlock from "./ChatCardBlock";
+import SourcesBlock from "./SourcesBlock";
+import TugOfWarBlock from "./TugOfWarBlock";
+import ConvergeBlock from "./ConvergeBlock";
 
 interface PostGraphicProps {
   post: InsightPost;
@@ -94,6 +98,14 @@ export default function PostGraphic({ post, graphic, jump }: PostGraphicProps) {
       return <ShieldBlock graphic={graphic} jump={jump} />;
     case "dots":
       return <DotsBlock graphic={graphic} jump={jump} />;
+    case "chatCard":
+      return <ChatCardBlock graphic={{ ...graphic, cutout: asset(graphic.cutout) }} jump={jump} />;
+    case "sources":
+      return <SourcesBlock graphic={graphic} source={source} jump={jump} />;
+    case "tugOfWar":
+      return <TugOfWarBlock graphic={graphic} jump={jump} />;
+    case "converge":
+      return <ConvergeBlock graphic={{ ...graphic, cutout: asset(graphic.cutout) }} jump={jump} />;
     default:
       return null;
   }

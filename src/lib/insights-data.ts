@@ -3,6 +3,7 @@ import n2 from "@/content/insights/N2.json";
 import n3 from "@/content/insights/N3.json";
 import n4 from "@/content/insights/N4.json";
 import n5 from "@/content/insights/N5.json";
+import n6 from "@/content/insights/N6.json";
 
 /**
  * Insights: posts in "The IT news worth knowing" series (and any later series). Each post is one JSON file in
@@ -92,12 +93,14 @@ export interface ForecastGraphic {
 /**
  * Labelled bars; the highlighted one in sage. Horizontal by default, growing top to bottom with the highlighted one
  * last. `orientation: "vertical"` stands them side by side (years along the bottom), each `chip` popping in above its
- * figure. `note` sits under either.
+ * figure. `note` sits under either. With `scale` (e.g. 100), horizontal bars are out of that number on a faint
+ * full-width track, so they read as shares of the whole.
  */
 export interface BarsGraphic {
   type: "bars";
   eyebrow: string;
   orientation?: "horizontal" | "vertical";
+  scale?: number;
   unit?: string;
   items: { label: string; value: number; display: string; chip?: string; highlight?: boolean }[];
   note?: string;
@@ -214,6 +217,49 @@ export interface DotsGraphic {
   caption: string;
 }
 
+/** A hand-held phone with an AI chat drawn over its screen (the reply is placeholder bars), beside a count-up stat. */
+export interface ChatCardGraphic {
+  type: "chatCard";
+  eyebrow: string;
+  stat: { value: number; display: string; label: string };
+  title: string;
+  ask: string;
+  replyLines: number;
+  cutout: string;
+  illustrative: boolean;
+  caption: string;
+}
+
+/** Blank cards dealt into a fan while a counter ticks up to `display`. The sources aren't named: an illustration. */
+export interface SourcesGraphic {
+  type: "sources";
+  count: number;
+  display: string;
+  label: string;
+  illustrative: boolean;
+  caption: string;
+  sourceTab?: string;
+}
+
+/** One bar split between `left` and `right`, drawn to scale; the split wobbles and settles. */
+export interface TugOfWarGraphic {
+  type: "tugOfWar";
+  eyebrow: string;
+  left: { label: string; value: number; display: string };
+  right: { label: string; value: number; display: string };
+  sourceTab: string;
+}
+
+/** Chips (`sources`) whose lines draw in, one after another, to a cut-out labelled `to`. An illustration. */
+export interface ConvergeGraphic {
+  type: "converge";
+  sources: string[];
+  to: string;
+  cutout: string;
+  illustrative: boolean;
+  caption: string;
+}
+
 type BuiltGraphic =
   | StatGraphic
   | ChainGraphic
@@ -232,7 +278,11 @@ type BuiltGraphic =
   | CompareGraphic
   | ScanGraphic
   | ShieldGraphic
-  | DotsGraphic;
+  | DotsGraphic
+  | ChatCardGraphic
+  | SourcesGraphic
+  | TugOfWarGraphic
+  | ConvergeGraphic;
 
 /** Graphic types for later posts. Their props are settled when each post's JSON arrives; until then they don't render. */
 export interface LaterGraphic {
@@ -283,7 +333,7 @@ export interface InsightPost {
 
 // Add a post by importing its JSON and listing it here. JSON imports widen literal types ("approved" becomes
 // string), hence the cast.
-const posts = [n1, n2, n3, n4, n5] as unknown as InsightPost[];
+const posts = [n1, n2, n3, n4, n5, n6] as unknown as InsightPost[];
 
 /**
  * Vercel preview deployments and `npm run dev` show every post, drafts and future ones included, so a post can be

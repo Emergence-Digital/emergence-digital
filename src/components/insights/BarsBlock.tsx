@@ -19,8 +19,11 @@ interface BarsBlockProps {
   jump?: ReactNode;
 }
 
-/** Horizontal: label on the left, figure at the bar's end. Plain bars grow top to bottom, the highlighted one last. */
-function HorizontalBars({ items, max }: { items: Item[]; max: number }) {
+/**
+ * Horizontal: label on the left, figure at the bar's end. Plain bars grow top to bottom, the highlighted one last.
+ * With `track`, each bar sits on a faint full-width track (bars out of a fixed scale).
+ */
+function HorizontalBars({ items, max, track }: { items: Item[]; max: number; track: boolean }) {
   const plain = items.filter((item) => !item.highlight);
   const startOf = (item: Item) => (item.highlight ? plain.length * STEP + 0.15 : plain.indexOf(item) * STEP);
   // Room past the longest bar for the longest figure ("$851M · +67.5%").
@@ -36,9 +39,10 @@ function HorizontalBars({ items, max }: { items: Item[]; max: number }) {
               {item.label}
             </span>
             <div className="relative mt-1.5 h-3.5 sm:mt-0" style={{ marginRight: `calc(${longest * 0.9}ch + 0.75rem)` }}>
+              {track && <div className="absolute inset-0 rounded-full bg-white/10" />}
               <div
-                className={`h-full rounded-full origin-left armed:scale-x-0 playing:animate-bar-grow ${
-                  item.highlight ? "bg-sage" : "bg-white/25"
+                className={`relative h-full rounded-full origin-left armed:scale-x-0 playing:animate-bar-grow ${
+                  item.highlight ? "bg-sage" : track ? "bg-white/35" : "bg-white/25"
                 }`}
                 style={{ width: `${(item.value / max) * 100}%`, animationDelay: `${at}s` }}
               />
@@ -98,11 +102,12 @@ function VerticalBars({ items, max }: { items: Item[]; max: number }) {
 
 /** Bars on a news card, horizontal or vertical, with an optional note under them in sage. */
 export default function BarsBlock({ graphic, source, jump }: BarsBlockProps) {
-  const { eyebrow, items, note, orientation = "horizontal" } = graphic;
+  const { eyebrow, items, note, scale, orientation = "horizontal" } = graphic;
   const ref = useRef<HTMLElement>(null);
   useReveal(ref);
 
-  const max = Math.max(...items.map((item) => item.value));
+  // Out of `scale` when given (67% of 100), otherwise scaled to the largest item.
+  const max = scale ?? Math.max(...items.map((item) => item.value));
   const vertical = orientation === "vertical";
 
   const description =
@@ -114,7 +119,7 @@ export default function BarsBlock({ graphic, source, jump }: BarsBlockProps) {
     <figure ref={ref}>
       <NewsCard source={source} jump={jump}>
         <CardEyebrow>{eyebrow}</CardEyebrow>
-        {vertical ? <VerticalBars items={items} max={max} /> : <HorizontalBars items={items} max={max} />}
+        {vertical ? <VerticalBars items={items} max={max} /> : <HorizontalBars items={items} max={max} track={scale !== undefined} />}
         {note && (
           <p
             className="mt-6 text-sm font-semibold text-sage armed:opacity-0 playing:animate-fade-in"
