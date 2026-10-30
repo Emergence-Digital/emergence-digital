@@ -2,6 +2,7 @@ import n1 from "@/content/insights/N1.json";
 import n2 from "@/content/insights/N2.json";
 import n3 from "@/content/insights/N3.json";
 import n4 from "@/content/insights/N4.json";
+import n5 from "@/content/insights/N5.json";
 
 /**
  * Insights: posts in "The IT news worth knowing" series (and any later series). Each post is one JSON file in
@@ -47,14 +48,25 @@ export interface ChainGraphic {
   steps: ChainStep[];
 }
 
-/** Bars on a card beside a cut-out scene; "price-tag" swings a price tag onto a stack of laptops. */
-export interface SceneGraphic {
+/** Bars on a card beside a cut-out scene: a price tag swings onto a stack of laptops. */
+export interface PriceTagScene {
   type: "scene";
   variant: "price-tag";
   eyebrow: string;
   bars: { label: string; value: number; display: string; highlight?: boolean }[];
   layers: { src: string; role: "base" | "swing"; label?: string }[];
 }
+
+/** Two cut-outs in one spot: the `before` padlock (open) gives way to the `after` one (closed). `caption` is alt text. */
+export interface PadlockScene {
+  type: "scene";
+  variant: "padlock";
+  layers: { src: string; role: "before" | "after" }[];
+  caption: string;
+}
+
+/** A cut-out scene; each variant has its own props. */
+export type SceneGraphic = PriceTagScene | PadlockScene;
 
 /** A grid of icons that dims to a lit few. Always illustrative: the lit share isn't a statistic. */
 export interface IconGridGraphic {
@@ -77,12 +89,18 @@ export interface ForecastGraphic {
   illustrative: boolean;
 }
 
-/** Labelled horizontal bars that grow top to bottom; the highlighted one grows last, in sage. */
+/**
+ * Labelled bars; the highlighted one in sage. Horizontal by default, growing top to bottom with the highlighted one
+ * last. `orientation: "vertical"` stands them side by side (years along the bottom), each `chip` popping in above its
+ * figure. `note` sits under either.
+ */
 export interface BarsGraphic {
   type: "bars";
   eyebrow: string;
-  unit: string;
-  items: { label: string; value: number; display: string; highlight?: boolean }[];
+  orientation?: "horizontal" | "vertical";
+  unit?: string;
+  items: { label: string; value: number; display: string; chip?: string; highlight?: boolean }[];
+  note?: string;
 }
 
 /** A 10 × 10 grid of squares filled segment by segment (the squares add up to 100), beside a cut-out. */
@@ -168,6 +186,34 @@ export interface CompareGraphic {
   caption: string;
 }
 
+/** A security tool's scan card: rows tick through, and a row with a `flag` turns amber. Always illustrative. */
+export interface ScanGraphic {
+  type: "scan";
+  title: string;
+  rows: { name: string; result: string; flag?: string }[];
+  illustrative: boolean;
+  caption: string;
+}
+
+/** An outlined shield that fills from the bottom to `fill` (0.5 is half), with `display`, `label` and tag chips. */
+export interface ShieldGraphic {
+  type: "shield";
+  fill: number;
+  display: string;
+  label: string;
+  tags: string[];
+  sourceTab: string;
+}
+
+/** A scatter of small dots (`from`) that drifts together into three larger ones (`to`). Always illustrative. */
+export interface DotsGraphic {
+  type: "dots";
+  from: string;
+  to: string;
+  illustrative: boolean;
+  caption: string;
+}
+
 type BuiltGraphic =
   | StatGraphic
   | ChainGraphic
@@ -183,7 +229,10 @@ type BuiltGraphic =
   | CalloutGraphic
   | LabelGraphic
   | ChecklistGraphic
-  | CompareGraphic;
+  | CompareGraphic
+  | ScanGraphic
+  | ShieldGraphic
+  | DotsGraphic;
 
 /** Graphic types for later posts. Their props are settled when each post's JSON arrives; until then they don't render. */
 export interface LaterGraphic {
@@ -234,7 +283,7 @@ export interface InsightPost {
 
 // Add a post by importing its JSON and listing it here. JSON imports widen literal types ("approved" becomes
 // string), hence the cast.
-const posts = [n1, n2, n3, n4] as unknown as InsightPost[];
+const posts = [n1, n2, n3, n4, n5] as unknown as InsightPost[];
 
 /**
  * Vercel preview deployments and `npm run dev` show every post, drafts and future ones included, so a post can be

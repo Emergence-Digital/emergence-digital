@@ -46,7 +46,9 @@ export function smartQuotes(text: string) {
  * "−22.4%" → "down 22.4%", "+8.7%" → "up 8.7%", "~50%" → "about 50%", "<20%" → "less than 20%",
  * "6,000+" → "more than 6,000".
  */
-export function spoken(display: string) {
+export function spoken(display: string): string {
+  // "$851M · +67.5%" → "$851 million, up 67.5%"
+  if (display.includes(" · ")) return display.split(" · ").map(spoken).join(", ");
   return display
     .replace(/^[−-]\s*/, "down ")
     .replace(/^\+\s*/, "up ")
