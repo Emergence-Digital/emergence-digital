@@ -1,0 +1,214 @@
+{
+  "id": "N3",
+  "slug": "pc-shipments-fall-22-percent",
+  "series": "The IT news worth knowing",
+  "status": "approved",
+  "publishAt": "2026-11-03T09:00:00+11:00",
+  "title": "PC shipments fell 22.4%. This time the cause is price.",
+  "metaTitle": "PC shipments fell 22.4%: what it means for MSPs",
+  "description": "Gartner's preliminary figures: 55.4 million PCs shipped worldwide in the September quarter, down 22.4%, as memory costs pushed prices up. What it means for MSPs.",
+  "dek": "Gartner's preliminary numbers put worldwide PC shipments back at early 2023 levels. Memory costs drove it, and that matters for any MSP counting on a fleet refresh.",
+  "author": "Shane Kennedy",
+  "readMinutes": 4,
+  "audience": "MSPs",
+  "sourceChip": "Gartner · 12 Oct 2026 · preliminary",
+  "video": {
+    "vimeoId": null,
+    "title": "PC shipments fall 22.4%: IT news worth knowing",
+    "poster": "assets/N3/poster.jpg",
+    "durationSec": 53.6
+  },
+  "images": {
+    "preview": "assets/N3/preview-1200x630.jpg",
+    "card": "assets/N3/card-1200x720.webp",
+    "cardBase": "assets/N3/card-base-1200x720.webp",
+    "cardCutout": "assets/N3/card-cutout.webp",
+    "alt": "55.4M PCs shipped, down 22.4% on a year ago, beside a stack of laptops"
+  },
+  "shortVersion": [
+    "Gartner's preliminary figures show 55.4 million PCs shipped worldwide from July to September 2026, down 22.4% on the same quarter last year.",
+    "The cause was price. DRAM memory costs were up five times year on year in the June quarter, and PC makers passed the cost on.",
+    "Businesses made targeted buys, such as workstations and AI PCs, rather than broad rollouts. For MSPs, I'd guess the next fleet refresh comes later and smaller."
+  ],
+  "beats": [
+    {
+      "id": "what-happened",
+      "heading": "What happened",
+      "body": [
+        "Gartner released its preliminary PC numbers for the September quarter on 12 October. Worldwide, 55.4 million PCs shipped between July and September 2026. A year earlier it was 71.3 million. That's almost 16 million fewer machines, a fall of 22.4%. It's taken shipments back to levels last seen in early 2023.",
+        "They're preliminary, so they may change when the final figures come out. They count desktops and laptops running Windows, macOS and ChromeOS, shipped into sales channels around the world. There's no Australian breakdown in this release."
+      ],
+      "videoAt": 9.16,
+      "graphic": {
+        "type": "stat",
+        "eyebrow": "PCs shipped worldwide, July to September 2026",
+        "value": 55.4,
+        "display": "55.4M",
+        "chip": "−22.4%",
+        "compare": {
+          "unit": "M",
+          "items": [
+            {
+              "label": "July to September 2025",
+              "value": 71.3
+            },
+            {
+              "label": "July to September 2026",
+              "value": 55.4,
+              "highlight": true
+            }
+          ]
+        },
+        "note": "Back to early 2023 levels"
+      }
+    },
+    {
+      "id": "the-cause",
+      "heading": "Why shipments fell",
+      "body": [
+        "Shipments haven't been this low since early 2023. Gartner's Namrata Banerjee says the market dynamics are noticeably different this time. She puts this fall down to \"higher prices, vendor-led reprioritization of scarce components and a shift toward higher-priced configurations\", rather than excess stock.",
+        "PCs cost more. Makers chose where scarce parts went, and the mix shifted to pricier configurations. Cheaper devices got harder to find."
+      ],
+      "videoAt": 18.44,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "Why global PC shipments fell",
+        "steps": [
+          {
+            "icon": "cpu",
+            "big": "5×",
+            "text": "DRAM memory costs, year on year, June quarter",
+            "cutout": "assets/N3/cutouts/ram.webp"
+          },
+          {
+            "icon": "receipt",
+            "text": "PC makers passed the higher cost on to customers"
+          },
+          {
+            "icon": "target",
+            "text": "Businesses made targeted buys, like workstations and AI PCs"
+          },
+          {
+            "icon": "trending-down",
+            "big": "55.4M",
+            "chip": "−22.4%",
+            "text": "PCs shipped, July to September"
+          }
+        ]
+      }
+    },
+    {
+      "id": "memory-squeeze",
+      "heading": "The memory squeeze",
+      "body": [
+        "The trigger was memory. Gartner says DRAM costs were up five times year on year in the June quarter, and that higher memory and storage costs are \"now fully reflected in PC pricing\". PC makers passed the cost on to customers.",
+        "For households, a replacement PC got harder to afford. Businesses got choosier."
+      ],
+      "videoAt": 25.56,
+      "graphic": {
+        "type": "scene",
+        "variant": "price-tag",
+        "eyebrow": "DRAM memory costs, year on year",
+        "bars": [
+          {
+            "label": "June quarter 2025",
+            "value": 1,
+            "display": "1×"
+          },
+          {
+            "label": "June quarter 2026",
+            "value": 5,
+            "display": "5×",
+            "highlight": true
+          }
+        ],
+        "layers": [
+          {
+            "src": "assets/N3/cutouts/laptops.webp",
+            "role": "base"
+          },
+          {
+            "src": "assets/N3/cutouts/tag.webp",
+            "role": "swing",
+            "label": "5×"
+          }
+        ]
+      }
+    },
+    {
+      "id": "what-businesses-bought",
+      "heading": "What businesses bought",
+      "body": [
+        "Gartner says businesses focused their spending on targeted purchases, such as workstations and AI PCs, rather than broad rollouts. All of the top six PC makers shipped fewer units than a year earlier.",
+        "So the business machines that did get bought had a specific job to do. It's the broad, everyone-gets-a-new-laptop rollout that missed out. And that's the work an MSP's forecast might lean on."
+      ],
+      "videoAt": 30.46,
+      "graphic": {
+        "type": "iconGrid",
+        "icon": "laptop",
+        "count": 24,
+        "lit": 4,
+        "litLabel": "Workstations and AI PCs",
+        "dimLabel": "Broad rollouts",
+        "illustrative": true,
+        "caption": "Illustration, not to scale"
+      }
+    },
+    {
+      "id": "what-it-means",
+      "heading": "What it means for MSPs",
+      "body": [
+        "I'd be careful with next year's numbers. If an MSP's forecast includes a fleet refresh, I wouldn't count on it arriving on time or at full size.",
+        "Let's say a client planned to replace 200 laptops next year. With prices where they are, that might turn into 30 now, for the staff who need them most, and the rest when prices settle. The client still needs the laptops. It's just a smaller order, and a later one.",
+        "I don't know when memory prices will ease. Gartner's release doesn't say either."
+      ],
+      "videoAt": 36.53,
+      "graphic": {
+        "type": "forecast",
+        "eyebrow": "The fleet refresh",
+        "from": "Planned",
+        "to": "Later, and smaller?",
+        "illustrative": true
+      }
+    }
+  ],
+  "take": {
+    "line": "The provider",
+    "key": "they trust.",
+    "videoAt": 43.94,
+    "body": [
+      "When every purchase gets more scrutiny, clients tend to lean on the provider they trust to tell them what's worth buying and when, which machines can wait a year and which ones can't.",
+      "I'd want to be that provider before the refresh cycle comes back. The firms already doing that work, I'd expect, will be first in line when budgets loosen."
+    ]
+  },
+  "sources": [
+    {
+      "outlet": "Gartner",
+      "title": "Gartner Says Worldwide PC Shipments Declined 22.4% in Third Quarter of 2026 As Component Cost Inflation Raised ASPs",
+      "date": "2026-10-12",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-10-12-gartner-says-worldwide-pc-shipments-declined-22-point-4-percent-in-third-quarter-of-2026-as-component-cost-inflation-raised-asps"
+    }
+  ],
+  "notes": [
+    "Gartner's figures are preliminary and may change when the final estimates are released.",
+    "They're worldwide figures for desktops and laptops running Windows, macOS and ChromeOS, counted as shipments into sales channels. The release has no Australian breakdown.",
+    "\"What it means for MSPs\" and \"Shane's take\", including the 200-laptop example, are my opinion, not Gartner's."
+  ],
+  "trace": {
+    "55.4 million / 55,351 thousand units, 3Q26": "Gartner release, para 1 and Table 1 total",
+    "71.3 million / 71,301 thousand units, 3Q25": "Gartner release, Table 1 total",
+    "−22.4%": "Gartner release, para 1 and Table 1",
+    "levels last seen in early 2023 / first quarter 2023 levels": "Gartner release, subhead and Banerjee quote 2",
+    "DRAM costs up five times year on year in the second quarter": "Banerjee quote 1",
+    "now fully reflected in PC pricing": "Banerjee quote 1 (direct quote)",
+    "higher prices, vendor-led reprioritization of scarce components and a shift toward higher-priced configurations": "Banerjee quote 2 (direct quote)",
+    "market dynamics noticeably different / rather than excess inventory": "Banerjee quote 2",
+    "reduction in availability of lower-cost devices; replacement less affordable for consumers": "Banerjee quote 2",
+    "businesses focused on targeted investments such as workstations and AI PCs rather than broad-based deployments": "Banerjee quote 2",
+    "all of the top six vendors declined": "Gartner release, vendor paragraph (vendors deliberately unnamed)",
+    "preliminary; desktops and laptops with Windows, macOS, ChromeOS; shipments into channels": "Table 1 notes",
+    "200 laptops / 30 workstations": "Hypothetical example, labelled as opinion in notes",
+    "almost 16 million fewer": "Derived: Table 1 totals 71,301k − 55,351k = 15,950k",
+    "no Australian breakdown": "Full release read 30 Oct: no regional figures at all, only worldwide totals and vendors"
+  }
+}

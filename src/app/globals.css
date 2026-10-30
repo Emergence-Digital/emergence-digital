@@ -8,6 +8,7 @@
   --color-white: #FFFFFF;
   --color-body: #2D2D2D;
   --color-muted: #6B7280;
+  --color-sage: #A7CDB2; /* accents on the dark news cards (Insights), as in the news videos */
 
   /* Fonts */
   --font-serif: var(--font-playfair);
@@ -48,7 +49,95 @@
     from { width: 0; }
     to { width: 100%; }
   }
+
+  /* Insights graphics. Each plays once when its block scrolls in (useReveal): from the start state to the
+     finished one the server rendered. Transforms use the individual translate/rotate/scale properties, so they
+     replace an element's resting transform utility rather than stacking on it. */
+  --animate-bar-grow: bar-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-chip-pop: chip-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-step-rise: step-rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-line-draw: line-draw 0.2s ease-out both;
+  --animate-cutout-slide: cutout-slide 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-tag-swing: tag-swing 1.3s cubic-bezier(0.33, 1, 0.68, 1) both;
+  --animate-icon-dim: icon-dim 0.3s ease-out both;
+  --animate-icon-light: icon-light 0.35s ease-out both;
+  --animate-marker-slide: marker-slide 1.2s cubic-bezier(0.65, 0, 0.35, 1) both;
+  --animate-marker-shrink: marker-shrink 1.2s cubic-bezier(0.65, 0, 0.35, 1) both;
+  --animate-fade-in: fade-in 0.4s ease-out both;
+  --animate-key-slide: key-slide 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes bar-grow {
+    from { scale: 0 1; }
+    to { scale: 1 1; }
+  }
+
+  @keyframes chip-pop {
+    from { opacity: 0; scale: 0.6; }
+    to { opacity: 1; scale: 1; }
+  }
+
+  @keyframes step-rise {
+    from { opacity: 0; translate: 0 10px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+
+  /* SVG paths with pathLength="1" and stroke-dasharray: 1 */
+  @keyframes line-draw {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  @keyframes cutout-slide {
+    from { opacity: 0; translate: 32px 0; rotate: 6deg; }
+    to { opacity: 1; translate: 0 0; rotate: 0deg; }
+  }
+
+  /* Drops in from about −25°, swings past and settles at −8°, pivoting on its string. */
+  @keyframes tag-swing {
+    0% { opacity: 0; translate: 0 -48px; rotate: -25deg; }
+    30% { opacity: 1; translate: 0 0; rotate: 7deg; }
+    55% { rotate: -15deg; }
+    78% { rotate: -5deg; }
+    100% { opacity: 1; translate: 0 0; rotate: -8deg; }
+  }
+
+  @keyframes icon-dim {
+    from { opacity: 1; }
+    to { opacity: 0.2; }
+  }
+
+  @keyframes icon-light {
+    from { color: var(--color-dark-green); }
+    to { color: var(--color-mid-green); }
+  }
+
+  /* Forecast marker: from the left third of the line to the `to` label. */
+  @keyframes marker-slide {
+    from { left: 33.333%; }
+    to { left: 82%; }
+  }
+
+  @keyframes marker-shrink {
+    from { scale: 1; }
+    to { scale: 0.7; }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Shane's take: the key words slide in from the left and tip to −2.5°. */
+  @keyframes key-slide {
+    from { opacity: 0; translate: -40px 0; rotate: 0deg; }
+    to { opacity: 1; translate: 0 0; rotate: -2.5deg; }
+  }
 }
+
+/* Insights graphics: the start state, once a block's script has armed it, and its animations while it plays.
+   Without script, or with reduced motion, neither applies and the finished state shows. */
+@custom-variant armed (&:where([data-reveal="armed"] *));
+@custom-variant playing (&:where([data-reveal="play"] *));
 
 :root {
   --background: #F5F0EB;

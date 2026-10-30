@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 export const SITE_NAME = "Emergence Digital";
 export const SITE_URL = "https://emergencedigital.com.au";
+/** The company page by its numeric ID, which LinkedIn redirects to the page's public URL. */
+export const LINKEDIN_URL = "https://www.linkedin.com/company/55043080/";
 
 /** The home page's title and description, also the fallback for any page without its own. */
 export const SITE_TITLE = "Marketing for IT Firms in Melbourne — Emergence Digital";
