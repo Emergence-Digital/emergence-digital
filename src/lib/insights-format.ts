@@ -17,11 +17,14 @@ const dateTimeFormat = new Intl.DateTimeFormat("en-AU", {
   timeZone: "Australia/Melbourne",
 });
 
+// en-AU spells September's short form "Sept"; the source chips (and every other month) use three letters.
+const threeLetterMonths = (text: string) => text.replace("Sept", "Sep");
+
 /** "3 Nov 2026", in Melbourne time. */
-export const formatDate = (iso: string) => dateFormat.format(new Date(iso));
+export const formatDate = (iso: string) => threeLetterMonths(dateFormat.format(new Date(iso)));
 
 /** "Tue, 3 Nov, 9:00 am", in Melbourne time. */
-export const formatDateTime = (iso: string) => dateTimeFormat.format(new Date(iso));
+export const formatDateTime = (iso: string) => threeLetterMonths(dateTimeFormat.format(new Date(iso)));
 
 /** 18.44 → "0:18". */
 export function formatVideoTime(seconds: number) {
