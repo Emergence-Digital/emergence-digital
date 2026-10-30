@@ -1,0 +1,206 @@
+{
+  "id": "N6",
+  "slug": "b2b-buyers-check-ai-with-reps",
+  "series": "The IT news worth knowing",
+  "status": "approved",
+  "publishAt": "2026-11-14T09:00:00+11:00",
+  "title": "B2B buyers would rather skip the sales rep, but most still want to check AI with one",
+  "metaTitle": "Why B2B buyers still want a sales rep to check AI",
+  "description": "67% of B2B buyers prefer a rep-free experience, yet 69% still want to check AI-generated insights with a sales rep, a Gartner survey of 645 buyers found.",
+  "dek": "Most B2B buyers would rather not deal with a sales rep, but 69% still want one to check what AI told them. That changes what the first call is for.",
+  "author": "Shane Kennedy",
+  "readMinutes": 4,
+  "audience": "IT firms that sell to businesses",
+  "sourceChip": "Gartner · 20 May 2026 · survey",
+  "video": {
+    "vimeoId": null,
+    "title": "Buyers skip reps, then check AI with them. IT news worth knowing",
+    "poster": "assets/N6/poster.jpg",
+    "durationSec": 51.32
+  },
+  "images": {
+    "preview": "assets/N6/preview-1200x630.jpg",
+    "card": "assets/N6/card-1200x720.webp",
+    "cardBase": "assets/N6/card-base-1200x720.webp",
+    "cardCutout": "assets/N6/card-cutout.webp",
+    "alt": "69% of B2B buyers still want to check AI with a sales rep, beside a woman peering at her phone over her glasses"
+  },
+  "shortVersion": [
+    "In a Gartner survey of 645 B2B buyers, 67% prefer a rep-free buying experience. 45% said they used generative AI, mostly to research vendors and products.",
+    "But 69% still want to check AI-generated insights with a sales rep. Buyers are split almost evenly on who's more likely to mislead them, with 51% saying AI and 49% saying sales reps.",
+    "By the time a buyer gets on a call, I think they've already formed a view from AI, your website and whatever you've posted. I'd make sure they've heard something."
+  ],
+  "beats": [
+    {
+      "id": "the-survey",
+      "heading": "Who Gartner asked",
+      "body": [
+        "Gartner surveyed 645 B2B buyers in August and September 2025, and presented the results at its CSO & Sales Leader Conference in Las Vegas in May. It doesn't say where the buyers are based, and there's no Australian breakdown.",
+        "67% prefer a rep-free buying experience, and 70% prefer one that's completely digital and self-service."
+      ],
+      "videoAt": 11.04,
+      "graphic": {
+        "type": "bars",
+        "eyebrow": "B2B buyers who prefer",
+        "unit": "%",
+        "items": [
+          {
+            "label": "A rep-free buying experience",
+            "value": 67,
+            "display": "67%",
+            "highlight": true
+          },
+          {
+            "label": "A completely digital, self-service experience",
+            "value": 70,
+            "display": "70%"
+          }
+        ],
+        "scale": 100,
+        "note": "Gartner survey of 645 B2B buyers, August to September 2025"
+      }
+    },
+    {
+      "id": "ai-in-the-mix",
+      "heading": "Where AI comes in",
+      "body": [
+        "45% of the buyers said they used generative AI, and Gartner says they mainly used it to gather information on vendors and products.",
+        "Robert Blaisdell, a VP analyst in Gartner's sales practice, says buyers are \"more comfortable using digital channels and GenAI to navigate the purchase process on their own\". He also says that \"does not eliminate the role of the seller\"."
+      ],
+      "videoAt": 14.8,
+      "graphic": {
+        "type": "chatCard",
+        "eyebrow": "AI in the mix",
+        "stat": {
+          "value": 45,
+          "display": "45%",
+          "label": "said they used generative AI"
+        },
+        "title": "AI assistant",
+        "ask": "Which vendors suit us?",
+        "replyLines": 4,
+        "cutout": "assets/N6/cutouts/phone.webp",
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    },
+    {
+      "id": "seven-sources",
+      "heading": "Seven places to look",
+      "body": [
+        "Buyers used an average of seven information sources during a recent purchase. Gartner's release doesn't say which seven, and I won't guess.",
+        "Gartner says buyers want the speed and convenience of digital and AI-assisted research, and still lean on reps when they need reassurance, context and decision support."
+      ],
+      "videoAt": 21.1,
+      "graphic": {
+        "type": "sources",
+        "count": 7,
+        "display": "7",
+        "label": "information sources, on average, during a recent purchase",
+        "illustrative": true,
+        "caption": "Illustration. Gartner doesn't name the sources",
+        "sourceTab": "Gartner · 20 May 2026"
+      }
+    },
+    {
+      "id": "the-twist",
+      "heading": "The twist",
+      "body": [
+        "69% of buyers prefer to check AI-generated insights with a sales rep. That's the same group of buyers, two in three of whom would rather skip the rep altogether.",
+        "Gartner says reps are still buyers' most important source when they're researching a business problem or need, identifying a preferred supplier and securing internal support, and finalising the purchase. It sees the seller's role shifting from the main source of information to a source of validation and confidence."
+      ],
+      "videoAt": 24.22,
+      "graphic": {
+        "type": "ring",
+        "value": 69,
+        "display": "69%",
+        "label": "prefer to check AI-generated insights with a sales rep",
+        "sourceTab": "Gartner · 20 May 2026"
+      }
+    },
+    {
+      "id": "who-misleads",
+      "heading": "Who misleads buyers more",
+      "body": [
+        "51% of buyers say they're more likely to come across misleading information from generative AI, and 49% say they're more likely to get it from a sales rep.",
+        "Blaisdell says sellers \"need to show up differently, engaging where they can help buyers validate information, reduce risk and move forward with greater confidence\"."
+      ],
+      "videoAt": 30.22,
+      "graphic": {
+        "type": "tugOfWar",
+        "eyebrow": "More likely to mislead buyers",
+        "left": {
+          "label": "Generative AI",
+          "value": 51,
+          "display": "51%"
+        },
+        "right": {
+          "label": "Sales reps",
+          "value": 49,
+          "display": "49%"
+        },
+        "sourceTab": "Gartner · 20 May 2026"
+      }
+    },
+    {
+      "id": "what-it-means",
+      "heading": "What it means for IT firms that sell",
+      "body": [
+        "By the time a buyer gets on a call with you, they've already formed a view. It comes from AI, from your website and from whatever you've posted. The call is mostly them checking you're as good as they've heard.",
+        "Before a call, a buyer might ask an AI tool for a shortlist, read three websites and scroll back through each firm's posts."
+      ],
+      "videoAt": 35.55,
+      "graphic": {
+        "type": "converge",
+        "sources": [
+          "What AI says about you",
+          "Your website",
+          "Your posts"
+        ],
+        "to": "The call",
+        "cutout": "assets/N6/cutouts/headset.webp",
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    }
+  ],
+  "take": {
+    "line": "Make sure they've",
+    "key": "heard something.",
+    "videoAt": 47.0,
+    "body": [
+      "Buyers do their homework before the call. I'd want them to find something when they look."
+    ]
+  },
+  "sources": [
+    {
+      "outlet": "Gartner",
+      "title": "Gartner Survey Finds 69% of B2B Buyers Turn to Sales Reps to Validate AI-Generated Insights",
+      "date": "2026-05-20",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-20-gartner-survey-finds-sixty-nine-percent-of-b-two-b-buyers-turn-to-sales-reps-to-validate-ai-generated-insights"
+    }
+  ],
+  "notes": [
+    "Gartner surveyed 645 B2B buyers in August and September 2025. The release doesn't say where they're based, and there's no Australian breakdown.",
+    "The phone chat and the seven blank source cards are illustrations. Gartner doesn't say which sources buyers used.",
+    "\"What it means for IT firms that sell\" and \"Shane's take\", including the buyer example, are my opinion, not Gartner's."
+  ],
+  "trace": {
+    "645 B2B buyers, August to September 2025": "Release para 2",
+    "presented at the Gartner CSO & Sales Leader Conference, Las Vegas, May": "Dateline (Las Vegas, May 20, 2026), subhead, para 1",
+    "67% prefer a rep-free experience; 70% completely digital, self-service": "Release para 4",
+    "Blaisdell, VP Analyst, Chief of Research, Gartner Sales practice; 'more comfortable using digital channels and GenAI to navigate the purchase process on their own'; 'does not eliminate the role of the seller'": "Blaisdell quote 1",
+    "average of seven information sources during a recent purchase": "Release para 2",
+    "speed and convenience of digital and AI-assisted research; rely on reps for reassurance, context and decision support": "Release para 6 (paraphrase)",
+    "69% prefer to validate AI-generated insights with sales reps": "Headline, para 1",
+    "two in three of whom would rather skip the rep": "Derived: 67% (para 4), same sample",
+    "reps most important source: researching a business problem or need, identifying a preferred supplier and securing internal support, finalizing the purchase": "Release para 6",
+    "shift from primary source of information to source of validation and confidence": "'Sellers Need to Show Up Differently' section",
+    "trust remains a challenge; 51% GenAI vs 49% sales rep more likely to mislead": "'AI-Driven Buying Is Expanding, but Trust Remains a Challenge' section",
+    "formed a view; from AI, your website, your posts; checking you're as good as they've heard; make sure they've heard something": "Shane's N6 script (opinion), labelled in notes",
+    "no Australian breakdown; buyers' location not stated": "Release gives no region or country split",
+    "45% said they used GenAI, primarily to gather information on vendors and products": "Release para 2 (not tied to 'a recent purchase' in the written copy)",
+    "buyer example (AI shortlist, three websites, each firm's posts); take body": "Opinion, labelled in notes",
+    "'need to show up differently, engaging where they can help buyers validate information, reduce risk and move forward with greater confidence'": "Blaisdell quote 2"
+  }
+}
