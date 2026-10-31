@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { goals } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
+import { LINKEDIN_URL } from "@/lib/seo";
 
 // Social icon SVGs (inline for zero extra dependencies)
 const LinkedInIcon = () => (
@@ -72,7 +73,7 @@ export default function Footer() {
             </ul>
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-white transition-colors duration-200"

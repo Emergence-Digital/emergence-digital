@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import LeadForm from "@/components/sections/LeadForm";
-import { pageMetadata } from "@/lib/seo";
+import { LINKEDIN_URL, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 </p>
                 <div className="flex gap-4">
                   <a
-                    href="https://linkedin.com"
+                    href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-dark-green hover:text-mid-green transition-colors duration-200"
