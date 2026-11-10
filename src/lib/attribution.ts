@@ -37,8 +37,21 @@ const URL_PARAM_KEYS = [
 
 // Query params that can carry personal details (e.g. booking prefill links).
 // They're stripped from any URL we store or send to GHL as attribution, and from
-// the address bar before Google Analytics records a page view.
+// the address bar before Google Analytics or the Meta Pixel records a page view.
 export const PERSONAL_PARAMS = ["first_name", "last_name", "name", "email", "phone"];
+
+/**
+ * Inline script that removes PERSONAL_PARAMS from the address bar. The
+ * <GoogleAnalytics /> and <MetaPixel /> snippets run it before their first page
+ * view (whichever runs second finds nothing left to remove).
+ */
+export const STRIP_PERSONAL_PARAMS_SCRIPT = `(function () {
+  var url = new URL(window.location.href);
+  var personal = ${JSON.stringify(PERSONAL_PARAMS)};
+  if (!personal.some(function (p) { return url.searchParams.has(p); })) return;
+  personal.forEach(function (p) { url.searchParams.delete(p); });
+  window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
+})();`;
 
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 const MAX_VALUE_LENGTH = 500;

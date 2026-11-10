@@ -5,15 +5,20 @@
  *   website    honeypot; must be empty
  *   elapsedMs  ms between the form mounting and submitting (measured in the browser)
  *
- * Responses: 200 { ok: true } · 400 { ok: false, errors } for field problems ·
- * 400/500/502 { ok: false, error } otherwise, with the detail in the server log.
+ * Responses: 200 { ok: true, eventId } · 400 { ok: false, errors } for field
+ * problems · 400/500/502 { ok: false, error } otherwise, with the detail in the
+ * server log. eventId is the Meta event ID the browser's Pixel reuses for its
+ * Lead; spam gets { ok: true } with none.
  */
 
-import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
+import { after, NextResponse } from "next/server";
 import { attributionFieldIds, getLeadForm, isStandardField, type LeadFormConfig } from "@/lib/lead-forms";
 import { toE164, validateLead, type LeadValues } from "@/lib/lead-validation";
 import { ATTRIBUTION_KEYS, sanitizeAttribution, stripPersonalParams } from "@/lib/attribution";
 import { GhlError, logLeadEvent, maskEmail, pushLeadToGhl, type GhlLead } from "@/lib/ghl";
+import { fbcFromClickId, sendMetaEvent, type MetaServerEvent } from "@/lib/meta-capi";
+import { SITE_URL } from "@/lib/seo";
 
 /** Up to 4 GHL calls, each with one retry and a 10s timeout. */
 export const maxDuration = 30;
@@ -52,6 +57,42 @@ function cleanPageUrl(input: unknown): string {
   } catch {
     return "";
   }
+}
+
+/** The visitor's IP: Vercel sets x-real-ip, and x-forwarded-for starts with the client. */
+function clientIp(request: Request): string | undefined {
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  return request.headers.get("x-real-ip")?.trim() || forwarded || undefined;
+}
+
+async function metaLeadEvent(
+  request: Request,
+  form: LeadFormConfig,
+  lead: GhlLead,
+  contactId: string,
+  fbclid: string | undefined,
+): Promise<MetaServerEvent> {
+  const cookieStore = await cookies();
+  // The Pixel sets _fbc when someone arrives from an ad. If it was blocked, the
+  // first-touch fbclid is the next best thing.
+  const fbc = cookieStore.get("_fbc")?.value || (fbclid ? fbcFromClickId(fbclid) : undefined);
+  return {
+    eventName: "Lead",
+    eventId: crypto.randomUUID(),
+    eventSourceUrl: lead.pageUrl || `${SITE_URL}/`,
+    user: {
+      email: lead.contact.email,
+      phone: lead.contact.phone,
+      firstName: lead.contact.firstName,
+      lastName: lead.contact.lastName,
+      externalId: contactId,
+      ipAddress: clientIp(request),
+      userAgent: request.headers.get("user-agent") ?? undefined,
+      fbp: cookieStore.get("_fbp")?.value,
+      fbc,
+    },
+    customData: { content_name: form.name },
+  };
 }
 
 export async function POST(request: Request) {
@@ -129,7 +170,13 @@ export async function POST(request: Request) {
   try {
     const { contactId, isNew } = await pushLeadToGhl(lead);
     logLeadEvent("info", "lead.ok", { formId, contactId, isNew });
-    return json({ ok: true });
+
+    // Meta Conversions API: the same Lead the browser's Pixel sends, with the
+    // same event ID so Meta counts it once. It goes after the response, so it
+    // never slows the form down, and a Meta problem can't fail the lead.
+    const metaEvent = await metaLeadEvent(request, form, lead, contactId, attribution.fbclid);
+    after(() => sendMetaEvent(metaEvent));
+    return json({ ok: true, eventId: metaEvent.eventId });
   } catch (error) {
     logLeadEvent("error", "lead.ghl_failed", {
       formId,

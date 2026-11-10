@@ -14,6 +14,7 @@ import {
 } from "@/lib/lead-validation";
 import { readAttribution, stripPersonalParams } from "@/lib/attribution";
 import { trackEvent } from "@/lib/analytics";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 import { sendEmailCopy } from "@/lib/email-copy";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -118,6 +119,7 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
     const emailCopy = form.emailCopy && !honeypot ? sendEmailCopy(values) : Promise.resolve(false);
 
     let saved = false;
+    let metaEventId: string | undefined;
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -131,10 +133,13 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
           elapsedMs: Math.round(performance.now() - mountedAt.current),
         }),
       });
-      const result: { ok?: boolean; errors?: FieldErrors } = await response.json().catch(() => ({}));
+      const result: { ok?: boolean; errors?: FieldErrors; eventId?: unknown } = await response
+        .json()
+        .catch(() => ({}));
 
       if (response.ok && result.ok) {
         saved = true;
+        if (typeof result.eventId === "string") metaEventId = result.eventId;
       } else if (result.errors && Object.keys(result.errors).length > 0) {
         setErrors(result.errors);
         setStatus("idle");
@@ -155,6 +160,10 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
     }
 
     trackEvent("generate_lead", { form_id: formId });
+    // The server sent Meta this Lead too, under the same event ID, so it counts
+    // once. Spam drops get no ID and send nothing. If only the email copy got
+    // through, the server sent nothing, so the Pixel's event stands alone.
+    if (metaEventId || !saved) trackMetaEvent("Lead", { content_name: form.name }, metaEventId ?? crypto.randomUUID());
     const redirectTo = successUrl(form, values);
     setStatus("success");
     // Booking prefill links carry personal details, so they get a full page

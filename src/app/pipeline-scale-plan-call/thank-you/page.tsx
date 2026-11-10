@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import VimeoEmbed from "@/components/ui/VimeoEmbed";
 import ClientStories from "@/components/sections/ClientStories";
+import MetaEvent from "@/components/layout/MetaEvent";
 
 // Step 3 of the Pipeline Scale Plan call funnel. The GHL calendar's confirmation
 // redirects here once someone books. The copy follows the F1-02 script, and the
 // Centurion videos sit under it in order, so none of them asks for a booking.
 // Only F1-02 autoplays; the Centurion videos wait for a click and play with sound.
+// Landing here means a call was booked, so it sends Meta a Schedule event (the
+// booking itself happens inside GHL's widget, which never tells the site).
 export const metadata: Metadata = {
   title: "You're Booked In — Emergence Digital",
   robots: { index: false, follow: false },
@@ -48,6 +51,7 @@ const centurionVideos = [
 export default function PipelineScalePlanCallThankYouPage() {
   return (
     <>
+      <MetaEvent name="Schedule" contentName="Pipeline Scale Plan call" />
       <section className="bg-cream pt-32 pb-24">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">

@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { PERSONAL_PARAMS } from "@/lib/attribution";
+import { STRIP_PERSONAL_PARAMS_SCRIPT } from "@/lib/attribution";
 
 const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 
@@ -24,13 +24,7 @@ export default function GoogleAnalytics() {
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          (function () {
-            var url = new URL(window.location.href);
-            var personal = ${JSON.stringify(PERSONAL_PARAMS)};
-            if (!personal.some(function (p) { return url.searchParams.has(p); })) return;
-            personal.forEach(function (p) { url.searchParams.delete(p); });
-            window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
-          })();
+          ${STRIP_PERSONAL_PARAMS_SCRIPT}
           gtag("js", new Date());
           gtag("config", "${measurementId}");
         `}
