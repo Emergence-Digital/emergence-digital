@@ -20,21 +20,12 @@ export const metadata: Metadata = pageMetadata({
  *   Meta Pixel + CAPI ..... SETUP.md, "Meta Pixel and Conversions API"
  *   Embeds ................ src/components/sections/CalendarEmbed.tsx (GHL), src/components/ui/VimeoEmbed.tsx
  *
- * TODO(Shane): the <ToConfirm> in "Information stored overseas" shows on the page as a highlighted note. Replace it
- * with the confirmed wording before this goes live, and update LAST_UPDATED.
+ * Business details confirmed by Shane on 11 Nov 2026: the entity and ABN, marketing emails and messages to leads,
+ * 5-year retention, and the overseas wording. Change LAST_UPDATED whenever the policy changes.
  */
 
 const LAST_UPDATED = "11 November 2026";
 const EMAIL = "contact@emergencedigital.com.au";
-
-/** A point that needs Shane's legal or business confirmation. Shown on the page so it can't slip through. */
-function ToConfirm({ children }: { children: React.ReactNode }) {
-  return (
-    <mark className="bg-amber-100 text-amber-950 border border-amber-300 rounded px-1.5 py-0.5 text-[0.9em] [box-decoration-break:clone]">
-      <strong className="font-semibold">To confirm:</strong> {children}
-    </mark>
-  );
-}
 
 const sections = [
   { id: "who-we-are", title: "Who we are" },
@@ -366,11 +357,8 @@ export default function PrivacyPage() {
             <Section id="overseas">
               <p>
                 Most of the providers above are based outside Australia, so your information is likely to be stored or
-                processed overseas, mainly in the United States.{" "}
-                <ToConfirm>
-                  the countries each provider stores data in (HighLevel, EmailJS, Google, Meta, Vimeo, Vercel), and the
-                  wording of this section, including what steps we take to make sure overseas providers protect it
-                </ToConfirm>
+                processed overseas, mainly in the United States. Each provider&apos;s privacy policy, linked above,
+                explains how it protects that information.
               </p>
             </Section>
 
