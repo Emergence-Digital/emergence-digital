@@ -1,3 +1,4 @@
+import { mangalProBold, sageShadow, THICKEN } from "@/lib/fonts";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ReviewsBadge from "@/components/ui/ReviewsBadge";
@@ -6,6 +7,11 @@ import ResponsiveVimeoEmbed from "@/components/ui/ResponsiveVimeoEmbed";
 // Reviews eyebrow above the headline (reviewer icons, five stars, review count). Hidden until we have 50+
 // five-star reviews: set to true to show it, and check the count in ReviewsBadge.tsx first.
 const SHOW_REVIEWS_BADGE = false;
+
+// The headline follows the videos' "text-front" overlay (edit-kit views/view_overlay.jsx): Mangal Pro Bold thickened
+// with a stroke in its own colour behind the fill (0.05 of the size), and the payoff in dark green on a sage block
+// tilted -2.5 degrees, 1.21 times line one's size. Line one differs from the video: dark green with a hard sage drop
+// shadow instead of white with a dark-green edge (Shane, 11 Nov 2026).
 
 export interface HeroVideo {
   /** Vimeo ID of the 16:9 cut, for desktop. */
@@ -48,8 +54,19 @@ export default function Hero({ video = HOME_VIDEO, ctaHref = "/book" }: HeroProp
         <div>
           <SectionLabel>Marketing for IT Firms</SectionLabel>
         </div>
-        <h1 className="font-serif text-5xl md:text-7xl font-bold text-dark-green leading-[1.08] tracking-tight max-w-4xl mx-auto mb-5">
-          Win the bigger clients that usually go to the big firms.
+        <h1
+          className={`${mangalProBold.className} font-bold leading-none tracking-tight whitespace-nowrap text-[7.2vw] sm:text-5xl md:text-6xl lg:text-7xl mx-auto mt-3 mb-10`}
+        >
+          <span className={`text-dark-green ${THICKEN}`} style={sageShadow(0.06)}>
+            Win bigger clients
+          </span>{" "}
+          <span className="block mt-[0.12em]">
+            <span
+              className={`inline-block bg-sage text-dark-green text-[1.21em] px-[0.33em] pt-[0.16em] pb-[0.1em] rounded-[0.13em] -rotate-[2.5deg] ${THICKEN}`}
+            >
+              and more of them.
+            </span>
+          </span>
         </h1>
         <p className="text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-normal">
           We help established IT businesses win enterprise and mid-market
