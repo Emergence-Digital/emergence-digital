@@ -6,6 +6,7 @@ import Footer, { FunnelFooter } from "@/components/layout/Footer";
 import SiteChrome from "@/components/layout/SiteChrome";
 import AttributionCapture from "@/components/layout/AttributionCapture";
 import GoogleAnalytics from "@/components/layout/GoogleAnalytics";
+import MetaPixel from "@/components/layout/MetaPixel";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo";
 
 // Place your font file at: src/app/fonts/MangalPro.otf  (or .ttf)
@@ -50,6 +51,7 @@ export default function RootLayout({
         <main>{children}</main>
         <SiteChrome site={<Footer />} funnel={<FunnelFooter />} />
         <GoogleAnalytics />
+        <MetaPixel />
       </body>
     </html>
   );

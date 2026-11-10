@@ -1,4 +1,4 @@
-# Lead capture (GoHighLevel) and Google Analytics: setup
+# Lead capture (GoHighLevel), Google Analytics and Meta: setup
 
 Funnel pages on this site collect leads with `<LeadForm formId="…" />`. Each
 submission goes to `/api/lead`, which puts a clean, tagged, attributed contact
@@ -16,6 +16,7 @@ Visitor lands ─▶ AttributionCapture stores first touch in the "ed_attributio
                      4. DELETE /contacts/{id}/tags      returning contacts only, so the tag is "new" again
                      5. POST /contacts/{id}/tags        tags from the server-side config, never the browser
                      6. POST /contacts/{id}/notes       message + unmapped answers, form name, page URL
+                     7. after the response: Meta Conversions API "Lead" (see Meta Pixel and Conversions API)
                          │
                          ▼
                GHL workflow: "Contact Tag" trigger ─▶ opportunity, follow-ups…
@@ -31,6 +32,8 @@ Visitor lands ─▶ AttributionCapture stores first touch in the "ed_attributio
 | `src/components/layout/AttributionCapture.tsx` + `src/lib/attribution.ts` | First-touch cookie |
 | `src/app/lp/example-lead/` | Example funnel (`/lp/example-lead`) and its booking step (`/book`) |
 | `src/app/pipeline-scale-plan-call/` | Pipeline Scale Plan call funnel: landing page with the form (tag `web:pipeline-scale-plan-call`), calendar (`/book`), and `/thank-you`, which the calendar's confirmation redirect must point to |
+| `src/components/layout/MetaPixel.tsx` + `src/lib/meta-pixel.ts` | Meta Pixel and browser events |
+| `src/lib/meta-capi.ts` | Server-only Meta Conversions API client |
 | `scripts/ghl-custom-fields.mjs` | Prints custom field names and IDs (`npm run ghl:fields`) |
 | `scripts/test-lead.mjs` | End-to-end test (`npm run test:lead -- <url>`) |
 
@@ -49,6 +52,7 @@ Live on www.emergencedigital.com.au since **16 Oct 2026** (PR #3). ✅ done · �
 | 6b. Workflow for `web:contact` | ⬜ To do | Internal Notification for Contact page enquiries. Once it's published and tested, turn off the EmailJS copy (see [The Contact page form](#the-contact-page-form)) |
 | 6c. Workflow for `web:book-call` | ⬜ To do | Organic strategy-call leads from `/book` (see [The booking page](#the-booking-page)). Worth following up anyone tagged who doesn't book |
 | 7. End-to-end test | ⬜ To do | Not yet run against the live site |
+| Meta Pixel + Conversions API | ⬜ To do | Code added Nov 2026. Dataset `1111429868559754`. Set the two variables in Vercel Production, then steps 4–6 of [Set up Meta](#set-up-meta) |
 | Google Analytics | ⚠️ Partly done | `NEXT_PUBLIC_GA_MEASUREMENT_ID` = `G-EZMBHM4KMH` set in Vercel Production on 19 Oct 2026; tracking starts with the first production deploy after that. Then steps 3–5 of [Set it up](#set-it-up) |
 
 ---
@@ -220,6 +224,39 @@ To retire EmailJS:
 4. **Mark the lead as a key event:** GA → Admin → **Data display → Events** (it shows up within 24 hours of the first one) → star `generate_lead`. To report by form, add `form_id` under **Custom definitions** as an event-scoped dimension.
 5. **Privacy policy:** ✅ `/privacy` (`src/app/privacy/page.tsx`) covers the Google Analytics cookies alongside the `ed_attribution` cookie. Update it if the GA setup changes.
 
+## Meta Pixel and Conversions API
+
+The site tells Meta about visits and leads two ways, so the ads can optimise for real leads:
+
+- **Pixel (browser):** `<MetaPixel />` in the root layout loads Meta's fbevents.js when `NEXT_PUBLIC_META_PIXEL_ID` is set, and renders nothing when it isn't.
+- **Conversions API (server):** `/api/lead` also sends each lead from the server (`src/lib/meta-capi.ts`), so Meta still hears about it when an ad blocker or the browser's tracking protection stops the Pixel. It needs `META_CAPI_ACCESS_TOKEN` as well as the Pixel ID.
+
+| Event | Sent by | When |
+|---|---|---|
+| `PageView` | Pixel | Every page, including client-side navigations (the Pixel follows the browser history itself) |
+| `Lead` | Pixel **and** server | Every successful `<LeadForm>` submission, with `content_name` = the form's name. Both carry the same event ID, so Meta counts it once. Spam drops send nothing. If GHL failed but the EmailJS copy got through, only the Pixel sends it |
+| `Schedule` | Pixel only | `/pipeline-scale-plan-call/thank-you` loads (the GHL calendar's redirect after a booking), once per browser tab. It can't come from the server: the booking happens inside GHL's widget, which never tells the site |
+
+- **What the server sends:** email, phone, first and last name and the GHL contact ID (as `external_id`), each normalised and SHA-256 hashed as Meta requires; the visitor's IP address and browser user agent; the Pixel's `_fbp` and `_fbc` cookies (if the Pixel was blocked, `fbc` is built from the first-touch `fbclid`); and the page URL. It's sent after the response, so it never slows the form, and a Meta failure never fails the lead.
+- **Personal details in URLs:** the Pixel snippet strips `PERSONAL_PARAMS` from the address bar before its first page view, the same as GA, so booking prefill details never reach Meta that way.
+
+### Set up Meta
+
+1. **Dataset (Pixel) ID:** ✅ `1111429868559754` (chosen 11 Nov 2026, in the ad campaign's Conversions API setup).
+2. **Access token:** Events Manager → the dataset → **Settings → Conversions API → Generate access token**. It's shown once.
+3. **Set the variables in Vercel** (Project → Settings → Environment Variables), **Production only**, then redeploy: Vercel only applies variable changes to new deploys.
+
+   | Name | Value |
+   |---|---|
+   | `NEXT_PUBLIC_META_PIXEL_ID` | `1111429868559754` |
+   | `META_CAPI_ACCESS_TOKEN` | The token from step 2. Never prefix it with `NEXT_PUBLIC_` |
+
+4. **Check it works:** Events Manager → the dataset → **Test events**. To see server events there too, add `META_TEST_EVENT_CODE` = the code it shows (Production) and redeploy. Open the live site and submit a test enquiry: you should see `PageView`, then `Lead` from both Browser and Server, marked as deduplicated. Then remove `META_TEST_EVENT_CODE` and redeploy.
+5. **Use it in the campaign:** set the ad set's conversion event to `Lead`. Once enough calls are booked, `Schedule` is the closer signal to optimise for.
+6. **Privacy policy:** ✅ `/privacy` (`src/app/privacy/page.tsx`) describes the Pixel, its `_fbp`/`_fbc` cookies and what the server sends Meta, as Meta's Business Tools Terms require. Update it if what's sent changes.
+
+After a few days, Events Manager → the dataset → **Overview** shows each event's match quality and how many browser and server events were deduplicated.
+
 ## Troubleshooting
 
 `/api/lead` writes one JSON log line per event. In Vercel → Logs, search for `lead.`:
@@ -233,8 +270,11 @@ To retire EmailJS:
 | `lead.note_failed` | Non-fatal; the contact and tags were saved |
 | `lead.phone_rejected` | GHL refused the phone number; the contact was saved without it and the number is in the note |
 | `lead.unknown_form` | A request named a `formId` that isn't in the config |
+| `lead.meta_sent` | Meta's Conversions API accepted the Lead (`eventId`; `test: true` while `META_TEST_EVENT_CODE` is set) |
+| `lead.meta_failed` | Meta refused the Lead or didn't answer in 5 s; the contact was still saved and the visitor saw success. `status`, `code` and `detail` give Meta's error. Code `190` means the access token is invalid or expired |
+| `lead.meta_skipped` | Only one of `NEXT_PUBLIC_META_PIXEL_ID` and `META_CAPI_ACCESS_TOKEN` is set (`missing` names the other) |
 
-GHL calls time out after 10 s and are retried once on a 429, a 5xx or a network error. Emails in logs are masked (`j***@acme.com`).
+GHL calls time out after 10 s and are retried once on a 429, a 5xx or a network error. Emails in logs are masked (`j***@acme.com`). The Meta call is made once, with a 5 s timeout, and logs no personal details.
 
 ## Things to know
 
