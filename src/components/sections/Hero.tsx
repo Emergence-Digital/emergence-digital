@@ -57,7 +57,7 @@ export default function Hero({ video = HOME_VIDEO, ctaHref = "/book" }: HeroProp
         <h1
           className={`${mangalProBold.className} font-bold leading-none tracking-tight whitespace-nowrap text-[7.2vw] sm:text-5xl md:text-6xl lg:text-7xl mx-auto mt-3 mb-10`}
         >
-          <span className={`text-dark-green ${THICKEN}`} style={sageShadow(0.06)}>
+          <span className={`inline-block text-dark-green ${THICKEN}`} style={sageShadow(0.06)}>
             Win bigger clients
           </span>{" "}
           <span className="block mt-[0.12em]">

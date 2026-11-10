@@ -7,5 +7,9 @@ export const mangalProBold = localFont({ src: "../app/fonts/MangalProBold.ttf", 
 /** Thickens letters with a stroke in their own colour drawn behind the fill, as the videos' kinetic type does. */
 export const THICKEN = "[-webkit-text-stroke:0.05em_currentColor] [paint-order:stroke_fill]";
 
-/** A hard sage drop shadow, offset down and right by `em` of the text size. */
-export const sageShadow = (em: number) => ({ textShadow: `${em}em ${em}em 0 var(--color-sage)` });
+/**
+ * A hard sage drop shadow, offset down and right by `em` of the text size. It's a drop-shadow filter on the whole
+ * element, not a text-shadow: with THICKEN's stroke, browsers paint a text-shadow in the wrong order and thin dark
+ * outlines cut through the sage. The element needs to be a block or inline-block for the filter to apply everywhere.
+ */
+export const sageShadow = (em: number) => ({ filter: `drop-shadow(${em}em ${em}em 0 var(--color-sage))` });
