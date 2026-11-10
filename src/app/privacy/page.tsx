@@ -20,8 +20,8 @@ export const metadata: Metadata = pageMetadata({
  *   Meta Pixel + CAPI ..... SETUP.md, "Meta Pixel and Conversions API"
  *   Embeds ................ src/components/sections/CalendarEmbed.tsx (GHL), src/components/ui/VimeoEmbed.tsx
  *
- * TODO(Shane): every <ToConfirm> below shows on the page as a highlighted note. Replace each with the confirmed
- * wording (or delete it) before this goes live, and update LAST_UPDATED.
+ * TODO(Shane): the <ToConfirm> in "Information stored overseas" shows on the page as a highlighted note. Replace it
+ * with the confirmed wording before this goes live, and update LAST_UPDATED.
  */
 
 const LAST_UPDATED = "11 November 2026";
@@ -212,7 +212,7 @@ export default function PrivacyPage() {
           <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 text-body leading-relaxed max-w-[820px]">
             <Section id="who-we-are">
               <p>
-                Emergence Digital (<ToConfirm>the legal entity name and ABN</ToConfirm>) is a marketing agency based in
+                Emergence Digital Pty Ltd (ABN 28 197 110 729) is a marketing agency based in
                 Melbourne, Australia. In this policy, &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;our&rdquo; mean
                 Emergence Digital, and &ldquo;the site&rdquo; means emergencedigital.com.au.
               </p>
@@ -267,16 +267,12 @@ export default function PrivacyPage() {
                   "follow up by email, phone or text message about what you asked us",
                   "work out which of our marketing brings people to the site, and improve the site",
                   "measure our ads on Facebook and Instagram, and show them to people more likely to be interested",
-                  <>
-                    send you occasional emails about our services and events, which you can unsubscribe from at any
-                    time. <ToConfirm>whether people who send a form or book a call get marketing emails or messages, and if
-                    so which ones</ToConfirm>
-                  </>,
+                  "send you occasional emails and messages about our services and events, which you can unsubscribe from at any time",
                 ]}
               />
               <p>
-                If we send you marketing emails or text messages, each one tells you how to unsubscribe. We don&apos;t
-                sell personal information.
+                Every marketing email or message we send tells you how to unsubscribe. We don&apos;t sell personal
+                information.
               </p>
             </Section>
 
@@ -389,12 +385,10 @@ export default function PrivacyPage() {
                 Australian Information Commissioner, as the law requires.
               </p>
               <p>
-                We keep personal information only for as long as we need it for the reasons above or the law requires,
-                then delete it or remove what identifies you.{" "}
-                <ToConfirm>
-                  how long we keep enquiries and contacts in the CRM, client records, and Google Analytics data (its
-                  retention setting is 2 or 14 months)
-                </ToConfirm>
+                We keep enquiries, contact details and client records for 5 years after our last contact with you,
+                unless the law requires us to keep them longer, then delete them or remove what identifies you. Google
+                Analytics keeps detailed visit data for 14 months at most, and Meta keeps what it receives under its own
+                policy.
               </p>
             </Section>
 
@@ -439,7 +433,7 @@ export default function PrivacyPage() {
             <Section id="contact">
               <p>For anything about your privacy or this policy:</p>
               <address className="not-italic">
-                Emergence Digital
+                Emergence Digital Pty Ltd
                 <br />
                 Suite 4, 184 Main Street
                 <br />
