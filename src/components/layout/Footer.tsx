@@ -2,6 +2,7 @@ import Link from "next/link";
 import { goals } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
 import { LINKEDIN_URL } from "@/lib/seo";
+import Logo from "@/components/ui/Logo";
 
 // Social icon SVGs (inline for zero extra dependencies)
 const LinkedInIcon = () => (
@@ -59,7 +60,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand + contact */}
           <div className="col-span-2">
-            <p className="font-serif text-xl font-bold mb-4">Emergence Digital</p>
+            <p className="mb-4">
+              <Logo onDark className="text-[26px]" />
+            </p>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs mb-6">
               Custom digital solutions for businesses that value speed, design, and growth.
             </p>
@@ -170,7 +173,9 @@ export function FunnelFooter() {
     <footer className="bg-dark-green text-white">
       <div className="max-w-[1200px] mx-auto px-6 py-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-          <p className="font-serif text-xl font-bold">Emergence Digital</p>
+          <p>
+            <Logo onDark className="text-[26px]" />
+          </p>
           <ul className="space-y-3 text-sm text-white/80 sm:text-right">
             <li>
               <Address />

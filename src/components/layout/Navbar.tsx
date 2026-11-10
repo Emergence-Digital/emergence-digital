@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { industries } from "@/lib/industries-data";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 
 type NavMenuKey = "industries";
 
@@ -90,11 +91,8 @@ export default function Navbar() {
       >
         <div className="px-5 sm:px-6 flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-serif text-lg font-bold text-dark-green tracking-tight"
-          >
-            Emergence Digital
+          <Link href="/">
+            <Logo className="text-[22px]" />
           </Link>
 
           {/* Desktop nav */}
@@ -261,7 +259,7 @@ export function FunnelHeader() {
     <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6">
       <header className="max-w-[1200px] mx-auto rounded-full border bg-white/90 backdrop-blur-md border-dark-green/5 shadow-sm">
         <div className="px-5 sm:px-6 flex items-center h-16">
-          <span className="font-serif text-lg font-bold text-dark-green tracking-tight">Emergence Digital</span>
+          <Logo className="text-[22px]" />
         </div>
       </header>
     </div>
