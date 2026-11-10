@@ -11,7 +11,7 @@ interface LogoProps {
 export default function Logo({ onDark = false, className = "" }: LogoProps) {
   return (
     <span
-      className={`${mangalProBold.className} font-bold tracking-tight whitespace-nowrap ${THICKEN} ${
+      className={`${mangalProBold.className} inline-block font-bold tracking-tight whitespace-nowrap ${THICKEN} ${
         onDark ? "text-white" : "text-dark-green"
       } ${className}`}
       style={sageShadow(onDark ? 0.07 : 0.08)}
