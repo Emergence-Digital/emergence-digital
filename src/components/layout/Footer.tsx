@@ -48,8 +48,21 @@ const Address = () => (
   </>
 );
 
-const Copyright = () => (
-  <p className="text-xs text-white/40">© {new Date().getFullYear()} Emergence Digital. All rights reserved.</p>
+/**
+ * Copyright and the privacy policy link. Meta's Business Tools Terms need the policy linked from every page that runs
+ * the Pixel, so both footers carry it. On funnel pages it opens in a new tab, so the booking page stays open.
+ */
+const Legal = ({ newTab = false }: { newTab?: boolean }) => (
+  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+    <p className="text-white/40">© {new Date().getFullYear()} Emergence Digital. All rights reserved.</p>
+    <Link
+      href="/privacy"
+      className="text-white/60 hover:text-white transition-colors duration-200"
+      {...(newTab && { target: "_blank", rel: "noopener" })}
+    >
+      Privacy Policy
+    </Link>
+  </div>
 );
 
 export default function Footer() {
@@ -157,14 +170,17 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <Copyright />
+          <Legal />
         </div>
       </div>
     </footer>
   );
 }
 
-/** Footer for funnel pages: the logo, address, email and copyright, with no links away from the page. */
+/**
+ * Footer for funnel pages: the logo, address, email, copyright and privacy policy, with no other links away from the
+ * page. The policy link opens in a new tab.
+ */
 export function FunnelFooter() {
   return (
     <footer className="bg-dark-green text-white">
@@ -181,7 +197,7 @@ export function FunnelFooter() {
           </ul>
         </div>
         <div className="border-t border-white/10 mt-10 pt-8">
-          <Copyright />
+          <Legal newTab />
         </div>
       </div>
     </footer>

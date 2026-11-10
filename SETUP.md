@@ -218,7 +218,7 @@ To retire EmailJS:
 2. **Set the variable in Vercel:** ✅ Project → Settings → Environment Variables → `NEXT_PUBLIC_GA_MEASUREMENT_ID` = the `G-…` ID, **Production only**. It's built into the page, so a change only takes effect on the next deploy.
 3. **Check it works:** open the live site, then GA → **Reports → Realtime**. You should appear within a minute. Submit a test enquiry and look for `generate_lead`.
 4. **Mark the lead as a key event:** GA → Admin → **Data display → Events** (it shows up within 24 hours of the first one) → star `generate_lead`. To report by form, add `form_id` under **Custom definitions** as an event-scoped dimension.
-5. **Privacy policy:** mention Google Analytics cookies alongside the `ed_attribution` cookie.
+5. **Privacy policy:** ✅ `/privacy` (`src/app/privacy/page.tsx`) covers the Google Analytics cookies alongside the `ed_attribution` cookie. Update it if the GA setup changes.
 
 ## Troubleshooting
 
@@ -239,10 +239,10 @@ GHL calls time out after 10 s and are retried once on a 429, a 5xx or a network 
 ## Things to know
 
 - **Upsert overwrites.** A returning contact's name, company, phone and attribution fields are replaced with the latest submission's values. Blank values are never sent, so nothing is wiped. Attribution is "first touch *in the browser they converted from*", not first touch across all their visits. If you want the very first value kept forever, a GHL workflow can copy it into a separate field only when that field is empty.
-- **The cookie.** `ed_attribution` is a first-party cookie (30 days, `SameSite=Lax`) holding UTMs, click IDs, the referrer and the landing page. Mention it in the privacy policy.
+- **The cookie.** `ed_attribution` is a first-party cookie (30 days, `SameSite=Lax`) holding UTMs, click IDs, the referrer and the landing page. The privacy policy (`/privacy`) describes it; update the policy if the cookie's contents or lifetime change.
 - **Booking prefill puts personal details in the URL.** The booking page removes them from the address bar once loaded, so they don't sit in browser history, but they still reach Vercel's request logs and GHL. Google Analytics never sees them (see [Google Analytics](#google-analytics)).
 - **Spam protection is basic** (honeypot + 3-second check), which stops form-filling bots but not someone scripting the API. If that becomes a problem, add a Vercel Firewall rate limit on `/api/lead`, or Cloudflare Turnstile.
-- **Site chrome.** Pages under `/pipeline-scale-plan-call` get a bare header (the logo, not a link) and footer (logo, address, email, copyright), so nothing leads away from the booking. To give another funnel the same, add its path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx`. Other funnel pages, such as `/lp/example-lead`, use the site's normal navbar and footer.
+- **Site chrome.** Pages under `/pipeline-scale-plan-call` get a bare header (the logo, not a link) and footer (logo, address, email, copyright and a privacy policy link that opens in a new tab), so nothing leads away from the booking. To give another funnel the same, add its path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx`. Other funnel pages, such as `/lp/example-lead`, use the site's normal navbar and footer.
 
 ## Checked against the GHL API v2 docs (Oct 2026)
 

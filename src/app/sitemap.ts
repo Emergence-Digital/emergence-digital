@@ -9,10 +9,12 @@ export const revalidate = 300;
 
 // Services are one page (/services); each service is a #slug card on it, not its own route.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/services", "/packages", "/insights", "/about", "/contact", "/book"].map((path) => ({
-    url: `${BASE_URL}${path}`,
-    lastModified: new Date(),
-  }));
+  const staticRoutes = ["", "/services", "/packages", "/insights", "/about", "/contact", "/book", "/privacy"].map(
+    (path) => ({
+      url: `${BASE_URL}${path}`,
+      lastModified: new Date(),
+    }),
+  );
 
   const industryRoutes = industries.map((industry) => ({
     url: `${BASE_URL}/industries/${industry.slug}`,
