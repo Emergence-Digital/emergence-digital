@@ -77,7 +77,7 @@ export default function Footer() {
               <Logo onDark className="text-[26px]" />
             </p>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs mb-6">
-              Custom digital solutions for businesses that value speed, design, and growth.
+              We help established IT businesses win bigger clients, and more of them.
             </p>
             <ul className="space-y-3 text-sm text-white/80 mb-6">
               <li>
