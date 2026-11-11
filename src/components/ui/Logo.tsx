@@ -7,14 +7,17 @@ interface LogoProps {
   className?: string;
 }
 
-/** The Emergence Digital wordmark: Mangal Pro Bold, thickened, with a hard sage drop shadow (Shane, 11 Nov 2026). */
+/**
+ * The Emergence Digital wordmark: Mangal Pro Bold, thickened, with a hard sage drop shadow (Shane, 11 Nov 2026).
+ * On dark green the shadow is deep sage, as in the brand guidelines and the logo pack.
+ */
 export default function Logo({ onDark = false, className = "" }: LogoProps) {
   return (
     <span
       className={`${mangalProBold.className} inline-block font-bold tracking-tight whitespace-nowrap ${THICKEN} ${
         onDark ? "text-white" : "text-dark-green"
       } ${className}`}
-      style={sageShadow(onDark ? 0.07 : 0.08)}
+      style={onDark ? sageShadow(0.07, "var(--color-deep-sage)") : sageShadow(0.08)}
     >
       Emergence Digital
     </span>

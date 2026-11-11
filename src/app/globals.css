@@ -9,6 +9,7 @@
   --color-body: #2D2D2D;
   --color-muted: #6B7280;
   --color-sage: #A7CDB2; /* accents on the dark news cards (Insights), as in the news videos */
+  --color-deep-sage: #7DA08B; /* the logo shadow on dark green, where sage glows (brand guidelines, 11 Nov 2026) */
 
   /* Fonts */
   --font-serif: var(--font-playfair);
