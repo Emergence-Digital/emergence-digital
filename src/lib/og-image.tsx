@@ -21,6 +21,9 @@ const SHADOW = "0 16px 22px rgba(28,56,48,0.16), 0 2px 4px rgba(28,56,48,0.08)";
 const file = (path: string) => readFile(join(process.cwd(), path));
 const dataUrl = async (path: string) => `data:image/png;base64,${(await file(path)).toString("base64")}`;
 
+// The wordmark (thickened Mangal Pro Bold with its sage shadow), from the logo pack, cropped tight
+const LOGO = { src: "src/lib/og/emergence-logo.png", width: 270, height: Math.round((270 * 81) / 640) };
+
 // The team panel, in the About hero's 560×520 design units scaled to fit
 const SCALE = 0.86;
 const s = (px: number) => Math.round(px * SCALE);
@@ -42,9 +45,10 @@ interface OgImageOptions {
 }
 
 export async function ogImage({ eyebrow, title, goal = "win bigger clients." }: OgImageOptions) {
-  const [regular, bold, ...photos] = await Promise.all([
+  const [regular, bold, logo, ...photos] = await Promise.all([
     file("src/app/fonts/MangalPro.ttf"),
     file("src/app/fonts/MangalProBold.ttf"),
+    dataUrl(LOGO.src),
     ...people.map((person) => dataUrl(person.src)),
   ]);
 
@@ -63,7 +67,8 @@ export async function ogImage({ eyebrow, title, goal = "win bigger clients." }: 
       >
         {/* Words */}
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: 600, padding: "64px 0 60px 72px" }}>
-          <div style={{ fontSize: 30, fontWeight: 700, color: DARK_GREEN, letterSpacing: -0.5 }}>Emergence Digital</div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logo} alt="Emergence Digital" width={LOGO.width} height={LOGO.height} />
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 20, fontWeight: 700, color: MID_GREEN, letterSpacing: 3, textTransform: "uppercase", marginBottom: 18 }}>
               {eyebrow}

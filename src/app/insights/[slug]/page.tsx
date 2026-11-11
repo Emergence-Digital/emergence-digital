@@ -56,7 +56,7 @@ function articleJsonLd(post: InsightPost) {
     description: post.description,
     datePublished: post.publishAt,
     author: { "@type": "Person", name: post.author, url: `${SITE_URL}/about` },
-    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` } },
+    publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/emergence-digital-logo.png` } },
     image: `${SITE_URL}${postAsset(post, post.images.preview)}`,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
