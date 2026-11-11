@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Fonts. next/font defines --font-playfair and --font-inter on <body>, but plain @theme variables are declared at
+   :root, where those don't exist yet, so font-serif used to fall back to the inherited Inter. "inline" puts the
+   var() straight into the font-serif and font-sans utilities, so it resolves on the element itself. */
+@theme inline {
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
 @theme {
   /* Brand colours */
   --color-cream: #F5F0EB;
@@ -9,10 +17,6 @@
   --color-body: #2D2D2D;
   --color-muted: #6B7280;
   --color-sage: #A7CDB2; /* accents on the dark news cards (Insights), as in the news videos */
-
-  /* Fonts */
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-inter);
 
   /* Benefit tickers (Why Choose Emergence). Each list is doubled, so -50% is one full loop. */
   --animate-ticker-left: ticker-left 60s linear infinite;
