@@ -11,5 +11,6 @@ export const THICKEN = "[-webkit-text-stroke:0.05em_currentColor] [paint-order:s
  * A hard sage drop shadow, offset down and right by `em` of the text size. It's a drop-shadow filter on the whole
  * element, not a text-shadow: with THICKEN's stroke, browsers paint a text-shadow in the wrong order and thin dark
  * outlines cut through the sage. The element needs to be a block or inline-block for the filter to apply everywhere.
+ * On dark green, pass the deep sage: plain sage glows behind white letters there.
  */
-export const sageShadow = (em: number) => ({ filter: `drop-shadow(${em}em ${em}em 0 var(--color-sage))` });
+export const sageShadow = (em: number, color = "var(--color-sage)") => ({ filter: `drop-shadow(${em}em ${em}em 0 ${color})` });
