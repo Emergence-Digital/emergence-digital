@@ -2,9 +2,7 @@
  * The leadership team. The home page's team section (LeadershipTeam.tsx) shows names, roles and photos; the About
  * page's team cards add the bios.
  * Photos are the cut-outs from the About hero (AboutTeamVisual.tsx): 1000×1232 transparent WebPs, shown on a dark
- * green panel by TeamPhoto.tsx.
- *
- * Jordan's and Nikki's copy is a placeholder until the owner confirms their details (surnames, bios).
+ * green panel by TeamPhoto.tsx. Jordy and Nikki go by first name only.
  */
 export interface TeamMember {
   name: string;
@@ -28,12 +26,12 @@ export const founder: TeamMember = {
 
 export const leadership: TeamMember[] = [
   {
-    name: "Jordan",
+    name: "Jordy",
     role: "Delivery Lead",
     photo: "/about/jordan.webp",
-    alt: "Jordan, Delivery Lead at Emergence Digital",
+    alt: "Jordy, Delivery Lead at Emergence Digital",
     bio: [
-      "Jordan leads delivery at Emergence, turning the plan we agree on into work your buyers actually see. Campaigns go live when they're meant to, so the momentum you're building never stalls between the plan and the market.",
+      "Jordy leads delivery at Emergence, turning the plan we agree on into work your buyers actually see. Campaigns go live when they're meant to, so the momentum you're building never stalls between the plan and the market.",
     ],
   },
   {

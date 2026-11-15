@@ -1,6 +1,6 @@
 import { ogContentType, ogImage, ogSize } from "@/lib/og-image";
 
-export const alt = "The Emergence Digital team: Jordan, Shane and Nikki";
+export const alt = "The Emergence Digital team: Jordy, Shane and Nikki";
 export const size = ogSize;
 export const contentType = ogContentType;
 

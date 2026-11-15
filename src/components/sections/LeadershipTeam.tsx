@@ -4,9 +4,9 @@ import TeamPhoto from "@/components/ui/TeamPhoto";
 import { founder, leadership, type TeamMember } from "@/lib/team";
 
 /**
- * The team on the home page. From `lg` up the row splits 50 / 25 / 25: Shane's photo takes the left half, Jordan and
+ * The team on the home page. From `lg` up the row splits 50 / 25 / 25: Shane's photo takes the left half, Jordy and
  * Nikki share the right half, and under them a line on the team and its values, with a link to the About page's team
- * section, where the bios are. Tablets stack Shane above the others; Jordan and Nikki stay side by side down to
+ * section, where the bios are. Tablets stack Shane above the others; Jordy and Nikki stay side by side down to
  * phones. Names and roles live in src/lib/team.ts; the values match the About page's.
  */
 
@@ -43,7 +43,7 @@ export default function LeadershipTeam() {
             <NameAndRole member={founder} />
           </article>
 
-          {/* Jordan and Nikki: a quarter each, with the team line under them */}
+          {/* Jordy and Nikki: a quarter each, with the team line under them */}
           <div className="flex flex-col gap-4 sm:gap-6">
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {leadership.map((member) => (
@@ -54,7 +54,7 @@ export default function LeadershipTeam() {
               ))}
             </div>
 
-            <div className="flex-1 flex flex-col justify-center rounded-3xl border border-dark-green/10 p-6 sm:p-8">
+            <div className="flex-1 flex flex-col justify-center rounded-3xl bg-cream p-6 sm:p-8">
               <ul className="flex flex-wrap gap-2 mb-5" aria-label="Our values">
                 {values.map((value) => (
                   <li
