@@ -1,15 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Play } from "lucide-react";
+import { BookOpen, Play } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import { postAsset, publishedPosts, type InsightPost } from "@/lib/insights-data";
 import { formatVideoTime } from "@/lib/insights-format";
+import { socialCover } from "@/lib/insights-social";
 
 /**
  * Insights on the home page: a strip that scrolls on its own, alternating each post's video poster (9:16) with its
- * card image (5:3), every tile linking to the post. It pauses on hover and keyboard focus. With reduced motion it
- * stands still and scrolls sideways by hand instead.
+ * social cover (4:5: the first slide of its LinkedIn carousel, or its single LinkedIn image), every tile linking to
+ * the post. A post with no cover gets its 5:3 card image and title instead. It pauses on hover and keyboard focus.
+ * With reduced motion it stands still and scrolls sideways by hand instead.
  *
  * The strip is the sequence twice over, the second copy hidden from screen readers and the keyboard, so sliding it
  * by half (the ticker-left keyframes) loops without a seam. Each tile carries its own right padding rather than the
@@ -39,6 +41,13 @@ const SECONDS_PER_POST = 16;
 const HEIGHT = "h-[300px] md:h-[400px]";
 const LINK =
   "group/tile block rounded-2xl focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-mid-green";
+const SHADOW = "shadow-[0_14px_30px_-18px_rgba(28,56,48,0.45)]";
+const ZOOM =
+  "object-cover transition-transform duration-500 ease-out group-hover/tile:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover/tile:scale-100";
+/** The white chip in a tile's bottom corner, e.g. "Watch · 0:53". Add left-3 or right-3. */
+const CHIP =
+  "absolute bottom-3 inline-flex items-center gap-1.5 rounded-full bg-white py-1.5 pl-1.5 pr-3 text-xs font-semibold text-dark-green shadow-md transition-transform duration-200 group-hover/tile:scale-105 motion-reduce:transition-none";
+const CHIP_ICON = "grid size-6 place-items-center rounded-full bg-dark-green text-white";
 
 function VideoTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
   return (
@@ -48,22 +57,17 @@ function VideoTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
       tabIndex={hidden ? -1 : undefined}
       className={LINK}
     >
-      <div
-        className={`relative ${HEIGHT} aspect-[9/16] overflow-hidden rounded-2xl bg-dark-green shadow-[0_14px_30px_-18px_rgba(28,56,48,0.45)]`}
-      >
+      <div className={`relative ${HEIGHT} aspect-[9/16] overflow-hidden rounded-2xl bg-dark-green ${SHADOW}`}>
         <Image
           src={postAsset(post, post.video.poster)}
           alt=""
           fill
           sizes="(min-width: 768px) 225px, 170px"
-          className="object-cover transition-transform duration-500 ease-out group-hover/tile:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover/tile:scale-100"
+          className={ZOOM}
         />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-dark-green/60 via-transparent to-transparent" />
-        <span
-          aria-hidden="true"
-          className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white py-1.5 pl-1.5 pr-3 text-xs font-semibold text-dark-green shadow-md transition-transform duration-200 group-hover/tile:scale-105 motion-reduce:transition-none"
-        >
-          <span className="grid size-6 place-items-center rounded-full bg-dark-green text-white">
+        <span aria-hidden="true" className={`${CHIP} left-3`}>
+          <span className={CHIP_ICON}>
             <Play className="size-3 translate-x-px fill-current" strokeWidth={0} />
           </span>
           Watch · {formatVideoTime(post.video.durationSec)}
@@ -73,19 +77,48 @@ function VideoTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
   );
 }
 
+/**
+ * The post's social cover, portrait like the video tiles. The slide carries its own headline, so no title. A
+ * carousel's first slide has only its page count bottom-left, which the chip covers. A single image has its closing
+ * line there, running up to about two-thirds across, so its chip goes bottom-right and says just "Read" to stay
+ * clear of it on phones.
+ */
 function CardTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
+  const social = socialCover(post);
+  if (!social) return <FallbackCardTile post={post} hidden={hidden} />;
+  const carousel = social.slides > 1;
+  return (
+    <Link
+      href={`/insights/${post.slug}`}
+      aria-label={hidden ? undefined : `Read the article: ${post.title}`}
+      tabIndex={hidden ? -1 : undefined}
+      className={LINK}
+    >
+      <div className={`relative ${HEIGHT} aspect-[4/5] overflow-hidden rounded-2xl bg-cream ${SHADOW}`}>
+        <Image src={social.cover} alt="" fill sizes="(min-width: 768px) 320px, 240px" className={ZOOM} />
+        <span aria-hidden="true" className={`${CHIP} ${carousel ? "left-3" : "right-3"}`}>
+          <span className={CHIP_ICON}>
+            <BookOpen className="size-3.5" strokeWidth={2.25} />
+          </span>
+          {carousel ? `Read · ${social.slides} slides` : "Read"}
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+/** A post with no social cover: its 5:3 card image, with the title and read time under it. */
+function FallbackCardTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
   return (
     <Link href={`/insights/${post.slug}`} tabIndex={hidden ? -1 : undefined} className={LINK}>
-      <div
-        className={`flex flex-col ${HEIGHT} w-[340px] md:w-[480px] overflow-hidden rounded-2xl bg-cream shadow-[0_14px_30px_-18px_rgba(28,56,48,0.45)]`}
-      >
+      <div className={`flex flex-col ${HEIGHT} w-[340px] md:w-[480px] overflow-hidden rounded-2xl bg-cream ${SHADOW}`}>
         <div className="relative aspect-[5/3] w-full overflow-hidden">
           <Image
             src={postAsset(post, post.images.card)}
             alt=""
             fill
             sizes="(min-width: 768px) 480px, 340px"
-            className="object-cover transition-transform duration-500 ease-out group-hover/tile:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover/tile:scale-100"
+            className={ZOOM}
           />
         </div>
         <div className="flex flex-1 flex-col justify-center px-4 py-2 md:px-5">
