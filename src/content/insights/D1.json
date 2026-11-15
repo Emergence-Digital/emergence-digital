@@ -1,0 +1,170 @@
+{
+  "id": "D1",
+  "slug": "buying-group-personas",
+  "series": "Marketing for IT firms",
+  "status": "approved",
+  "publishAt": "2026-11-18T09:10:00+11:00",
+  "title": "A buying group is never one person: the four personas to map",
+  "metaTitle": "Buying group personas for IT firms",
+  "description": "Most IT firms know the type of company they sell to, but often forget the four personas inside it: champion, approver, decision maker and influencer.",
+  "dek": "Most IT firms have a good grip on the type of company they sell to. The people inside it are easier to forget, and I think there are four personas.",
+  "author": "Shane Kennedy",
+  "readMinutes": 3,
+  "audience": "IT firms",
+  "video": {
+    "vimeoId": "1246938617",
+    "title": "The buying group. Marketing for IT firms",
+    "poster": "assets/D1/poster.jpg",
+    "durationSec": 62.44
+  },
+  "images": {
+    "preview": "assets/D1/preview-1200x630.jpg",
+    "card": "assets/D1/card-1200x720.webp",
+    "cardBase": "assets/D1/card-base-1200x720.webp",
+    "cardCutout": "assets/D1/card-cutout.webp",
+    "alt": "“Who else are you selling to?” in bold capitals, with “A buying group is never one person”, beside three colleagues"
+  },
+  "shortVersion": [
+    "I think there's four personas in an IT buying group: the champion, the approver, the decision maker and the influencer.",
+    "A lot of teams only speak to one of them and forget about the other three.",
+    "Map all four, ideally in your CRM, and write down what each of them wants and cares about."
+  ],
+  "beats": [
+    {
+      "id": "the-company-and-the-people",
+      "heading": "The company, and the people in it",
+      "body": [
+        "Most IT service businesses have a good grip on the type of company they sell to. Their industry, their size, their number of seats.",
+        "What they often forget about is the people inside those organisations: the buying group, and the personas they fit into."
+      ],
+      "videoAt": 4,
+      "graphic": {
+        "type": "compare",
+        "left": {
+          "title": "The company",
+          "rows": [
+            "Industry",
+            "Size",
+            "Number of seats"
+          ]
+        },
+        "right": {
+          "title": "The people inside it",
+          "rows": [
+            "The buying group",
+            "The personas they fit into"
+          ]
+        },
+        "caption": "From the video"
+      }
+    },
+    {
+      "id": "one-of-four",
+      "heading": "The other three",
+      "body": [
+        "I think there's four personas, and unfortunately a lot of teams only speak to one of them. They forget about the other three.",
+        "It's often the person who first got in touch. The proposal and every follow-up go to them, and the other three hear nothing aimed at them."
+      ],
+      "videoAt": 19,
+      "graphic": {
+        "type": "iconGrid",
+        "icon": "user",
+        "count": 4,
+        "lit": 1,
+        "litLabel": "The one a lot of teams talk to",
+        "dimLabel": "The three who often get missed",
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    },
+    {
+      "id": "the-four-personas",
+      "heading": "The four personas",
+      "body": [
+        "So have a think about this. Or even better, write it down.",
+        "The first persona is your champion. This is the person who sells on your behalf when you're not in the room.",
+        "The second is your approver, who signs off on the contract. It's often someone in finance or procurement.",
+        "Next is your decision maker, who's your IT manager or your application owner. Sometimes they're the same person as the champion.",
+        "And the fourth is the influencer. They're the frontline people who care about their life being easier, or about clicking a button and something happening."
+      ],
+      "videoAt": 24,
+      "graphic": {
+        "type": "cards",
+        "eyebrow": "The buying group",
+        "items": [
+          {
+            "title": "Champion",
+            "text": "Sells for you when you're not in the room"
+          },
+          {
+            "title": "Approver",
+            "text": "Signs off: finance or procurement"
+          },
+          {
+            "title": "Decision maker",
+            "text": "IT manager or application owner"
+          },
+          {
+            "title": "Influencer",
+            "text": "Frontline: wants life easier"
+          }
+        ],
+        "cutout": "assets/D1/cutouts/team.webp"
+      }
+    },
+    {
+      "id": "what-each-one-needs",
+      "heading": "What each of them cares about",
+      "body": [
+        "It's so important that you have these personas mapped, and even better in your CRM, and that you understand what each of them wants and cares about.",
+        "A champion needs something they can forward internally, like a short case study or a one-page summary. An approver's after the cost and the contract terms, laid out plainly. A decision maker's weighing you up against what the IT team has to get done this year. And an influencer wants to know what their day will look like once it's in."
+      ],
+      "graphic": {
+        "type": "checklist",
+        "prompt": "For your biggest open deal, which of these can you name?",
+        "items": [
+          "The champion",
+          "The approver",
+          "The decision maker",
+          "The influencer"
+        ],
+        "resultTemplate": "{n} of 4",
+        "gapsLabel": "Not mapped yet",
+        "complete": {
+          "label": "4 of 4. You know the whole buying group."
+        },
+        "privacyNote": "Nothing you tick is stored or sent."
+      }
+    }
+  ],
+  "take": {
+    "line": "Have these personas mapped,",
+    "key": "and even better, in your CRM.",
+    "videoAt": 51,
+    "body": [
+      "Put each one against the deal in your CRM, so your next campaign can speak to all four.",
+      "The ideal customer profile is part of Centurion, the strategy we run with IT firms."
+    ]
+  },
+  "sources": [],
+  "notes": [],
+  "trace": {
+    "good grip on the type of company: industry, size, number of seats": "Transcript 0:04 (direct)",
+    "forget the people inside, buyer group, personas they fit into": "Transcript 0:12 (re-worded)",
+    "4 personas, a lot of teams only speak to one, forget the other three": "Transcript 0:19 (direct)",
+    "have a think about this or even better write it down": "Transcript 0:24 (direct)",
+    "champion sells on your behalf when you're not in the room": "Transcript 0:27 to 0:29 (direct)",
+    "approver signs off on the contract, finance or procurement": "Transcript 0:32 (direct)",
+    "decision maker IT manager or application owner; sometimes same as champion": "Transcript 0:38 to 0:42 (direct)",
+    "influencer, frontline, life easier, clicking a button": "Transcript 0:45 (direct; video says 'the 3rd', corrected to fourth per handoff)",
+    "what each needs: champion forwardable, approver cost and terms, decision maker this year's goals, influencer their day": "NEW: partly from the cue card (cost and risk; productivity and goals; makes my day easier), Shane to approve",
+    "take line": "Transcript 0:51 (direct: have these personas mapped and even better in your CRM)",
+    "what each of them want and care about": "Transcript 0:51 (re-worded)",
+    "often the person who first got in touch; hear nothing aimed at them": "NEW: Shane to approve ('nothing aimed at them' from the cue card)",
+    "put each one against the deal in your CRM": "NEW: Shane to approve",
+    "short version line 2 (a lot of teams only speak to one)": "Transcript 0:19 (direct)",
+    "beat 4 opener: personas mapped, CRM, what each wants and cares about": "Transcript 0:51 (re-worded)",
+    "four personas (dek, description, short version line 1)": "Transcript 0:19 ('I think there's 4 personas'); names from 0:27 to 0:45",
+    "take body, Centurion line": "Wording approved by Shane 15 Nov 2026 (no step number). Topic = cue card's step: cue card STEP 1, Ideal customer profile"
+  }
+}

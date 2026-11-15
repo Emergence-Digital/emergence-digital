@@ -2,7 +2,7 @@
 
 import { useId, useRef, type ReactNode } from "react";
 import type { ShieldGraphic } from "@/lib/insights-data";
-import { smartQuotes } from "@/lib/insights-format";
+import { smartQuotes, sourceNote } from "@/lib/insights-format";
 import NewsCard from "./NewsCard";
 import { useReveal } from "./useReveal";
 
@@ -25,7 +25,7 @@ export default function ShieldBlock({ graphic, jump }: ShieldBlockProps) {
   const clip = `shield-${useId().replace(/[^\w-]/g, "")}`;
   const level = BOTTOM - fill * (BOTTOM - TOP);
 
-  const description = `${display} ${smartQuotes(label)}: ${tags.join(" and ")}. Source: ${sourceTab.replaceAll(" · ", ", ")}.`;
+  const description = `${display} ${smartQuotes(label)}: ${tags.join(" and ")}.${sourceNote(sourceTab)}`;
 
   return (
     <figure ref={ref}>

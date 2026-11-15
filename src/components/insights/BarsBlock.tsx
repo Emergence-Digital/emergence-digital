@@ -2,7 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import type { BarsGraphic } from "@/lib/insights-data";
-import { smartQuotes, spoken } from "@/lib/insights-format";
+import { smartQuotes, sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
@@ -15,7 +15,7 @@ type Item = BarsGraphic["items"][number];
 
 interface BarsBlockProps {
   graphic: BarsGraphic;
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -113,7 +113,7 @@ export default function BarsBlock({ graphic, source, jump }: BarsBlockProps) {
   const description =
     `${eyebrow}: ` +
     items.map((item) => [item.label, spoken(item.display), item.chip && spoken(item.chip)].filter(Boolean).join(", ")).join("; ") +
-    `.${note ? ` ${smartQuotes(note)}.` : ""} Source: ${source.replaceAll(" · ", ", ")}.`;
+    `.${note ? ` ${smartQuotes(note)}.` : ""}${sourceNote(source)}`;
 
   return (
     <figure ref={ref}>

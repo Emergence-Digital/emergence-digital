@@ -59,3 +59,8 @@ export function spoken(display: string): string {
     .replace(/(\d)\s*B\b/g, "$1 billion")
     .replace(/(\d)\s*×/g, "$1 times");
 }
+
+/** " Source: Gartner, 12 Oct 2026." for a graphic's screen-reader description, or nothing for a post with no source. */
+export function sourceNote(source?: string) {
+  return source ? ` Source: ${source.replaceAll(" · ", ", ")}.` : "";
+}

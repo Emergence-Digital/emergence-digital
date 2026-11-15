@@ -2,7 +2,7 @@
 
 import { useRef, type CSSProperties, type ReactNode } from "react";
 import type { RingGraphic } from "@/lib/insights-data";
-import { smartQuotes, spoken } from "@/lib/insights-format";
+import { smartQuotes, sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard from "./NewsCard";
 import { countUp, numberFormat, useReveal } from "./useReveal";
 
@@ -27,7 +27,7 @@ export default function RingBlock({ graphic, jump }: RingBlockProps) {
     onPlay: () => countUp(numberRef.current, value, numberFormat(display), display),
   });
 
-  const description = `${spoken(display)} ${label}.${chip ? ` ${chip}.` : ""} Source: ${sourceTab.replaceAll(" · ", ", ")}.`;
+  const description = `${spoken(display)} ${label}.${chip ? ` ${chip}.` : ""}${sourceNote(sourceTab)}`;
 
   return (
     <figure ref={ref}>

@@ -1,0 +1,196 @@
+{
+  "id": "D4",
+  "slug": "content-ideas-sent-folder",
+  "series": "Marketing for IT firms",
+  "status": "approved",
+  "publishAt": "2026-11-18T09:05:00+11:00",
+  "title": "Turn your team's best client emails into social posts",
+  "metaTitle": "Content ideas for IT firms: your sent folder",
+  "description": "IT teams write careful emails to clients every day. Search the sent folder for the best answers and turn each one into a social post.",
+  "dek": "Your next 10 social posts have already been written. They're in your consultants' sent folder.",
+  "author": "Shane Kennedy",
+  "readMinutes": 3,
+  "audience": "IT firms",
+  "video": {
+    "vimeoId": "1246938817",
+    "title": "Your sent folder. Marketing for IT firms",
+    "poster": "assets/D4/poster.jpg",
+    "durationSec": 43.2
+  },
+  "images": {
+    "preview": "assets/D4/preview-1200x630.jpg",
+    "card": "assets/D4/card-1200x720.webp",
+    "cardBase": "assets/D4/card-base-1200x720.webp",
+    "cardCutout": "assets/D4/card-cutout.webp",
+    "alt": "“Your next 10 posts are written” in bold capitals, with “They’re in your sent folder”, beside a man working on a laptop"
+  },
+  "shortVersion": [
+    "The team writes carefully worded emails to clients every day, and each one helps that one client, once.",
+    "Search the sent box for the best answers to the most complex questions, and pick five or six.",
+    "Take the client's details out, write a post around each, and get the rest of the team doing the same."
+  ],
+  "beats": [
+    {
+      "id": "no-time-for-content",
+      "heading": "\"We don't have time for content\"",
+      "body": [
+        "What I often hear from IT service businesses is that they don't have time for content. They're just so stuck in delivery.",
+        "That's fair. Client work pays the bills, and a social post can wait until next week. Meanwhile, the team is writing carefully worded emails to clients every single day."
+      ],
+      "videoAt": 4,
+      "graphic": {
+        "type": "compare",
+        "left": {
+          "title": "What IT firms tell me",
+          "rows": [
+            "We don't have time for content",
+            "We're stuck in delivery"
+          ]
+        },
+        "right": {
+          "title": "What the team does",
+          "rows": [
+            "Writes carefully worded emails to clients",
+            "Every single day"
+          ]
+        },
+        "caption": "From the video"
+      }
+    },
+    {
+      "id": "one-client-once",
+      "heading": "Only one client sees it",
+      "body": [
+        "Each of those emails helps that one client, once. The rest of your market doesn't see it.",
+        "Say someone on the team explained, in plain words, why a migration was taking longer than planned, or what a licence change would do to a client's bill. Another firm's got the same question this week, and there's no way for them to find that answer."
+      ],
+      "videoAt": 14,
+      "graphic": {
+        "type": "iconGrid",
+        "icon": "user",
+        "count": 24,
+        "lit": 1,
+        "litLabel": "The client who got the email",
+        "dimLabel": "Everyone else with the same question",
+        "illustrative": true,
+        "caption": "Illustration, not to scale"
+      }
+    },
+    {
+      "id": "search-the-sent-box",
+      "heading": "Search the sent box",
+      "body": [
+        "So when you're planning your next batch of social posts, look at the sent box. Find the best responses to the most complex questions.",
+        "A search helps. Try long replies, and threads where a client's asked \"how do\" or \"why\". Start with the ones where the client was worried about something."
+      ],
+      "videoAt": 19,
+      "graphic": {
+        "type": "inbox",
+        "folder": "Sent",
+        "search": "in:sent \"how do\" OR \"why\"",
+        "rows": [
+          {
+            "subject": "Re: How do we stop tickets piling up over the holidays?"
+          },
+          {
+            "subject": "Re: Why did last night's backup fail?",
+            "pick": true
+          },
+          {
+            "subject": "Re: How do we move our files off the old server?"
+          },
+          {
+            "subject": "Re: Why is the internet slow every afternoon?",
+            "pick": true
+          }
+        ],
+        "pickLabel": "Post this",
+        "illustrative": true,
+        "caption": "Illustration, made-up emails"
+      }
+    },
+    {
+      "id": "pick-five-or-six",
+      "heading": "Pick the best five or six",
+      "body": [
+        "Pick the best five or six, where the gold is, and then write content around them.",
+        "Take the client's name out first, and anything else that'd identify them. The question and the answer are what's useful to the next reader, and they read just as well without the name.",
+        "And of course, Claude can help you. Paste in the answer, with the client's details already removed, and ask for a first draft of a post you can then edit."
+      ],
+      "videoAt": 26,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "From sent email to post",
+        "steps": [
+          {
+            "icon": "search",
+            "text": "Search the sent box for the best answers"
+          },
+          {
+            "icon": "star",
+            "big": "5 or 6",
+            "text": "Pick the ones where the gold is"
+          },
+          {
+            "icon": "lock",
+            "text": "Take out the client's details"
+          },
+          {
+            "icon": "file-text",
+            "text": "Write a post around each one",
+            "cutout": "assets/D4/cutouts/laptop.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "get-the-team-doing-it",
+      "heading": "Ask the team for theirs",
+      "body": [
+        "If you're looking for volume, you can get your team to do the exact same thing.",
+        "Ask each consultant to forward their best answer once a month. That can give you more material than you can post."
+      ],
+      "videoAt": 31,
+      "graphic": {
+        "type": "dots",
+        "from": "Answers in everyone's sent folder",
+        "to": "Posts",
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    }
+  ],
+  "take": {
+    "line": "If you've explained something super well to one client,",
+    "key": "post it for the next 100.",
+    "videoAt": 34,
+    "body": [
+      "Content is part of Centurion, the strategy we run with IT firms."
+    ]
+  },
+  "sources": [],
+  "notes": [
+    "The emails in the sent-folder graphic are made up. They're not from real clients."
+  ],
+  "trace": {
+    "we don't have time for content, stuck in delivery": "Transcript 0:04 (direct)",
+    "carefully worded emails to clients every single day": "Transcript 0:09 (direct)",
+    "pays the bills; post can wait until next week": "NEW: Shane to approve",
+    "helps that one client once; rest of your market doesn't see it": "Transcript 0:14 to 0:17 (direct)",
+    "migration / licence change example; no way for them to find it": "NEW: illustration, Shane to approve",
+    "planning your next batch, look at the sent box, best responses to the most complex questions": "Transcript 0:19 to 0:23 (direct)",
+    "best 5 or 6 where the gold is, write content around it": "Transcript 0:26 (direct)",
+    "take the client's details out": "NEW: from the cue card (take out the client details), Shane to approve",
+    "Claude can help you": "Transcript 0:30 (direct); kept at Shane's request 15 Nov",
+    "paste in the answer and ask for a first draft": "NEW: Shane to approve",
+    "volume: get your team to do the exact same thing": "Transcript 0:31 (direct)",
+    "take line": "Transcript 0:34 (direct)",
+    "dek/description: careful emails every day": "Transcript 0:09 (re-worded)",
+    "start with the ones where the client was worried": "NEW: Shane to approve",
+    "more material than you can post": "NEW: Shane to approve",
+    "search tips: long replies, how do / why": "NEW: Shane to approve",
+    "forward their best answer once a month; more material than you can post": "NEW: Shane to approve",
+    "dek": "Transcript 0:00 to 0:02 (direct)",
+    "take body, Centurion line": "Wording approved by Shane 15 Nov 2026 (no step number). Topic = cue card's step: cue card STEP 4, Content"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "id": "D2",
+  "slug": "outbound-about-the-customer",
+  "series": "Marketing for IT firms",
+  "status": "approved",
+  "publishAt": "2026-11-23T09:00:00+11:00",
+  "title": "Is your outbound about you or your customer?",
+  "metaTitle": "Who your outbound copy is about",
+  "description": "Buyers are only thinking about their own problems. Read your last three email campaigns or social posts and check who they're about.",
+  "dek": "Buyers scroll past copy that isn't about their problems. Read your last three campaigns line by line and count the lines about you.",
+  "author": "Shane Kennedy",
+  "readMinutes": 3,
+  "audience": "IT firms",
+  "video": {
+    "vimeoId": "1246938818",
+    "title": "Who your outbound is about. Marketing for IT firms",
+    "poster": "assets/D2/poster.jpg",
+    "durationSec": 45.44
+  },
+  "images": {
+    "preview": "assets/D2/preview-1200x630.jpg",
+    "card": "assets/D2/card-1200x720.webp",
+    "cardBase": "assets/D2/card-base-1200x720.webp",
+    "cardCutout": "assets/D2/card-cutout.webp",
+    "alt": "“Is your outbound about you?” in bold capitals, beside a man thinking with a phone to his chin"
+  },
+  "shortVersion": [
+    "Outbound copy is often about the firm sending it: the company, its services, its features and benefits.",
+    "Buyers are only thinking about their problems. If they can't see their problem answered in what you've written, they scroll past.",
+    "Go back through your last three campaigns and count the lines about you. If that's most of them, there's work to do."
+  ],
+  "beats": [
+    {
+      "id": "who-the-copy-is-about",
+      "heading": "Who the copy is about",
+      "body": [
+        "Take a look at your last three email campaigns or social posts. Are they about your customer, or are they about you?",
+        "The best outbound campaigns cover emails, sequences and social posts. But a lot of the copy or messaging is often about you: your company, your services, your features and benefits.",
+        "When you know a service inside out, it's the first thing you reach for when you sit down to write."
+      ],
+      "videoAt": 0,
+      "graphic": {
+        "type": "compare",
+        "left": {
+          "title": "About you",
+          "rows": [
+            "Your company",
+            "Your services",
+            "Your features and benefits"
+          ]
+        },
+        "right": {
+          "title": "About your customer",
+          "rows": [
+            "Their problems",
+            "Their reality",
+            "The outcomes you help them achieve"
+          ]
+        },
+        "caption": "From the video"
+      }
+    },
+    {
+      "id": "what-buyers-read-for",
+      "heading": "The Monday morning inbox",
+      "body": [
+        "Buyers are only thinking about their problems. If they can't see an answer to that in what you're saying, they'll scroll past it.",
+        "Picture an IT manager clearing their inbox on a Monday morning, with a few tickets already open and a meeting at nine, and they'll stop for anything that sounds like the week they're having."
+      ],
+      "videoAt": 15,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "How an email about you gets read",
+        "steps": [
+          {
+            "icon": "mail",
+            "text": "An email about your company and services"
+          },
+          {
+            "icon": "users",
+            "text": "The buyer reads it for their own problems"
+          },
+          {
+            "icon": "help",
+            "text": "Can't see their problem in it"
+          },
+          {
+            "icon": "trending-down",
+            "text": "Scrolls past",
+            "cutout": "assets/D2/cutouts/phone.webp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-three-campaign-test",
+      "heading": "Test your last three campaigns",
+      "body": [
+        "Go back through your recent email campaigns and social posts. See whether most of the content is talking about you or talking about your customer.",
+        "Do it line by line. Mark each sentence \"us\" or \"them\". A line about your certifications is \"us\". A line about tickets piling up while the team is short-staffed is \"them\"."
+      ],
+      "videoAt": 23,
+      "graphic": {
+        "type": "checklist",
+        "prompt": "Tick each campaign that's mostly about the customer.",
+        "items": [
+          "Campaign one",
+          "Campaign two",
+          "Campaign three"
+        ],
+        "resultTemplate": "{n} of 3",
+        "gapsLabel": "Mostly about you",
+        "complete": {
+          "label": "3 of 3. You're on the money."
+        },
+        "privacyNote": "Nothing you tick is stored or sent."
+      }
+    },
+    {
+      "id": "if-its-mostly-about-you",
+      "heading": "If it's mostly about you",
+      "body": [
+        "If it's mostly about your business, you've got some work to do.",
+        "The rework doesn't mean starting again. Keep what you offer, and lead with the problem it fixes. \"Our service desk never closes\" becomes something closer to \"Tickets raised overnight get picked up overnight\"."
+      ],
+      "videoAt": 31,
+      "graphic": {
+        "type": "label",
+        "box": "Our service desk never closes",
+        "sticker": "Tickets raised overnight get picked up overnight",
+        "illustrative": true,
+        "caption": "Illustration, made-up lines"
+      }
+    }
+  ],
+  "take": {
+    "line": "The rule of thumb is to always write about your customer's reality",
+    "key": "and the outcomes you help them achieve.",
+    "videoAt": 36,
+    "body": [
+      "Once you've reworked a campaign, run the same count on the new version before it goes out.",
+      "Outbound is part of Centurion, the strategy we run with IT firms."
+    ]
+  },
+  "sources": [],
+  "notes": [
+    "The service desk lines are illustrations, not a real firm's copy."
+  ],
+  "trace": {
+    "last 3 email campaigns or social posts; about your customer or about you": "Transcript 0:00 to 0:02 (direct)",
+    "best outbound campaigns cover emails, sequences, social posts": "Transcript 0:05 (direct)",
+    "copy often about you, your company, your services, your features and benefits": "Transcript 0:09 (direct)",
+    "easy habit; know the services inside out": "NEW: Shane to approve",
+    "buyers only thinking about their problems; scroll past": "Transcript 0:15 to 0:18 (direct; 'say a solution' corrected to 'see', 'solution' re-worded as 'an answer')",
+    "IT manager clearing their inbox on a Monday": "NEW: illustration, Shane to approve",
+    "go back through recent campaigns; majority talking about you or your customer": "Transcript 0:21 to 0:25 (direct)",
+    "line by line, us or them; certifications; tickets piling up": "NEW: from the cue card (mark each line), Shane to approve",
+    "about your business: work to do; about them: on the money": "Transcript 0:31 to 0:34 (direct)",
+    "take line": "Transcript 0:36 (direct, including 'The rule of thumb is to')",
+    "run the count again": "NEW: Shane to approve",
+    "last 3 campaigns; about your customer or about you (beat 1 opener)": "Transcript 0:00 to 0:02 (direct)",
+    "copy or messaging is often about you": "Transcript 0:09 (direct)",
+    "rework example: never closes / overnight": "NEW: illustration, Shane to approve",
+    "take body, Centurion line": "Wording approved by Shane 15 Nov 2026 (no step number). Topic = cue card's step: cue card STEP 2, Outbound (social and email)"
+  }
+}

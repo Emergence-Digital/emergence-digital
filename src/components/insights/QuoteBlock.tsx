@@ -2,7 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import type { QuoteGraphic } from "@/lib/insights-data";
-import { smartQuotes, spoken } from "@/lib/insights-format";
+import { smartQuotes, sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { countUp, numberFormat, useReveal } from "./useReveal";
 
@@ -12,7 +12,7 @@ const WORD = 0.06;
 interface QuoteBlockProps {
   graphic: QuoteGraphic;
   /** SOURCE tab text, shown when the quote leads with a figure. */
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -40,7 +40,7 @@ export default function QuoteBlock({ graphic, source, jump }: QuoteBlockProps) {
   const description =
     (lead ? `${spoken(lead.display)} ${lead.label}. ` : "") +
     `${who}: “${smartQuotes(text)}”` +
-    (lead ? ` Source: ${source.replaceAll(" · ", ", ")}.` : "");
+    (lead ? `${sourceNote(source)}` : "");
 
   return (
     <figure ref={ref}>

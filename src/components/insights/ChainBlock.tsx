@@ -2,17 +2,41 @@
 
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
-import { Circle, Cpu, Lock, Receipt, Target, TrendingDown, Users, Zap, type LucideIcon } from "lucide-react";
+import {
+  Circle,
+  CircleHelp,
+  Clock,
+  Cpu,
+  FileText,
+  Lock,
+  Mail,
+  Receipt,
+  Search,
+  Star,
+  Target,
+  Timer,
+  TrendingDown,
+  Users,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 import type { ChainGraphic } from "@/lib/insights-data";
-import { spoken } from "@/lib/insights-format";
+import { sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
 const icons: Record<string, LucideIcon> = {
+  clock: Clock,
   cpu: Cpu,
+  "file-text": FileText,
+  help: CircleHelp,
   lock: Lock,
+  mail: Mail,
   receipt: Receipt,
+  search: Search,
+  star: Star,
   target: Target,
+  timer: Timer,
   "trending-down": TrendingDown,
   users: Users,
   zap: Zap,
@@ -58,7 +82,7 @@ function Connector({ delay }: { delay: number }) {
 
 interface ChainBlockProps {
   graphic: ChainGraphic;
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -71,7 +95,7 @@ export default function ChainBlock({ graphic, source, jump }: ChainBlockProps) {
   const description =
     `${eyebrow}: ` +
     steps.map((step) => [step.big && spoken(step.big), step.chip && spoken(step.chip), step.text].filter(Boolean).join(", ")).join(". ") +
-    `. Source: ${source.replaceAll(" · ", ", ")}.`;
+    `.${sourceNote(source)}`;
 
   return (
     <figure ref={ref}>
