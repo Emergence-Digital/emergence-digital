@@ -23,7 +23,8 @@ export default function PostCard({ post }: { post: InsightPost }) {
           className="object-cover transition-[translate,filter] duration-300 ease-out group-hover:-translate-y-1.5 group-hover:drop-shadow-[0_12px_14px_rgba(28,56,48,0.28)] group-focus-visible:-translate-y-1.5 group-focus-visible:drop-shadow-[0_12px_14px_rgba(28,56,48,0.28)] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 motion-reduce:group-hover:drop-shadow-none motion-reduce:group-focus-visible:translate-y-0 motion-reduce:group-focus-visible:drop-shadow-none"
         />
       </div>
-      <p className="mt-5 text-xs font-semibold tracking-wider uppercase text-mid-green">{post.sourceChip}</p>
+      {/* The source for a news post; the series name for a post with no outside source. */}
+      <p className="mt-5 text-xs font-semibold tracking-wider uppercase text-mid-green">{post.sourceChip ?? post.series}</p>
       <h2 className="mt-2 font-serif text-2xl font-bold leading-tight text-dark-green transition-colors duration-200 group-hover:text-mid-green">
         {post.title}
       </h2>

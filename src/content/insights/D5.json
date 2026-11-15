@@ -1,0 +1,172 @@
+{
+  "id": "D5",
+  "slug": "campaign-topics-from-support-tickets",
+  "series": "Marketing for IT firms",
+  "status": "approved",
+  "publishAt": "2026-11-19T09:00:00+11:00",
+  "title": "Your next campaign topic is in your support queue",
+  "metaTitle": "Event and campaign topics for IT firms",
+  "description": "People come to an event, read an e-book or join a workshop to fix a problem they have. Pull your tickets and name the campaign after the commonest one.",
+  "dek": "Pick a campaign topic on a hunch and the workshop can fill up with your own staff. The topics people turn up for are in your support queue.",
+  "author": "Shane Kennedy",
+  "readMinutes": 3,
+  "audience": "IT firms",
+  "video": {
+    "vimeoId": "1246938925",
+    "title": "The support queue. Marketing for IT firms",
+    "poster": "assets/D5/poster.jpg",
+    "durationSec": 47.8
+  },
+  "images": {
+    "preview": "assets/D5/preview-1200x630.jpg",
+    "card": "assets/D5/card-1200x720.webp",
+    "cardBase": "assets/D5/card-base-1200x720.webp",
+    "cardCutout": "assets/D5/card-cutout.webp",
+    "alt": "“Your next topic is in support” in bold capitals, beside a man covered in sticky notes"
+  },
+  "shortVersion": [
+    "Your support tickets list the problems your next campaign should be about.",
+    "People come to an event or read an e-book to fix a problem they have.",
+    "Pull three months of tickets, find what comes up most, name the campaign after that problem, and get it to people who aren't clients yet."
+  ],
+  "beats": [
+    {
+      "id": "why-people-turn-up",
+      "heading": "Events, e-books and workshops",
+      "body": [
+        "When a lot of organisations are deciding which campaigns to run, they often just go with what they think is going to hit. That can be the service they'd most like to sell.",
+        "But the reason people come to an event, read an e-book or attend a workshop is to fix a problem they have."
+      ],
+      "videoAt": 2,
+      "graphic": {
+        "type": "converge",
+        "sources": [
+          "Events",
+          "E-books",
+          "Workshops"
+        ],
+        "to": "To fix a problem they have",
+        "cutout": "assets/D5/cutouts/sticky-notes.webp",
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    },
+    {
+      "id": "when-the-topic-misses",
+      "heading": "When the topic misses",
+      "body": [
+        "If your campaigns don't line up with this, no one's going to turn up to your event, nobody's going to read your e-book, and your workshop's going to be filled with internals, just trying to boost the numbers.",
+        "A room full of your own staff might look fine in the photos, but nobody in it is going to become a client."
+      ],
+      "videoAt": 14,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "What happens when the topic misses",
+        "steps": [
+          {
+            "icon": "target",
+            "text": "Topic picked on a hunch about what will hit"
+          },
+          {
+            "icon": "help",
+            "text": "It doesn't match a problem people have"
+          },
+          {
+            "icon": "trending-down",
+            "text": "Nobody turns up"
+          },
+          {
+            "icon": "users",
+            "text": "The workshop fills with internals"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pull-the-tickets",
+      "heading": "Start with three months of tickets",
+      "body": [
+        "Step one: pull the last three months of tickets, or the questions clients ask.",
+        "Step two: find the recurring themes, the questions that come up the most.",
+        "You don't need a reporting tool for this. Export the ticket subjects into a spreadsheet and sort them into rough groups. Ask the service desk too. They might know the top few without looking."
+      ],
+      "videoAt": 23,
+      "graphic": {
+        "type": "scan",
+        "title": "Tickets, last 3 months",
+        "rows": [
+          {
+            "name": "Shared mailbox access",
+            "result": "Now and then"
+          },
+          {
+            "name": "New starter set-up",
+            "result": "Now and then"
+          },
+          {
+            "name": "Printer problems",
+            "result": "Now and then"
+          },
+          {
+            "name": "Microsoft 365 licence costs",
+            "result": "Comes up the most",
+            "flag": "Your next campaign topic"
+          }
+        ],
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    },
+    {
+      "id": "name-it-after-the-problem",
+      "heading": "Name it after the problem",
+      "body": [
+        "Step three: name your campaign after that problem. Something like \"Why your Microsoft 365 bill keeps going up\".",
+        "Anyone paying that bill knows the title's about them before they open the invite.",
+        "Step four: get it out to people who aren't clients yet. They're the firms still living with the problem."
+      ],
+      "videoAt": 30,
+      "graphic": {
+        "type": "label",
+        "box": "An event about our managed services",
+        "sticker": "Why your Microsoft 365 bill keeps going up",
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    }
+  ],
+  "take": {
+    "line": "Centre your campaigns around",
+    "key": "the problems people already have.",
+    "videoAt": 40,
+    "body": [
+      "Your support queue's a list of those problems that keeps itself up to date.",
+      "Digital events are part of Centurion, the strategy we run with IT firms."
+    ]
+  },
+  "sources": [],
+  "notes": [
+    "The ticket themes and \"Why your Microsoft 365 bill keeps going up\" are illustrations, not a real client's tickets."
+  ],
+  "trace": {
+    "think about what they think is going to hit": "Transcript 0:02 (direct)",
+    "reason people come to an event, read an e-book or attend a workshop is to fix a problem": "Transcript 0:08 (direct)",
+    "no one turns up, nobody reads the e-book, workshop filled with internals boosting numbers": "Transcript 0:14 (direct; 'align' re-worded as 'line up')",
+    "room full of staff looks fine in photos, nobody becomes a client": "NEW: Shane to approve",
+    "step one, last 3 months of tickets or client questions": "Transcript 0:23 (direct)",
+    "step two, recurring themes, questions that come up the most": "Transcript 0:27 (direct)",
+    "spreadsheet, rough groups, ask the service desk": "NEW: Shane to approve",
+    "step three, name after the problem, Why your Microsoft 365 bill keeps going up": "Transcript 0:30 (direct)",
+    "step four, people who aren't clients yet": "Transcript 0:37 (direct)",
+    "take line": "Transcript 0:40 (direct)",
+    "they often just think about what they think is going to hit": "Transcript 0:02 (direct, 'often' kept)",
+    "service they most want to sell (as 'can be')": "NEW: from the cue card, Shane to approve",
+    "ticket themes and how often they come up (scan graphic)": "NEW: illustration, Shane to approve",
+    "label box 'An event about our managed services'": "NEW: illustration, Shane to approve",
+    "anyone paying that bill knows the title's about them": "NEW: Shane to approve",
+    "firms still living with the problem": "NEW: Shane to approve",
+    "queue keeps itself up to date": "NEW: Shane to approve",
+    "dek: hunch; workshop can fill with your own staff": "Transcript 0:02 and 0:14 (re-worded)",
+    "take body, Centurion line": "Wording approved by Shane 15 Nov 2026 (no step number). Topic = cue card's step: cue card STEP 5, Digital events"
+  }
+}

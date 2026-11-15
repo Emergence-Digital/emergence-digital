@@ -3,7 +3,7 @@
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
 import type { TimelineGraphic } from "@/lib/insights-data";
-import { smartQuotes, spoken } from "@/lib/insights-format";
+import { smartQuotes, sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
@@ -12,7 +12,7 @@ const TRAVEL = 1.2;
 
 interface TimelineBlockProps {
   graphic: TimelineGraphic;
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -38,7 +38,7 @@ export default function TimelineBlock({ graphic, source, jump }: TimelineBlockPr
         return smartQuotes([stop.date, ...lines, stop.chip].filter(Boolean).join(", "));
       })
       .join(". ") +
-    `. Source: ${source.replaceAll(" · ", ", ")}.`;
+    `.${sourceNote(source)}`;
 
   return (
     <figure ref={ref} className="relative">

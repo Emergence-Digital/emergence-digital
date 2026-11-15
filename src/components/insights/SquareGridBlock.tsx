@@ -3,7 +3,7 @@
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
 import type { SquareGridGraphic } from "@/lib/insights-data";
-import { smartQuotes, spoken } from "@/lib/insights-format";
+import { smartQuotes, sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
@@ -16,7 +16,7 @@ const PAUSE = 0.15;
 
 interface SquareGridBlockProps {
   graphic: SquareGridGraphic;
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -45,7 +45,7 @@ export default function SquareGridBlock({ graphic, source, jump }: SquareGridBlo
   const description =
     `${eyebrow}: ` +
     segments.map((s) => `${s.label}, ${spoken(s.value)}, ${s.squares} of 100 squares`).join("; ") +
-    `. ${smartQuotes(caption)} Source: ${source.replaceAll(" · ", ", ")}.`;
+    `. ${smartQuotes(caption)}${sourceNote(source)}`;
 
   return (
     <figure ref={ref} className="relative">

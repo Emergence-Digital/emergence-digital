@@ -2,13 +2,13 @@
 
 import { useRef, type ReactNode } from "react";
 import type { StatGraphic } from "@/lib/insights-data";
-import { spoken } from "@/lib/insights-format";
+import { sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { countUp, numberFormat, useReveal } from "./useReveal";
 
 interface StatBlockProps {
   graphic: StatGraphic;
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -31,7 +31,7 @@ export default function StatBlock({ graphic, source, jump }: StatBlockProps) {
   const description =
     `${eyebrow}: ${spoken(display)}, ${spoken(chip)}. ` +
     compare.items.map((item) => `${item.label}: ${spoken(`${currency}${item.value}${compare.unit}`)}.`).join(" ") +
-    ` ${note}. Source: ${source.replaceAll(" · ", ", ")}.`;
+    ` ${note}.${sourceNote(source)}`;
 
   return (
     <figure ref={ref}>

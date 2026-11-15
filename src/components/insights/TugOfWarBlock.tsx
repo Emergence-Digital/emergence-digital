@@ -2,7 +2,7 @@
 
 import { useRef, type CSSProperties, type ReactNode } from "react";
 import type { TugOfWarGraphic } from "@/lib/insights-data";
-import { smartQuotes, spoken } from "@/lib/insights-format";
+import { smartQuotes, sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
@@ -22,8 +22,7 @@ export default function TugOfWarBlock({ graphic, jump }: TugOfWarBlockProps) {
 
   const split = { "--split": `${left.value}%`, width: `${left.value}%` } as CSSProperties;
   const description =
-    `${eyebrow}: ${left.label}, ${spoken(left.display)}; ${right.label}, ${spoken(right.display)}. ` +
-    `Source: ${sourceTab.replaceAll(" · ", ", ")}.`;
+    `${eyebrow}: ${left.label}, ${spoken(left.display)}; ${right.label}, ${spoken(right.display)}.${sourceNote(sourceTab)}`;
 
   return (
     <figure ref={ref}>

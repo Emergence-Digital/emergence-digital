@@ -1,0 +1,167 @@
+{
+  "id": "D7",
+  "slug": "split-your-email-list",
+  "series": "Marketing for IT firms",
+  "status": "approved",
+  "publishAt": "2026-11-20T09:00:00+11:00",
+  "title": "Split your email list three ways",
+  "metaTitle": "Email list segmentation for IT firms",
+  "description": "If clients and cold leads get the same email, one of them is getting the wrong one. Three segments, and one extra email a month for people mid-deal.",
+  "dek": "Split the list into clients, people mid-deal and everyone else. Three types are fine, and the middle one matters most.",
+  "author": "Shane Kennedy",
+  "readMinutes": 3,
+  "audience": "IT firms",
+  "video": {
+    "vimeoId": "1246938926",
+    "title": "Split your list. Marketing for IT firms",
+    "poster": "assets/D7/poster.jpg",
+    "durationSec": 43.1
+  },
+  "images": {
+    "preview": "assets/D7/preview-1200x630.jpg",
+    "card": "assets/D7/card-1200x720.webp",
+    "cardBase": "assets/D7/card-base-1200x720.webp",
+    "cardCutout": "assets/D7/card-cutout.webp",
+    "alt": "“One list? Wrong email” in bold capitals, beside a woman holding out a letter"
+  },
+  "shortVersion": [
+    "If clients and cold leads get the same email, one of them is getting the wrong one.",
+    "With one list, clients can get pitched and people mid-deal get general news. The people closest to buying get the least relevant email you send.",
+    "Give the people in a conversation with you one extra email a month, tied to what they asked about."
+  ],
+  "beats": [
+    {
+      "id": "one-list-one-email",
+      "heading": "One newsletter for everyone",
+      "body": [
+        "If you run a newsletter, there's often one list and one email for everyone.",
+        "As the list grows, the people on it have less and less in common."
+      ],
+      "videoAt": 4,
+      "graphic": {
+        "type": "converge",
+        "sources": [
+          "Clients",
+          "People mid-deal",
+          "Cold leads"
+        ],
+        "to": "The same email",
+        "cutout": "assets/D7/cutouts/letter.webp",
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    },
+    {
+      "id": "closest-to-buying",
+      "heading": "Clients get pitched",
+      "body": [
+        "That can mean current customers get pitches, or people mid-deal get general news.",
+        "So the people closest to buying get the least relevant email you send. Someone who's asked for a quote this week gets the same company news as someone who downloaded a guide two years ago."
+      ],
+      "videoAt": 10,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "One email for the whole list",
+        "steps": [
+          {
+            "icon": "mail",
+            "text": "One newsletter goes to everyone"
+          },
+          {
+            "icon": "users",
+            "text": "Clients get a pitch"
+          },
+          {
+            "icon": "receipt",
+            "text": "People mid-deal get general news"
+          }
+        ]
+      }
+    },
+    {
+      "id": "three-segments",
+      "heading": "Three segments are fine",
+      "body": [
+        "The answer is proper segmentation in your CRM. Three types are fine.",
+        "Clients, those in a conversation or a deal cycle, and then everyone else.",
+        "In practice that's three tags. If you've met someone, sent them a quote, or they've told you \"not yet\", they're in the middle group."
+      ],
+      "videoAt": 19,
+      "graphic": {
+        "type": "cards",
+        "eyebrow": "Three types",
+        "items": [
+          {
+            "title": "Clients",
+            "text": "Already working with you"
+          },
+          {
+            "title": "In a conversation",
+            "text": "Met, quoted, or in a deal cycle",
+            "badge": "+1 email a month",
+            "highlight": true
+          },
+          {
+            "title": "Everyone else",
+            "text": "The rest of your list"
+          }
+        ],
+        "cutout": "assets/D7/cutouts/envelopes.webp"
+      }
+    },
+    {
+      "id": "the-extra-email",
+      "heading": "One extra email for the middle group",
+      "body": [
+        "That middle group is the most important one. They should get an extra email every month, tied to what they asked about.",
+        "Keep it short and about their question. If they've asked what a cloud migration would cost, send them the questions that decide the price, and if they've asked about security, send them the checklist you'd run on their network first."
+      ],
+      "videoAt": 28,
+      "graphic": {
+        "type": "compare",
+        "left": {
+          "title": "The newsletter",
+          "rows": [
+            "Goes to everyone",
+            "General news"
+          ]
+        },
+        "right": {
+          "title": "The extra email",
+          "note": "once a month",
+          "rows": [
+            "Goes to people in a conversation",
+            "Tied to what they asked about"
+          ]
+        },
+        "caption": "From the video"
+      }
+    }
+  ],
+  "take": {
+    "line": "That one extra email per month is the one that will get your deals",
+    "key": "across the line.",
+    "videoAt": 35,
+    "body": [
+      "Set up the three tags this week, and write the first extra email for whoever's in the middle group now.",
+      "Nurture is part of Centurion, the strategy we run with IT firms."
+    ]
+  },
+  "sources": [],
+  "notes": [],
+  "trace": {
+    "newsletters: one list, one email to everyone": "Transcript 0:04 (direct)",
+    "current customers get pitches, people mid-deal get general news": "Transcript 0:10 (direct)",
+    "closest to buying get the least relevant email you send": "Transcript 0:15 (direct)",
+    "proper segmentation in your CRM; three types are fine; clients, in a conversation or deal cycle, everyone else": "Transcript 0:19 to 0:24 (direct)",
+    "three tags; met, quoted, not yet": "On screen 0:25 (Met, quoted, or in a deal cycle) and cue card ('not yet'); NEW framing, Shane to approve",
+    "extra email every month tied to what they asked about": "Transcript 0:31 (direct)",
+    "keep it short; migration cost questions; security checklist": "NEW: Shane to approve",
+    "take line": "Transcript 0:35 (direct)",
+    "middle group most important (beat 4)": "Transcript 0:28 (direct)",
+    "simplest way to start; list grows, less in common": "NEW: Shane to approve",
+    "set up the three tags this week": "NEW: Shane to approve",
+    "quote this week vs guide two years ago": "NEW: illustration, Shane to approve",
+    "take body, Centurion line": "Wording approved by Shane 15 Nov 2026 (no step number). Topic = cue card's step: cue card STEP 7, Nurture"
+  }
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CTABanner from "@/components/sections/CTABanner";
 import PostCard from "@/components/insights/PostCard";
+import InsightsGrid from "@/components/insights/InsightsGrid";
 import { publishedPosts } from "@/lib/insights-data";
 import { LINKEDIN_URL, pageMetadata } from "@/lib/seo";
 
@@ -11,12 +12,14 @@ export const revalidate = 300;
 export const metadata: Metadata = pageMetadata({
   title: "Insights",
   description:
-    "The IT news worth knowing: short takes on the research and decisions shaping IT firms in Australia, with the numbers behind them.",
+    "Short takes for IT firms in Australia: the IT news worth knowing, with the numbers behind it, and marketing tips from Shane Kennedy.",
   path: "/insights",
 });
 
 export default function InsightsPage() {
   const posts = publishedPosts();
+  // Series in the order their newest post appears, so the filter follows the grid.
+  const series = [...new Set(posts.map((post) => post.series))];
 
   return (
     <>
@@ -25,19 +28,19 @@ export default function InsightsPage() {
           <div className="text-center mb-14 md:mb-16">
             <SectionLabel>Insights</SectionLabel>
             <h1 className="font-serif text-5xl md:text-6xl font-bold text-dark-green leading-[1.08] tracking-tight max-w-3xl mx-auto mb-5">
-              The IT news worth knowing
+              Insights for IT firms
             </h1>
             <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
-              Short takes on the research and decisions shaping IT firms in Australia, with the numbers behind them.
+              Short takes for IT firms in Australia: the IT news worth knowing, with the numbers behind it, and marketing
+              tips from Shane Kennedy.
             </p>
           </div>
 
           {posts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
-              {posts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
+            <InsightsGrid
+              series={series}
+              cards={posts.map((post) => ({ key: post.slug, series: post.series, card: <PostCard post={post} /> }))}
+            />
           ) : (
             <p className="text-center text-body">
               The first post is on its way.{" "}

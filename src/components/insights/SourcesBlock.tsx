@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import type { SourcesGraphic } from "@/lib/insights-data";
-import { smartQuotes, spoken } from "@/lib/insights-format";
+import { smartQuotes, sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard from "./NewsCard";
 import { useReveal } from "./useReveal";
 
@@ -12,7 +12,7 @@ const DEAL = 0.18;
 interface SourcesBlockProps {
   graphic: SourcesGraphic;
   /** SOURCE tab text, when the graphic doesn't give its own. */
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -85,7 +85,7 @@ export default function SourcesBlock({ graphic, source, jump }: SourcesBlockProp
       <figcaption className="mt-3 text-xs text-muted">
         {smartQuotes(caption)}
         <span className="sr-only">
-          : {spoken(display)} {smartQuotes(label)}. Source: {sourceTab.replaceAll(" · ", ", ")}.
+          : {spoken(display)} {smartQuotes(label)}.{sourceNote(sourceTab)}
         </span>
       </figcaption>
     </figure>

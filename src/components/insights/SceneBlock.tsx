@@ -3,13 +3,13 @@
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
 import type { PriceTagScene } from "@/lib/insights-data";
-import { spoken } from "@/lib/insights-format";
+import { sourceNote, spoken } from "@/lib/insights-format";
 import NewsCard, { CardEyebrow } from "./NewsCard";
 import { useReveal } from "./useReveal";
 
 interface SceneBlockProps {
   graphic: PriceTagScene;
-  source: string;
+  source?: string;
   jump?: ReactNode;
 }
 
@@ -29,7 +29,7 @@ export default function SceneBlock({ graphic, source, jump }: SceneBlockProps) {
   const description =
     `${eyebrow}: ` +
     bars.map((bar) => `${bar.label}, ${spoken(bar.display)}`).join("; ") +
-    `. Source: ${source.replaceAll(" · ", ", ")}.`;
+    `.${sourceNote(source)}`;
 
   return (
     <figure ref={ref} className="grid items-center gap-x-6 gap-y-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)]">

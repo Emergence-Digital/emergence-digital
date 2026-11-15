@@ -1,0 +1,188 @@
+{
+  "id": "D6",
+  "slug": "write-the-case-study-first",
+  "series": "Marketing for IT firms",
+  "status": "approved",
+  "publishAt": "2026-11-24T09:00:00+11:00",
+  "title": "Write the case study before you ask the client",
+  "metaTitle": "Write the case study first",
+  "description": "Write the case study before you ask the client. Draft it from what you've got, then choose: client sign-off, or publish it unbranded.",
+  "dek": "Draft the case study from the proposal and the project notes, then decide if a name goes on it.",
+  "author": "Shane Kennedy",
+  "readMinutes": 3,
+  "audience": "IT firms",
+  "video": {
+    "vimeoId": "1246939039",
+    "title": "Write the case study first. Marketing for IT firms",
+    "poster": "assets/D6/poster.jpg",
+    "durationSec": 57.0
+  },
+  "images": {
+    "preview": "assets/D6/preview-1200x630.jpg",
+    "card": "assets/D6/card-1200x720.webp",
+    "cardBase": "assets/D6/card-base-1200x720.webp",
+    "cardCutout": "assets/D6/card-cutout.webp",
+    "alt": "“Write the case study first” in bold capitals, beside a man reading a document"
+  },
+  "shortVersion": [
+    "A lot of teams think they need a client's permission before they start writing a case study, so it's left on the to-do list for months.",
+    "Proof and testimonials are a key part of buying. If a buyer finds client stories on a competitor's site and none on yours, who are they going to choose?",
+    "Draft it from what you've got. Then send it to the client for sign-off, or remove the branding and publish it unbranded."
+  ],
+  "beats": [
+    {
+      "id": "waiting-for-permission",
+      "heading": "Waiting for permission",
+      "body": [
+        "A lot of teams think you need permission from a client before you even start writing the case study.",
+        "So the case studies sit on the to-do list for months, and the website shows no logos and no customer stories.",
+        "Asking first also hands the client a job: find time for an interview, read a draft, then approve it. A client can be happy to help and still not get round to it."
+      ],
+      "videoAt": 2,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "When you ask first",
+        "steps": [
+          {
+            "icon": "users",
+            "text": "Ask the client for permission"
+          },
+          {
+            "icon": "clock",
+            "big": "Months",
+            "text": "It sits on the to-do list"
+          },
+          {
+            "icon": "trending-down",
+            "text": "No logos and no customer stories on the website"
+          }
+        ]
+      }
+    },
+    {
+      "id": "who-they-choose",
+      "heading": "What the buyer compares",
+      "body": [
+        "Proof and testimonials are such a key part of the buying process that if a buyer goes to your website, or to a competitor who has this down pat, who are they going to choose?",
+        "They're comparing firms they've never worked with. A story about a client like them is the closest they'll get to trying you out first."
+      ],
+      "videoAt": 13,
+      "graphic": {
+        "type": "shortlist",
+        "eyebrow": "Firms a buyer compares",
+        "items": [
+          {
+            "name": "Firm A",
+            "known": true
+          },
+          {
+            "name": "Firm B",
+            "known": false
+          },
+          {
+            "name": "Firm C",
+            "known": true
+          }
+        ],
+        "tickLabel": "Has client stories",
+        "illustrative": true,
+        "caption": "Illustration, generic names."
+      }
+    },
+    {
+      "id": "the-raw-material",
+      "heading": "The raw material you already have",
+      "body": [
+        "You already have so many case studies sitting there, and so much raw material you can pull from.",
+        "It's all in the original proposal, the project notes and the emails from the first few weeks, and pulling those together gives you the bones of a first draft.",
+        "For your best clients, elaborate on the problem they had when they started with you, and then the objective you helped them hit."
+      ],
+      "videoAt": 23,
+      "graphic": {
+        "type": "checklist",
+        "prompt": "Pick one of your best clients. Can you write down…",
+        "items": [
+          "The problem they had when they started with you",
+          "What you did about it",
+          "The objective you helped them hit"
+        ],
+        "resultTemplate": "{n} of 3",
+        "gapsLabel": "Still to find",
+        "complete": {
+          "label": "3 of 3. That's your first draft.",
+          "cutout": "assets/D6/cutouts/documents.webp"
+        },
+        "privacyNote": "Nothing you tick is stored or sent."
+      }
+    },
+    {
+      "id": "two-options",
+      "heading": "Then choose: sign-off or unbranded",
+      "body": [
+        "Once you've drafted it, you've got two options. You can send it to the customer, get sign-off and post it. Or you can remove all the branding and publish it as an unbranded case study."
+      ],
+      "videoAt": 34,
+      "graphic": {
+        "type": "cards",
+        "eyebrow": "Write it first",
+        "items": [
+          {
+            "title": "Option 1: sign-off",
+            "text": "Send it to the client, then post it"
+          },
+          {
+            "title": "Option 2: unbranded",
+            "text": "Remove the branding and publish it"
+          }
+        ]
+      }
+    },
+    {
+      "id": "why-unbranded-works",
+      "heading": "Why unbranded can be a good thing",
+      "body": [
+        "Anonymity is actually a good thing, especially if you're in cyber security. It does show that you protect your clients.",
+        "There's a lot an unbranded story can still say. Name the industry, the size of the business and the problem. Leave out anything a reader could use to work out who it's about."
+      ],
+      "videoAt": 43,
+      "graphic": {
+        "type": "shield",
+        "fill": 1,
+        "display": "Unbranded",
+        "label": "shows you protect your clients",
+        "tags": [
+          "Industry named",
+          "Client kept private"
+        ]
+      }
+    }
+  ],
+  "take": {
+    "line": "Write case studies,",
+    "key": "and then decide if a name goes onto it.",
+    "videoAt": 49,
+    "body": [
+      "Case studies are part of Centurion, the strategy we run with IT firms."
+    ]
+  },
+  "sources": [],
+  "notes": [],
+  "trace": {
+    "teams think you need permission before you start writing": "Transcript 0:02 (direct)",
+    "sit on the to-do list for months; no logos, no customer stories": "Transcript 0:07 (direct)",
+    "asking first hands the client a job: interview, draft, approve; happy to help but doesn't get round to it": "NEW: partly from the cue card (an interview, a draft, sign-off), Shane to approve",
+    "proof and testimonials key part; competitor has this down pat; who are they going to choose": "Transcript 0:13 (direct)",
+    "comparing firms they've never worked with; closest to trying you out": "NEW: Shane to approve",
+    "best clients: problem when they started, objective you helped them hit": "Transcript 0:29 (direct)",
+    "proposal, project notes, early emails; bones of a first draft": "NEW: Shane to approve",
+    "checklist item 'What you did about it'": "NEW: Shane to approve",
+    "two options: sign-off and post, or remove branding and publish unbranded": "Transcript 0:34 to 0:37 (direct)",
+    "anonymity good, especially cyber security; shows you protect your clients": "Transcript 0:43 to 0:47 (direct)",
+    "name industry, size, problem; leave out identifying details": "NEW: from the cue card (unbranded with just their industry), Shane to approve",
+    "take line": "Transcript 0:49 (direct)",
+    "dek: draft from the proposal and project notes": "NEW: Shane to approve",
+    "decide if a name goes on it": "Transcript 0:49 (re-worded)",
+    "here's the secret (cut); so many case studies sitting there; so much raw material": "Transcript 0:23 to 0:26 (direct)",
+    "take body, Centurion line": "Wording approved by Shane 15 Nov 2026 (no step number). Topic = cue card's step: cue card STEP 6, Case studies"
+  }
+}

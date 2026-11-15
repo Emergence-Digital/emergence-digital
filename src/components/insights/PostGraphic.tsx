@@ -23,6 +23,8 @@ import ChatCardBlock from "./ChatCardBlock";
 import SourcesBlock from "./SourcesBlock";
 import TugOfWarBlock from "./TugOfWarBlock";
 import ConvergeBlock from "./ConvergeBlock";
+import CardsBlock from "./CardsBlock";
+import InboxBlock from "./InboxBlock";
 
 interface PostGraphicProps {
   post: InsightPost;
@@ -106,6 +108,10 @@ export default function PostGraphic({ post, graphic, jump }: PostGraphicProps) {
       return <TugOfWarBlock graphic={graphic} jump={jump} />;
     case "converge":
       return <ConvergeBlock graphic={{ ...graphic, cutout: asset(graphic.cutout) }} jump={jump} />;
+    case "cards":
+      return <CardsBlock graphic={{ ...graphic, cutout: graphic.cutout && asset(graphic.cutout) }} jump={jump} />;
+    case "inbox":
+      return <InboxBlock graphic={graphic} jump={jump} />;
     default:
       return null;
   }

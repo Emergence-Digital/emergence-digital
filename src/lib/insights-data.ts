@@ -4,11 +4,20 @@ import n3 from "@/content/insights/N3.json";
 import n4 from "@/content/insights/N4.json";
 import n5 from "@/content/insights/N5.json";
 import n6 from "@/content/insights/N6.json";
+import d1 from "@/content/insights/D1.json";
+import d2 from "@/content/insights/D2.json";
+import d3 from "@/content/insights/D3.json";
+import d4 from "@/content/insights/D4.json";
+import d5 from "@/content/insights/D5.json";
+import d6 from "@/content/insights/D6.json";
+import d7 from "@/content/insights/D7.json";
 
 /**
- * Insights: posts in "The IT news worth knowing" series (and any later series). Each post is one JSON file in
- * src/content/insights/, copied as delivered from the Adobe MCPs project (batch-shoot-oct-2026/news/blog/<id>.json),
- * with its images in public/insights/<slug>/. Copy changes come back through that project, not edits to the JSON here.
+ * Insights: posts in two series so far. "The IT news worth knowing" (N1–N6) arrived as finished JSON from the Adobe
+ * MCPs project (batch-shoot-oct-2026/news/blog/<id>.json). "Marketing for IT firms" (D1–D7) was written from the desk
+ * videos' source packs (social-shoot-nov-2026/web/) and approved by Shane. Each post is one JSON file in
+ * src/content/insights/, with its images in public/insights/<slug>/. Copy changes go back through the video project's
+ * drafts, not edits to the JSON here.
  * Client components import types only from this file, so the post copy stays out of the browser bundle.
  */
 
@@ -18,7 +27,8 @@ export type GraphicType =
   | "bars" | "squareGrid" | "shortlist" // N1
   | "checklist" | "compare" | "label" // N2
   | "shield" | "dots" | "scan" // N5
-  | "chatCard" | "sources" | "tugOfWar" | "converge"; // N6
+  | "chatCard" | "sources" | "tugOfWar" | "converge" // N6
+  | "cards" | "inbox"; // D1–D7
 
 /** Big number that counts up, with one bar per compared period. */
 export interface StatGraphic {
@@ -33,7 +43,10 @@ export interface StatGraphic {
 }
 
 export interface ChainStep {
-  /** Lucide icon name: cpu, lock, receipt, target, trending-down, users or zap. */
+  /**
+   * Lucide icon name: clock, cpu, file-text, help, lock, mail, receipt, search, star, target, timer, trending-down,
+   * users or zap.
+   */
   icon: string;
   big?: string;
   chip?: string;
@@ -69,9 +82,13 @@ export interface PadlockScene {
 /** A cut-out scene; each variant has its own props. */
 export type SceneGraphic = PriceTagScene | PadlockScene;
 
-/** A grid of icons that dims to a lit few. Always illustrative: the lit share isn't a statistic. */
+/**
+ * A grid of icons that dims to a lit few. Always illustrative: the lit share isn't a statistic. Six to a row; a grid
+ * of six or fewer sits on one row.
+ */
 export interface IconGridGraphic {
   type: "iconGrid";
+  /** "laptop" or "user". */
   icon: string;
   count: number;
   lit: number;
@@ -159,13 +176,18 @@ export interface CalloutGraphic {
   label: string;
 }
 
-/** A box labelled `box` gets a `sticker` stuck over its label; under it, a stat card counts down to `stat.display`. */
+/**
+ * A box labelled `box` gets a `sticker` stuck over its label; under it, a stat card counts down to `stat.display`.
+ * Without a stat it's the box alone, with `caption` under it (e.g. "Illustration").
+ */
 export interface LabelGraphic {
   type: "label";
   box: string;
   sticker: string;
-  stat: { display: string; label: string };
-  sourceTab: string;
+  stat?: { display: string; label: string };
+  sourceTab?: string;
+  illustrative?: boolean;
+  caption?: string;
 }
 
 /** Real checkboxes the reader ticks, with a live "n of 6" and the gaps. Nothing is stored or sent. */
@@ -178,7 +200,7 @@ export interface ChecklistGraphic {
   gapsLabel: string;
   complete: { label: string; cutout?: string };
   privacyNote: string;
-  sourceTab: string;
+  sourceTab?: string;
 }
 
 /** Two cards side by side, dark on the left and white on the right, their rows revealed alternately. */
@@ -205,7 +227,7 @@ export interface ShieldGraphic {
   display: string;
   label: string;
   tags: string[];
-  sourceTab: string;
+  sourceTab?: string;
 }
 
 /** A scatter of small dots (`from`) that drifts together into three larger ones (`to`). Always illustrative. */
@@ -260,6 +282,33 @@ export interface ConvergeGraphic {
   caption: string;
 }
 
+/**
+ * A short list as cards that deal in one by one: a title and a line each, beside an optional cut-out. A `highlight`
+ * card turns sage and can carry a `badge`. `illustrative` adds `caption` under the cards.
+ */
+export interface CardsGraphic {
+  type: "cards";
+  eyebrow: string;
+  items: { title: string; text: string; badge?: string; highlight?: boolean }[];
+  cutout?: string;
+  illustrative?: boolean;
+  caption?: string;
+}
+
+/**
+ * A mail app's folder: the search types itself into the bar, the rows appear, then the `pick` rows get a sage
+ * `pickLabel` tag. The emails are made up, and `caption` says so.
+ */
+export interface InboxGraphic {
+  type: "inbox";
+  folder: string;
+  search: string;
+  rows: { subject: string; pick?: boolean }[];
+  pickLabel: string;
+  illustrative: boolean;
+  caption: string;
+}
+
 type BuiltGraphic =
   | StatGraphic
   | ChainGraphic
@@ -282,7 +331,9 @@ type BuiltGraphic =
   | ChatCardGraphic
   | SourcesGraphic
   | TugOfWarGraphic
-  | ConvergeGraphic;
+  | ConvergeGraphic
+  | CardsGraphic
+  | InboxGraphic;
 
 /** Graphic types for later posts. Their props are settled when each post's JSON arrives; until then they don't render. */
 export interface LaterGraphic {
@@ -318,13 +369,15 @@ export interface InsightPost {
   author: string;
   readMinutes: number;
   audience: string;
-  sourceChip: string;
+  /** The SOURCE pill under the headline and on graphics that quote a figure. Posts with no outside source leave it out. */
+  sourceChip?: string;
   video: { vimeoId: string | null; title: string; poster: string; durationSec: number };
   images: { preview: string; card: string; cardBase: string; cardCutout: string; alt: string };
   shortVersion: string[];
   beats: Beat[];
   /** `download` adds a button under the take, e.g. N2's carousel PDF. */
   take: { line: string; key: string; videoAt?: number; body: string[]; download?: { label: string; file: string } };
+  /** Empty for posts with no outside source; the "Sources and notes" section then shows only the notes, if any. */
   sources: { outlet: string; title: string; date: string; url: string }[];
   notes: string[];
   /** Fact trace for reviewers. Never shown. */
@@ -333,7 +386,7 @@ export interface InsightPost {
 
 // Add a post by importing its JSON and listing it here. JSON imports widen literal types ("approved" becomes
 // string), hence the cast.
-const posts = [n1, n2, n3, n4, n5, n6] as unknown as InsightPost[];
+const posts = [n1, n2, n3, n4, n5, n6, d1, d2, d3, d4, d5, d6, d7] as unknown as InsightPost[];
 
 /**
  * Vercel preview deployments and `npm run dev` show every post, drafts and future ones included, so a post can be

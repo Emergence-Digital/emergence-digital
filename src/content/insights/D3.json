@@ -1,0 +1,176 @@
+{
+  "id": "D3",
+  "slug": "five-second-homepage-test",
+  "series": "Marketing for IT firms",
+  "status": "approved",
+  "publishAt": "2026-11-18T09:00:00+11:00",
+  "title": "The 5-second homepage test for IT companies",
+  "metaTitle": "The 5-second homepage test for IT companies",
+  "description": "Give a stranger five seconds on your homepage, then ask them what you do. If they can't say, rewrite your top line in plain words.",
+  "dek": "A stranger who can't work out what you do from your homepage hits the back button. The firm that says it plainly gets the call.",
+  "author": "Shane Kennedy",
+  "readMinutes": 3,
+  "audience": "IT firms",
+  "video": {
+    "vimeoId": "1246938533",
+    "title": "The 5-second homepage test. Marketing for IT firms",
+    "poster": "assets/D3/poster.jpg",
+    "durationSec": 40.96
+  },
+  "images": {
+    "preview": "assets/D3/preview-1200x630.jpg",
+    "card": "assets/D3/card-1200x720.webp",
+    "cardBase": "assets/D3/card-base-1200x720.webp",
+    "cardCutout": "assets/D3/card-cutout.webp",
+    "alt": "“The 5-second homepage test” in bold capitals, beside a woman frowning at her laptop"
+  },
+  "shortVersion": [
+    "Give someone outside IT five seconds on your homepage, then ask them what you do.",
+    "A top line full of jargon, like \"we empower businesses through innovative technology\", doesn't tell them.",
+    "Rewrite the top line to say what you do and who you help, as plainly as \"managed IT for the automotive industry in Australia\"."
+  ],
+  "beats": [
+    {
+      "id": "five-seconds",
+      "heading": "Five seconds, then the back button",
+      "body": [
+        "A lot of homepages in the IT industry use a lot of jargon, saying something like \"we empower businesses through innovative technology\", but a stranger reading that can't tell what you do or who you help.",
+        "They don't know your firm yet, so the top line is all they've got to go on.",
+        "So what do they do next? Back button. And the firm that says it plainly gets the call.",
+        "Nobody emails to say they didn't understand your homepage. They just leave, so it's easy to miss that it's happening."
+      ],
+      "videoAt": 4,
+      "graphic": {
+        "type": "chain",
+        "eyebrow": "What a stranger does with a vague top line",
+        "steps": [
+          {
+            "icon": "users",
+            "text": "Lands on your homepage"
+          },
+          {
+            "icon": "timer",
+            "big": "5 sec",
+            "text": "Reads the top line",
+            "cutout": "assets/D3/cutouts/stopwatch.webp"
+          },
+          {
+            "icon": "help",
+            "text": "Can't tell what you do or who you help"
+          },
+          {
+            "icon": "trending-down",
+            "text": "Back button"
+          },
+          {
+            "icon": "target",
+            "text": "The firm that says it plainly gets the call"
+          }
+        ]
+      }
+    },
+    {
+      "id": "run-the-test",
+      "heading": "How to run the test",
+      "body": [
+        "Give someone outside the IT world your homepage. If they can't explain who you are and what you do in the first five seconds, it needs rewriting.",
+        "Pick someone outside IT who hasn't seen your site, like a friend of a friend. Open the homepage, give them five seconds, then take it away and ask two questions. What does this firm do? Who is it for?"
+      ],
+      "videoAt": 19,
+      "graphic": {
+        "type": "checklist",
+        "prompt": "Ran the test? Tick what's true.",
+        "items": [
+          "They work outside IT",
+          "They looked for five seconds, no longer",
+          "They could say what you do",
+          "They could say who you help"
+        ],
+        "resultTemplate": "{n} of 4",
+        "gapsLabel": "Not yet",
+        "complete": {
+          "label": "4 of 4. Your top line passes.",
+          "cutout": "assets/D3/cutouts/laptop.webp"
+        },
+        "privacyNote": "Nothing you tick is stored or sent."
+      }
+    },
+    {
+      "id": "say-it-plainly",
+      "heading": "Say it plainly",
+      "body": [
+        "If they can't say it, rewrite the top line. It can be as simple as \"managed IT for the automotive industry in Australia\"."
+      ],
+      "videoAt": 28,
+      "graphic": {
+        "type": "compare",
+        "left": {
+          "title": "Jargon",
+          "rows": [
+            "\"We empower businesses through innovative technology\""
+          ]
+        },
+        "right": {
+          "title": "Plain",
+          "rows": [
+            "\"Managed IT for the automotive industry in Australia\""
+          ]
+        },
+        "caption": "Illustration. Not quoted from any firm."
+      }
+    },
+    {
+      "id": "what-goes-in-the-line",
+      "heading": "What goes in the line",
+      "body": [
+        "That example names the service, the industry and the country, in eight words.",
+        "If you work across several industries, name the type and size of client instead, like \"managed IT for mid-sized manufacturers\". Then run the test again, on someone new."
+      ],
+      "graphic": {
+        "type": "cards",
+        "eyebrow": "What the line tells a stranger",
+        "items": [
+          {
+            "title": "What you do",
+            "text": "Managed IT"
+          },
+          {
+            "title": "Who it's for",
+            "text": "The automotive industry"
+          },
+          {
+            "title": "Where",
+            "text": "Australia"
+          }
+        ],
+        "illustrative": true,
+        "caption": "Illustration"
+      }
+    }
+  ],
+  "take": {
+    "line": "If a stranger can't say what you do in 5 seconds,",
+    "key": "change your top line.",
+    "videoAt": 33,
+    "body": [
+      "Inbound is part of Centurion, the strategy we run with IT firms."
+    ]
+  },
+  "sources": [],
+  "notes": [
+    "The homepage lines are illustrations. \"We empower businesses through innovative technology\" is a generic example of jargon, not any firm's real tagline."
+  ],
+  "trace": {
+    "jargon line, stranger can't tell what you do or who you help": "Transcript 0:04 (direct)",
+    "What do they do next? Back button. The firm who says it plainly gets the call": "Transcript 0:14 to 0:16 (direct)",
+    "Nobody emails to say they didn't understand; easy to miss": "NEW: Shane to approve",
+    "the test: someone outside the IT world, first 5 seconds, rewrite": "Transcript 0:19 to 0:23 (re-worded)",
+    "managed IT for the automotive industry in Australia": "Transcript 0:28 (direct)",
+    "several industries: type and size of client, mid-sized manufacturers": "NEW: drawn from the cue card's example, Shane to approve",
+    "take line": "Transcript 0:33 (direct)",
+    "top line is all they've got (own sentence)": "NEW: Shane to approve",
+    "eight words": "NEW: count of the 0:28 example, checked",
+    "the test: pick someone outside IT who hasn't seen your site; take it away; two questions": "NEW: Shane to approve",
+    "take body, Centurion line": "Wording approved by Shane 15 Nov 2026 (no step number). Topic = cue card's step: cue card STEP 3, Inbound (web and funnel)"
+  }
+}

@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { Laptop, type LucideIcon } from "lucide-react";
+import { Laptop, User, type LucideIcon } from "lucide-react";
 import type { IconGridGraphic } from "@/lib/insights-data";
 import { useReveal } from "./useReveal";
 
-const icons: Record<string, LucideIcon> = { laptop: Laptop };
+const icons: Record<string, LucideIcon> = { laptop: Laptop, user: User };
 
 /** Seconds between one icon dimming and the next. */
 const DIM_STEP = 0.045;
@@ -41,11 +41,17 @@ export default function IconGridBlock({ graphic, jump }: IconGridBlockProps) {
   const order = scatter(count);
   const rank = new Map(order.map((cell, i) => [cell, i]));
   const dimTime = (count - lit) * DIM_STEP;
+  // Six to a row; a small grid (D1's four people) sits on one row, each icon the size it would be in a row of six.
+  const columns = Math.min(count, 6);
 
   return (
     <figure ref={ref}>
       {jump && <div className="mb-4 flex justify-end">{jump}</div>}
-      <div aria-hidden="true" className="mx-auto grid max-w-[440px] grid-cols-6 gap-x-3 gap-y-4 sm:gap-x-5 sm:gap-y-5">
+      <div
+        aria-hidden="true"
+        className="mx-auto grid gap-x-3 gap-y-4 sm:gap-x-5 sm:gap-y-5"
+        style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`, maxWidth: `${(440 * columns) / 6}px` }}
+      >
         {Array.from({ length: count }, (_, cell) => {
           const r = rank.get(cell) ?? 0;
           const isLit = r < lit;

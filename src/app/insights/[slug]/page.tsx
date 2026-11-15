@@ -118,7 +118,7 @@ export default async function InsightPostPage({ params }: { params: Promise<Page
                   {smartQuotes(post.title)}
                 </h1>
                 <p className="mt-5 text-lg md:text-xl leading-relaxed text-body">{smartQuotes(post.dek)}</p>
-                <SourceChip text={post.sourceChip} className="mt-6 border border-dark-green/10" />
+                {post.sourceChip && <SourceChip text={post.sourceChip} className="mt-6 border border-dark-green/10" />}
                 <p className="mt-4 text-sm text-muted">
                   {post.author} · <time dateTime={post.publishAt}>{formatDate(post.publishAt)}</time> · {post.readMinutes} min read
                 </p>
@@ -180,36 +180,44 @@ export default async function InsightPostPage({ params }: { params: Promise<Page
                 )}
               </section>
 
-              <section aria-labelledby="sources-heading" className="mt-16 md:mt-20 border-t border-dark-green/10 pt-10">
-                <h2 id="sources-heading" className="font-serif text-2xl font-bold text-dark-green">
-                  Sources and notes
-                </h2>
-                <ul className="mt-5 space-y-3 text-body leading-relaxed">
-                  {post.sources.map((source) => (
-                    <li key={source.url}>
-                      <span className="font-semibold text-dark-green">{source.outlet}</span>
-                      {" · "}
-                      <a
-                        href={source.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-mid-green underline decoration-mid-green/40 underline-offset-2 hover:text-dark-green hover:decoration-dark-green"
-                      >
-                        {source.title}
-                      </a>
-                      {" · "}
-                      <time dateTime={source.date} className="text-muted">
-                        {formatDate(source.date)}
-                      </time>
-                    </li>
-                  ))}
-                </ul>
-                <ul className="mt-6 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted marker:text-mid-green/60">
-                  {post.notes.map((note, i) => (
-                    <li key={i}>{smartQuotes(note)}</li>
-                  ))}
-                </ul>
-              </section>
+              {(post.sources.length > 0 || post.notes.length > 0) && (
+                <section aria-labelledby="sources-heading" className="mt-16 md:mt-20 border-t border-dark-green/10 pt-10">
+                  <h2 id="sources-heading" className="font-serif text-2xl font-bold text-dark-green">
+                    {post.sources.length > 0 ? "Sources and notes" : "Notes"}
+                  </h2>
+                  {post.sources.length > 0 && (
+                    <ul className="mt-5 space-y-3 text-body leading-relaxed">
+                      {post.sources.map((source) => (
+                        <li key={source.url}>
+                          <span className="font-semibold text-dark-green">{source.outlet}</span>
+                          {" · "}
+                          <a
+                            href={source.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-mid-green underline decoration-mid-green/40 underline-offset-2 hover:text-dark-green hover:decoration-dark-green"
+                          >
+                            {source.title}
+                          </a>
+                          {" · "}
+                          <time dateTime={source.date} className="text-muted">
+                            {formatDate(source.date)}
+                          </time>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {post.notes.length > 0 && (
+                    <ul
+                      className={`${post.sources.length > 0 ? "mt-6" : "mt-5"} list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted marker:text-mid-green/60`}
+                    >
+                      {post.notes.map((note, i) => (
+                        <li key={i}>{smartQuotes(note)}</li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              )}
 
               <nav aria-label={post.series} className="mt-14">
                 {(previous || next) && (

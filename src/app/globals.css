@@ -90,6 +90,7 @@
   --animate-deal: deal 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-tug: tug 1.2s ease-in-out both;
   --animate-settle-bounce: settle-bounce 0.5s cubic-bezier(0.33, 1, 0.68, 1) both;
+  --animate-type-in: type-in 0.9s steps(24, end) both;
 
   @keyframes bar-grow {
     from { scale: 0 1; }
@@ -261,6 +262,12 @@
   }
 
   /* Sources: a card deals in from the top left to its place in the fan (--tx, --r) */
+  /* Inbox: the search types itself in, left to right */
+  @keyframes type-in {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+
   @keyframes deal {
     from { opacity: 0; translate: -70px -40px; rotate: -35deg; }
     to { opacity: 1; translate: var(--tx) 0; rotate: var(--r); }
