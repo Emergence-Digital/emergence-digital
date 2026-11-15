@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectionLabel from "@/components/ui/SectionLabel";
 import LeadForm from "@/components/sections/LeadForm";
-import { LINKEDIN_URL, pageMetadata } from "@/lib/seo";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact Us",
@@ -92,7 +92,7 @@ export default function ContactPage() {
                     <LinkedInIcon />
                   </a>
                   <a
-                    href="https://instagram.com"
+                    href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-dark-green hover:text-mid-green transition-colors duration-200"
@@ -101,7 +101,7 @@ export default function ContactPage() {
                     <InstagramIcon />
                   </a>
                   <a
-                    href="https://facebook.com"
+                    href={FACEBOOK_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-dark-green hover:text-mid-green transition-colors duration-200"
