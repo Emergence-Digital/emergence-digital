@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Briefcase, MapPin, Users, type LucideIcon } from "lucide-react";
 
 /**
- * The team beside the About page hero: Jordan, Shane and Nikki standing in a dark green panel, heads above its top
+ * The team beside the About page hero: Jordy, Shane and Nikki standing in a dark green panel, heads above its top
  * edge, with a "Your team to help you…" card whose goal swaps every 3.2 s, and two chips. It moves like the industry
  * hero cards (IndustryHeroCards): the panel, people and card rise in and stay put, then the chips rise and float. Every
  * position is in a 560×520 design box and set as a percentage, so it scales with the column. Motion stops for reduced
@@ -105,7 +105,7 @@ export default function AboutTeamVisual() {
       {/* People: clipped to the panel's sides and rounded bottom corners, free above it */}
       <div
         role="img"
-        aria-label="Jordan, Shane and Nikki, the Emergence Digital team"
+        aria-label="Jordy, Shane and Nikki, the Emergence Digital team"
         className="absolute left-0 top-0 w-full animate-card-rise motion-reduce:animate-none [clip-path:inset(-20%_0_0_0_round_0_0_28px_28px)]"
         style={{ height: y(446), animationDelay: "270ms" }}
       >

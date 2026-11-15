@@ -5,7 +5,7 @@ import WhoWeHelp from "@/components/sections/WhoWeHelp";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import OurStrategy from "@/components/sections/OurStrategy";
 import HowWeWork from "@/components/sections/HowWeWork";
-import AboutShane from "@/components/sections/AboutShane";
+import LeadershipTeam from "@/components/sections/LeadershipTeam";
 import ClientStories from "@/components/sections/ClientStories";
 import InsightsCarousel from "@/components/sections/InsightsCarousel";
 import CTABanner from "@/components/sections/CTABanner";
@@ -54,7 +54,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <OurStrategy />
       <HowWeWork />
-      <AboutShane />
+      <LeadershipTeam />
       <ClientStories />
       <InsightsCarousel />
       <CTABanner />
