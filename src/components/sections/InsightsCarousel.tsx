@@ -44,9 +44,16 @@ const LINK =
 const SHADOW = "shadow-[0_14px_30px_-18px_rgba(28,56,48,0.45)]";
 const ZOOM =
   "object-cover transition-transform duration-500 ease-out group-hover/tile:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover/tile:scale-100";
-/** The white chip in a tile's bottom corner, e.g. "Watch · 0:53". Add left-3 or right-3. */
+/**
+ * The white chip in a tile's bottom corner, e.g. "Watch · 0:53". Add CHIP_LEFT or CHIP_RIGHT. The inset is 12px on
+ * phones and 16px from md up, so on a carousel's first slide the chip covers both the D series' swipe-arrow button
+ * and the N series' "1 / 7" page count. At 12px the top of the arrow showed on the larger tiles; at 20px the bottom
+ * of the page count did.
+ */
 const CHIP =
-  "absolute bottom-3 inline-flex items-center gap-1.5 rounded-full bg-white py-1.5 pl-1.5 pr-3 text-xs font-semibold text-dark-green shadow-md transition-transform duration-200 group-hover/tile:scale-105 motion-reduce:transition-none";
+  "absolute bottom-3 md:bottom-4 inline-flex items-center gap-1.5 rounded-full bg-white py-1.5 pl-1.5 pr-3 text-xs font-semibold text-dark-green shadow-md transition-transform duration-200 group-hover/tile:scale-105 motion-reduce:transition-none";
+const CHIP_LEFT = "left-3 md:left-4";
+const CHIP_RIGHT = "right-3 md:right-4";
 const CHIP_ICON = "grid size-6 place-items-center rounded-full bg-dark-green text-white";
 
 function VideoTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
@@ -66,7 +73,7 @@ function VideoTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
           className={ZOOM}
         />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-dark-green/60 via-transparent to-transparent" />
-        <span aria-hidden="true" className={`${CHIP} left-3`}>
+        <span aria-hidden="true" className={`${CHIP} ${CHIP_LEFT}`}>
           <span className={CHIP_ICON}>
             <Play className="size-3 translate-x-px fill-current" strokeWidth={0} />
           </span>
@@ -96,7 +103,7 @@ function CardTile({ post, hidden }: { post: InsightPost; hidden: boolean }) {
     >
       <div className={`relative ${HEIGHT} aspect-[4/5] overflow-hidden rounded-2xl bg-cream ${SHADOW}`}>
         <Image src={social.cover} alt="" fill sizes="(min-width: 768px) 320px, 240px" className={ZOOM} />
-        <span aria-hidden="true" className={`${CHIP} ${carousel ? "left-3" : "right-3"}`}>
+        <span aria-hidden="true" className={`${CHIP} ${carousel ? CHIP_LEFT : CHIP_RIGHT}`}>
           <span className={CHIP_ICON}>
             <BookOpen className="size-3.5" strokeWidth={2.25} />
           </span>
