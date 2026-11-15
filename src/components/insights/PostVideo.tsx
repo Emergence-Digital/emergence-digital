@@ -56,35 +56,33 @@ interface PostVideoFrameProps {
 }
 
 /**
- * The post's 9:16 video in a phone frame. It starts muted when it first comes into view and plays once; Vimeo's own
- * controls turn the sound on. Until the video has a Vimeo ID, the frame shows its poster.
+ * The post's 9:16 video, with rounded corners and a drop shadow. It starts muted when it first comes into view and
+ * plays once; Vimeo's own controls turn the sound on. Until the video has a Vimeo ID, the frame shows its poster.
  */
 export function PostVideoFrame({ vimeoId, title, poster }: PostVideoFrameProps) {
   const { iframeRef } = usePostVideo();
   useAutoplayInView(iframeRef, true, vimeoId);
 
   return (
-    <div className="rounded-[28px] bg-[#101c18] p-2 shadow-[0_30px_60px_-30px_rgba(28,56,48,0.6),0_8px_20px_-12px_rgba(28,56,48,0.3)]">
-      <div className="relative aspect-[9/16] overflow-hidden rounded-[21px] bg-dark-green">
-        {vimeoId ? (
-          <iframe
-            ref={iframeRef}
-            src={vimeoSrc(vimeoId, { muted: true })}
-            title={title}
-            allow={VIMEO_ALLOW}
-            referrerPolicy="strict-origin-when-cross-origin"
-            loading="lazy"
-            className="absolute inset-0 h-full w-full border-0"
-          />
-        ) : (
-          <>
-            <Image src={poster} alt="" fill sizes="360px" className="object-cover" />
-            <span className="absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-dark-green/85 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
-              Video coming soon
-            </span>
-          </>
-        )}
-      </div>
+    <div className="relative aspect-[9/16] overflow-hidden rounded-[21px] bg-dark-green shadow-[0_30px_60px_-30px_rgba(28,56,48,0.6),0_8px_20px_-12px_rgba(28,56,48,0.3)]">
+      {vimeoId ? (
+        <iframe
+          ref={iframeRef}
+          src={vimeoSrc(vimeoId, { muted: true })}
+          title={title}
+          allow={VIMEO_ALLOW}
+          referrerPolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full border-0"
+        />
+      ) : (
+        <>
+          <Image src={poster} alt="" fill sizes="360px" className="object-cover" />
+          <span className="absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-dark-green/85 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur-sm">
+            Video coming soon
+          </span>
+        </>
+      )}
     </div>
   );
 }
