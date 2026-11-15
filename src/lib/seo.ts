@@ -4,6 +4,10 @@ export const SITE_NAME = "Emergence Digital";
 export const SITE_URL = "https://emergencedigital.com.au";
 /** The company page's public URL. */
 export const LINKEDIN_URL = "https://www.linkedin.com/company/emergencedigital/";
+/** The Instagram profile's public URL. */
+export const INSTAGRAM_URL = "https://www.instagram.com/emergencedigital/";
+/** The Facebook page's public URL. */
+export const FACEBOOK_URL = "https://www.facebook.com/emergencedigitalau/";
 
 /** The home page's title and description, also the fallback for any page without its own. */
 export const SITE_TITLE = "Marketing for IT Firms in Melbourne — Emergence Digital";

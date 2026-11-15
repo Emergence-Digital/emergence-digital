@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { goals } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
-import { LINKEDIN_URL } from "@/lib/seo";
+import { FACEBOOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "@/lib/seo";
 import Logo from "@/components/ui/Logo";
 
 // Social icon SVGs (inline for zero extra dependencies)
@@ -98,7 +98,7 @@ export default function Footer() {
                 <LinkedInIcon />
               </a>
               <a
-                href="https://instagram.com"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-white transition-colors duration-200"
@@ -107,7 +107,7 @@ export default function Footer() {
                 <InstagramIcon />
               </a>
               <a
-                href="https://facebook.com"
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-white transition-colors duration-200"
