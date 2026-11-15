@@ -5,7 +5,7 @@ import { ImageResponse } from "next/og";
 /**
  * Link preview images (1200×630, what LinkedIn, Slack, iMessage and the rest show when someone shares a page).
  * Each route's opengraph-image.tsx calls this with its own eyebrow and headline. The right side is the About hero's
- * team panel: Jordan, Shane and Nikki above a dark green panel, with the "Your team to help you…" card.
+ * team panel: Jordy, Shane and Nikki above a dark green panel, with the "Your team to help you…" card.
  */
 
 export const ogSize = { width: 1200, height: 630 };
