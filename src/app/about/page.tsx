@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Card from "@/components/ui/Card";
 import CTABanner from "@/components/sections/CTABanner";
 import AboutTeamVisual from "@/components/sections/AboutTeamVisual";
+import TeamPhoto from "@/components/ui/TeamPhoto";
 import { pageMetadata } from "@/lib/seo";
+import { team } from "@/lib/team";
 
 export const metadata: Metadata = pageMetadata({
   title: "About Our Melbourne Team",
@@ -94,7 +95,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-white py-20 md:py-28">
+      <section id="team" className="bg-white py-20 md:py-28 scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-14">
             <SectionLabel>The Team</SectionLabel>
@@ -103,29 +104,26 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          {/* Single team member card */}
-          <div className="max-w-sm mx-auto">
-            <Card className="text-center">
-              <div className="w-24 h-24 rounded-full bg-dark-green/10 mx-auto mb-6 overflow-hidden relative">
-                <Image
-                  src="/shanek.jpeg"
-                  alt="Shane Kennedy"
-                  fill
-                  sizes="96px"
-                  className="object-cover"
+          {/* One profile each; copy lives in src/lib/team.ts */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-md sm:max-w-none mx-auto">
+            {team.map((member) => (
+              <article key={member.name} className="flex flex-col rounded-3xl bg-cream p-4 sm:p-5">
+                <TeamPhoto
+                  member={member}
+                  className="aspect-[4/5]"
+                  sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 100vw"
                 />
-              </div>
-              <h3 className="font-serif text-2xl font-semibold text-dark-green">
-                Shane Kennedy
-              </h3>
-              <p className="text-mid-green text-sm font-medium mt-1 mb-4">Founder</p>
-              <p className="text-muted text-sm leading-relaxed">
-                Shane has spent the last 10 years in marketing, a significant part
-                of it inside the SAP partner ecosystem — working alongside
-                software, consulting and implementation partners to help them
-                stand out in a crowded, technical market.
-              </p>
-            </Card>
+                <div className="px-2 pt-6 pb-3 sm:px-1">
+                  <h3 className="font-serif text-2xl font-bold text-dark-green leading-tight">{member.name}</h3>
+                  <p className="text-mid-green text-sm font-medium mt-1">{member.role}</p>
+                  <div className="mt-4 space-y-3 text-muted leading-relaxed">
+                    {member.bio.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
