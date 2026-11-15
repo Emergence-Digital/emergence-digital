@@ -152,11 +152,11 @@ export default function InsightsCarousel() {
         <div className="max-w-2xl">
           <SectionLabel>Insights</SectionLabel>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark-green leading-[1.1] tracking-tight mb-4">
-            The IT news worth knowing.
+            Insights for IT firms.
           </h2>
           <p className="text-muted text-lg leading-relaxed">
-            Short takes on the research shaping IT firms in Australia, so you know what it means for your firm
-            before your buyers ask.
+            Short takes for IT firms in Australia: the IT news worth knowing before your buyers ask, and marketing
+            tips from Shane Kennedy.
           </p>
         </div>
         <Button href="/insights" variant="secondary" className="self-start md:self-auto shrink-0">
