@@ -7,8 +7,12 @@ import OurStrategy from "@/components/sections/OurStrategy";
 import HowWeWork from "@/components/sections/HowWeWork";
 import AboutShane from "@/components/sections/AboutShane";
 import ClientStories from "@/components/sections/ClientStories";
+import InsightsCarousel from "@/components/sections/InsightsCarousel";
 import CTABanner from "@/components/sections/CTABanner";
 import { pageMetadata, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo";
+
+// Regenerates every five minutes, so the insights strip picks up a new post within five minutes of its publish time.
+export const revalidate = 300;
 
 export const metadata: Metadata = pageMetadata({
   title: SITE_TITLE,
@@ -52,6 +56,7 @@ export default function HomePage() {
       <HowWeWork />
       <AboutShane />
       <ClientStories />
+      <InsightsCarousel />
       <CTABanner />
     </>
   );
