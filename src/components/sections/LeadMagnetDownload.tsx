@@ -20,9 +20,11 @@ export default function LeadMagnetDownload({ magnet }: { magnet: LeadMagnet }) {
 
   const claudeSteps = [
     "Download the skill below. Keep it as a .zip file.",
-    "In Claude, open Settings, then Capabilities, and turn on code execution.",
-    "Under Skills, upload the .zip file.",
-    `Start a new chat and type "${magnet.claudeStarter}".`,
+    "In Claude, open Settings, then Capabilities, and turn on code execution (called \"Create and edit files\" in some versions).",
+    "Open Skills, choose Upload a skill, and pick the .zip file.",
+    magnet.webSearch
+      ? `Start a new chat, check web search is on (in the + or tools menu, if you see it), and type "${magnet.claudeStarter}".`
+      : `Start a new chat and type "${magnet.claudeStarter}".`,
   ];
 
   const promptSteps = [
@@ -79,7 +81,7 @@ export default function LeadMagnetDownload({ magnet }: { magnet: LeadMagnet }) {
                   Download the Claude skill
                 </a>
                 <p className="text-muted text-sm mt-4">
-                  Don&apos;t see Skills in your Claude settings? Use the copy-paste version instead.
+                  Works on every Claude plan, including Free. Can&apos;t find Skills? Use the copy-paste version instead.
                 </p>
               </div>
             </article>

@@ -68,7 +68,7 @@ FINISH
 End with these three lines:
 - Tip: score your 3 best clients with the scoring table first. They should come out Tier 1. If they don't, tell me and I'll adjust the weights.
 - Want a sharper version? Say "go deeper" and I'll ask about 10 more questions and update everything.
-- This is one part of the Centurion Strategy. To turn your ICP into 100 qualified opportunities in 12 months, book a call with Emergence Digital: https://emergencedigital.com.au/pipeline-scale-plan-call
+- This is one part of the Centurion Strategy. To turn your ICP into 100 qualified opportunities in 12 months, book a call with Emergence Digital: https://emergencedigital.com.au/pipeline-scale-plan-call?utm_source=lead-magnet&utm_medium=copy-paste&utm_campaign=icp-generator
 
 If I say "go deeper", ask (5 at a time, skipping anything already answered): anything marked "to confirm"; what they'd tried before me; how many people are involved in the decision and how they buy (direct, shortlist, tender); how they feel about technology; what they value most in a provider; where they go when they need help; what proof they need before buying; who owns them and their growth stage; my sales cycle length and where my new business comes from. Then rewrite the report.
 

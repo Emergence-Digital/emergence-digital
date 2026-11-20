@@ -19,6 +19,8 @@ export interface LeadMagnet {
   intro: string;
   /** What to type in Claude to start the skill. */
   claudeStarter: string;
+  /** The skill looks things up online, so Claude needs web search on. */
+  webSearch: boolean;
   /** What the Claude version does that the copy-paste version can't. */
   claudeExtra: string;
   files: {
@@ -40,6 +42,7 @@ export const leadMagnets = {
     intro:
       "Answer about 12 quick questions and get a clear picture of who your business should be selling to, when they're ready to buy and what to say to them. It takes under 10 minutes.",
     claudeStarter: "Build my ICP",
+    webSearch: true,
     claudeExtra:
       "The full version. It reads your website, looks up the clients you name, and fills in the scoring spreadsheet for you.",
     files: {
@@ -59,6 +62,7 @@ export const leadMagnets = {
     intro:
       "Answer a few quick questions and get a 7-email cold outreach sequence that's ready to send, plus replies for when people respond. It takes under 10 minutes.",
     claudeStarter: "Build an outbound sequence",
+    webSearch: true,
     claudeExtra:
       "The full version. It reads your website, looks up the companies you want to email, and writes an opening line for each one.",
     files: {
@@ -78,6 +82,7 @@ export const leadMagnets = {
     intro:
       "Answer a few quick questions, or paste in your project notes, and get a case study you can publish, plus versions for LinkedIn, emails and proposals. It takes under 10 minutes.",
     claudeStarter: "Write a case study",
+    webSearch: false,
     claudeExtra:
       "The full version. It pulls the story out of your project notes and fills in the Case Study Library spreadsheet for you.",
     files: {
@@ -97,6 +102,7 @@ export const leadMagnets = {
     intro:
       "Answer 12 quick questions and get a 4-week posting calendar, with what to post, where and when, sized to the time you actually have. Week 1 is written for you.",
     claudeStarter: "Build me a social media calendar",
+    webSearch: false,
     claudeExtra:
       "The full version. It fills in the calendar spreadsheet for you and gives you a file of posting reminders for Google Calendar or Outlook.",
     files: {
