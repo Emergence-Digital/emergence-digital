@@ -61,6 +61,78 @@ export const leadMagnets = {
       body: "Your ICP tells you who to target. If you'd like those companies turning into qualified conversations every month, let's map out how on a Pipeline Scale Plan call.",
     },
   },
+  "outbound-sequence-builder": {
+    slug: "outbound-sequence-builder",
+    name: "Outbound Sequence Builder",
+    label: "Your free Outbound Sequence Builder",
+    heading: "Cold emails worth replying to.",
+    intro:
+      "Answer a few quick questions and get a 7-email cold outreach sequence that's ready to send, plus replies for when people respond. It takes under 10 minutes.",
+    claudeStarter: "Build an outbound sequence",
+    claudeExtra:
+      "The full version. It reads your website, looks up the companies you want to email, and writes an opening line for each one.",
+    files: {
+      skillZip: "/downloads/outbound-sequence-builder/outbound-sequence-builder-skill.zip",
+      prompt: "/downloads/outbound-sequence-builder/outbound-sequence-prompt.txt",
+      spreadsheet: "/downloads/outbound-sequence-builder/Outbound-Sequence-Planner.xlsx",
+    },
+    spreadsheet: {
+      name: "Outbound Sequence Planner",
+      body: "Add your prospects and a start date, and it works out the send date for every email, so each follow-up goes out on the right day.",
+    },
+    cta: {
+      heading: "Want more meetings from outbound?",
+      body: "Your sequence gets the first emails out the door. If you'd like outbound bringing in qualified meetings every month, let's map out how on a Pipeline Scale Plan call.",
+    },
+  },
+  "case-study-generator": {
+    slug: "case-study-generator",
+    name: "Case Study Generator",
+    label: "Your free Case Study Generator",
+    heading: "Turn your best work into proof.",
+    intro:
+      "Answer a few quick questions, or paste in your project notes, and get a case study you can publish, plus versions for LinkedIn, emails and proposals. It takes under 10 minutes.",
+    claudeStarter: "Write a case study",
+    claudeExtra:
+      "The full version. It pulls the story out of your project notes and fills in the Case Study Library spreadsheet for you.",
+    files: {
+      skillZip: "/downloads/case-study-generator/case-study-generator-skill.zip",
+      prompt: "/downloads/case-study-generator/case-study-prompt.txt",
+      spreadsheet: "/downloads/case-study-generator/Case-Study-Library.xlsx",
+    },
+    spreadsheet: {
+      name: "Case Study Library",
+      body: "Every client story in one place: where it's up to, which ones are waiting on approval, and where you've used each one.",
+    },
+    cta: {
+      heading: "Want your proof working harder?",
+      body: "A case study shows buyers what you can do. If you'd like it bringing in conversations with more clients like that one, let's map out how on a Pipeline Scale Plan call.",
+    },
+  },
+  "social-calendar-creator": {
+    slug: "social-calendar-creator",
+    name: "Social Calendar Creator",
+    label: "Your free Social Calendar Creator",
+    heading: "A posting plan you can keep up with.",
+    intro:
+      "Answer 12 quick questions and get a 4-week posting calendar, with what to post, where and when, sized to the time you actually have. Week 1 is written for you.",
+    claudeStarter: "Build me a social media calendar",
+    claudeExtra:
+      "The full version. It fills in the calendar spreadsheet for you and gives you a file of posting reminders for Google Calendar or Outlook.",
+    files: {
+      skillZip: "/downloads/social-calendar-creator/social-calendar-creator-skill.zip",
+      prompt: "/downloads/social-calendar-creator/social-calendar-prompt.txt",
+      spreadsheet: "/downloads/social-calendar-creator/Social-Content-Calendar.xlsx",
+    },
+    spreadsheet: {
+      name: "Social Content Calendar",
+      body: "Your month at a glance, with a check that each week fits the time you have. Paste in your calendar and track every post from idea to posted.",
+    },
+    cta: {
+      heading: "Want social to start conversations?",
+      body: "Posting keeps you in front of buyers. If you'd like those posts turning into qualified conversations every month, let's map out how on a Pipeline Scale Plan call.",
+    },
+  },
 } satisfies Record<string, LeadMagnet>;
 
 export type LeadMagnetSlug = keyof typeof leadMagnets;
