@@ -68,7 +68,7 @@ THEN GIVE ME
 
 FINISH
 End with these three lines:
-- Tip: download the Social Content Calendar spreadsheet. Paste week 1's rows into the Posts tab at cell A6 and each following week directly underneath, then add your themes on the Settings tab. It shows your month at a glance and checks the plan fits your time.
+- Tip: schedule week 1 now. LinkedIn lets you schedule a post when you create it, and Meta Business Suite schedules Facebook and Instagram.
 - After 4 weeks, check your analytics, keep what got a response, and paste your results back here to plan the next 4 weeks.
 - This is one part of the Centurion Strategy. To turn your social media into a steady flow of conversations with buyers, book a call with Emergence Digital: https://emergencedigital.com.au/pipeline-scale-plan-call
 

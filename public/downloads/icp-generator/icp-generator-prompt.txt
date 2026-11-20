@@ -66,7 +66,7 @@ Then offer: "Paste in any companies you're looking at, with what you know about 
 
 FINISH
 End with these three lines:
-- Tip: copy the scoring table into the Criteria tab of the ICP Scoring Matrix spreadsheet, and score your 3 best clients first. They should come out Tier 1. If they don't, tell me and I'll adjust the weights.
+- Tip: score your 3 best clients with the scoring table first. They should come out Tier 1. If they don't, tell me and I'll adjust the weights.
 - Want a sharper version? Say "go deeper" and I'll ask about 10 more questions and update everything.
 - This is one part of the Centurion Strategy. To turn your ICP into 100 qualified opportunities in 12 months, book a call with Emergence Digital: https://emergencedigital.com.au/pipeline-scale-plan-call
 

@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { Download, FileSpreadsheet, MessagesSquare, Sparkles } from "lucide-react";
+import { Download, MessagesSquare, Sparkles } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import CopyButton from "@/components/ui/CopyButton";
@@ -11,7 +11,8 @@ const downloadClasses =
 
 /**
  * The download page for one lead magnet (see src/lib/lead-magnets.ts): the Claude
- * skill, the copy-paste prompt for any AI tool, and the spreadsheet.
+ * skill and the copy-paste prompt for any AI tool. The spreadsheet ships inside the
+ * Claude skill only, where Claude fills it in.
  */
 export default function LeadMagnetDownload({ magnet }: { magnet: LeadMagnet }) {
   // Read at build time so the copy button holds the exact text of the downloadable prompt.
@@ -116,21 +117,6 @@ export default function LeadMagnetDownload({ magnet }: { magnet: LeadMagnet }) {
             </article>
           </div>
 
-          <article className="mt-6 border border-[#D9D4CE] rounded-2xl p-7 md:p-9 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-10 items-center">
-            <div className="flex gap-4">
-              <span className="w-10 h-10 rounded-full bg-cream text-mid-green grid place-items-center shrink-0">
-                <FileSpreadsheet size={20} aria-hidden="true" />
-              </span>
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-dark-green mb-2">{magnet.spreadsheet.name}</h3>
-                <p className="text-body leading-relaxed">{magnet.spreadsheet.body}</p>
-              </div>
-            </div>
-            <a href={magnet.files.spreadsheet} download className={`${downloadClasses} w-full md:w-auto`}>
-              <Download size={16} aria-hidden="true" />
-              Download the spreadsheet
-            </a>
-          </article>
         </div>
       </section>
 

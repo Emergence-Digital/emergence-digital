@@ -6,7 +6,7 @@ import { leadMagnets } from "@/lib/lead-magnets";
 // webinar sign-up follow-up, so it's kept out of the nav, footer and sitemap, and noindex.
 export const metadata: Metadata = {
   title: "Your Outbound Sequence Builder — Emergence Digital",
-  description: "Download the Outbound Sequence Builder: a Claude skill, a copy-paste prompt for any AI tool, and the Outbound Sequence Planner.",
+  description: "Download the Outbound Sequence Builder: a Claude skill and a copy-paste prompt for any AI tool.",
   robots: { index: false, follow: false },
 };
 

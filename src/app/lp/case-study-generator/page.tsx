@@ -6,7 +6,7 @@ import { leadMagnets } from "@/lib/lead-magnets";
 // webinar sign-up follow-up, so it's kept out of the nav, footer and sitemap, and noindex.
 export const metadata: Metadata = {
   title: "Your Case Study Generator — Emergence Digital",
-  description: "Download the Case Study Generator: a Claude skill, a copy-paste prompt for any AI tool, and the Case Study Library.",
+  description: "Download the Case Study Generator: a Claude skill and a copy-paste prompt for any AI tool.",
   robots: { index: false, follow: false },
 };
 

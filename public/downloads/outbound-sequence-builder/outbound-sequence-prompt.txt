@@ -74,7 +74,7 @@ THEN ADD
 
 FINISH
 End with these three lines:
-- Tip: paste these emails into the Outbound Sequence Planner spreadsheet. Add a start date for each company and it works out every send date for you.
+- Tip: start with 10 to 20 companies, and note the date each one gets email 1, so every follow-up goes out on the right day.
 - Want a version for a different buyer or trigger? Just say which.
 - This is one part of the Centurion Strategy. To turn outbound into 100 qualified opportunities in 12 months, book a call with Emergence Digital: https://emergencedigital.com.au/pipeline-scale-plan-call
 

@@ -24,11 +24,6 @@ export interface LeadMagnet {
   files: {
     skillZip: string;
     prompt: string;
-    spreadsheet: string;
-  };
-  spreadsheet: {
-    name: string;
-    body: string;
   };
   cta: {
     heading: string;
@@ -50,11 +45,6 @@ export const leadMagnets = {
     files: {
       skillZip: "/downloads/icp-generator/icp-generator-skill.zip",
       prompt: "/downloads/icp-generator/icp-generator-prompt.txt",
-      spreadsheet: "/downloads/icp-generator/ICP-Scoring-Matrix.xlsx",
-    },
-    spreadsheet: {
-      name: "ICP Scoring Matrix",
-      body: "Score any company against your ideal client profile and see who to contact first. Start by scoring your three best clients: they should come out on top.",
     },
     cta: {
       heading: "Want help reaching them?",
@@ -74,11 +64,6 @@ export const leadMagnets = {
     files: {
       skillZip: "/downloads/outbound-sequence-builder/outbound-sequence-builder-skill.zip",
       prompt: "/downloads/outbound-sequence-builder/outbound-sequence-prompt.txt",
-      spreadsheet: "/downloads/outbound-sequence-builder/Outbound-Sequence-Planner.xlsx",
-    },
-    spreadsheet: {
-      name: "Outbound Sequence Planner",
-      body: "Add your prospects and a start date, and it works out the send date for every email, so each follow-up goes out on the right day.",
     },
     cta: {
       heading: "Want more meetings from outbound?",
@@ -98,11 +83,6 @@ export const leadMagnets = {
     files: {
       skillZip: "/downloads/case-study-generator/case-study-generator-skill.zip",
       prompt: "/downloads/case-study-generator/case-study-prompt.txt",
-      spreadsheet: "/downloads/case-study-generator/Case-Study-Library.xlsx",
-    },
-    spreadsheet: {
-      name: "Case Study Library",
-      body: "Every client story in one place: where it's up to, which ones are waiting on approval, and where you've used each one.",
     },
     cta: {
       heading: "Want your proof working harder?",
@@ -122,11 +102,6 @@ export const leadMagnets = {
     files: {
       skillZip: "/downloads/social-calendar-creator/social-calendar-creator-skill.zip",
       prompt: "/downloads/social-calendar-creator/social-calendar-prompt.txt",
-      spreadsheet: "/downloads/social-calendar-creator/Social-Content-Calendar.xlsx",
-    },
-    spreadsheet: {
-      name: "Social Content Calendar",
-      body: "Your month at a glance, with a check that each week fits the time you have. Paste in your calendar and track every post from idea to posted.",
     },
     cta: {
       heading: "Want social to start conversations?",

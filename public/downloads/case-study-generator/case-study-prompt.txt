@@ -60,7 +60,7 @@ Only treat a piece as passing if every count meets the rule. Do all of this behi
 
 FINISH
 End with these three lines:
-- Tip: add this story to the Case Study Library spreadsheet, and send the approval email this week. Named case studies with a client quote are the most persuasive proof you can have.
+- Tip: send the approval email this week. Named case studies with a client quote are the most persuasive proof you can have.
 - Got another project? Paste in the notes and I'll do the same. Three to five stories across different industries or services gives buyers someone like them to relate to.
 - This is one part of the Centurion Strategy. To turn your client work into a steady flow of proof and pipeline, book a call with Emergence Digital: https://emergencedigital.com.au/pipeline-scale-plan-call
 
