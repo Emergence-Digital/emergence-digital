@@ -25,6 +25,7 @@ export default function LeadMagnetDownload({ magnet }: { magnet: LeadMagnet }) {
     magnet.webSearch
       ? `Start a new chat, check web search is on (in the + or tools menu, if you see it), and type "${magnet.claudeStarter}".`
       : `Start a new chat and type "${magnet.claudeStarter}".`,
+    "Fill in the answer form Claude opens, click Copy my answers, and paste them into the chat.",
   ];
 
   const promptSteps = [
