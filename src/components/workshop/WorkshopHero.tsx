@@ -45,11 +45,7 @@ export default function WorkshopHero({ workshop, headline, ctaHref }: WorkshopHe
             </span>
           </span>
         </h1>
-        <p className="font-serif text-2xl md:text-3xl font-bold text-dark-green max-w-2xl mx-auto mb-6 leading-snug text-balance">
-          {workshop.hook.before}
-          <span className="bg-sage/60 px-1.5 rounded-sm">{workshop.hook.highlight}</span>
-          {workshop.hook.after}
-        </p>
+        <p className="text-lg md:text-xl text-body leading-relaxed max-w-2xl mx-auto mb-6">{workshop.hook}</p>
         <ul className="flex flex-wrap justify-center gap-x-3 gap-y-2 mb-10 text-sm text-muted">
           {facts.map((fact, i) => (
             <li key={fact} className="flex items-center gap-3">

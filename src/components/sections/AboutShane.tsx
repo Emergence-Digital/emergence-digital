@@ -1,6 +1,27 @@
 import Image from "next/image";
 import SectionLabel from "@/components/ui/SectionLabel";
 
+/** Shane's cut-out photo on a dark green panel with a soft sage glow. Also used by the workshop's Introducing section. */
+export function ShanePortrait() {
+  return (
+    <div className="relative aspect-[4/5] max-w-md w-full mx-auto lg:max-w-none rounded-3xl overflow-hidden bg-dark-green">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{ background: "radial-gradient(ellipse 70% 55% at 50% 40%, rgba(74,124,89,0.55) 0%, transparent 70%)" }}
+      />
+      <Image
+        src="/about/shane-kennedy.webp"
+        alt="Shane Kennedy, founder of Emergence Digital"
+        width={1000}
+        height={1232}
+        sizes="(min-width: 1024px) 460px, (min-width: 448px) 448px, 100vw"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[92%] w-auto max-w-none"
+      />
+    </div>
+  );
+}
+
 /**
  * About Shane: the founder, beside his cut-out photo on a dark green panel. The photo is DSC00243 with the
  * background removed and a light warm grade in Photoshop, exported as a transparent WebP.
@@ -10,21 +31,7 @@ export default function AboutShane() {
   return (
     <section className="bg-white py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[5fr_6fr] gap-12 lg:gap-20 items-center">
-        <div className="relative aspect-[4/5] max-w-md w-full mx-auto lg:max-w-none rounded-3xl overflow-hidden bg-dark-green">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0"
-            style={{ background: "radial-gradient(ellipse 70% 55% at 50% 40%, rgba(74,124,89,0.55) 0%, transparent 70%)" }}
-          />
-          <Image
-            src="/about/shane-kennedy.webp"
-            alt="Shane Kennedy, founder of Emergence Digital"
-            width={1000}
-            height={1232}
-            sizes="(min-width: 1024px) 460px, (min-width: 448px) 448px, 100vw"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[92%] w-auto max-w-none"
-          />
-        </div>
+        <ShanePortrait />
 
         <div>
           <SectionLabel>About Shane</SectionLabel>

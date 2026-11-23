@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import VimeoEmbed from "@/components/ui/VimeoEmbed";
 import WorkshopCallCalendar from "@/components/workshop/WorkshopCallCalendar";
 import { WorkshopStepHeader } from "@/components/workshop/WorkshopSteps";
 import { workshop2027Strategy as workshop } from "@/lib/workshops";
@@ -6,6 +7,7 @@ import { workshop2027Strategy as workshop } from "@/lib/workshops";
 // 2027 strategy workshop funnel, after payment, step 3 of 3: an optional call
 // with Shane, before or after the workshop. The calendar is prefilled from the
 // details the landing page form kept in this tab (see WorkshopCallCalendar).
+// The video ID is in workshops.ts (stepVideos.call); blank hides it.
 export const metadata: Metadata = {
   title: "Talk to Shane — Emergence Digital",
   robots: { index: false, follow: false },
@@ -20,6 +22,9 @@ export default function WorkshopCallPage() {
           heading="Want to talk it through?"
           intro="If you'd like a call with Shane before or after the workshop, pick a time below. It's optional: your seat is booked either way."
         />
+        {workshop.stepVideos.call && (
+          <VimeoEmbed id={workshop.stepVideos.call} title="A call with Shane" className="mb-12" />
+        )}
         <div className="bg-white rounded-2xl shadow-sm p-4 md:p-6">
           <WorkshopCallCalendar calendarId={workshop.callCalendarId} />
         </div>

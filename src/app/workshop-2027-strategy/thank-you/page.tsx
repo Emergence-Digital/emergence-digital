@@ -7,8 +7,8 @@ import { workshop2027Strategy as workshop } from "@/lib/workshops";
 
 // 2027 strategy workshop funnel, after payment, step 1 of 3. The Stripe payment
 // link redirects here with ?session_id=…, which <MetaPurchase /> uses as the
-// Purchase event ID. The thank-you video and worksheet come from workshops.ts
-// and stay hidden until they're set.
+// Purchase event ID. The thank-you video and worksheet come from workshops.ts;
+// a blank video ID hides the video, and a blank worksheet shows a placeholder line.
 export const metadata: Metadata = {
   title: "You're Booked In — Emergence Digital",
   robots: { index: false, follow: false },
@@ -26,9 +26,9 @@ export default function WorkshopThankYouPage() {
             intro={`Your seat at ${workshop.name} is booked for ${workshop.dateLabel}, ${workshop.timeLabel}.`}
           />
 
-          {workshop.thankYouVideoId && (
+          {workshop.stepVideos.thankYou && (
             <VimeoEmbed
-              id={workshop.thankYouVideoId}
+              id={workshop.stepVideos.thankYou}
               title={`You're booked in for ${workshop.name}`}
               autoplay
               className="max-w-4xl mx-auto mb-12"
