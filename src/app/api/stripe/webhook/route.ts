@@ -5,8 +5,8 @@
  * metadata.event the link copies onto it, see src/lib/workshops.ts):
  *   1. adds the workshop's paid tag to the GHL contact (the client_reference_id
  *      the landing page form passed to Stripe, or else found by email);
- *   2. registers the buyer for the Zoom webinar, so Zoom emails their join link
- *      and reminders, and saves the join link to the contact in GHL.
+ *   2. gives the buyer a ticket to the Zoom Events event, so Zoom emails their
+ *      join link and reminders, and saves the join link to the contact in GHL.
  *
  * Responds 200 once that's done, or for events it doesn't handle. Responds 5xx
  * when GHL or Zoom fails, so Stripe retries (for up to three days); both steps
@@ -26,7 +26,7 @@ import {
   upsertContactByEmail,
   type GhlContactSummary,
 } from "@/lib/ghl";
-import { registerForWebinar, zoomConfigured } from "@/lib/zoom";
+import { createEventTicket, zoomConfigured } from "@/lib/zoom";
 
 /** A few GHL calls and two Zoom calls, each with a 10s timeout. */
 export const maxDuration = 30;
@@ -81,19 +81,25 @@ async function fulfilWorkshopBooking(workshop: Workshop, session: CheckoutSessio
   await addContactTags(contactId, [workshop.tags.paid]);
   logLeadEvent("info", "workshop.tagged_paid", { ...log, contactId });
 
-  // 2. Zoom: register them, so Zoom sends the join link and reminders.
-  if (!workshop.zoomWebinarId || !zoomConfigured()) {
+  // 2. Zoom Events: give them a ticket, so Zoom sends the join link and reminders.
+  const { eventId, ticketTypeId } = workshop.zoomEvent;
+  if (!eventId || !zoomConfigured()) {
     logLeadEvent("warn", "workshop.zoom_skipped", {
       ...log,
       contactId,
-      missing: workshop.zoomWebinarId ? "ZOOM_ env vars" : "zoomWebinarId in workshops.ts",
+      missing: eventId ? "ZOOM_ env vars" : "zoomEvent.eventId in workshops.ts",
     });
     return;
   }
   const firstName = contact.firstName?.trim() || cardFirst || email.split("@")[0];
   const lastName = contact.firstName?.trim() ? contact.lastName?.trim() : cardLast;
-  const { joinUrl } = await registerForWebinar(workshop.zoomWebinarId, { email, firstName, lastName });
-  logLeadEvent("info", "workshop.zoom_registered", { ...log, contactId });
+  const { joinUrl, alreadyRegistered } = await createEventTicket(eventId, ticketTypeId, {
+    email,
+    firstName,
+    lastName,
+    externalTicketId: session.id,
+  });
+  logLeadEvent("info", "workshop.zoom_registered", { ...log, contactId, alreadyRegistered: Boolean(alreadyRegistered) });
 
   // A copy of the join link in GHL, for a backup email or a quick lookup. Not worth a retry if it fails.
   if (joinUrl) {

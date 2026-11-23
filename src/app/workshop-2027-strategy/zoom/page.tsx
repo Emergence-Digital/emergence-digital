@@ -4,8 +4,8 @@ import { WorkshopNextStep, WorkshopStepHeader } from "@/components/workshop/Work
 import { workshop2027Strategy as workshop } from "@/lib/workshops";
 
 // 2027 strategy workshop funnel, after payment, step 2 of 3: what Zoom sends and
-// when. The Stripe webhook registers each buyer for the Zoom webinar, so the
-// confirmation, join link and reminders all come from Zoom's own emails.
+// when. The Stripe webhook gives each buyer a ticket to the Zoom Events event,
+// so the confirmation, join link and reminders all come from Zoom's own emails.
 export const metadata: Metadata = {
   title: "Joining on Zoom — Emergence Digital",
   robots: { index: false, follow: false },
@@ -15,7 +15,7 @@ const steps: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Mail,
     title: "Look for an email from Zoom",
-    body: "It arrives within a few minutes, from no-reply@zoom.us, with your personal join link. If it's not in your inbox, check spam or promotions.",
+    body: "It arrives within a few minutes, from Zoom Events, with your personal join link. If it's not in your inbox, check spam or promotions.",
   },
   {
     icon: CalendarCheck,

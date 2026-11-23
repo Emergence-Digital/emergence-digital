@@ -10,8 +10,8 @@
  * link (email prefilled, GHL contact ID as client_reference_id) → thank-you
  * (worksheet) → zoom (what Zoom sends) → call (book a call with Shane).
  * Stripe tells /api/stripe/webhook about each payment, which adds the paid tag
- * and registers the buyer for the Zoom webinar, so Zoom emails their join link
- * and reminders. See SETUP.md, "Paid workshops".
+ * and gives the buyer a ticket to the Zoom Events event, so Zoom emails their
+ * join link and reminders. See SETUP.md, "Paid workshops".
  */
 
 import type { HeroVideo } from "@/components/sections/Hero";
@@ -47,8 +47,11 @@ export interface Workshop {
     /** Added by the Stripe webhook once they've paid. */
     paid: string;
   };
-  /** Zoom webinar ID (digits, no spaces). Blank until the webinar exists: the webhook then skips Zoom. */
-  zoomWebinarId: string;
+  /**
+   * The Zoom Events event buyers get a ticket to: "Event ID for integrations or support" and "Ticket type ID", both
+   * in the event's Overview → info panel. Blank event ID: the webhook skips Zoom.
+   */
+  zoomEvent: { eventId: string; ticketTypeId: string };
   /** GHL contact custom fields the webhook fills for each buyer (IDs from `npm run ghl:fields`). */
   ghlFieldIds: { zoomJoinLink: string; webinarDate: string };
   /** GHL calendar for the "book a call with Shane" step. */
@@ -88,8 +91,7 @@ export const workshop2027Strategy: Workshop = {
     registered: "web:workshop-2027-strategy",
     paid: "web:workshop-2027-strategy-paid",
   },
-  // PLACEHOLDER: Shane to send the webinar ID once it's created in Zoom.
-  zoomWebinarId: "",
+  zoomEvent: { eventId: "9grYqx0OQNueDXIIqffLSg", ticketTypeId: "zpLiu8CTSz6D75T8LFzNZA" },
   ghlFieldIds: {
     zoomJoinLink: "bd3SaRLqaomMfS8qwD6w",
     webinarDate: "wuew2aU4bUCH1d4wlZ79",

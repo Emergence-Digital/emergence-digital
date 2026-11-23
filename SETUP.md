@@ -262,7 +262,7 @@ After a few days, Events Manager → the dataset → **Overview** shows each eve
 ## Paid workshops (Stripe and Zoom)
 
 A paid workshop is a funnel with a payment in the middle. Everything about one (dates, price, copy, Stripe links,
-Zoom webinar ID, tags) is its entry in `src/lib/workshops.ts`.
+Zoom Events IDs, tags) is its entry in `src/lib/workshops.ts`.
 
 ```
 /<slug>            landing page ─▶ <LeadForm> ─▶ /api/lead (tag web:<slug>, returns the contact ID)
@@ -272,7 +272,7 @@ Stripe payment link   ?prefilled_email=…&client_reference_id=<GHL contact ID>[
    │  after paying, redirects to ▼                       │ and Stripe calls ▼
 /<slug>/thank-you?session_id=…  (Meta Purchase, worksheet)   /api/stripe/webhook
 /<slug>/zoom                     (what Zoom sends)              1. tag web:<slug>-paid in GHL
-/<slug>/call                     (book a call with Shane)       2. register for the Zoom webinar → Zoom emails the
+/<slug>/call                     (book a call with Shane)       2. Zoom Events ticket → Zoom emails the
                                                                    join link and reminders; join link saved in GHL
 ```
 
@@ -296,20 +296,23 @@ Stripe payment link   ?prefilled_email=…&client_reference_id=<GHL contact ID>[
    endpoint**, URL `https://www.emergencedigital.com.au/api/stripe/webhook`. Use **www**: the bare domain redirects to
    it, and Stripe doesn't follow redirects. Then **Reveal secret** and copy the `whsec_…` value into Vercel as
    `STRIPE_WEBHOOK_SECRET` (Production).
-3. **Zoom webinar:** schedule it with **Registration required**, approval **Automatically approve**, only name and email
-   required, and the confirmation and reminder emails turned on. Put its ID (digits only) in `zoomWebinarId`.
+3. **Zoom Events event:** create and **publish** it on events.zoom.us (an unpublished event refuses tickets), with the
+   confirmation and reminder emails on under Communication. Copy the **Event ID for integrations or support** and the
+   **Ticket type ID** (Overview → the info panel) into `zoomEvent` in `workshops.ts`. Keep the event off public listings
+   and don't share its registration link: buyers get their join links from Zoom's emails. (Zoom Events can't take
+   registrants through the Webinar API, which is why the site creates tickets.)
 4. **Zoom app (once):** marketplace.zoom.us → **Developers** (lower left) → **+** → **Build an app** →
    **Server-to-Server OAuth app** → **Create**. Fill in the Information page (description, company, developer name and
-   email), add the scope `webinar:write:registrant:admin` (Add a webinar registrant) under **Scopes**, then activate it.
+   email), add the scope `zoom_events:write:ticket:admin` (Zoom Events: create tickets) under **Scopes**, then activate it.
    Copy its Account ID, Client ID and Client Secret from **App credentials** into Vercel as `ZOOM_ACCOUNT_ID`,
-   `ZOOM_CLIENT_ID` and `ZOOM_CLIENT_SECRET` (Production). Needs the Zoom Webinars add-on. If the
+   `ZOOM_CLIENT_ID` and `ZOOM_CLIENT_SECRET` (Production). Needs a Zoom Events / Webinars Plus licence. If the
    Server-to-Server option isn't offered, an admin enables it in the Zoom web portal: User Management → Roles → Role
    Settings → Advanced features → **Server-to-Server OAuth app** (View and Edit).
 5. **GHL workflows:** *Tag Added* `web:<slug>` (filled in the form; a Wait plus an If/Else on `web:<slug>-paid` chases
    people who didn't pay) and *Tag Added* `web:<slug>-paid` (paid).
 6. Add the landing page path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx` for the bare header.
 
-Webhook log lines start with `workshop.`: `tagged_paid`, `zoom_registered`, `zoom_skipped` (webinar ID or Zoom
+Webhook log lines start with `workshop.`: `tagged_paid`, `zoom_registered`, `zoom_skipped` (event ID or Zoom
 variables missing), `contact_lookup_failed` (fell back to the email), `join_link_not_saved`, `fulfil_failed` (Stripe
 retries), `bad_signature` and `webhook_misconfigured`. Stripe → Developers → Webhooks shows each delivery and lets you
 resend one.

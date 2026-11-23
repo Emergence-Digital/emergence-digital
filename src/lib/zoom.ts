@@ -1,11 +1,13 @@
 /**
- * Server-only Zoom client for registering workshop buyers for a webinar.
+ * Server-only Zoom client for registering workshop buyers for a Zoom Events event.
  *
- * Uses a Server-to-Server OAuth app (Zoom Marketplace → Develop → Build app →
- * Server-to-Server OAuth) with the scope to add webinar registrants. Once a
- * buyer is registered, Zoom sends its own confirmation email with their
- * personal join link, and the webinar's reminder emails. See SETUP.md,
- * "Paid workshops".
+ * Uses a Server-to-Server OAuth app (marketplace.zoom.us → Developers → Build an
+ * app → Server-to-Server OAuth app) with the Zoom Events ticket scope
+ * (zoom_events:write:ticket:admin). Each buyer gets a ticket through
+ * POST /zoom_events/events/{eventId}/tickets with send_notification on, so Zoom
+ * Events emails them its confirmation with their join link, plus the event's
+ * reminders. (Zoom Events can't take registrants through the Webinar API.)
+ * See SETUP.md, "Paid workshops".
  */
 
 import "server-only";
@@ -64,32 +66,65 @@ async function accessToken(): Promise<string> {
   return result.access_token;
 }
 
-export interface WebinarRegistrant {
+export interface EventAttendee {
   email: string;
   firstName: string;
   lastName?: string;
+  /** Our own reference, shown against the ticket in Zoom (the Stripe Checkout Session ID). */
+  externalTicketId?: string;
 }
 
+interface CreateTicketsResponse {
+  tickets?: { ticket_id?: string; email?: string; event_join_link?: string }[];
+  errors?: { email?: string; error_code?: number | string; message?: string }[];
+  message?: string;
+  code?: number;
+}
+
+/** Zoom's per-ticket error for someone who already has a ticket: a retried webhook, so not a failure. */
+const ALREADY_REGISTERED = /already|exist|duplicate/i;
+
 /**
- * Registers someone for a webinar and returns their personal join link. Registering the same email again
- * returns their existing registration, so a retried webhook doesn't double up.
+ * Gives someone a ticket to a Zoom Events event and returns their personal join link. Zoom Events emails them
+ * its confirmation (send_notification). A repeat for someone who already has a ticket is treated as done.
  */
-export async function registerForWebinar(webinarId: string, registrant: WebinarRegistrant): Promise<{ joinUrl?: string }> {
+export async function createEventTicket(
+  eventId: string,
+  ticketTypeId: string,
+  attendee: EventAttendee,
+): Promise<{ joinUrl?: string; alreadyRegistered?: boolean }> {
   const token = await accessToken();
   const response = await zoomFetch(
-    "register",
-    `https://api.zoom.us/v2/webinars/${encodeURIComponent(webinarId)}/registrants`,
+    "create-ticket",
+    `https://api.zoom.us/v2/zoom_events/events/${encodeURIComponent(eventId)}/tickets`,
     {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        email: registrant.email,
-        first_name: registrant.firstName,
-        ...(registrant.lastName ? { last_name: registrant.lastName } : {}),
+        tickets: [
+          {
+            email: attendee.email,
+            first_name: attendee.firstName,
+            ...(attendee.lastName ? { last_name: attendee.lastName } : {}),
+            ticket_type_id: ticketTypeId,
+            ...(attendee.externalTicketId ? { external_ticket_id: attendee.externalTicketId } : {}),
+            send_notification: true,
+          },
+        ],
       }),
     },
   );
-  const result: { join_url?: string; message?: string; code?: number } = await response.json().catch(() => ({}));
-  if (!response.ok) throw new ZoomError("register", response.status, result.message ?? `code ${result.code ?? "?"}`);
-  return { joinUrl: result.join_url };
+  const result: CreateTicketsResponse = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new ZoomError("create-ticket", response.status, result.message ?? `code ${result.code ?? "?"}`);
+  }
+
+  // A 201 can still carry a per-ticket error (the batch endpoint reports each one).
+  const error = result.errors?.[0];
+  if (error) {
+    const detail = `${error.error_code ?? "?"}: ${error.message ?? "no message"}`;
+    if (ALREADY_REGISTERED.test(error.message ?? "")) return { alreadyRegistered: true };
+    throw new ZoomError("create-ticket", response.status, detail);
+  }
+  return { joinUrl: result.tickets?.[0]?.event_join_link };
 }
