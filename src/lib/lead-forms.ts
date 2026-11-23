@@ -123,7 +123,10 @@ export const attributionFieldIds: Record<AttributionKey | "conversion_page", str
 /** sessionStorage key for the details a checkout form keeps for the workshop "book a call" step's calendar. */
 export const CHECKOUT_PREFILL_KEY = "checkout-prefill";
 
-/** Choices for the "Annual revenue" question. They match the options of GHL's "Annual revenue" dropdown exactly. */
+/**
+ * Choices for the "Annual revenue" question. They match the options of GHL's "What is your current annual revenue?"
+ * field exactly (en dashes included), so change both together.
+ */
 export const ANNUAL_REVENUE_OPTIONS = [
   "$1–2.5 million",
   "$2.5–5 million",
@@ -206,9 +209,9 @@ export const leadForms = {
         type: "select",
         required: true,
         options: ANNUAL_REVENUE_OPTIONS,
-        // PLACEHOLDER: the ID of GHL's "Annual revenue" dropdown once it's created (npm run ghl:fields).
-        // Until then the answer goes into the contact note.
-        ghlFieldId: "",
+        // GHL "What is your current annual revenue?" (radio; key contact.what_is_your_current_monthly_revenue,
+        // left over from the field's old name).
+        ghlFieldId: "ClxI7A72xvoroCJPxopQ",
       },
     ],
     submitLabel: "Continue to payment",
