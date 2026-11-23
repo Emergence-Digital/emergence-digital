@@ -136,51 +136,52 @@ export const workshop2027Strategy: Workshop = {
   // PLACEHOLDER: Shane to supply the worksheet PDF (save it to public/workshops/ and set the path here).
   worksheetHref: "",
   hook: "Know where your 2027 clients will come from.",
-  // DRAFT: for Shane to confirm along with the learning points.
-  learnIntro: "Ninety minutes, live on Zoom, planning where your 2027 clients will come from.",
-  // PLACEHOLDER: Shane to supply "What you'll learn". The images are homepage benefit tiles standing in until each
-  // point gets its own tile in the Illustrator card library.
+  // DRAFT from Shane's agenda (24 Nov 2026): lesson 1 is the ICP, lesson 2 the 12-month calendar. Two points on
+  // revenue (ICP, proof), two on marketing (consistency, AI). The images are homepage benefit tiles standing in until
+  // each point gets its own tile in the Illustrator card library.
+  learnIntro:
+    "Ninety minutes, live on Zoom, in two lessons. You'll leave with your ideal client written down and the tools to turn it into a 12-month marketing plan.",
   learn: [
     {
-      title: "Learning point 1 (Shane to supply)",
-      body: "One line on what changes for the attendee.",
+      title: "Find the clients who lift your margin",
+      body: "Pin down the clients you want more of: the ones who pay well and stay. When all your marketing speaks to them, more of your revenue comes from work worth doing.",
+      image: "/benefits/higher-margin.webp",
+    },
+    {
+      title: "Turn your proof into pipeline",
+      body: "Go after the market where you already have results, not a brand new one. Buyers who see firms like theirs succeeding with you start the conversation already trusting you.",
       image: "/benefits/pipeline.webp",
     },
     {
-      title: "Learning point 2 (Shane to supply)",
-      body: "One line on what changes for the attendee.",
+      title: "Stay visible all year, not in bursts",
+      body: "Map out 12 months of marketing your team can keep up with. Buyers keep seeing you between projects, so new work doesn't dry up when you get busy.",
       image: "/benefits/opportunities.webp",
     },
     {
-      title: "Learning point 3 (Shane to supply)",
-      body: "One line on what changes for the attendee.",
-      image: "/benefits/bigger-clients.webp",
-    },
-    {
-      title: "Learning point 4 (Shane to supply)",
-      body: "One line on what changes for the attendee.",
-      image: "/benefits/shorter-cycles.webp",
+      title: "Get AI writing for your buyers",
+      body: "Give Claude your ideal client once, and everything it helps you write speaks to the people you want to win. Your team's know-how reaches the market without eating their week.",
+      image: "/benefits/busy-team.webp",
     },
   ],
-  // The images are services library scenes standing in until the workshop's own scenes are made in the
-  // Illustrator card library.
+  // DRAFT from Shane's agenda (24 Nov 2026): two Claude skills, two templates and two decks, downloaded at the end of
+  // the workshop. Skill, template and deck names are working names until Shane and the team settle them. The images
+  // are services library scenes standing in until the workshop's own scenes are made in the Illustrator card library.
   included: [
-    // PLACEHOLDER: Shane to supply the Claude skills and templates handed out in the workshop.
     {
-      title: "Claude skills (Shane to supply names)",
-      body: "Handed out during the workshop. One line on what each one does for the attendee.",
+      title: "Two Claude skills",
+      body: "Your ideal client profile, then a 2027 plan and deck built around it, drafted by Claude from your worksheet answers. Yours to download at the end of the workshop.",
       image: "/services/funnel-automation.webp",
-      features: ["Skill name (TBC)", "Skill name (TBC)"],
+      features: ["ICP generator", "2027 plan builder"],
     },
     {
-      title: "Templates (Shane to supply names)",
-      body: "Handed out during the workshop. One line on what each one does for the attendee.",
+      title: "Templates and decks",
+      body: "Your ideal client and your year of marketing laid out for the team, so everyone knows who you're for and what goes out each month. Download them at the end of the workshop.",
       image: "/services/pitch-decks.webp",
-      features: ["Template name (TBC)", "Template name (TBC)"],
+      features: ["ICP template", "12-month strategy template", "ICP deck", "Strategy deck"],
     },
     {
       title: "The workshop worksheet",
-      body: "Download it as soon as you book, and bring it along on the day.",
+      body: "Your ideal client, written down before the workshop ends. Download it as soon as you book, and we'll fill it in together on the day.",
       image: "/services/digital-guides.webp",
     },
     {
@@ -221,7 +222,7 @@ export const workshop2027Strategy: Workshop = {
     {
       question: "What do I get with my seat?",
       answer:
-        "The worksheet as soon as you book, the templates and Claude skills during the workshop, and 48 hours to rewatch the recording.",
+        "The worksheet as soon as you book. Two Claude skills, plus templates and decks for your plan, to download at the end of the workshop. And 48 hours to rewatch the recording.",
     },
     {
       question: "How much is it?",
