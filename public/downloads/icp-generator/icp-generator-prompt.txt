@@ -6,7 +6,7 @@ HOW TO RUN THIS
 - Every 2 or 3 messages, sum up what you've learned so far in one line so I can correct you.
 - If I give you my website and you can open it, read it, show me what you found, and only ask what's missing. If you can't open it, say so and ask me instead. Never guess what my business does.
 - Don't research other companies (my clients or prospects). Only use facts I give you about them.
-- If an answer is too vague to target (like "all industries" or "mid-sized businesses"), ask one follow-up for a number or example, then move on.
+- If an answer is too vague to target (like "all industries" or "mid-sized businesses"), ask one follow-up for a number or example, then move on. If I say size doesn't matter, ask once: "What's the smallest client you've been happy with, and the largest you could realistically serve?" If I still can't say, estimate a band from my deal values and mark it inferred.
 - Never invent facts about my clients. Mark anything you're guessing as "to confirm".
 - Use plain, professional English with Australian spelling. No slang or casual expressions (no "G'day", "mate", "no worries"). Be direct and warm. No hype, no jargon I didn't use first.
 
@@ -21,7 +21,7 @@ PART 2: MY CLIENTS
 4. Which regulations or standards apply to your best clients? (e.g. Privacy Act, Essential Eight, APRA CPS 234, ISO 27001, none)
 
 PART 3: THEIR WORLD
-5. What was going on in their business just before they called you? Pick any, or tell me what happened.
+5. What was going on at each of your best clients just before they first came to you? Pick any for each, or tell me what happened.
    a) an audit, insurer or regulator asking hard questions  b) a cyber incident or near miss  c) a new CEO, CFO or IT leader  d) a big client asking how they protect data  e) growth, a merger or new sites  f) leadership wanting to use AI  g) licence or cloud costs climbing  h) their current provider letting them down
 6a. Who runs their IT? a) nobody, the owner or office manager  b) one person  c) an IT manager with a small team  d) a CIO with a full team
 6b. Who looked after it before you? a) their own staff  b) another IT provider  c) a big consultancy  d) nobody
@@ -38,23 +38,25 @@ PART 3: THEIR WORLD
 
 PART 4: HOW THEY BUY
 8. Who usually contacts you first, who signs off, and who can slow the deal down?
-9. Why did they choose you over others, and what nearly stopped them?
+9a. Why did they choose you over others, and what nearly stopped them?
+9b. When you lose a deal or a client, who do they go with instead, and why?
 10. What frustrated them about their previous provider? a) slow response  b) reactive, never proactive  c) no strategic advice  d) billing surprises  e) no AI or automation help  f) the same problems never fixed  g) not specialist enough  h) they didn't have one
-11a. A typical client is worth about: (monthly or per project)
-11b. The smallest deal worth taking is:
+11a. The first engagement is usually worth about:
+11b. After that, a typical client is worth about: (a month or a year)
+11c. The smallest deal worth taking is:
 
 THEN WRITE MY ICP REPORT
 Base it on the patterns in my best clients. Keep it to 3 or 4 pages and quote my clients' words where I gave them. Use these sections:
 
 1. The short version: 2 or 3 short sentences (under 50 words in total) anyone in my team could repeat from memory.
 2. Who we serve: a table covering industries, size, location, internal IT, technology, regulations and their previous provider.
-3. Tiers: Tier 1 (ideal, go after now), Tier 2 (good fit, nurture until something changes), Tier 3 (take it if it comes), and Anti-ICP (say no). Use my worst clients and smallest deal size for the Anti-ICP.
+3. Tiers: Tier 1 (ideal, go after now), Tier 2 (good fit, nurture until something changes), Tier 3 (take it if it comes), and Anti-ICP (say no). Use my worst clients and smallest deal size for the Anti-ICP, plus a size band from my deal values: organisations too large to buy from a firm my size directly (through a panel, the Big 4 or an existing integrator) are Anti-ICP or "via a partner only".
 4. When they buy: a trigger watchlist table with what to look for and where to spot it.
 5. Who's in the room: 2 or 3 people on the buying side, what each cares about, what worries them, and what proof they need.
-6. Why they switch to us: what pushed them from their old provider, what pulled them to us, and what nearly stopped them.
+6. Why they switch to us: what pushed them from their old provider, what pulled them to us, what nearly stopped them, and who I lose to and why (9b).
 7. What to say: 5 messaging angles, each with who it's for and a one-line hook in my clients' language.
 8. Where to find them: the best channels, plus LinkedIn Sales Navigator filters (industry, headcount band, location, job titles).
-9. Account scoring: a table with 6 to 8 criteria and these exact columns: Criterion | Weight | Full marks (10) | Half marks (5) | Zero (0). Weights must add to 100. Weight the traits that best predict a great client highest, but keep at least 60% of the weight on things public sources can show (sector, size, location, triggers), so companies I look up can be scored. Traits only a conversation reveals (budget, responsiveness, who runs their IT) get lower weights, and the deal-breakers among them become Anti-ICP rules. Tier 1 = 70+, Tier 2 = 50 to 69, Tier 3 = under 50, and any Anti-ICP trait overrides the score. Then score my best and worst clients with it, using what I told you. The best should land Tier 1. If a worst client lands Tier 1 or 2, add an Anti-ICP rule or adjust the weights, and show this check as a small table.
+9. Account scoring: a table with 6 to 8 criteria and these exact columns: Criterion | Weight | Full marks (10) | Half marks (5) | Zero (0). Weights must add to 100. Weight the traits that best predict a great client highest, but keep at least 60% of the weight on things public sources can show (sector, size, location, triggers), so companies I look up can be scored. Traits only a conversation reveals (budget, responsiveness, who runs their IT) get lower weights, and the deal-breakers among them become Anti-ICP rules. Tier 1 = 70+, Tier 2 = 50 to 69, Tier 3 = under 50, and any Anti-ICP trait overrides the score. Then score my best and worst clients with it, using what I told you, including what was happening at each one when they first came (5). If I didn't know, say the check uses inferred triggers. The best should land Tier 1. If a worst client lands Tier 1 or 2, add an Anti-ICP rule or adjust the weights, and show this check as a small table.
 10. Gaps to fill: anything vague, skipped or marked "to confirm", and how to fill it.
 
 THEN HELP ME FIND THEM
@@ -62,7 +64,7 @@ Don't search for or name specific companies. Instead give me:
 - 5 ready-to-use Google search terms built from my Tier 1 profile and triggers
 - LinkedIn Sales Navigator filters (industry, headcount band, location, job titles)
 - 3 places to watch for my triggers (e.g. industry news sites, job ads, association member lists)
-Then offer: "Paste in any companies you're looking at, with what you know about them, and I'll score them against your ICP." Only score criteria I give you facts for, leave the rest blank, and show what share of the total weight is checked.
+Then offer: "Paste in any companies you're looking at, with what you know about them, and I'll score them against your ICP." Only score criteria I give you facts for, leave the rest blank, and always show the share checked beside the score, e.g. "82 (70% checked)"; never a bare 100 unless 85% or more is checked. The tier must match the score and the Anti-ICP rules.
 
 FINISH
 End with these three lines:
