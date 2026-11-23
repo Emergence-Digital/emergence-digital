@@ -3,7 +3,13 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
-import { leadForms, type LeadField, type LeadFormConfig, type LeadFormId } from "@/lib/lead-forms";
+import {
+  CHECKOUT_PREFILL_KEY,
+  leadForms,
+  type LeadField,
+  type LeadFormConfig,
+  type LeadFormId,
+} from "@/lib/lead-forms";
 import {
   isRequired,
   toE164,
@@ -31,7 +37,39 @@ function errorSummary(fieldErrors: FieldErrors): string {
   return `Please check ${count === 1 ? "1 field" : `${count} fields`} and try again.`;
 }
 
-function successUrl(form: LeadFormConfig, values: LeadValues): string | null {
+/** Previews and local dev check out on the Stripe sandbox. Anywhere else, including if Vercel doesn't say, is live. */
+const isTestCheckout =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === "preview" || process.env.NODE_ENV === "development";
+
+/** The Stripe payment link, with what it can take: the email, our contact ID and a promo code from ?code=. */
+function checkoutUrl(checkout: { live: string; test: string }, values: LeadValues, contactId?: string): string {
+  const url = new URL(isTestCheckout ? checkout.test : checkout.live);
+  url.searchParams.set("prefilled_email", values.email.trim());
+  // Stripe allows letters, digits, "-" and "_", up to 200 characters.
+  if (contactId && /^[\w-]{1,200}$/.test(contactId)) url.searchParams.set("client_reference_id", contactId);
+  const code = new URLSearchParams(window.location.search).get("code")?.trim();
+  if (code && /^[A-Za-z0-9-]{1,40}$/.test(code)) url.searchParams.set("prefilled_promo_code", code.toUpperCase());
+  return url.toString();
+}
+
+function saveCheckoutPrefill(values: LeadValues) {
+  try {
+    sessionStorage.setItem(
+      CHECKOUT_PREFILL_KEY,
+      JSON.stringify({
+        first_name: values.firstName?.trim() ?? "",
+        last_name: values.lastName?.trim() ?? "",
+        email: values.email?.trim() ?? "",
+        phone: values.phone ? (toE164(values.phone) ?? values.phone.trim()) : "",
+      }),
+    );
+  } catch {
+    // Storage blocked: the calendar just won't be prefilled.
+  }
+}
+
+function successUrl(form: LeadFormConfig, values: LeadValues, contactId?: string): string | null {
+  if (form.success.type === "checkout") return checkoutUrl(form.success.checkout, values, contactId);
   if (form.success.type !== "redirect") return null;
   const url = new URL(form.success.url, window.location.origin);
   if (form.success.prefillBooking) {
@@ -120,6 +158,7 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
 
     let saved = false;
     let metaEventId: string | undefined;
+    let contactId: string | undefined;
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -133,13 +172,14 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
           elapsedMs: Math.round(performance.now() - mountedAt.current),
         }),
       });
-      const result: { ok?: boolean; errors?: FieldErrors; eventId?: unknown } = await response
+      const result: { ok?: boolean; errors?: FieldErrors; eventId?: unknown; contactId?: unknown } = await response
         .json()
         .catch(() => ({}));
 
       if (response.ok && result.ok) {
         saved = true;
         if (typeof result.eventId === "string") metaEventId = result.eventId;
+        if (typeof result.contactId === "string") contactId = result.contactId;
       } else if (result.errors && Object.keys(result.errors).length > 0) {
         setErrors(result.errors);
         setStatus("idle");
@@ -151,9 +191,11 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
       // Network error: the email copy below may still have got it through.
     }
 
-    // If GHL didn't save it but the email copy reached us, it isn't lost.
+    // If GHL didn't save it but the email copy reached us, it isn't lost. A
+    // checkout form carries on to payment regardless: the Stripe webhook finds
+    // or creates the contact by email once they've paid.
     const emailed = await emailCopy;
-    if (!saved && !emailed) {
+    if (!saved && !emailed && form.success.type !== "checkout") {
       setStatus("error");
       setFormError(GENERIC_ERROR);
       return;
@@ -164,11 +206,13 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
     // once. Spam drops get no ID and send nothing. If only the email copy got
     // through, the server sent nothing, so the Pixel's event stands alone.
     if (metaEventId || !saved) trackMetaEvent("Lead", { content_name: form.name }, metaEventId ?? crypto.randomUUID());
-    const redirectTo = successUrl(form, values);
+    if (form.success.type === "checkout") saveCheckoutPrefill(values);
+    const redirectTo = successUrl(form, values, contactId);
     setStatus("success");
     // Booking prefill links carry personal details, so they get a full page
     // load: GA4 would record a client-side navigation with the whole URL, while
     // <GoogleAnalytics /> strips them before a fresh page's first page view.
+    // (Checkout links are on Stripe, so they get one anyway.)
     const carriesPersonalDetails = form.success.type === "redirect" && form.success.prefillBooking;
     if (redirectTo?.startsWith("/") && !carriesPersonalDetails) router.push(redirectTo);
     else if (redirectTo) window.location.assign(redirectTo);

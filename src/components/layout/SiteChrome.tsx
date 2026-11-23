@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
  * Funnel pages: each path and everything under it. They get the bare header and footer, so nothing on the
  * page leads away from the booking.
  */
-const FUNNEL_PATHS = ["/pipeline-scale-plan-call"];
+const FUNNEL_PATHS = ["/pipeline-scale-plan-call", "/workshop-2027-strategy"];
 
 const isFunnelPath = (pathname: string) =>
   FUNNEL_PATHS.some((path) => pathname === path || pathname.startsWith(`${path}/`));
