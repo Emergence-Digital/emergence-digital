@@ -164,19 +164,20 @@ export const workshop2027Strategy: Workshop = {
     },
   ],
   // DRAFT from Shane's agenda (24 Nov 2026): two Claude skills, two templates and two decks, downloaded at the end of
-  // the workshop. Skill, template and deck names are working names until Shane and the team settle them. The images
-  // are services library scenes standing in until the workshop's own scenes are made in the Illustrator card library.
+  // the workshop. Skill, template and deck names are working names until Shane and the team settle them. The skills and
+  // templates scenes are SC.workshop in the Illustrator card library (~/Adobe MCPs/centurion-cards); the worksheet and
+  // replay cards borrow services library scenes.
   included: [
     {
       title: "Two Claude skills",
       body: "Your ideal client profile, then a 2027 plan and deck built around it, drafted by Claude from your worksheet answers. Yours to download at the end of the workshop.",
-      image: "/services/funnel-automation.webp",
+      image: "/workshops/claude-skills.webp",
       features: ["ICP generator", "2027 plan builder"],
     },
     {
       title: "Templates and decks",
       body: "Your ideal client and your year of marketing laid out for the team, so everyone knows who you're for and what goes out each month. Download them at the end of the workshop.",
-      image: "/services/pitch-decks.webp",
+      image: "/workshops/templates.webp",
       features: ["ICP template", "12-month strategy template", "ICP deck", "Strategy deck"],
     },
     {
