@@ -32,6 +32,8 @@ Visitor lands ─▶ AttributionCapture stores first touch in the "ed_attributio
 | `src/components/layout/AttributionCapture.tsx` + `src/lib/attribution.ts` | First-touch cookie |
 | `src/app/lp/example-lead/` | Example funnel (`/lp/example-lead`) and its booking step (`/book`) |
 | `src/app/pipeline-scale-plan-call/` | Pipeline Scale Plan call funnel: landing page with the form (tag `web:pipeline-scale-plan-call`), calendar (`/book`), and `/thank-you`, which the calendar's confirmation redirect must point to |
+| `src/lib/workshops.ts` + `src/app/workshop-2027-strategy/` | Paid workshop funnel: landing page, Stripe checkout, three after-payment steps (see [Paid workshops](#paid-workshops-stripe-and-zoom)) |
+| `src/app/api/stripe/webhook/route.ts` + `src/lib/zoom.ts` + `src/lib/stripe-webhook.ts` | Tags paid workshop buyers in GHL and registers them in Zoom |
 | `src/components/layout/MetaPixel.tsx` + `src/lib/meta-pixel.ts` | Meta Pixel and browser events |
 | `src/lib/meta-capi.ts` | Server-only Meta Conversions API client |
 | `scripts/ghl-custom-fields.mjs` | Prints custom field names and IDs (`npm run ghl:fields`) |
@@ -257,6 +259,64 @@ The site tells Meta about visits and leads two ways, so the ads can optimise for
 
 After a few days, Events Manager → the dataset → **Overview** shows each event's match quality and how many browser and server events were deduplicated.
 
+## Paid workshops (Stripe and Zoom)
+
+A paid workshop is a funnel with a payment in the middle. Everything about one (dates, price, copy, Stripe links,
+Zoom Events IDs, tags) is its entry in `src/lib/workshops.ts`.
+
+```
+/<slug>            landing page ─▶ <LeadForm> ─▶ /api/lead (tag web:<slug>, returns the contact ID)
+                                      │
+                                      ▼
+Stripe payment link   ?prefilled_email=…&client_reference_id=<GHL contact ID>[&prefilled_promo_code=<?code= on the landing page>]
+   │  after paying, redirects to ▼                       │ and Stripe calls ▼
+/<slug>/thank-you?session_id=…  (Meta Purchase, worksheet)   /api/stripe/webhook
+/<slug>/zoom                     (what Zoom sends)              1. tag web:<slug>-paid in GHL
+/<slug>/call                     (book a call with Shane)       2. Zoom Events ticket → Zoom emails the
+                                                                   join link and reminders; join link saved in GHL
+```
+
+- **Checkout:** a Stripe payment link per workshop, in the trust's Stripe account. It caps sales at the seat limit,
+  takes promo codes, collects only the email (prefilled) and card, and creates a tax invoice with the ABN. Previews and
+  local dev use the sandbox link (`NEXT_PUBLIC_VERCEL_ENV` is `preview`, or `next dev`); everywhere else uses the live one.
+- **Private discount codes:** add `?code=<CODE>` to the landing page URL. The form passes it to Stripe as the promo code.
+- **The "book a call" step** prefills its calendar from the details the form kept in the tab's sessionStorage.
+- **Meta:** the thank-you page sends a browser `Purchase` at the list price, with the Checkout Session ID as the event
+  ID. There's no server-side Purchase: a webhook has no browser details (user agent, `_fbp`), which Meta needs for
+  website events. Promo-code purchases show at full price in Meta.
+
+### Set up a workshop
+
+1. **Stripe:** product, price, promo codes and payment link (metadata `event` = the workshop's `stripeEventKey`).
+   After the site is deployed, set the link's confirmation to **redirect** to
+   `https://www.emergencedigital.com.au/<slug>/thank-you?session_id={CHECKOUT_SESSION_ID}`.
+2. **Stripe webhook (once for all workshops):** in the live account, Developers → Workbench → **Webhooks** →
+   **Create an event destination** → **Your account**, payload **Snapshot** (not Thin: the route reads the session from
+   the event), events `checkout.session.completed` and `checkout.session.async_payment_succeeded` → **Webhook
+   endpoint**, URL `https://www.emergencedigital.com.au/api/stripe/webhook`. Use **www**: the bare domain redirects to
+   it, and Stripe doesn't follow redirects. Then **Reveal secret** and copy the `whsec_…` value into Vercel as
+   `STRIPE_WEBHOOK_SECRET` (Production).
+3. **Zoom Events event:** create and **publish** it on events.zoom.us (an unpublished event refuses tickets), with the
+   confirmation and reminder emails on under Communication. Copy the **Event ID for integrations or support** and the
+   **Ticket type ID** (Overview → the info panel) into `zoomEvent` in `workshops.ts`. Keep the event off public listings
+   and don't share its registration link: buyers get their join links from Zoom's emails. (Zoom Events can't take
+   registrants through the Webinar API, which is why the site creates tickets.)
+4. **Zoom app (once):** marketplace.zoom.us → **Developers** (lower left) → **+** → **Build an app** →
+   **Server-to-Server OAuth app** → **Create**. Fill in the Information page (description, company, developer name and
+   email), add the scope `zoom_events:write:ticket:admin` (Zoom Events: create tickets) under **Scopes**, then activate it.
+   Copy its Account ID, Client ID and Client Secret from **App credentials** into Vercel as `ZOOM_ACCOUNT_ID`,
+   `ZOOM_CLIENT_ID` and `ZOOM_CLIENT_SECRET` (Production). Needs a Zoom Events / Webinars Plus licence. If the
+   Server-to-Server option isn't offered, an admin enables it in the Zoom web portal: User Management → Roles → Role
+   Settings → Advanced features → **Server-to-Server OAuth app** (View and Edit).
+5. **GHL workflows:** *Tag Added* `web:<slug>` (filled in the form; a Wait plus an If/Else on `web:<slug>-paid` chases
+   people who didn't pay) and *Tag Added* `web:<slug>-paid` (paid).
+6. Add the landing page path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx` for the bare header.
+
+Webhook log lines start with `workshop.`: `tagged_paid`, `zoom_registered`, `zoom_skipped` (event ID or Zoom
+variables missing), `contact_lookup_failed` (fell back to the email), `join_link_not_saved`, `fulfil_failed` (Stripe
+retries), `bad_signature` and `webhook_misconfigured`. Stripe → Developers → Webhooks shows each delivery and lets you
+resend one.
+
 ## Troubleshooting
 
 `/api/lead` writes one JSON log line per event. In Vercel → Logs, search for `lead.`:
@@ -282,7 +342,7 @@ GHL calls time out after 10 s and are retried once on a 429, a 5xx or a network 
 - **The cookie.** `ed_attribution` is a first-party cookie (30 days, `SameSite=Lax`) holding UTMs, click IDs, the referrer and the landing page. The privacy policy (`/privacy`) describes it; update the policy if the cookie's contents or lifetime change.
 - **Booking prefill puts personal details in the URL.** The booking page removes them from the address bar once loaded, so they don't sit in browser history, but they still reach Vercel's request logs and GHL. Google Analytics never sees them (see [Google Analytics](#google-analytics)).
 - **Spam protection is basic** (honeypot + 3-second check), which stops form-filling bots but not someone scripting the API. If that becomes a problem, add a Vercel Firewall rate limit on `/api/lead`, or Cloudflare Turnstile.
-- **Site chrome.** Pages under `/pipeline-scale-plan-call` get a bare header (the logo, not a link) and footer (logo, address, email, copyright and a privacy policy link that opens in a new tab), so nothing leads away from the booking. To give another funnel the same, add its path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx`. Other funnel pages, such as `/lp/example-lead`, use the site's normal navbar and footer.
+- **Site chrome.** Pages under `/pipeline-scale-plan-call` and `/workshop-2027-strategy` get a bare header (the logo, not a link) and footer (logo, address, email, copyright and a privacy policy link that opens in a new tab), so nothing leads away from the booking. To give another funnel the same, add its path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx`. Other funnel pages, such as `/lp/example-lead`, use the site's normal navbar and footer.
 
 ## Checked against the GHL API v2 docs (Oct 2026)
 

@@ -151,13 +151,9 @@ export default function InsightsCarousel() {
       <div className="max-w-[1200px] mx-auto px-6 mb-12 md:mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div className="max-w-2xl">
           <SectionLabel>Insights</SectionLabel>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark-green leading-[1.1] tracking-tight mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark-green leading-[1.1] tracking-tight">
             Insights for IT firms.
           </h2>
-          <p className="text-muted text-lg leading-relaxed">
-            Short takes for IT firms in Australia: the IT news worth knowing before your buyers ask, and marketing
-            tips from Shane Kennedy.
-          </p>
         </div>
         <Button href="/insights" variant="secondary" className="self-start md:self-auto shrink-0">
           See all insights
