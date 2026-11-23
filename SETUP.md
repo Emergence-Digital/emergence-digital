@@ -289,16 +289,22 @@ Stripe payment link   ?prefilled_email=…&client_reference_id=<GHL contact ID>[
 
 1. **Stripe:** product, price, promo codes and payment link (metadata `event` = the workshop's `stripeEventKey`).
    After the site is deployed, set the link's confirmation to **redirect** to
-   `https://emergencedigital.com.au/<slug>/thank-you?session_id={CHECKOUT_SESSION_ID}`.
-2. **Stripe webhook (once for all workshops):** Stripe → Developers → Webhooks → **Add endpoint**, URL
-   `https://emergencedigital.com.au/api/stripe/webhook`, events `checkout.session.completed` and
-   `checkout.session.async_payment_succeeded`. Copy its **Signing secret** into Vercel as `STRIPE_WEBHOOK_SECRET`
-   (Production).
+   `https://www.emergencedigital.com.au/<slug>/thank-you?session_id={CHECKOUT_SESSION_ID}`.
+2. **Stripe webhook (once for all workshops):** in the live account, Developers → Workbench → **Webhooks** →
+   **Create an event destination** → **Your account**, payload **Snapshot** (not Thin: the route reads the session from
+   the event), events `checkout.session.completed` and `checkout.session.async_payment_succeeded` → **Webhook
+   endpoint**, URL `https://www.emergencedigital.com.au/api/stripe/webhook`. Use **www**: the bare domain redirects to
+   it, and Stripe doesn't follow redirects. Then **Reveal secret** and copy the `whsec_…` value into Vercel as
+   `STRIPE_WEBHOOK_SECRET` (Production).
 3. **Zoom webinar:** schedule it with **Registration required**, approval **Automatically approve**, only name and email
    required, and the confirmation and reminder emails turned on. Put its ID (digits only) in `zoomWebinarId`.
-4. **Zoom app (once):** Zoom Marketplace → Develop → Build app → **Server-to-Server OAuth**. Add the scope for creating
-   webinar registrants, activate it, and copy its Account ID, Client ID and Client Secret into Vercel as
-   `ZOOM_ACCOUNT_ID`, `ZOOM_CLIENT_ID` and `ZOOM_CLIENT_SECRET` (Production). Needs the Zoom Webinars add-on.
+4. **Zoom app (once):** marketplace.zoom.us → **Developers** (lower left) → **+** → **Build an app** →
+   **Server-to-Server OAuth app** → **Create**. Fill in the Information page (description, company, developer name and
+   email), add the scope `webinar:write:registrant:admin` (Add a webinar registrant) under **Scopes**, then activate it.
+   Copy its Account ID, Client ID and Client Secret from **App credentials** into Vercel as `ZOOM_ACCOUNT_ID`,
+   `ZOOM_CLIENT_ID` and `ZOOM_CLIENT_SECRET` (Production). Needs the Zoom Webinars add-on. If the
+   Server-to-Server option isn't offered, an admin enables it in the Zoom web portal: User Management → Roles → Role
+   Settings → Advanced features → **Server-to-Server OAuth app** (View and Edit).
 5. **GHL workflows:** *Tag Added* `web:<slug>` (filled in the form; a Wait plus an If/Else on `web:<slug>-paid` chases
    people who didn't pay) and *Tag Added* `web:<slug>-paid` (paid).
 6. Add the landing page path to `FUNNEL_PATHS` in `src/components/layout/SiteChrome.tsx` for the bare header.
