@@ -176,7 +176,13 @@ export async function POST(request: Request) {
     // never slows the form down, and a Meta problem can't fail the lead.
     const metaEvent = await metaLeadEvent(request, form, lead, contactId, attribution.fbclid);
     after(() => sendMetaEvent(metaEvent));
-    return json({ ok: true, eventId: metaEvent.eventId });
+    // Checkout forms pass the contact ID to Stripe as client_reference_id, so the
+    // Stripe webhook can find the contact again once they've paid.
+    return json({
+      ok: true,
+      eventId: metaEvent.eventId,
+      ...(form.success.type === "checkout" ? { contactId } : {}),
+    });
   } catch (error) {
     logLeadEvent("error", "lead.ghl_failed", {
       formId,

@@ -13,6 +13,7 @@
  */
 
 import type { AttributionKey } from "@/lib/attribution";
+import { workshop2027Strategy } from "@/lib/workshops";
 
 export type StandardFieldName = "firstName" | "lastName" | "email" | "phone" | "company" | "message";
 
@@ -46,6 +47,15 @@ export type LeadFormSuccess =
       url: string;
       /** Append first_name, last_name, email and phone so a GHL calendar embed can prefill them. */
       prefillBooking?: boolean;
+    }
+  | {
+      /**
+       * Paid workshops: on to the Stripe payment link with the email prefilled, the GHL contact ID as
+       * client_reference_id, and the page's ?code= as the promo code. The name, email and phone are also kept in
+       * sessionStorage (this tab only) so the workshop's "book a call" step can prefill its calendar.
+       */
+      type: "checkout";
+      checkout: { live: string; test: string };
     };
 
 export interface LeadFormConfig {
@@ -110,6 +120,18 @@ export const attributionFieldIds: Record<AttributionKey | "conversion_page", str
   conversion_page: "QE8RPq4nmUUAXwx9ww80",
 };
 
+/** sessionStorage key for the details a checkout form keeps for the workshop "book a call" step's calendar. */
+export const CHECKOUT_PREFILL_KEY = "checkout-prefill";
+
+/** Choices for the "Annual revenue" question. They match the options of GHL's "Annual revenue" dropdown exactly. */
+export const ANNUAL_REVENUE_OPTIONS = [
+  "$1–2.5 million",
+  "$2.5–5 million",
+  "$5–10 million",
+  "$10–20 million",
+  "$20 million+",
+] as const;
+
 /** GHL calendars embedded on booking pages (Calendars → Calendar settings → the calendar's ID). */
 export const bookingCalendarIds = {
   /** "30 Minute Pipeline Scale Call" (round robin) */
@@ -165,6 +187,32 @@ export const leadForms = {
     ],
     submitLabel: "Pick a time",
     success: { type: "redirect", url: "/pipeline-scale-plan-call/book", prefillBooking: true },
+  },
+  // The 2027 strategy workshop (/workshop-2027-strategy). Submitting tags the
+  // contact before payment; the Stripe webhook adds the paid tag. Event details
+  // and the payment links are in src/lib/workshops.ts.
+  "workshop-2027-strategy": {
+    name: "Workshop: Let's Build your 2027 Marketing Strategy",
+    tags: [workshop2027Strategy.tags.registered],
+    fields: [
+      { ...standardFields.firstName, half: true },
+      { ...standardFields.lastName, half: true, required: true },
+      { ...standardFields.email, half: true },
+      { ...standardFields.phone, half: true, required: true },
+      { ...standardFields.company, required: true },
+      {
+        name: "annualRevenue",
+        label: "Annual revenue",
+        type: "select",
+        required: true,
+        options: ANNUAL_REVENUE_OPTIONS,
+        // PLACEHOLDER: the ID of GHL's "Annual revenue" dropdown once it's created (npm run ghl:fields).
+        // Until then the answer goes into the contact note.
+        ghlFieldId: "",
+      },
+    ],
+    submitLabel: "Continue to payment",
+    success: { type: "checkout", checkout: workshop2027Strategy.checkout },
   },
   "example-lead": {
     name: "Example lead form",

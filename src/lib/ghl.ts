@@ -53,7 +53,12 @@ function retryDelayMs(response: Response): number {
 }
 
 /** Calls GHL, retrying once on 429, 5xx or a network error/timeout. */
-async function ghlRequest<T>(step: string, method: "POST" | "DELETE", path: string, body: unknown): Promise<T> {
+async function ghlRequest<T>(
+  step: string,
+  method: "GET" | "POST" | "PUT" | "DELETE",
+  path: string,
+  body?: unknown,
+): Promise<T> {
   const { token } = credentials();
 
   for (let attempt = 1; ; attempt++) {
@@ -68,7 +73,7 @@ async function ghlRequest<T>(step: string, method: "POST" | "DELETE", path: stri
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(body),
+        body: body === undefined ? undefined : JSON.stringify(body),
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       });
     } catch (error) {
@@ -182,4 +187,49 @@ export async function pushLeadToGhl(lead: GhlLead): Promise<{ contactId: string;
   }
 
   return { contactId, isNew };
+}
+
+/** The contact details the Stripe webhook needs. */
+export interface GhlContactSummary {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+}
+
+/** Looks a contact up by ID (needs the token's View Contacts scope). */
+export async function getContact(contactId: string): Promise<GhlContactSummary> {
+  const result = await ghlRequest<{ contact?: GhlContactSummary }>(
+    "get-contact",
+    "GET",
+    `/contacts/${encodeURIComponent(contactId)}`,
+  );
+  return result.contact ?? {};
+}
+
+/** Adds tags to a contact. GHL's "Contact Tag" trigger fires for each tag the contact didn't have. */
+export async function addContactTags(contactId: string, tags: readonly string[]): Promise<void> {
+  await ghlRequest("add-tags", "POST", `/contacts/${encodeURIComponent(contactId)}/tags`, { tags: [...tags] });
+}
+
+/**
+ * Creates or updates a contact by email (the location's duplicate-contact rules decide which) and returns its ID.
+ * For when there's no contact ID to go on, e.g. a payment that didn't come through the site's form.
+ */
+export async function upsertContactByEmail(contact: {
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  source: string;
+}): Promise<string> {
+  const { locationId } = credentials();
+  const { contactId } = await upsertContact(locationId, { ...contact, customFields: [] } as GhlLead["contact"]);
+  return contactId;
+}
+
+/** Sets contact custom fields by ID. */
+export async function updateContactCustomFields(
+  contactId: string,
+  customFields: { id: string; field_value: string }[],
+): Promise<void> {
+  await ghlRequest("update-contact", "PUT", `/contacts/${encodeURIComponent(contactId)}`, { customFields });
 }
