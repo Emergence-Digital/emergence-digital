@@ -44,7 +44,7 @@ export const leadMagnets = {
     claudeStarter: "Build my ICP",
     webSearch: true,
     claudeExtra:
-      "The full version. It reads your website, looks up the clients you name, and fills in the scoring spreadsheet for you.",
+      "The full version. It reads your website, looks up the clients you name, fills in the scoring spreadsheet and lays it all out as a slide deck.",
     files: {
       skillZip: "/downloads/icp-generator/icp-generator-skill.zip",
       prompt: "/downloads/icp-generator/icp-generator-prompt.txt",
@@ -64,7 +64,7 @@ export const leadMagnets = {
     claudeStarter: "Build an outbound sequence",
     webSearch: true,
     claudeExtra:
-      "The full version. It reads your website, looks up the companies you want to email, and writes an opening line for each one.",
+      "The full version. It reads your website, looks up the companies you want to email, writes an opening line for each one and lays the sequence out as a slide deck.",
     files: {
       skillZip: "/downloads/outbound-sequence-builder/outbound-sequence-builder-skill.zip",
       prompt: "/downloads/outbound-sequence-builder/outbound-sequence-prompt.txt",
@@ -84,7 +84,7 @@ export const leadMagnets = {
     claudeStarter: "Write a case study",
     webSearch: false,
     claudeExtra:
-      "The full version. It pulls the story out of your project notes and fills in the Case Study Library spreadsheet for you.",
+      "The full version. It pulls the story out of your project notes, fills in the Case Study Library spreadsheet and lays it all out as a slide deck.",
     files: {
       skillZip: "/downloads/case-study-generator/case-study-generator-skill.zip",
       prompt: "/downloads/case-study-generator/case-study-prompt.txt",
@@ -104,7 +104,7 @@ export const leadMagnets = {
     claudeStarter: "Build me a social media calendar",
     webSearch: false,
     claudeExtra:
-      "The full version. It fills in the calendar spreadsheet for you and gives you a file of posting reminders for Google Calendar or Outlook.",
+      "The full version. It fills in the calendar spreadsheet, gives you a file of posting reminders for Google Calendar or Outlook, and lays the plan out as a slide deck.",
     files: {
       skillZip: "/downloads/social-calendar-creator/social-calendar-creator-skill.zip",
       prompt: "/downloads/social-calendar-creator/social-calendar-prompt.txt",
