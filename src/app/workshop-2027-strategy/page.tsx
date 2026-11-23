@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import ClientLogoWall from "@/components/sections/ClientLogoWall";
 import VideoTestimonials from "@/components/sections/VideoTestimonials";
-import AboutShane from "@/components/sections/AboutShane";
 import Faq from "@/components/sections/Faq";
 import LeadForm from "@/components/sections/LeadForm";
 import SectionLabel from "@/components/ui/SectionLabel";
 import WorkshopHero from "@/components/workshop/WorkshopHero";
-import { WorkshopFinalCta, WorkshopIncluded, WorkshopLearn } from "@/components/workshop/WorkshopSections";
+import {
+  WorkshopFinalCta,
+  WorkshopIncluded,
+  WorkshopIntroducing,
+  WorkshopLearn,
+} from "@/components/workshop/WorkshopSections";
 import { workshop2027Strategy as workshop } from "@/lib/workshops";
 import { pageMetadata } from "@/lib/seo";
 
@@ -36,7 +40,6 @@ export default function Workshop2027StrategyPage() {
   return (
     <>
       <WorkshopHero workshop={workshop} headline={["Let's build your", "2027 marketing strategy"]} ctaHref={CTA_HREF} />
-      <ClientLogoWall />
       <WorkshopLearn workshop={workshop} ctaHref={CTA_HREF} />
       <WorkshopIncluded workshop={workshop} ctaHref={CTA_HREF} />
 
@@ -67,8 +70,9 @@ export default function Workshop2027StrategyPage() {
       </section>
 
       <Faq items={workshop.faq} />
-      <AboutShane />
+      <WorkshopIntroducing workshop={workshop} ctaHref={CTA_HREF} />
       <VideoTestimonials />
+      <ClientLogoWall />
       <WorkshopFinalCta workshop={workshop} ctaHref={CTA_HREF} />
     </>
   );

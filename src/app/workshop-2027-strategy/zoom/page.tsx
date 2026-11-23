@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Bell, CalendarCheck, Mail, MonitorPlay, type LucideIcon } from "lucide-react";
+import VimeoEmbed from "@/components/ui/VimeoEmbed";
 import { WorkshopNextStep, WorkshopStepHeader } from "@/components/workshop/WorkshopSteps";
 import { workshop2027Strategy as workshop } from "@/lib/workshops";
 
 // 2027 strategy workshop funnel, after payment, step 2 of 3: what Zoom sends and
 // when. The Stripe webhook gives each buyer a ticket to the Zoom Events event,
 // so the confirmation, join link and reminders all come from Zoom's own emails.
+// The video ID is in workshops.ts (stepVideos.zoom); blank hides it.
 export const metadata: Metadata = {
   title: "Joining on Zoom — Emergence Digital",
   robots: { index: false, follow: false },
@@ -43,6 +45,10 @@ export default function WorkshopZoomPage() {
           heading="Joining on Zoom"
           intro={`${workshop.name} runs live on Zoom, ${workshop.dateLabel}, ${workshop.timeLabel}. Here's what happens next.`}
         />
+
+        {workshop.stepVideos.zoom && (
+          <VimeoEmbed id={workshop.stepVideos.zoom} title="Joining the workshop on Zoom" className="max-w-4xl mx-auto mb-12" />
+        )}
 
         <ol className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {steps.map((step) => (

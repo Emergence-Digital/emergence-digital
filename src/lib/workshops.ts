@@ -21,6 +21,24 @@ export interface WorkshopItem {
   body: string;
 }
 
+/**
+ * A "What you'll learn" card, styled like the homepage "Why choose Emergence" tiles. The image is a benefit-style
+ * tile from the Illustrator card library (640 × 400, transparent, cream widgets for the dark green band).
+ */
+export interface WorkshopLearnItem extends WorkshopItem {
+  image: string;
+}
+
+/**
+ * A "What you get" card, styled like a services library row. The image is a services-style scene from the
+ * Illustrator card library (1200 × 720, butter plate with white widgets).
+ */
+export interface WorkshopIncludedItem extends WorkshopItem {
+  image: string;
+  /** Short names shown as ticked chips, e.g. each skill or template. */
+  features?: string[];
+}
+
 export interface Workshop {
   /** URL path segment, also the form ID and GHL tag stem. */
   slug: string;
@@ -57,18 +75,26 @@ export interface Workshop {
   /** GHL calendar for the "book a call with Shane" step. */
   callCalendarId: string;
   heroVideo: HeroVideo;
-  /** Vimeo ID for the thank-you video. Blank hides it. */
-  thankYouVideoId: string;
+  /** Vimeo IDs for the videos on the three after-payment steps. Blank hides that step's video. */
+  stepVideos: { thankYou: string; zoom: string; call: string };
   /** The worksheet download, under /public. Blank shows a placeholder line instead of the button. */
   worksheetHref: string;
-  hook: { before: string; highlight: string; after: string };
-  learn: WorkshopItem[];
-  included: (WorkshopItem & { icon: "sparkles" | "template" | "worksheet" | "replay" })[];
+  /** One line under the headline, in body text. */
+  hook: string;
+  /** The line beside the "What you'll learn" heading. */
+  learnIntro: string;
+  learn: WorkshopLearnItem[];
+  included: WorkshopIncludedItem[];
+  /** The "Introducing..." section near the end of the page. Wrap words in **double asterisks** to bold them. */
+  introducing: { name: string; paragraphs: string[] };
   faq: { question: string; answer: string }[];
 }
 
 /** "30 Minute Pipeline Scale Call" (round robin), as in bookingCalendarIds in lead-forms.ts. */
 const PIPELINE_SCALE_CALL_CALENDAR = "TygCbiZhLM8nPUil74R6";
+
+/** The Pipeline Scale Plan VSL (16:9), standing in for workshop videos that aren't recorded yet. */
+const PIPELINE_VSL = "1240137722";
 
 export const workshop2027Strategy: Workshop = {
   slug: "workshop-2027-strategy",
@@ -100,47 +126,82 @@ export const workshop2027Strategy: Workshop = {
   callCalendarId: PIPELINE_SCALE_CALL_CALENDAR,
   // PLACEHOLDER: the Pipeline Scale Plan VSL until the workshop promo video is recorded.
   heroVideo: {
-    desktop: "1240137722",
+    desktop: PIPELINE_VSL,
     mobile: "1240137725",
     title: "The Pipeline Scale Plan",
     autoplay: true,
   },
-  // PLACEHOLDER: Shane to record the thank-you video.
-  thankYouVideoId: "",
+  // PLACEHOLDER: the Pipeline Scale Plan VSL on all three steps until Shane records the step videos.
+  stepVideos: { thankYou: PIPELINE_VSL, zoom: PIPELINE_VSL, call: PIPELINE_VSL },
   // PLACEHOLDER: Shane to supply the worksheet PDF (save it to public/workshops/ and set the path here).
   worksheetHref: "",
-  // DRAFT: hook option 1, for Shane to confirm.
-  hook: { before: "Know where your ", highlight: "2027 clients", after: " will come from." },
-  // PLACEHOLDER: Shane to supply "What you'll learn".
+  hook: "Know where your 2027 clients will come from.",
+  // DRAFT from Shane's agenda (24 Nov 2026): lesson 1 is the ICP, lesson 2 the 12-month calendar. Two points on
+  // revenue (ICP, proof), two on marketing (consistency, AI). The images are homepage benefit tiles standing in until
+  // each point gets its own tile in the Illustrator card library.
+  learnIntro:
+    "Ninety minutes, live on Zoom, in two lessons. You'll leave with your ideal client written down and the tools to turn it into a 12-month marketing plan.",
   learn: [
-    { title: "Learning point 1 (Shane to supply)", body: "One line on what changes for the attendee." },
-    { title: "Learning point 2 (Shane to supply)", body: "One line on what changes for the attendee." },
-    { title: "Learning point 3 (Shane to supply)", body: "One line on what changes for the attendee." },
-    { title: "Learning point 4 (Shane to supply)", body: "One line on what changes for the attendee." },
+    {
+      title: "Find the clients who lift your margin",
+      body: "Pin down the clients you want more of: the ones who pay well and stay. When all your marketing speaks to them, more of your revenue comes from work worth doing.",
+      image: "/benefits/higher-margin.webp",
+    },
+    {
+      title: "Turn your proof into pipeline",
+      body: "Go after the market where you already have results, not a brand new one. Buyers who see firms like theirs succeeding with you start the conversation already trusting you.",
+      image: "/benefits/pipeline.webp",
+    },
+    {
+      title: "Stay visible all year, not in bursts",
+      body: "Map out 12 months of marketing your team can keep up with. Buyers keep seeing you between projects, so new work doesn't dry up when you get busy.",
+      image: "/benefits/opportunities.webp",
+    },
+    {
+      title: "Get AI writing for your buyers",
+      body: "Give Claude your ideal client once, and everything it helps you write speaks to the people you want to win. Your team's know-how reaches the market without eating their week.",
+      image: "/benefits/busy-team.webp",
+    },
   ],
+  // DRAFT from Shane's agenda (24 Nov 2026): two Claude skills, two templates and two decks, downloaded at the end of
+  // the workshop. Skill, template and deck names are working names until Shane and the team settle them. The skills and
+  // templates scenes are SC.workshop in the Illustrator card library (~/Adobe MCPs/centurion-cards); the worksheet and
+  // replay cards borrow services library scenes.
   included: [
-    // PLACEHOLDER: Shane to supply the Claude skills and templates handed out in the workshop.
     {
-      icon: "sparkles",
-      title: "Claude skills (Shane to supply names)",
-      body: "Handed out during the workshop. One line on what each one does for the attendee.",
+      title: "Two Claude skills",
+      body: "Your ideal client profile, then a 2027 plan and deck built around it, drafted by Claude from your worksheet answers. Yours to download at the end of the workshop.",
+      image: "/workshops/claude-skills.webp",
+      features: ["ICP generator", "2027 plan builder"],
     },
     {
-      icon: "template",
-      title: "Templates (Shane to supply names)",
-      body: "Handed out during the workshop. One line on what each one does for the attendee.",
+      title: "Templates and decks",
+      body: "Your ideal client and your year of marketing laid out for the team, so everyone knows who you're for and what goes out each month. Download them at the end of the workshop.",
+      image: "/workshops/templates.webp",
+      features: ["ICP template", "12-month strategy template", "ICP deck", "Strategy deck"],
     },
     {
-      icon: "worksheet",
       title: "The workshop worksheet",
-      body: "Download it as soon as you book, and bring it along on the day.",
+      body: "Your ideal client, written down before the workshop ends. Download it as soon as you book, and we'll fill it in together on the day.",
+      image: "/services/digital-guides.webp",
     },
     {
-      icon: "replay",
       title: "48-hour replay",
       body: "Can't make it live? Watch the recording for 48 hours afterwards.",
+      image: "/services/webinars.webp",
     },
   ],
+  // DRAFT: modelled on the reference page's "Introducing..." section, using only what the site already says about
+  // Emergence and Shane. For Shane to confirm.
+  introducing: {
+    name: "Emergence Digital",
+    paragraphs: [
+      "**No more guesswork or wasted marketing spend.** This is where your 2027 pipeline gets planned.",
+      "Most marketing is judged by impressions, followers and open rates. They look good in a report, but they don't win contracts or pay your team.",
+      "Emergence is a Melbourne marketing company built for IT business owners: MSPs, ERP and cloud partners, consultancies and software companies. It's led by founder **Shane Kennedy**, who has spent 10 years in marketing, much of it inside the SAP partner ecosystem.",
+      "We started the way most of our clients do, with more expertise than exposure. Closing that gap is what we do for IT firms, and **this workshop is how we're helping them plan 2027.**",
+    ],
+  },
   faq: [
     {
       question: "When is it, and how long does it run?",
@@ -162,7 +223,7 @@ export const workshop2027Strategy: Workshop = {
     {
       question: "What do I get with my seat?",
       answer:
-        "The worksheet as soon as you book, the templates and Claude skills during the workshop, and 48 hours to rewatch the recording.",
+        "The worksheet as soon as you book. Two Claude skills, plus templates and decks for your plan, to download at the end of the workshop. And 48 hours to rewatch the recording.",
     },
     {
       question: "How much is it?",
