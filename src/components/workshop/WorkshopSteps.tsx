@@ -2,16 +2,16 @@ import { ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const STEP_NAMES = ["You're booked in", "Joining on Zoom", "Talk to Shane"] as const;
+const STEP_NAMES = ["You're booked in", "Joining on Zoom"] as const;
 
 interface WorkshopStepHeaderProps {
-  /** 1, 2 or 3. */
+  /** 1 or 2. */
   step: number;
   heading: string;
   intro: string;
 }
 
-/** The heading block for each after-payment step, with a three-dot progress line. */
+/** The heading block for each after-payment step, with a progress line of dots. */
 export function WorkshopStepHeader({ step, heading, intro }: WorkshopStepHeaderProps) {
   return (
     <div className="text-center max-w-2xl mx-auto mb-12">

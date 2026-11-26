@@ -8,7 +8,7 @@
  *
  * The funnel: landing page form (/api/lead tags web:<slug>) → Stripe payment
  * link (email prefilled, GHL contact ID as client_reference_id) → thank-you
- * (worksheet) → zoom (what Zoom sends) → call (book a call with Shane).
+ * (worksheet, then the optional call with Shane) → zoom (what Zoom sends).
  * Stripe tells /api/stripe/webhook about each payment, which adds the paid tag
  * and gives the buyer a ticket to the Zoom Events event, so Zoom emails their
  * join link and reminders. See SETUP.md, "Paid workshops".
@@ -75,8 +75,8 @@ export interface Workshop {
   /** GHL calendar for the "book a call with Shane" step. */
   callCalendarId: string;
   heroVideo: HeroVideo;
-  /** Vimeo IDs for the videos on the three after-payment steps. Blank hides that step's video. */
-  stepVideos: { thankYou: string; zoom: string; call: string };
+  /** Vimeo IDs for the videos on the after-payment steps. Blank hides that step's video. */
+  stepVideos: { thankYou: string; zoom: string };
   /** The worksheet download, under /public. Blank shows a placeholder line instead of the button. */
   worksheetHref: string;
   /** One line under the headline, in body text. */
@@ -92,9 +92,6 @@ export interface Workshop {
 
 /** "30 Minute Pipeline Scale Call" (round robin), as in bookingCalendarIds in lead-forms.ts. */
 const PIPELINE_SCALE_CALL_CALENDAR = "TygCbiZhLM8nPUil74R6";
-
-/** The Pipeline Scale Plan VSL (16:9), standing in for workshop videos that aren't recorded yet. */
-const PIPELINE_VSL = "1240137722";
 
 export const workshop2027Strategy: Workshop = {
   slug: "workshop-2027-strategy",
@@ -124,15 +121,15 @@ export const workshop2027Strategy: Workshop = {
   },
   // PLACEHOLDER: Shane to confirm which calendar the call step uses.
   callCalendarId: PIPELINE_SCALE_CALL_CALENDAR,
-  // PLACEHOLDER: the Pipeline Scale Plan VSL until the workshop promo video is recorded.
+  // The workshop VSL (approved 26 Nov 2026). It's 16:9 only, so phones get the same cut.
   heroVideo: {
-    desktop: PIPELINE_VSL,
-    mobile: "1240137725",
-    title: "The Pipeline Scale Plan",
+    desktop: "1250231808",
+    mobile: "",
+    title: "Let's Build your 2027 Marketing Strategy",
     autoplay: true,
   },
-  // PLACEHOLDER: the Pipeline Scale Plan VSL on all three steps until Shane records the step videos.
-  stepVideos: { thankYou: PIPELINE_VSL, zoom: PIPELINE_VSL, call: PIPELINE_VSL },
+  // The thank-you video runs on into the "book a call" offer, so the call calendar sits on the thank-you page.
+  stepVideos: { thankYou: "1250231809", zoom: "1250231807" },
   // PLACEHOLDER: Shane to supply the worksheet PDF (save it to public/workshops/ and set the path here).
   worksheetHref: "",
   hook: "Know where your 2027 clients will come from.",
