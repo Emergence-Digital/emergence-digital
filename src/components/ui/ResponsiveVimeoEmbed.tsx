@@ -22,7 +22,7 @@ const subscribe = (onChange: () => void) => {
 interface ResponsiveVimeoEmbedProps {
   /** Vimeo ID of the 16:9 cut, for desktop and tablet. */
   desktopId: string;
-  /** Vimeo ID of the 4:5 cut, for phones. */
+  /** Vimeo ID of the 4:5 cut, for phones. Blank: the 16:9 cut on every screen. */
   mobileId: string;
   /** Accessible name for the iframe. */
   title: string;
@@ -44,13 +44,13 @@ export default function ResponsiveVimeoEmbed({
 }: ResponsiveVimeoEmbedProps) {
   // null on the server and during hydration, so the server HTML never guesses the screen size.
   const isDesktop = useSyncExternalStore(subscribe, () => window.matchMedia(DESKTOP_QUERY).matches, () => null);
-  const id = isDesktop === null ? null : isDesktop ? desktopId : mobileId;
+  const id = !mobileId ? desktopId : isDesktop === null ? null : isDesktop ? desktopId : mobileId;
   const iframeRef = useRef<HTMLIFrameElement>(null);
   useAutoplayInView(iframeRef, autoplay, id);
 
   return (
     <div
-      className={`relative aspect-[4/5] md:aspect-video w-full overflow-hidden rounded-2xl bg-dark-green/5 shadow-sm ${className}`}
+      className={`relative ${mobileId ? "aspect-[4/5] md:aspect-video" : "aspect-video"} w-full overflow-hidden rounded-2xl bg-dark-green/5 shadow-sm ${className}`}
     >
       {id && (
         <iframe

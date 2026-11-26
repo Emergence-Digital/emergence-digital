@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import { Download, FileText } from "lucide-react";
 import VimeoEmbed from "@/components/ui/VimeoEmbed";
 import MetaPurchase from "@/components/workshop/MetaPurchase";
+import WorkshopCallCalendar from "@/components/workshop/WorkshopCallCalendar";
 import { WorkshopNextStep, WorkshopStepHeader } from "@/components/workshop/WorkshopSteps";
 import { workshop2027Strategy as workshop } from "@/lib/workshops";
 
-// 2027 strategy workshop funnel, after payment, step 1 of 3. The Stripe payment
+// 2027 strategy workshop funnel, after payment, step 1 of 2. The Stripe payment
 // link redirects here with ?session_id=…, which <MetaPurchase /> uses as the
 // Purchase event ID. The thank-you video and worksheet come from workshops.ts;
 // a blank video ID hides the video, and a blank worksheet shows a placeholder line.
+// The video ends on a bonus offer, a call with Shane ("pick a time in the calendar
+// below"), so the calendar sits under the worksheet. It used to be its own step
+// (/call, which now redirects to #book-a-call).
 export const metadata: Metadata = {
   title: "You're Booked In — Emergence Digital",
   robots: { index: false, follow: false },
@@ -57,6 +61,19 @@ export default function WorkshopThankYouPage() {
                 Download
               </a>
             )}
+          </div>
+
+          <div id="book-a-call" className="scroll-mt-28 max-w-[900px] mx-auto mt-20">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-dark-green mb-4">Bonus: talk it through with Shane</h2>
+              <p className="text-muted text-lg leading-normal">
+                If you&apos;d like a call with Shane before or after the workshop, pick a time below. It&apos;s optional: your
+                seat is booked either way.
+              </p>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm p-4 md:p-6">
+              <WorkshopCallCalendar calendarId={workshop.callCalendarId} />
+            </div>
           </div>
 
           <WorkshopNextStep href={`/${workshop.slug}/zoom`} label="Next: joining on Zoom" />

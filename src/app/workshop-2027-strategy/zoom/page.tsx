@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Bell, CalendarCheck, Mail, MonitorPlay, type LucideIcon } from "lucide-react";
 import VimeoEmbed from "@/components/ui/VimeoEmbed";
-import { WorkshopNextStep, WorkshopStepHeader } from "@/components/workshop/WorkshopSteps";
+import { WorkshopStepHeader } from "@/components/workshop/WorkshopSteps";
 import { workshop2027Strategy as workshop } from "@/lib/workshops";
 
-// 2027 strategy workshop funnel, after payment, step 2 of 3: what Zoom sends and
+// 2027 strategy workshop funnel, after payment, step 2 of 2: what Zoom sends and
 // when. The Stripe webhook gives each buyer a ticket to the Zoom Events event,
 // so the confirmation, join link and reminders all come from Zoom's own emails.
 // The video ID is in workshops.ts (stepVideos.zoom); blank hides it.
@@ -72,7 +72,7 @@ export default function WorkshopZoomPage() {
           and we&apos;ll sort it out.
         </p>
 
-        <WorkshopNextStep href={`/${workshop.slug}/call`} label="Next: talk to Shane" />
+        <p className="text-center font-serif text-2xl font-bold text-dark-green mt-12">See you on {workshop.shortDateLabel}.</p>
       </div>
     </section>
   );

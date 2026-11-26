@@ -52,6 +52,8 @@ const oldIndustrySlugs: Record<string, string> = {
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // The workshop's "talk to Shane" step moved onto the thank-you page (26 Nov 2026): its video ends on the call offer.
+      { source: "/workshop-2027-strategy/call", destination: "/workshop-2027-strategy/thank-you#book-a-call", permanent: false },
       ...Object.entries(oldServiceUrls).map(([path, slug]) => ({
         source: `/services/${path}`,
         destination: slug ? `/services#${slug}` : "/services",

@@ -16,7 +16,7 @@ const SHOW_REVIEWS_BADGE = false;
 export interface HeroVideo {
   /** Vimeo ID of the 16:9 cut, for desktop. */
   desktop: string;
-  /** Vimeo ID of the 4:5 cut, for phones. */
+  /** Vimeo ID of the 4:5 cut, for phones. Blank: phones get the 16:9 cut too. */
   mobile: string;
   title: string;
   /** Play muted while on screen. */

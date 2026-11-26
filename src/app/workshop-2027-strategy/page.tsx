@@ -18,7 +18,7 @@ import { pageMetadata } from "@/lib/seo";
 // 2027 strategy workshop funnel, step 1: the landing page. The form tags
 // web:workshop-2027-strategy, then sends them to Stripe with their email
 // prefilled. After paying, Stripe redirects to ./thank-you (worksheet), then
-// ./zoom and ./call. Members get the CENTURION discount through ?code=CENTURION
+// ./zoom. Members get the CENTURION discount through ?code=CENTURION
 // on this page's URL. Copy and event details are in src/lib/workshops.ts.
 export const metadata: Metadata = pageMetadata({
   title: workshop.name,
