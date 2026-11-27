@@ -13,6 +13,7 @@
  */
 
 import type { AttributionKey } from "@/lib/attribution";
+import { workshopExperimentTags } from "@/lib/experiments";
 import { workshop2027Strategy } from "@/lib/workshops";
 
 export type StandardFieldName = "firstName" | "lastName" | "email" | "phone" | "company" | "message";
@@ -51,8 +52,8 @@ export type LeadFormSuccess =
   | {
       /**
        * Paid workshops: on to the Stripe payment link with the email prefilled, the GHL contact ID as
-       * client_reference_id, and the page's ?code= as the promo code. The name, email and phone are also kept in
-       * sessionStorage (this tab only) so the workshop's "book a call" step can prefill its calendar.
+       * client_reference_id, and the page's ?code= as the promo code. The name, email, phone and company are also
+       * kept in sessionStorage (this tab only) so the thank-you page's call form can be prefilled.
        */
       type: "checkout";
       checkout: { live: string; test: string };
@@ -77,6 +78,11 @@ export interface LeadFormConfig {
    * GHL workflow sends the internal notification; see SETUP.md.
    */
   emailCopy?: boolean;
+  /**
+   * Split tests on the page (see src/lib/experiments.ts): test name → version → tag. The page tells the form which
+   * version it is, and the server adds the matching tag. A version that isn't listed adds nothing.
+   */
+  experimentTags?: Record<string, Record<string, string>>;
 }
 
 export const standardFields = {
@@ -120,7 +126,10 @@ export const attributionFieldIds: Record<AttributionKey | "conversion_page", str
   conversion_page: "QE8RPq4nmUUAXwx9ww80",
 };
 
-/** sessionStorage key for the details a checkout form keeps for the workshop "book a call" step's calendar. */
+/**
+ * sessionStorage key for the details a checkout form keeps (first_name, last_name, email, phone, company), so the
+ * workshop thank-you page's call form can be prefilled. They never come back through Stripe.
+ */
 export const CHECKOUT_PREFILL_KEY = "checkout-prefill";
 
 /**
@@ -216,6 +225,23 @@ export const leadForms = {
     ],
     submitLabel: "Continue to payment",
     success: { type: "checkout", checkout: workshop2027Strategy.checkout },
+    experimentTags: workshopExperimentTags,
+  },
+  // The workshop's call offer, on its thank-you page under the Pipeline Scale Plan VSL, prefilled from the
+  // registration. It's the Pipeline Scale Plan call, so it carries that funnel's tag (and whatever GHL does with it),
+  // plus its own so workshop buyers' bookings can be told apart. Then ./book shows the calendar.
+  "workshop-2027-strategy-call": {
+    name: "Workshop: Pipeline Scale Plan call",
+    tags: ["web:pipeline-scale-plan-call", workshop2027Strategy.tags.call],
+    fields: [
+      { ...standardFields.firstName, half: true },
+      { ...standardFields.lastName, half: true },
+      { ...standardFields.email, half: true },
+      { ...standardFields.phone, half: true },
+      standardFields.company,
+    ],
+    submitLabel: "Pick a time",
+    success: { type: "redirect", url: `/${workshop2027Strategy.slug}/book`, prefillBooking: true },
   },
   "example-lead": {
     name: "Example lead form",

@@ -61,11 +61,17 @@ function saveCheckoutPrefill(values: LeadValues) {
         last_name: values.lastName?.trim() ?? "",
         email: values.email?.trim() ?? "",
         phone: values.phone ? (toE164(values.phone) ?? values.phone.trim()) : "",
+        company: values.company?.trim() ?? "",
       }),
     );
   } catch {
     // Storage blocked: the calendar just won't be prefilled.
   }
+}
+
+/** GA4 event parameters for the split test versions: ab_design, ab_title and so on. */
+function prefixKeys(experiments?: Record<string, string>): Record<string, string> {
+  return Object.fromEntries(Object.entries(experiments ?? {}).map(([test, version]) => [`ab_${test}`, version]));
 }
 
 function successUrl(form: LeadFormConfig, values: LeadValues, contactId?: string): string | null {
@@ -86,23 +92,36 @@ function successUrl(form: LeadFormConfig, values: LeadValues, contactId?: string
   return url.origin === window.location.origin ? `${url.pathname}${url.search}${url.hash}` : url.toString();
 }
 
+/**
+ * The split test versions to send with the lead: none for visitors on a ?code= link (members), who see the clean
+ * page and stay out of the count (src/lib/experiments.ts).
+ */
+function countedExperiments(experiments?: Record<string, string>): Record<string, string> | undefined {
+  if (!experiments || new URLSearchParams(window.location.search).has("code")) return undefined;
+  return experiments;
+}
+
 interface LeadFormProps {
   formId: LeadFormId;
   className?: string;
+  /** Starting values by field name, e.g. details the visitor already gave earlier in the funnel. */
+  initialValues?: Record<string, string>;
+  /** The split test versions of the page the form is on (test → version). The server tags the lead with them. */
+  experiments?: Record<string, string>;
 }
 
 /**
  * Config-driven lead capture form (fields, tags and success behaviour come from
  * src/lib/lead-forms.ts). Posts to /api/lead with first-touch attribution.
  */
-export default function LeadForm({ formId, className = "" }: LeadFormProps) {
+export default function LeadForm({ formId, className = "", initialValues, experiments }: LeadFormProps) {
   const form: LeadFormConfig = leadForms[formId];
   const router = useRouter();
   const uid = useId();
   const fieldId = (name: string) => `${uid}-${name}`;
 
   const [values, setValues] = useState<LeadValues>(() =>
-    Object.fromEntries(form.fields.map((f) => [f.name, ""])),
+    Object.fromEntries(form.fields.map((f) => [f.name, initialValues?.[f.name] ?? ""])),
   );
   const [honeypot, setHoneypot] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -159,6 +178,7 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
     let saved = false;
     let metaEventId: string | undefined;
     let contactId: string | undefined;
+    const sentExperiments = countedExperiments(experiments);
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -170,6 +190,7 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
           pageUrl: stripPersonalParams(window.location.href),
           website: honeypot,
           elapsedMs: Math.round(performance.now() - mountedAt.current),
+          ...(sentExperiments ? { experiments: sentExperiments } : {}),
         }),
       });
       const result: { ok?: boolean; errors?: FieldErrors; eventId?: unknown; contactId?: unknown } = await response
@@ -201,7 +222,7 @@ export default function LeadForm({ formId, className = "" }: LeadFormProps) {
       return;
     }
 
-    trackEvent("generate_lead", { form_id: formId });
+    trackEvent("generate_lead", { form_id: formId, ...prefixKeys(sentExperiments) });
     // The server sent Meta this Lead too, under the same event ID, so it counts
     // once. Spam drops get no ID and send nothing. If only the email copy got
     // through, the server sent nothing, so the Pixel's event stands alone.

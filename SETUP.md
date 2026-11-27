@@ -270,20 +270,45 @@ Zoom Events IDs, tags) is its entry in `src/lib/workshops.ts`.
                                       ▼
 Stripe payment link   ?prefilled_email=…&client_reference_id=<GHL contact ID>[&prefilled_promo_code=<?code= on the landing page>]
    │  after paying, redirects to ▼                       │ and Stripe calls ▼
-/<slug>/thank-you?session_id=…  (Meta Purchase, worksheet)   /api/stripe/webhook
-/<slug>/zoom                     (what Zoom sends)              1. tag web:<slug>-paid in GHL
-/<slug>/call                     (book a call with Shane)       2. Zoom Events ticket → Zoom emails the
-                                                                   join link and reminders; join link saved in GHL
+/<slug>/thank-you?session_id=…                                /api/stripe/webhook
+   Meta Purchase, worksheet, joining on Zoom (#zoom),            1. tag web:<slug>-paid in GHL
+   call offer (#book-a-call): Pipeline Scale Plan VSL +          2. Zoom Events ticket → Zoom emails the
+   prefilled form (tags web:pipeline-scale-plan-call and            join link and reminders; join link saved in GHL
+   web:<slug>-call)
+   │
+   ▼
+/<slug>/book  (GHL calendar, prefilled) ─▶ after booking, wherever the calendar's confirmation redirects:
+                                           /<slug>/call-booked, or /pipeline-scale-plan-call/thank-you
 ```
+
+`/<slug>/zoom` and `/<slug>/call` redirect to the thank-you page's sections.
 
 - **Checkout:** a Stripe payment link per workshop, in the trust's Stripe account. It caps sales at the seat limit,
   takes promo codes, collects only the email (prefilled) and card, and creates a tax invoice with the ABN. Previews and
   local dev use the sandbox link (`NEXT_PUBLIC_VERCEL_ENV` is `preview`, or `next dev`); everywhere else uses the live one.
 - **Private discount codes:** add `?code=<CODE>` to the landing page URL. The form passes it to Stripe as the promo code.
-- **The "book a call" step** prefills its calendar from the details the form kept in the tab's sessionStorage.
+- **The call offer** prefills its form from the details the landing page form kept in the tab's sessionStorage.
 - **Meta:** the thank-you page sends a browser `Purchase` at the list price, with the Checkout Session ID as the event
   ID. There's no server-side Purchase: a webhook has no browser details (user agent, `_fbp`), which Meta needs for
   website events. Promo-code purchases show at full price in Meta.
+
+### Landing page split test
+
+The landing page runs two tests at once (`src/lib/experiments.ts`):
+
+- **Design:** the clean page (a) against a plain, loud one (b). `src/proxy.ts` gives each new visitor one at random,
+  50/50, keeps it in the `ed_ab_<slug>` cookie and serves it at the same URL. Visitors on a `?code=` link always get a
+  and aren't counted. Preview b at `/<slug>/v/b/default`.
+- **Title:** the headline, picked by `?title=<key>` on the ad's link (`titles` in `src/lib/workshops.ts`).
+
+Each registration gets GHL tags for the versions it saw, e.g. `ab:<slug>:b` and `ab:<slug>-title:default`, beside
+the paid tag the webhook adds, so GHL can count registrations and paid seats per version. GA4 gets `experiment_view`
+and `generate_lead` events with `ab_design` and `ab_title`.
+
+**Picking the winner (no deploy):** connect an Edge Config store to the Vercel project (Storage → Edge Config →
+Connect Project, which adds the `EDGE_CONFIG` variable; it takes effect from the next deployment), then add the item
+`winner-<slug>` = `a` or `b`. Everyone gets that design from then on. Delete the item to split again. Without a store,
+the split keeps running.
 
 ### Set up a workshop
 

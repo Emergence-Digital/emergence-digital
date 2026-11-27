@@ -16,6 +16,7 @@ export const metadata: Metadata = pageMetadata({
  *   Lead forms ............ src/lib/lead-forms.ts, src/app/api/lead/route.ts (to GHL)
  *   EmailJS copy .......... src/lib/email-copy.ts (forms with emailCopy: the Contact page)
  *   ed_attribution ........ src/lib/attribution.ts
+ *   ed_ab_<page> .......... src/lib/experiments.ts, src/proxy.ts (split tests)
  *   Google Analytics ...... src/components/layout/GoogleAnalytics.tsx
  *   Meta Pixel + CAPI ..... SETUP.md, "Meta Pixel and Conversions API"
  *   Embeds ................ src/components/sections/CalendarEmbed.tsx (GHL), src/components/ui/VimeoEmbed.tsx
@@ -24,7 +25,7 @@ export const metadata: Metadata = pageMetadata({
  * 5-year retention, and the overseas wording. Change LAST_UPDATED whenever the policy changes.
  */
 
-const LAST_UPDATED = "11 November 2026";
+const LAST_UPDATED = "27 November 2026";
 const EMAIL = "contact@emergencedigital.com.au";
 
 const sections = [
@@ -105,6 +106,13 @@ const cookies: Cookie[] = [
     purpose:
       "Remembers how you first reached our site: campaign tags in the link (UTMs), Google and Meta ad click IDs, the site that referred you and the first page you landed on. If you send us a form, these go with it to our CRM, so we can see which marketing works.",
     lasts: "30 days",
+  },
+  {
+    name: "ed_ab_workshop-2027-strategy",
+    setBy: "Us (Emergence Digital)",
+    purpose:
+      "Remembers which version of our workshop page you were shown, so you see the same one each time. If you register from that page, the version goes with your details to our CRM, so we can see which version works better.",
+    lasts: "60 days",
   },
   {
     name: "_ga, _ga_<ID>",

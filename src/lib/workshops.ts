@@ -2,13 +2,14 @@
  * Paid workshops: single source of truth.
  *
  * Each workshop's funnel reads its entry here: the landing page and its form,
- * the three thank-you steps, and the Stripe webhook that registers paid buyers
- * in Zoom and tags them in GHL. Event details, copy, Stripe links and IDs all
- * live here, so the pages hold layout only.
+ * the thank-you page and call offer, and the Stripe webhook that registers paid
+ * buyers in Zoom and tags them in GHL. Event details, copy, Stripe links and IDs
+ * all live here, so the pages hold layout only.
  *
  * The funnel: landing page form (/api/lead tags web:<slug>) → Stripe payment
- * link (email prefilled, GHL contact ID as client_reference_id) → thank-you
- * (worksheet, then the optional call with Shane) → zoom (what Zoom sends).
+ * link (email prefilled, GHL contact ID as client_reference_id) → thank-you (the
+ * worksheet, joining on Zoom, then the optional call offer: the Pipeline Scale
+ * Plan VSL and a prefilled form) → book (calendar) → call-booked.
  * Stripe tells /api/stripe/webhook about each payment, which adds the paid tag
  * and gives the buyer a ticket to the Zoom Events event, so Zoom emails their
  * join link and reminders. See SETUP.md, "Paid workshops".
@@ -39,6 +40,17 @@ export interface WorkshopIncludedItem extends WorkshopItem {
   features?: string[];
 }
 
+/**
+ * A landing page headline. The ads test two workshop titles: each ad links with ?title=<key>, and the landing page
+ * shows that key's headline (src/proxy.ts picks it). Same workshop, same date, same checkout: only the wrapper changes.
+ */
+export interface WorkshopTitle {
+  /** Line one, then the payoff on the tilted sage block. */
+  headline: [string, string];
+  /** One line under the headline. */
+  hook: string;
+}
+
 export interface Workshop {
   /** URL path segment, also the form ID and GHL tag stem. */
   slug: string;
@@ -64,6 +76,8 @@ export interface Workshop {
     registered: string;
     /** Added by the Stripe webhook once they've paid. */
     paid: string;
+    /** Added by the thank-you page's call form, before they pick a time. */
+    call: string;
   };
   /**
    * The Zoom Events event buyers get a ticket to: "Event ID for integrations or support" and "Ticket type ID", both
@@ -72,15 +86,23 @@ export interface Workshop {
   zoomEvent: { eventId: string; ticketTypeId: string };
   /** GHL contact custom fields the webhook fills for each buyer (IDs from `npm run ghl:fields`). */
   ghlFieldIds: { zoomJoinLink: string; webinarDate: string };
-  /** GHL calendar for the "book a call with Shane" step. */
+  /**
+   * GHL calendar for the call offer (thank-you page form → ./book). Where it goes after a booking is set in GHL, on
+   * the calendar: ./call-booked for a workshop-only calendar.
+   */
   callCalendarId: string;
   heroVideo: HeroVideo;
-  /** Vimeo IDs for the videos on the after-payment steps. Blank hides that step's video. */
+  /**
+   * Vimeo IDs for the videos on the thank-you page: the thank-you video at the top, and the smaller Zoom explainer
+   * beside the joining steps. Blank hides that video.
+   */
   stepVideos: { thankYou: string; zoom: string };
   /** The worksheet download, under /public. Blank shows a placeholder line instead of the button. */
   worksheetHref: string;
-  /** One line under the headline, in body text. */
-  hook: string;
+  /** Who it's for, the first line on the landing page. */
+  audience: string;
+  /** Landing page headlines by ?title= key. "default" shows when there's no key, or one that isn't listed. */
+  titles: { default: WorkshopTitle } & Record<string, WorkshopTitle>;
   /** The line beside the "What you'll learn" heading. */
   learnIntro: string;
   learn: WorkshopLearnItem[];
@@ -113,13 +135,16 @@ export const workshop2027Strategy: Workshop = {
   tags: {
     registered: "web:workshop-2027-strategy",
     paid: "web:workshop-2027-strategy-paid",
+    call: "web:workshop-2027-strategy-call",
   },
   zoomEvent: { eventId: "9grYqx0OQNueDXIIqffLSg", ticketTypeId: "zpLiu8CTSz6D75T8LFzNZA" },
   ghlFieldIds: {
     zoomJoinLink: "bd3SaRLqaomMfS8qwD6w",
     webinarDate: "wuew2aU4bUCH1d4wlZ79",
   },
-  // PLACEHOLDER: Shane to confirm which calendar the call step uses.
+  // PLACEHOLDER: Shane to confirm which calendar the call step uses. This one is shared with the Pipeline Scale Plan
+  // funnel, so after a booking GHL sends people to /pipeline-scale-plan-call/thank-you (the same content as
+  // ./call-booked). A copy of the calendar that redirects to ./call-booked would keep workshop bookings apart.
   callCalendarId: PIPELINE_SCALE_CALL_CALENDAR,
   // The workshop VSL (approved 26 Nov 2026). It's 16:9 only, so phones get the same cut.
   heroVideo: {
@@ -128,11 +153,24 @@ export const workshop2027Strategy: Workshop = {
     title: "Let's Build your 2027 Marketing Strategy",
     autoplay: true,
   },
-  // The thank-you video runs on into the "book a call" offer, so the call calendar sits on the thank-you page.
+  // The thank-you video runs on into the "book a call" offer, which sits further down the thank-you page.
   stepVideos: { thankYou: "1250231809", zoom: "1250231807" },
   // PLACEHOLDER: Shane to supply the worksheet PDF (save it to public/workshops/ and set the path here).
   worksheetHref: "",
-  hook: "Know where your 2027 clients will come from.",
+  // The audience line Cormac put at the very top (Office Hours, 25 Nov 2026), in the site's own list of who we help.
+  audience: "For IT business owners: MSPs, consultancies, cloud partners and software companies",
+  // The title test from Office Hours (25–26 Nov 2026): the workshop's own name, and the outcome Shane said is "the
+  // punch": "win bigger clients in 2027". Ads for the second title link to /workshop-2027-strategy?title=win-bigger-clients.
+  titles: {
+    default: {
+      headline: ["Let's build your", "2027 marketing strategy"],
+      hook: "Know where your 2027 clients will come from.",
+    },
+    "win-bigger-clients": {
+      headline: ["Win bigger clients", "in 2027"],
+      hook: "Let's build your 2027 marketing strategy together, around the clients who pay you more.",
+    },
+  },
   // DRAFT from Shane's agenda (24 Nov 2026): lesson 1 is the ICP, lesson 2 the 12-month calendar. Two points on
   // revenue (ICP, proof), two on marketing (consistency, AI). The images are homepage benefit tiles standing in until
   // each point gets its own tile in the Illustrator card library.
