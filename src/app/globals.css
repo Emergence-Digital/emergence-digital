@@ -304,6 +304,12 @@
   }
 }
 
+/* Funnel pages that bring their own logo (the workshop's plain design, which shares its URL with the clean one, so
+   the layout can't tell them apart) hide the funnel header's white bar. */
+body:has([data-own-header]) [data-funnel-header] {
+  display: none;
+}
+
 /* Insights graphics: the start state, once a block's script has armed it, and its animations while it plays.
    Without script, or with reduced motion, neither applies and the finished state shows. */
 @custom-variant armed (&:where([data-reveal="armed"] *));

@@ -253,10 +253,13 @@ export default function Navbar() {
   );
 }
 
-/** Header for funnel pages: the same bar with only the logo, which isn't a link. */
+/**
+ * Header for funnel pages: the same bar with only the logo, which isn't a link. A page that brings its own logo marks
+ * itself with data-own-header, and globals.css hides this bar there.
+ */
 export function FunnelHeader() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6">
+    <div data-funnel-header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 sm:px-6">
       <header className="max-w-[1200px] mx-auto rounded-full border bg-white/90 backdrop-blur-md border-dark-green/5 shadow-sm">
         <div className="px-5 sm:px-6 flex items-center h-16">
           <Logo className="text-[22px]" />

@@ -5,6 +5,8 @@ import VideoTestimonials from "@/components/sections/VideoTestimonials";
 import LeadForm from "@/components/sections/LeadForm";
 import ResponsiveVimeoEmbed from "@/components/ui/ResponsiveVimeoEmbed";
 import { ShanePortrait } from "@/components/sections/AboutShane";
+import Logo from "@/components/ui/Logo";
+import BrandLogo, { brandLogoLabel } from "@/components/ui/BrandLogos";
 import type { Workshop } from "@/lib/workshops";
 
 const REGISTER_ID = "register";
@@ -45,17 +47,19 @@ interface WorkshopPlainPageProps {
 /**
  * Design b of the landing page split test: the same page and copy as design a, built plain and loud, after the
  * reference page Cormac uses (theagencymentor.com.au/build-your-workshop-funnel-workshop). His view (Office Hours,
- * 25 Nov 2026): "ugly pages convert". Shouty capitals, crude green bands, a heavy-shadowed video, the same button after
- * every section, and the form at the bottom.
+ * 25 Nov 2026): "ugly pages convert". The logo centred at the top with no header bar (data-own-header hides the funnel
+ * header), shouty capitals, crude green bands, a heavy-shadowed video, the same button after every section, the app
+ * logos on the "everything you get" cards, and the form at the bottom.
  */
 export default function WorkshopPlainPage({ workshop, titleKey }: WorkshopPlainPageProps) {
   const title = workshop.titles[titleKey] ?? workshop.titles.default;
 
   return (
-    <div className="bg-white text-body">
-      {/* Above the fold: who it's for, the event line, the headline, the VSL and the button. */}
-      <section className="bg-linear-to-b from-mid-green from-0% to-white to-[32%] pt-24 pb-14 md:pt-28">
+    <div data-own-header className="bg-white text-body">
+      {/* Above the fold: the logo, who it's for, the event line, the headline, the VSL and the button. */}
+      <section className="bg-linear-to-b from-mid-green from-0% to-white to-[36%] pt-6 pb-14 md:pt-8">
         <div className="max-w-[1000px] mx-auto px-5 text-center">
+          <Logo onDark className="text-[28px] md:text-[34px] mb-5 md:mb-6" />
           <p className="font-bold text-white text-sm md:text-base mb-2">{workshop.audience}</p>
           <p className={`${heading} text-dark-green text-base md:text-xl mb-3`}>
             Live workshop | {workshop.shortDateLabel}, {workshop.startTimeLabel}
@@ -113,9 +117,17 @@ export default function WorkshopPlainPage({ workshop, titleKey }: WorkshopPlainP
                 key={item.title}
                 className="border border-dark-green/25 grid grid-cols-1 sm:grid-cols-[2fr_3fr] gap-5 items-center p-4 md:p-6"
               >
-                <div className="relative aspect-[5/3]">
-                  <Image src={item.image} alt="" fill sizes="(min-width: 640px) 360px, 100vw" className="object-contain" />
-                </div>
+                {item.logos && item.logos.length > 0 ? (
+                  <div className="aspect-[5/3] rounded-2xl bg-cream flex items-center justify-center gap-5 md:gap-7">
+                    {item.logos.map((name) => (
+                      <BrandLogo key={name} name={name} label={brandLogoLabel[name]} className="w-20 h-20 md:w-24 md:h-24" />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="relative aspect-[5/3]">
+                    <Image src={item.image} alt="" fill sizes="(min-width: 640px) 360px, 100vw" className="object-contain" />
+                  </div>
+                )}
                 <div>
                   <h3 className={`${heading} text-dark-green text-2xl md:text-3xl mb-2`}>{item.title}</h3>
                   <p className="leading-snug">{item.body}</p>

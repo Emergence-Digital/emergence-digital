@@ -16,6 +16,7 @@
  */
 
 import type { HeroVideo } from "@/components/sections/Hero";
+import type { BrandLogoName } from "@/components/ui/BrandLogos";
 
 export interface WorkshopItem {
   title: string;
@@ -38,6 +39,8 @@ export interface WorkshopIncludedItem extends WorkshopItem {
   image: string;
   /** Short names shown as ticked chips, e.g. each skill or template. */
   features?: string[];
+  /** App logos the plain landing page design shows in place of the scene, e.g. the file types you get. */
+  logos?: BrandLogoName[];
 }
 
 /**
@@ -208,22 +211,26 @@ export const workshop2027Strategy: Workshop = {
       body: "Your ideal client profile, then a 2027 plan and deck built around it, drafted by Claude from your worksheet answers. Yours to download at the end of the workshop.",
       image: "/workshops/claude-skills.webp",
       features: ["ICP generator", "2027 plan builder"],
+      logos: ["claude"],
     },
     {
       title: "Templates and decks",
       body: "Your ideal client and your year of marketing laid out for the team, so everyone knows who you're for and what goes out each month. Download them at the end of the workshop.",
       image: "/workshops/templates.webp",
       features: ["ICP template", "12-month strategy template", "ICP deck", "Strategy deck"],
+      logos: ["excel", "powerpoint"],
     },
     {
       title: "The workshop worksheet",
       body: "Your ideal client, written down before the workshop ends. Download it as soon as you book, and we'll fill it in together on the day.",
       image: "/services/digital-guides.webp",
+      logos: ["pdf"],
     },
     {
       title: "48-hour replay",
       body: "Can't make it live? Watch the recording for 48 hours afterwards.",
       image: "/services/webinars.webp",
+      logos: ["youtube"],
     },
   ],
   // DRAFT: modelled on the reference page's "Introducing..." section, using only what the site already says about
