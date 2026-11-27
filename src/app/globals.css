@@ -304,8 +304,8 @@
   }
 }
 
-/* Funnel pages that bring their own logo (the workshop's plain design, which shares its URL with the clean one, so
-   the layout can't tell them apart) hide the funnel header's white bar. */
+/* Funnel pages that bring their own logo hide the funnel header's white bar: both workshop landing page designs, which
+   share a URL with the rest of the funnel's look, so the layout can't pick them out by path. */
 body:has([data-own-header]) [data-funnel-header] {
   display: none;
 }
