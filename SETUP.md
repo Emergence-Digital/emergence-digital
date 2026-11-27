@@ -305,10 +305,11 @@ Each registration gets GHL tags for the versions it saw, e.g. `ab:<slug>:b` and 
 the paid tag the webhook adds, so GHL can count registrations and paid seats per version. GA4 gets `experiment_view`
 and `generate_lead` events with `ab_design` and `ab_title`.
 
-**Picking the winner (no deploy):** connect an Edge Config store to the Vercel project (Storage → Edge Config →
-Connect Project, which adds the `EDGE_CONFIG` variable; it takes effect from the next deployment), then add the item
-`winner-<slug>` = `a` or `b`. Everyone gets that design from then on. Delete the item to split again. Without a store,
-the split keeps running.
+**Picking the winner (no deploy):** Vercel → Storage → **Global Config** (Vercel's new name for Edge Config) →
+**Create**, then **Connect Project** → `emergence-website` → Production (and Preview if you want it there). That adds
+the `GLOBAL_CONFIG` variable (older stores added `EDGE_CONFIG`; `src/proxy.ts` reads either), which takes effect from the
+next deployment. Then add the item `winner-<slug>` = `"a"` or `"b"` (a JSON string). Everyone gets that design from then
+on. Delete the item to split again. Without a store, the split keeps running.
 
 ### Set up a workshop
 
