@@ -47,6 +47,19 @@
     50% { transform: translateY(-10px); }
   }
 
+  /* Funnel buttons that need to be impossible to miss (Office Hours, 25 Nov 2026: "fat and jumping up and down,
+     glowing"): a sage glow rings out while the button hops. Use with motion-safe: so reduced motion keeps it still. */
+  --animate-cta-pulse: cta-pulse 2.2s ease-in-out infinite;
+
+  @keyframes cta-pulse {
+    0% { transform: translateY(0); box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-sage) 85%, transparent); }
+    12% { transform: translateY(-6px); }
+    24% { transform: translateY(0); }
+    32% { transform: translateY(-3px); }
+    40% { transform: translateY(0); }
+    70%, 100% { transform: translateY(0); box-shadow: 0 0 0 18px color-mix(in srgb, var(--color-sage) 0%, transparent); }
+  }
+
   /* About team visual: the progress bar under the swapping goal, restarted on every swap. */
   --animate-goal-fill: goal-fill 3.2s linear forwards;
 

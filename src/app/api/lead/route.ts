@@ -1,9 +1,10 @@
 /**
  * POST /api/lead: takes a <LeadForm /> submission and pushes it into GHL.
  *
- * Body: { formId, fields, attribution, pageUrl, website, elapsedMs }
- *   website    honeypot; must be empty
- *   elapsedMs  ms between the form mounting and submitting (measured in the browser)
+ * Body: { formId, fields, attribution, pageUrl, website, elapsedMs, experiments? }
+ *   website      honeypot; must be empty
+ *   elapsedMs    ms between the form mounting and submitting (measured in the browser)
+ *   experiments  split test → version the page was on; adds only the tags the form lists (experimentTags)
  *
  * Responses: 200 { ok: true, eventId } · 400 { ok: false, errors } for field
  * problems · 400/500/502 { ok: false, error } otherwise, with the detail in the
@@ -34,6 +35,7 @@ interface LeadRequestBody {
   pageUrl?: unknown;
   website?: unknown;
   elapsedMs?: unknown;
+  experiments?: unknown;
 }
 
 const json = (body: object, status = 200) => NextResponse.json(body, { status });
@@ -47,6 +49,17 @@ function pickValues(form: LeadFormConfig, input: unknown): LeadValues {
     values[field.name] = typeof value === "string" ? value.trim() : "";
   }
   return values;
+}
+
+/** The split test tags for the versions the page says it was on. Only tags the form's config lists. */
+function experimentTags(form: LeadFormConfig, input: unknown): string[] {
+  if (!form.experimentTags || !input || typeof input !== "object") return [];
+  const tags: string[] = [];
+  for (const [test, version] of Object.entries(input as Record<string, unknown>)) {
+    const byVersion = Object.hasOwn(form.experimentTags, test) ? form.experimentTags[test] : undefined;
+    if (byVersion && typeof version === "string" && Object.hasOwn(byVersion, version)) tags.push(byVersion[version]);
+  }
+  return tags;
 }
 
 function cleanPageUrl(input: unknown): string {
@@ -154,7 +167,7 @@ export async function POST(request: Request) {
     formId,
     formName: form.name,
     pageUrl,
-    tags: form.tags,
+    tags: [...form.tags, ...experimentTags(form, body.experiments)],
     contact: {
       firstName: values.firstName,
       lastName: values.lastName || undefined,
