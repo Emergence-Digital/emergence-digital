@@ -15,9 +15,9 @@
  * Visitors with ?code= (the CENTURION member link) always see the clean page and aren't counted: members are a
  * warmer audience and would skew the result.
  *
- * Picking the winner: in Vercel → Storage → the Edge Config store connected to the project → Items, set
- * `winner-workshop-2027-strategy` to "a" or "b". Everyone gets that design from then on, with no deploy. Delete the
- * item to split again. With no store connected, the split just keeps running.
+ * Picking the winner: in Vercel → Storage → the Global Config store connected to the project (Vercel's new name for
+ * Edge Config) → Items, set `winner-workshop-2027-strategy` to "a" or "b". Everyone gets that design from then on,
+ * with no deploy. Delete the item to split again. With no store connected, the split just keeps running.
  */
 
 import { workshop2027Strategy as workshop } from "@/lib/workshops";
@@ -33,7 +33,7 @@ export const workshopSplitTest = {
   /** Remembers which design a visitor got. Listed on /privacy. */
   cookie: "ed_ab_workshop-2027-strategy",
   cookieMaxAgeSeconds: 60 * 60 * 24 * 60,
-  /** The Edge Config item that ends the test: "a" or "b". */
+  /** The Global Config item that ends the test: "a" or "b". */
   winnerKey: "winner-workshop-2027-strategy",
   /** The ?title= keys the landing page has a headline for. */
   titleKeys: Object.keys(workshop.titles),

@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { get as getEdgeConfig } from "@vercel/edge-config";
+import { get as getGlobalConfig } from "@vercel/global-config";
 import { isUnpublishedPost } from "@/lib/insights-data";
 import { isDesign, workshopSplitTest, workshopTitleKey, workshopVersionPath, type Design } from "@/lib/experiments";
 
@@ -18,13 +18,14 @@ function hideUnpublishedPost(request: NextRequest) {
 }
 
 /**
- * The design everyone gets once a winner is picked (the Edge Config item), or null while the test runs. Also null
+ * The design everyone gets once a winner is picked (the Global Config item), or null while the test runs. Also null
  * with no store connected, or if the store can't be read, so the split carries on rather than failing the page.
+ * Connecting a store sets GLOBAL_CONFIG (EDGE_CONFIG before Vercel renamed Edge Config); the package reads either.
  */
 async function workshopWinner(): Promise<Design | null> {
-  if (!process.env.EDGE_CONFIG) return null;
+  if (!process.env.GLOBAL_CONFIG && !process.env.EDGE_CONFIG) return null;
   try {
-    const winner = await getEdgeConfig(workshopSplitTest.winnerKey);
+    const winner = await getGlobalConfig(workshopSplitTest.winnerKey);
     return isDesign(winner) ? winner : null;
   } catch {
     return null;

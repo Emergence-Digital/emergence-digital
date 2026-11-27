@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@vercel/edge-config": "^1.5.1",
+    "@vercel/global-config": "^1.5.1",
     "@vimeo/player": "2.30.4",
     "lucide-react": "1.49.0",
     "next": "16.1.6",
