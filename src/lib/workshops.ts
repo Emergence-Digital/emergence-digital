@@ -39,7 +39,10 @@ export interface WorkshopIncludedItem extends WorkshopItem {
   image: string;
   /** Short names shown as ticked chips, e.g. each skill or template. */
   features?: string[];
-  /** App logos the plain landing page design shows in place of the scene, e.g. the file types you get. */
+  /**
+   * App logos for what you get (e.g. the file types). The clean landing page design shows them beside the title, the
+   * plain design in place of the scene.
+   */
   logos?: BrandLogoName[];
 }
 

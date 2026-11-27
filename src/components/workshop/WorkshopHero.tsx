@@ -1,6 +1,7 @@
 import { mangalProBold, sageShadow, THICKEN } from "@/lib/fonts";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
+import Logo from "@/components/ui/Logo";
 import ResponsiveVimeoEmbed from "@/components/ui/ResponsiveVimeoEmbed";
 import type { Workshop, WorkshopTitle } from "@/lib/workshops";
 
@@ -13,7 +14,8 @@ interface WorkshopHeroProps {
 
 /**
  * Workshop landing page hero, in the home hero's style. Everything that matters sits above the fold on a phone and a
- * laptop, as Cormac laid it out at Office Hours (25 Nov 2026): who it's for, the event line, the headline (dark green
+ * laptop, as Cormac laid it out at Office Hours (25 Nov 2026): the logo centred at the top in place of the header bar
+ * (data-own-header hides the funnel header), who it's for, the event line, the headline (dark green
  * with a sage drop shadow, then the payoff on a tilted sage block), the hook, the VSL, then a big button that glows
  * and hops. The VSL's width is capped by the screen's height so the button always fits; the facts can fall below.
  */
@@ -21,7 +23,7 @@ export default function WorkshopHero({ workshop, title, ctaHref }: WorkshopHeroP
   const facts = ["Live on Zoom", `${workshop.durationMinutes} minutes`, workshop.priceLabel, `${workshop.seatLimit} seats`];
 
   return (
-    <section className="relative flex items-center justify-center bg-cream pt-20">
+    <section data-own-header className="relative flex items-center justify-center bg-cream pt-6 md:pt-8">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -29,7 +31,10 @@ export default function WorkshopHero({ workshop, title, ctaHref }: WorkshopHeroP
         }}
       />
 
-      <div className="relative w-full max-w-[1200px] mx-auto px-6 text-center pt-5 pb-16 md:pt-4 md:pb-20">
+      <div className="relative w-full max-w-[1200px] mx-auto px-6 text-center pb-16 md:pb-20">
+        <div className="mb-5 md:mb-6">
+          <Logo className="text-[28px] md:text-[34px]" />
+        </div>
         <p className="inline-block max-w-3xl rounded-2xl bg-dark-green text-cream text-xs sm:text-sm font-semibold leading-snug px-4 py-1.5 mb-4">
           {workshop.audience}
         </p>

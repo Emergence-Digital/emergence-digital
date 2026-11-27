@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { ShanePortrait } from "@/components/sections/AboutShane";
+import BrandLogo, { brandLogoLabel } from "@/components/ui/BrandLogos";
 import type { Workshop } from "@/lib/workshops";
 
 /** Renders the **bold** runs in a line of copy from workshops.ts. */
@@ -70,7 +71,10 @@ export function WorkshopLearn({ workshop, ctaHref }: { workshop: Workshop; ctaHr
   );
 }
 
-/** "Everything you get", in the style of the services library rows: a scene, the title, the outcome and chips. */
+/**
+ * "Everything you get", in the style of the services library rows: a scene, the title with the app logos beside it
+ * (what you'll open it in), the outcome and chips.
+ */
 export function WorkshopIncluded({ workshop, ctaHref }: { workshop: Workshop; ctaHref: string }) {
   return (
     <section className="bg-cream py-24 md:py-32">
@@ -94,7 +98,16 @@ export function WorkshopIncluded({ workshop, ctaHref }: { workshop: Workshop; ct
                   className="object-contain"
                 />
               </div>
-              <h3 className="font-serif text-2xl font-bold text-dark-green leading-tight">{item.title}</h3>
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="font-serif text-2xl font-bold text-dark-green leading-tight">{item.title}</h3>
+                {item.logos && item.logos.length > 0 && (
+                  <div className="flex shrink-0 gap-2">
+                    {item.logos.map((name) => (
+                      <BrandLogo key={name} name={name} label={brandLogoLabel[name]} className="w-9 h-9" />
+                    ))}
+                  </div>
+                )}
+              </div>
               <p className="text-muted mt-1.5 leading-snug">{item.body}</p>
               {item.features && item.features.length > 0 && (
                 <ul aria-label="Includes" className="mt-4 flex flex-wrap gap-2">
